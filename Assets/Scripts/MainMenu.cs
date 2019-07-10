@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void ShowVideo(){
-        Manager.Ads.ShowVideo ();
+        //Manager.Ads.ShowVideo ();
 	}
 
 }

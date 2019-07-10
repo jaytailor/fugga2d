@@ -38,7 +38,7 @@ public class IapPurchase : MonoBehaviour {
 //			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
 //			purchaseScreen.SetActive (true);
 			
-			ads.ShowPromo ();
+			//ads.ShowPromo ();
 		}
 	}
 
@@ -55,7 +55,7 @@ public class IapPurchase : MonoBehaviour {
 //			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
 //			purchaseScreen.SetActive (true);
 			
-			ads.ShowPromo ();
+			//ads.ShowPromo ();
 		}
 	}
 
@@ -72,13 +72,13 @@ public class IapPurchase : MonoBehaviour {
 //			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
 //			purchaseScreen.SetActive (true);
 			
-			ads.ShowPromo ();
+			//ads.ShowPromo ();
 		}
 	}
 
     public void Upgrade200()
     {
-        Manager.Ads.ShowRewardedVideo();
+        //Manager.Ads.ShowRewardedVideo();
     }
 
 }
