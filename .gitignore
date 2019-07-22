@@ -3,7 +3,6 @@ Library/*
 Build/Android/
 Build/iOS/
 Build/.DS_Store
-*.meta
 *.cache
 Packages/
 .DS_Store
@@ -17,7 +16,7 @@ Obj/
 UnityGenerated/
 Library/
 Assets/AssetStoreTools*
-
+Logs/*
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
