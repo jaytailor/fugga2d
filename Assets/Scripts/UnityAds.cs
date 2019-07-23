@@ -13,10 +13,10 @@ public class UnityAds : MonoBehaviour
 	private BannerView bannerView;
 	private InterstitialAd interstitialAd;
 
-	[SerializeField] private string appID = "ca-app-pub-4734320296886796~5938213117";
+	[SerializeField] private string appID = "ca-app-pub-3848397014015146~6841723256";
      
-	[SerializeField] private string bannerID = "ca-app-pub-4734320296886796/6794632231";
-	[SerializeField] private string regularID = "ca-app-pub-4734320296886796/3667272993";
+	[SerializeField] private string bannerID = "ca-app-pub-3848397014015146/1065883161";
+	[SerializeField] private string regularID = "ca-app-pub-3848397014015146/8701599838";
 	
 	#if UNITY_IOS
 		private string gameId = "1737343"; // Your iOS game ID here
