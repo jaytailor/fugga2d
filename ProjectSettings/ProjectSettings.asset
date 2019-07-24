@@ -683,7 +683,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -704,10 +704,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 2
-  cloudProjectId: 2af4a5e2-eecd-4bb0-85f7-47a6dbabf670
+  cloudProjectId: faebe935-03aa-44a5-8ff9-5f5f3c8a83f9
   framebufferDepthMemorylessMode: 0
-  projectName: fugga2d
-  organizationId: tailorjay
+  projectName: Fugga (4)
+  organizationId: alicenowonderland
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
