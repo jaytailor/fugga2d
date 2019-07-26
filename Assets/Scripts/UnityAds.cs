@@ -11,13 +11,11 @@ using UnityEngine.RCS.DecisionEngine;
 
 public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 {
-	private BannerView bannerView;
+    public AdMobSettings adMobSettings;
+    private BannerView bannerView;
 	private InterstitialAd interstitialAd;
+    private InterstitialAd promoAd;
 
-	[SerializeField] private string appID = "ca-app-pub-3848397014015146~6841723256";
-     
-	[SerializeField] private string bannerID = "ca-app-pub-3848397014015146/1065883161";
-	[SerializeField] private string regularID = "ca-app-pub-3848397014015146/8701599838";
     public IDecision decisionResult = null;
     public ISegments segmentResult = null;
 
@@ -31,19 +29,26 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 
 	public void Awake()
 	{
-        //		Debug.Log("UnityAds.Init()");
-        //		StartCoroutine("InitAds");
-
         RCS.Initialize();
         RCS.RequestDecision(gameId, this);
         RCS.RequestSegment(gameId, this);
-
-
-        MobileAds.Initialize(appID);
-        
-		RequestBanner();
-		RequestAd();
+        //Invoke("Init", 3);
+        //Init();
 	}
+
+    public void Init()
+    {
+        Debug.Log("Starting Ads Init");
+        MobileAds.Initialize(adMobSettings.GetAppID());
+        RequestBanner();
+        RequestAd();
+        RequestPromo();
+    }
+
+    public string GetGameID()
+    {
+        return gameId;
+    }
 
     public void ClickShowBanner()
     {
@@ -58,10 +63,18 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
         }
     }
 
+    public void ShowPromo()
+    {
+        if (promoAd.IsLoaded())
+        {
+            promoAd.Show();
+        }
+    }
+
     private void RequestBanner()
     {
         //bannerID = "ca-app-pub-3940256099942544/6300978111";
-        bannerView = new BannerView(bannerID, AdSize.Banner, AdPosition.Bottom);
+        bannerView = new BannerView(adMobSettings.GetBannerID(), AdSize.Banner, AdPosition.Bottom);
         
         //AdRequest request = new AdRequest.Builder().AddTestDevice("F5A8FCBC2AE9263F3335ECAD4F28A140").Build();
         AdRequest request = new AdRequest.Builder().Build();
@@ -71,13 +84,27 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
     
     private void RequestAd()
     {
+        Debug.Log("Requesting Ad:" + adMobSettings.GetVideoID());
         //regularID = "ca-app-pub-3940256099942544/1033173712";
-        interstitialAd = new InterstitialAd(regularID);
-        
+        interstitialAd = new InterstitialAd(adMobSettings.GetVideoID());
+        interstitialAd.OnAdFailedToLoad += OnVideoFailed;
+        interstitialAd.OnAdClosed += OnVideoClosed;
+
         //AdRequest request = new AdRequest.Builder().AddTestDevice("F5A8FCBC2AE9263F3335ECAD4F28A140").Build();
         AdRequest request = new AdRequest.Builder().Build();
-        
+
         interstitialAd.LoadAd(request);
+
+    }
+
+    void RequestPromo()
+    {
+        promoAd = new InterstitialAd(adMobSettings.GetPromoID());
+        promoAd.OnAdFailedToLoad += OnPromoFailed;
+        promoAd.OnAdClosed += OnPromoClosed;
+        //AdRequest request = new AdRequest.Builder().AddTestDevice("F5A8FCBC2AE9263F3335ECAD4F28A140").Build();
+        AdRequest request = new AdRequest.Builder().Build();
+        promoAd.LoadAd(request);
     }
     
     public void HandleOnAdLoaded(object sender, EventArgs args)
@@ -98,12 +125,34 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 
     public void HandleOnAdClosed(object sender, EventArgs args)
     {
-        RequestAd();
     }
 
     public void HandleOnAdLeavingApplication(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleAdLeavingApplication event received");
+    }
+
+    void OnVideoClosed(object sender, EventArgs args)
+    {
+        Debug.Log("Ad Closed");
+        RequestAd();
+    }
+    void OnPromoClosed(object sender, EventArgs args)
+    {
+        Debug.Log("Promo Closed");
+        RequestPromo();
+    }
+
+    void OnVideoFailed(object sender, AdFailedToLoadEventArgs args)
+    {
+        Debug.Log("OnAdFailedToLoad - Video");
+        RequestAd();
+    }
+
+    void OnPromoFailed(object sender, AdFailedToLoadEventArgs args)
+    {
+        Debug.Log("OnAdFailedToLoad - Promo");
+        RequestPromo();
     }
 
     void HandleBannerAdEvents(bool subcribe)
@@ -138,12 +187,28 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 
     void OnEnable()
     {
-        HandleBannerAdEvents(true);
+        if(bannerView != null)
+        {
+            HandleBannerAdEvents(true);
+        }
     }
-    
+
     void OnDisable()
     {
-        HandleBannerAdEvents(false);
+        if (bannerView != null)
+        {
+            HandleBannerAdEvents(false);
+        }
+        if (interstitialAd != null)
+        {
+            interstitialAd.OnAdClosed -= OnVideoClosed;
+            interstitialAd.OnAdFailedToLoad -= OnVideoFailed;
+        }
+        if (promoAd != null)
+        {
+            promoAd.OnAdClosed -= OnPromoClosed;
+            promoAd.OnAdFailedToLoad -= OnPromoFailed;
+        }
     }
 
     public void OnDecisionReady(IDecision decision)

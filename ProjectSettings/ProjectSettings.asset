@@ -245,8 +245,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 2800000, guid: 8ef7a966873e44567a0bfcfe0863ff27, type: 3}
-  AndroidKeystoreName: /Users/jayt/Downloads/apk keys/fugga keys/newkey.keyStore
-  AndroidKeyaliasName: fugga-release
+  AndroidKeystoreName: 
+  AndroidKeyaliasName: 
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
@@ -704,10 +704,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 2
-  cloudProjectId: faebe935-03aa-44a5-8ff9-5f5f3c8a83f9
+  cloudProjectId: 35c5e8a0-e9c7-403d-95b8-7b78a8c5a795
   framebufferDepthMemorylessMode: 0
-  projectName: Fugga (4)
-  organizationId: alicenowonderland
+  projectName: Fugga
+  organizationId: apalomo
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

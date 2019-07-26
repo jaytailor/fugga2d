@@ -1,6 +1,8 @@
 <dependencies>
   <packages>
+    <package>com.google.ads.mediation:unity:3.1.0.0</package>
     <package>com.google.android.gms:play-services-ads:18.0.0</package>
+    <package>com.unity3d.ads:unity-ads:3.1.0</package>
   </packages>
   <files>
     <file>Assets/Plugins/Android/androidx.annotation.annotation-1.0.0.jar</file>
@@ -31,6 +33,7 @@
     <file>Assets/Plugins/Android/androidx.swiperefreshlayout.swiperefreshlayout-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.unity-3.1.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-18.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-18.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar</file>
@@ -39,15 +42,16 @@
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-gass-18.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.ads.unity-ads-3.1.0.aar</file>
   </files>
   <settings>
     <setting name="androidAbis" value="armeabi-v7a,x86" />
     <setting name="bundleId" value="com.jayt.fugga" />
-    <setting name="explodeAars" value="True" />
+    <setting name="explodeAars" value="False" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradleTemplateEnabled" value="False" />
-    <setting name="installAndroidPackages" value="True" />
-    <setting name="packageDir" value="Assets/Plugins/Android" />
+    <setting name="installAndroidPackages" value="False" />
+    <setting name="packageDir" value="Assets\Plugins\Android" />
     <setting name="patchAndroidManifest" value="True" />
     <setting name="patchMainTemplateGradle" value="True" />
     <setting name="projectExportEnabled" value="False" />

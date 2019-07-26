@@ -2172,7 +2172,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1848346775}
+      - m_Target: {fileID: 1007132265}
         m_MethodName: PurchaseCloud
         m_Mode: 1
         m_Arguments:
@@ -4450,9 +4450,8 @@ GameObject:
   - component: {fileID: 1007132264}
   - component: {fileID: 1007132262}
   - component: {fileID: 1007132265}
-  - component: {fileID: 1007132263}
   m_Layer: 0
-  m_Name: IAP Listener
+  m_Name: Monetization
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4470,18 +4469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1aaa91e7ed647d2bd79ebf161a88de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1007132263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007132261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f7dd963c1a8b427b96975fa211478a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  adMobSettings: {fileID: 11400000, guid: 704a06c6ea9667642a186b6b9b3649af, type: 2}
 --- !u!4 &1007132264
 Transform:
   m_ObjectHideFlags: 0
@@ -4621,7 +4609,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1848346775}
+      - m_Target: {fileID: 1007132265}
         m_MethodName: Upgrade200
         m_Mode: 1
         m_Arguments:
@@ -5747,7 +5735,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1848346775}
+      - m_Target: {fileID: 1007132265}
         m_MethodName: PurchaseBeach
         m_Mode: 1
         m_Arguments:
@@ -6234,7 +6222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f98f9388db6648888c68de9b3bc6c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iapListener: {fileID: 1007132261}
+  purchaseHandler: {fileID: 1007132265}
 --- !u!1 &1622340460
 GameObject:
   m_ObjectHideFlags: 0
@@ -7166,7 +7154,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1848346774}
-  - component: {fileID: 1848346775}
   m_Layer: 5
   m_Name: PurchaseScreen
   m_TagString: Untagged
@@ -7189,19 +7176,6 @@ Transform:
   m_Father: {fileID: 1096323875}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1848346775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848346773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cdf99f2c17dd423bbf3b107c2e45963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ads: {fileID: 0}
 --- !u!1 &1863038184
 GameObject:
   m_ObjectHideFlags: 0
@@ -7737,7 +7711,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1848346775}
+      - m_Target: {fileID: 1007132265}
         m_MethodName: PurchaseDream
         m_Mode: 1
         m_Arguments:

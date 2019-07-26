@@ -2,83 +2,109 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
-using UnityEngine.UI;
+using UnityEngine.Advertisements;
 
-public class IapPurchase : MonoBehaviour {
+public class IapPurchase : MonoBehaviour, IStoreListener
+{
+    public UnityAds ads;
 
-	public UnityAds ads;
+    void Awake()
+    {
+        if (ads == null)
+        {
+            Debug.LogError("Ad not defined");
+        }
+        //UnityPurchasing.Initialize(this, BuildStore());
+        UnityAdsPurchasing.Initialize(this, BuildStore());
+    }
 
-	void Start(){
-	}
+    private ConfigurationBuilder BuildStore()
+    {
+        ProductCatalog catalog = ProductCatalog.LoadDefaultCatalog();
+        Debug.Log(catalog.allProducts.Count);
+        ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+        IAPConfigurationHelper.PopulateConfigurationBuilder(ref builder, catalog);
+        return builder;
+    }
 
-	void Awake(){
-		ads = GameObject.Find ("IAP Listener").GetComponent<UnityAds>();
-	}
-	
-	public void OnPurchaseFailed(Product item, PurchaseFailureReason r)
-	{
-		Debug.Log("UnityIAP.OnPurchaseFailed(" + item + ", " + r + ")");
-	}
+    public void OnPurchaseComplete(Product item)
+    {
+    }
 
-	public void OnPurchaseComplete(Product item)
-	{
-		Debug.Log("UnityIAP.OnPurchaseComplete(" + item + ")");
-		Manager.PremiumScore += 1000;
-	}
+    public void PurchaseBeach()
+    {
+        if (Manager.PremiumScore >= 1000)
+        {
+            Manager.Theme = "Beach";
+            Debug.Log("bought beach..");
+            Manager.PremiumScore -= 1000;
+        }
+        else
+        {
+            ShowPromo();
+        }
+    }
 
-	public void PurchaseBeach(){
-		// Check the premium amount 
-		if (Manager.PremiumScore >= 1000) {
-			Manager.Theme = "Beach";
-			Debug.Log ("bought beach..");
+    public void PurchaseDream()
+    {
+        if (Manager.PremiumScore >= 5000)
+        {
+            Manager.Theme = "Dream";
+            Debug.Log("bought dream..");
+            Manager.PremiumScore -= 5000;
+        }
+        else
+        {
+            ShowPromo();
+        }
+    }
 
-			Manager.PremiumScore -= 1000;
-		} else {
-			// Need to setup IAP promo here
-//			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
-//			purchaseScreen.SetActive (true);
-			
-			//ads.ShowPromo ();
-		}
-	}
+    public void PurchaseCloud()
+    {
+        // Check the premium amount 
+        if (Manager.PremiumScore >= 10000)
+        {
+            Manager.Theme = "Cloud";
+            Debug.Log("bought cloud..");
 
-	public void PurchaseDream(){
-		// Check the premium amount 
-		if (Manager.PremiumScore >= 5000){
-			Manager.Theme = "Dream";
-			Debug.Log ("bought dream..");
+            Manager.PremiumScore -= 10000;
+        }
+        else
+        {
+            ShowPromo();
+        }
+    }
 
-			Manager.PremiumScore -= 5000;
-		}
-		else {
-			// Need to setup IAP promo here
-//			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
-//			purchaseScreen.SetActive (true);
-			
-			//ads.ShowPromo ();
-		}
-	}
-
-	public void PurchaseCloud(){
-		// Check the premium amount 
-		if (Manager.PremiumScore >= 10000){
-			Manager.Theme = "Cloud";
-			Debug.Log ("bought cloud..");
-
-			Manager.PremiumScore -= 10000;
-		}
-		else {
-			// Need to setup IAP promo here
-//			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
-//			purchaseScreen.SetActive (true);
-			
-			//ads.ShowPromo ();
-		}
-	}
+    public void ShowPromo()
+    {
+        Manager.Ads.ShowPromo();
+    }
 
     public void Upgrade200()
     {
         //Manager.Ads.ShowRewardedVideo();
     }
 
+    public void OnInitializeFailed(InitializationFailureReason error)
+    {
+        Debug.LogError(error);
+    }
+
+    public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs e)
+    {
+        Debug.Log("UnityIAP.OnPurchaseComplete(" + e.purchasedProduct.definition.id + ")");
+        Manager.PremiumScore += 1000;
+        return PurchaseProcessingResult.Complete;
+    }
+
+    public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
+    {
+        Debug.Log("Purchasing Initialized");
+        ads.Init();
+    }
+
+    public void OnPurchaseFailed(Product item, PurchaseFailureReason r)
+    {
+        Debug.Log("UnityIAP.OnPurchaseFailed(" + item + ", " + r + ")");
+    }
 }
