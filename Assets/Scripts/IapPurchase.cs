@@ -83,6 +83,7 @@ public class IapPurchase : MonoBehaviour, IStoreListener
     public void Upgrade200()
     {
         //Manager.Ads.ShowRewardedVideo();
+        Manager.Ads.ClickShowAd();
     }
 
     public void OnInitializeFailed(InitializationFailureReason error)

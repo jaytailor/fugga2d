@@ -47,11 +47,11 @@
   <settings>
     <setting name="androidAbis" value="armeabi-v7a,x86" />
     <setting name="bundleId" value="com.jayt.fugga" />
-    <setting name="explodeAars" value="False" />
+    <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradleTemplateEnabled" value="False" />
-    <setting name="installAndroidPackages" value="False" />
-    <setting name="packageDir" value="Assets\Plugins\Android" />
+    <setting name="installAndroidPackages" value="True" />
+    <setting name="packageDir" value="Assets/Plugins/Android" />
     <setting name="patchAndroidManifest" value="True" />
     <setting name="patchMainTemplateGradle" value="True" />
     <setting name="projectExportEnabled" value="False" />

@@ -31,6 +31,20 @@ public class MainMenu : MonoBehaviour
 
     public void ShowVideo()
     {
-        Manager.Ads.ClickShowAd();
+        if(Manager.Ads.segmentResult != null)
+        {
+            if (Manager.Ads.segmentResult.IsUserInSegment("Payer"))
+            {
+                Debug.Log("promo shown");
+                Manager.Ads.ShowPromo();
+                Manager.Ads.decisionResult.OperativeEvents.PromotionShown(Manager.Ads.GetGameID());
+            }
+            else
+            {
+                Debug.Log("ad shown");
+                Manager.Ads.ClickShowAd();
+                Manager.Ads.decisionResult.OperativeEvents.AdvertisementShown(Manager.Ads.GetGameID());
+            }
+        }
     }
 }

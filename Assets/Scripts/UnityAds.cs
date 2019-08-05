@@ -18,6 +18,8 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 
     public IDecision decisionResult = null;
     public ISegments segmentResult = null;
+    public Text segmentText = null;
+    public Text decisionText = null;
 
 #if UNITY_IOS
 		public string gameId = "2971845"; // Your iOS game ID here
@@ -68,6 +70,7 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
         if (promoAd.IsLoaded())
         {
             promoAd.Show();
+            Debug.Log("Unity Ads Log: Promo Shown");
         }
     }
 
@@ -215,22 +218,26 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
     {
         Debug.Log("Decision Result: " + decision.Result);
         decisionResult = decision;
+        decisionText.text = "The Decision to: " + decision.Result;
     }
 
     public void OnDecisionError(IDecision decision)
     {
         Debug.Log("Decision Error: " + decision.ErrorMessage);
+        decisionText.text = "Decision Error" + decision.ErrorMessage;
     }
 
     public void OnSegmentsReady(ISegments segments)
     {
         Debug.Log("Segments Result: " + segments.Result);
         segmentResult =  segments;
+        segmentText.text = "This user is a payer: " + segmentResult.IsUserInSegment("Payer");
     }
 
     public void OnSegmentsError(ISegments segments)
     {
         Debug.Log("Segment Error: " + segments.ErrorMessage);
+        segmentText.text = "Segment Error: " + segments.ErrorMessage;
     }
 
     //	public void ShowPromo()

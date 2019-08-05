@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.6
+  bundleVersion: 2.9
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -156,7 +156,7 @@ PlayerSettings:
     Android: com.jayt.fugga
     iOS: com.unity3d.unityiap.demo
   buildNumber: {}
-  AndroidBundleVersionCode: 10
+  AndroidBundleVersionCode: 13
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
@@ -245,8 +245,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 2800000, guid: 8ef7a966873e44567a0bfcfe0863ff27, type: 3}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: /Users/jayt/Downloads/apk keys/fugga keys/newkey.keyStore
+  AndroidKeyaliasName: fugga-release
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
