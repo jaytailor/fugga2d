@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
@@ -11,6 +12,76 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.119.0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.119.0.dll.mdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.119.0.dll.mdb.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.119.0.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.119.0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.119.0.dll.mdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.119.0.dll.mdb.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.119.0.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll.mdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll.mdb.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.119.0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.119.0.dll.mdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.119.0.dll.mdb.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.119.0.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/play-services-resolver_v1.2.119.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/play-services-resolver_v1.2.119.0.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUAdLoader.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUAdLoader.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUAdLoader.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUAdLoader.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUAdNetworkExtras.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUAdNetworkExtras.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUBanner.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUBanner.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUBanner.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUBanner.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUInterface.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUInterface.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUInterstitial.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUInterstitial.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUInterstitial.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUInterstitial.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUMUnityAdsInterface.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUMUnityAdsInterface.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUNativeCustomTemplateAd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUNativeCustomTemplateAd.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUNativeCustomTemplateAd.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUNativeCustomTemplateAd.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUObjectCache.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUObjectCache.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUObjectCache.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUObjectCache.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUPluginUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUPluginUtil.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUPluginUtil.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUPluginUtil.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURequest.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURequest.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURequest.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURequest.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURewardBasedVideoAd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURewardBasedVideoAd.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURewardBasedVideoAd.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURewardBasedVideoAd.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURewardedAd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURewardedAd.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURewardedAd.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADURewardedAd.m.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUTypes.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/GADUTypes.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,6 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="618">
               <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
               <folding>
@@ -37,6 +109,18 @@
                 <marker date="1564438856661" expanded="true" signature="939:1153" ph="{...}" />
                 <marker date="1564438856661" expanded="true" signature="1243:1726" ph="/* if (Manager.Ads.segmentResult.IsUserInSegment(&quot;Payer&quot;)) ... */" />
                 <marker date="1564438856661" expanded="true" signature="1774:2005" ph="{...}" />
+=======
+            <state relative-caret-position="336">
+              <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+              <folding>
+                <marker date="1563910947938" expanded="false" signature="6:113" ph="..." />
+                <marker date="1563910947938" expanded="true" signature="155:885" ph="{...}" />
+                <marker date="1563910947938" expanded="true" signature="232:350" ph="{...}" />
+                <marker date="1563910947938" expanded="true" signature="405:412" ph="{...}" />
+                <marker date="1563910947938" expanded="true" signature="441:477" ph="{...}" />
+                <marker date="1563910947938" expanded="true" signature="510:655" ph="{...}" />
+                <marker date="1563910947938" expanded="true" signature="694:882" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
               </folding>
             </state>
           </provider>
@@ -45,6 +129,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="911">
               <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
               <folding>
@@ -69,6 +154,29 @@
                 <marker date="1565041654212" expanded="true" signature="2193:2385" ph="{...}" />
                 <marker date="1565041654212" expanded="true" signature="2476:2553" ph="{...}" />
                 <marker date="1565041654212" expanded="true" signature="2626:2711" ph="{...}" />
+=======
+            <state relative-caret-position="496">
+              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+              <folding>
+                <marker date="1563910947939" expanded="false" signature="6:130" ph="..." />
+                <marker date="1563910947939" expanded="true" signature="173:1819" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="212:216" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="231:302" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="373:446" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="493:589" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="619:969" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="688:788" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="799:937" ph="/* Need to setup IAP promo here ... */" />
+                <marker date="1563910947939" expanded="true" signature="999:1350" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="1067:1167" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="1167:1347" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="1180:1318" ph="/* Need to setup IAP promo here ... */" />
+                <marker date="1563910947939" expanded="true" signature="1380:1733" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="1449:1550" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="1550:1730" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="1563:1701" ph="/* Need to setup IAP promo here ... */" />
+                <marker date="1563910947939" expanded="true" signature="1763:1816" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
               </folding>
             </state>
           </provider>
@@ -77,6 +185,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="640">
               <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
@@ -90,6 +199,19 @@
                 <marker date="1565041761621" expanded="true" signature="723:1253" ph="{...}" />
                 <marker date="1565041761621" expanded="true" signature="801:1012" ph="{...}" />
                 <marker date="1565041761621" expanded="true" signature="1029:1243" ph="{...}" />
+=======
+            <state relative-caret-position="256">
+              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+              <folding>
+                <marker date="1563910947939" expanded="false" signature="6:147" ph="..." />
+                <marker date="1563910947939" expanded="true" signature="188:844" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="361:534" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="460:531" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="549:589" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="614:691" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="716:777" ph="{...}" />
+                <marker date="1563910947939" expanded="true" signature="803:841" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
               </folding>
             </state>
           </provider>
@@ -132,6 +254,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
           <provider selected="true" editor-type-id="text-editor">
@@ -195,15 +318,43 @@
                 <marker date="1563487981329" expanded="true" signature="525:614" ph="{...}" />
                 <marker date="1563487981329" expanded="true" signature="666:673" ph="{...}" />
                 <marker date="1563487981329" expanded="true" signature="728:735" ph="{...}" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <marker date="1563910947940" expanded="false" signature="6:205" ph="..." />
+                <marker date="1563910947940" expanded="true" signature="244:2389" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="510:577" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="603:723" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="750:871" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="909:1262" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="1057:1247" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="1315:1741" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="1345:1735" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="1770:1969" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="1809:1965" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="2003:2386" ph="{...}" />
+                <marker date="1563910947940" expanded="true" signature="2112:2339" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
               <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <marker date="1562716914619" expanded="true" signature="6:78" ph="..." />
@@ -234,25 +385,47 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
       <find>payer</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Assets/Scripts</dir>
+=======
+      <find>GetDecision</find>
+      <find>Find</find>
+      <find>text</find>
+      <find>LoadScene</find>
+      <find>googleMobile</find>
+      <find>GoogleMobileAds</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/Assets/Scripts</dir>
+      <dir>$PROJECT_DIR$/Assets</dir>
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
     </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+<<<<<<< HEAD
+=======
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs" root0="FORCE_HIGHLIGHTING" />
+<<<<<<< HEAD
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46449F94-F6F9-443B-9C14-0BBA5DB10577/c3/e3eab2c4/RCS.cs" root0="SKIP_HIGHLIGHTING" />
+=======
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15966B0E-0B01-470A-B47C-749D344008BB/82/c3717e92/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/015C3FB8-53EC-4DA5-8422-364ACC529880/74/490011a6/OperativeEventAction.cs" root0="SKIP_HIGHLIGHTING" />
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/Assets/GoogleMobileAds/Api/InterstitialAd.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/98/2f4becb9/RCS.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -270,10 +443,25 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AdMobSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46449F94-F6F9-443B-9C14-0BBA5DB10577/c8/65641314/DecisionService.cs" root0="SKIP_HIGHLIGHTING" />
+=======
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/98/2f4becb9/RCS.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/8f/8bba3eb1/CoroutineExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpanIfEmpty.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/UnityAdsUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/015C3FB8-53EC-4DA5-8422-364ACC529880/5b/f5d02674/IDecisionListener.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LifeValue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/015C3FB8-53EC-4DA5-8422-364ACC529880/15/01cfc401/IDecision.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/menu.unity" root0="FORCE_HIGHLIGHTING" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" />
         <option value="$PROJECT_DIR$/Assets/Plugins/Android/GoogleMobileAdsPlugin/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" />
@@ -297,6 +485,25 @@
     <option name="y" value="41" />
     <option name="width" value="2309" />
     <option name="height" value="1357" />
+=======
+        <option value="$PROJECT_DIR$/Assets/Plugins/Android/GoogleMobileAdsPlugin/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DecisionEngine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuitGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="407" />
+    <option name="y" value="133" />
+    <option name="width" value="2050" />
+    <option name="height" value="1270" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
   </component>
   <component name="ProjectView">
     <navigator currentView="UnityExplorer" proportions="" version="1">
@@ -304,7 +511,10 @@
     </navigator>
     <panes>
       <pane id="AssemblyExplorer" />
+<<<<<<< HEAD
       <pane id="FileSystemExplorer" />
+=======
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
       <pane id="UnityExplorer">
         <subPane>
           <expand>
@@ -312,17 +522,24 @@
               <item name="" type="e068e287:UnityExplorerRootNode" />
               <item name="Assets" type="8711f2a6:AssetsRoot" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="" type="e068e287:UnityExplorerRootNode" />
               <item name="Assets" type="8711f2a6:AssetsRoot" />
               <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
             </path>
+=======
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
           </expand>
           <select />
         </subPane>
         <option name="show-hidden-items" value="false" />
         <option name="show-project-names" value="true" />
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="FileSystemExplorer" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
@@ -349,6 +566,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
@@ -361,6 +579,20 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+=======
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="73783">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="73783" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="60620">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="60620" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -376,13 +608,25 @@
       <option name="presentableId" value="Default" />
       <updated>1562724234866</updated>
       <workItem from="1562724237616" duration="757000" />
+<<<<<<< HEAD
       <workItem from="1562725303437" duration="1159000" />
       <workItem from="1564608462440" duration="2566000" />
+=======
+      <workItem from="1562725303437" duration="14455000" />
+      <workItem from="1563237697684" duration="5951000" />
+      <workItem from="1563317472514" duration="2607000" />
+      <workItem from="1563479939571" duration="4138000" />
+      <workItem from="1563994848287" duration="2212000" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="5513000" />
+=======
+    <option name="totallyTimeSpent" value="30120000" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -394,18 +638,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-3977" y="41" width="2309" height="1357" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15703572" />
+=======
+    <frame x="0" y="23" width="2560" height="1417" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2104845" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+=======
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32981133" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2665535" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -439,10 +696,27 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+<<<<<<< HEAD
+=======
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs</url>
+          <line>60</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs" initialLine="60">
+            <startOffsets>
+              <option value="2366" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2605" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/LifeValue.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -451,14 +725,100 @@
             <marker date="1562716914616" expanded="true" signature="142:372" ph="{...}" />
             <marker date="1562716914616" expanded="true" signature="239:275" ph="{...}" />
             <marker date="1562716914616" expanded="true" signature="330:370" ph="{...}" />
+=======
+    <entry file="file://$PROJECT_DIR$/Assets/GoogleMobileAds/Api/MobileAds.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/015C3FB8-53EC-4DA5-8422-364ACC529880/74/490011a6/OperativeEventAction.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/QuitGame.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <marker date="1563487981327" expanded="false" signature="6:97" ph="..." />
+            <marker date="1563487981327" expanded="true" signature="511:714" ph="{...}" />
+            <marker date="1563487981327" expanded="true" signature="514:599" ph="{...}" />
+            <marker date="1563487981327" expanded="true" signature="653:658" ph="{...}" />
+            <marker date="1563487981327" expanded="true" signature="693:730" ph="{...}" />
+            <marker date="1563487981327" expanded="true" signature="511:568" ph="{...}" />
+            <marker date="1563487981327" expanded="true" signature="826:936" ph="{...}" />
+            <marker date="1563487981327" expanded="true" signature="1008:1114" ph="{...}" />
+            <marker date="1563487981327" expanded="true" signature="1121:1202" ph="{...}" />
+            <marker date="1563487981327" expanded="true" signature="596:712" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <marker date="1562716914623" expanded="false" signature="6:100" ph="..." />
+            <marker date="1562716914623" expanded="true" signature="137:375" ph="{...}" />
+            <marker date="1562716914623" expanded="true" signature="237:275" ph="{...}" />
+            <marker date="1562716914623" expanded="true" signature="330:372" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/98/2f4becb9/RCS.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="60" column="6" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPListener.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1562716914458" expanded="false" signature="27:119" ph="..." />
+            <marker date="1562716914458" expanded="true" signature="153:2324" ph="{...}" />
+            <marker date="1562716914458" expanded="true" signature="312:2322" ph="{...}" />
+            <marker date="1562716914458" expanded="true" signature="416:436" ph="{...}" />
+            <marker date="1562716914458" expanded="true" signature="556:576" ph="{...}" />
+            <marker date="1562716914458" expanded="true" signature="1096:1263" ph="{...}" />
+            <marker date="1562716914458" expanded="true" signature="1289:1377" ph="{...}" />
+            <marker date="1562716914458" expanded="true" signature="1387:1487" ph="/* Invoked to process a purchase of the product associated with this button ... */" />
+            <marker date="1562716914458" expanded="true" signature="1564:1905" ph="{...}" />
+            <marker date="1562716914458" expanded="true" signature="1915:2014" ph="/* Invoked on a failed purchase of the product associated with this button ... */" />
+            <marker date="1562716914458" expanded="true" signature="2098:2316" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+=======
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15966B0E-0B01-470A-B47C-749D344008BB/82/c3717e92/Component.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        <state relative-caret-position="410">
+          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
           <folding>
             <marker date="1562716914623" expanded="false" signature="6:78" ph="..." />
             <marker date="1562716914623" expanded="true" signature="108:757" ph="{...}" />
@@ -478,6 +838,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -490,10 +851,27 @@
             <marker date="1562724690383" expanded="true" signature="409:446" ph="{...}" />
             <marker date="1562724690383" expanded="true" signature="477:570" ph="{...}" />
             <marker date="1562724690383" expanded="true" signature="598:714" ph="{...}" />
+=======
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <marker date="1563487981329" expanded="true" signature="6:78" ph="..." />
+            <marker date="1563487981329" expanded="true" signature="126:737" ph="{...}" />
+            <marker date="1563487981329" expanded="true" signature="180:617" ph="{...}" />
+            <marker date="1563487981329" expanded="true" signature="214:245" ph="{...}" />
+            <marker date="1563487981329" expanded="true" signature="279:368" ph="{...}" />
+            <marker date="1563487981329" expanded="true" signature="402:491" ph="{...}" />
+            <marker date="1563487981329" expanded="true" signature="525:614" ph="{...}" />
+            <marker date="1563487981329" expanded="true" signature="666:673" ph="{...}" />
+            <marker date="1563487981329" expanded="true" signature="728:735" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Assets/Plugins/Android/GoogleMobileAdsPlugin/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -512,6 +890,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
           <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+=======
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+          <folding>
+            <marker date="1563910947938" expanded="false" signature="6:113" ph="..." />
+            <marker date="1563910947938" expanded="true" signature="155:885" ph="{...}" />
+            <marker date="1563910947938" expanded="true" signature="232:350" ph="{...}" />
+            <marker date="1563910947938" expanded="true" signature="405:412" ph="{...}" />
+            <marker date="1563910947938" expanded="true" signature="441:477" ph="{...}" />
+            <marker date="1563910947938" expanded="true" signature="510:655" ph="{...}" />
+            <marker date="1563910947938" expanded="true" signature="694:882" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding>
+            <marker date="1563910947939" expanded="false" signature="6:147" ph="..." />
+            <marker date="1563910947939" expanded="true" signature="188:844" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="361:534" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="460:531" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="549:589" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="614:691" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="716:777" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="803:841" ph="{...}" />
+          </folding>
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
         </state>
       </provider>
     </entry>
@@ -550,6 +960,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -565,6 +976,26 @@
             <marker date="1562716914619" expanded="true" signature="652:875" ph="{...}" />
             <marker date="1562716914619" expanded="true" signature="706:845" ph="{...}" />
             <marker date="1562716914619" expanded="true" signature="756:791" ph="{...}" />
+=======
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <marker date="1563910947940" expanded="false" signature="6:205" ph="..." />
+            <marker date="1563910947940" expanded="true" signature="244:2389" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="510:577" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="603:723" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="750:871" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="909:1262" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="1057:1247" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="1315:1741" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="1345:1735" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="1770:1969" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="1809:1965" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="2003:2386" ph="{...}" />
+            <marker date="1563910947940" expanded="true" signature="2112:2339" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
           </folding>
         </state>
       </provider>
@@ -576,6 +1007,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Assets/GoogleMobileAds/Api/InterstitialAd.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1469">
@@ -687,10 +1119,36 @@
             <marker date="1565041761621" expanded="true" signature="723:1253" ph="{...}" />
             <marker date="1565041761621" expanded="true" signature="801:1012" ph="{...}" />
             <marker date="1565041761621" expanded="true" signature="1029:1243" ph="{...}" />
+=======
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding>
+            <marker date="1563910947939" expanded="false" signature="6:130" ph="..." />
+            <marker date="1563910947939" expanded="true" signature="173:1819" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="212:216" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="231:302" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="373:446" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="493:589" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="619:969" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="688:788" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="799:937" ph="/* Need to setup IAP promo here ... */" />
+            <marker date="1563910947939" expanded="true" signature="999:1350" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="1067:1167" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="1167:1347" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="1180:1318" ph="/* Need to setup IAP promo here ... */" />
+            <marker date="1563910947939" expanded="true" signature="1380:1733" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="1449:1550" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="1550:1730" ph="{...}" />
+            <marker date="1563910947939" expanded="true" signature="1563:1701" ph="/* Need to setup IAP promo here ... */" />
+            <marker date="1563910947939" expanded="true" signature="1763:1816" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="618">
@@ -752,6 +1210,23 @@
             <marker date="1565041282159" expanded="true" signature="6770:6969" ph="{...}" />
             <marker date="1565041282159" expanded="true" signature="7022:7166" ph="{...}" />
             <marker date="1565041282159" expanded="true" signature="7172:9353" ph="/* public void ShowPromo() ... */" />
+=======
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <marker date="1562716914619" expanded="true" signature="6:78" ph="..." />
+            <marker date="1562716914619" expanded="true" signature="119:884" ph="{...}" />
+            <marker date="1562716914619" expanded="true" signature="231:331" ph="{...}" />
+            <marker date="1562716914619" expanded="true" signature="235:328" ph="/* bombObject = GameObject.FindGameObjectWithTag (&quot;bomb&quot;); ... */" />
+            <marker date="1562716914619" expanded="true" signature="347:882" ph="{...}" />
+            <marker date="1562716914619" expanded="true" signature="353:429" ph="/* timer to spawn the next goodie Object ... */" />
+            <marker date="1562716914619" expanded="true" signature="511:879" ph="{...}" />
+            <marker date="1562716914619" expanded="true" signature="652:875" ph="{...}" />
+            <marker date="1562716914619" expanded="true" signature="706:845" ph="{...}" />
+            <marker date="1562716914619" expanded="true" signature="756:791" ph="{...}" />
+>>>>>>> 6a5bc36bf53e0e26072a301259e8d6470eb69bf0
           </folding>
         </state>
       </provider>

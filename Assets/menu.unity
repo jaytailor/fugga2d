@@ -3872,7 +3872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &751809090
 Transform:
   m_ObjectHideFlags: 0
@@ -4630,6 +4630,7 @@ MonoBehaviour:
   adMobSettings: {fileID: 11400000, guid: 704a06c6ea9667642a186b6b9b3649af, type: 2}
   segmentText: {fileID: 989371119}
   decisionText: {fileID: 161124680}
+  gameId: 2971845
 --- !u!4 &1007132264
 Transform:
   m_ObjectHideFlags: 0

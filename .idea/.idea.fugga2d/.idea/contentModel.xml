@@ -21,6 +21,7 @@
             <e p="CustomNativeEventArgs.cs" t="Include" />
             <e p="CustomNativeTemplateAd.cs" t="Include" />
             <e p="Gender.cs" t="Include" />
+            <e p="InitializationStatus.cs" t="Include" />
             <e p="InterstitialAd.cs" t="Include" />
             <e p="Mediation" t="Include">
               <e p="MediationExtras.cs" t="Include" />
@@ -39,6 +40,7 @@
             <e p="IAdLoaderClient.cs" t="Include" />
             <e p="IBannerClient.cs" t="Include" />
             <e p="ICustomNativeTemplateClient.cs" t="Include" />
+            <e p="IInitializationStatusClient.cs" t="Include" />
             <e p="IInterstitialClient.cs" t="Include" />
             <e p="IMobileAdsClient.cs" t="Include" />
             <e p="IRewardBasedVideoAdClient.cs" t="Include" />
@@ -66,6 +68,7 @@
               <e p="AdLoaderClient.cs" t="Include" />
               <e p="BannerClient.cs" t="Include" />
               <e p="CustomNativeTemplateClient.cs" t="Include" />
+              <e p="InitializationStatusClient.cs" t="Include" />
               <e p="InterstitialClient.cs" t="Include" />
               <e p="Mediation" t="Include">
                 <e p="UnityAds" t="Include">
@@ -83,6 +86,7 @@
               <e p="BannerClient.cs" t="Include" />
               <e p="CustomNativeTemplateClient.cs" t="Include" />
               <e p="Externs.cs" t="Include" />
+              <e p="InitializationStatusClient.cs" t="Include" />
               <e p="InterstitialClient.cs" t="Include" />
               <e p="Mediation" t="Include">
                 <e p="UnityAds" t="Include">
@@ -103,7 +107,7 @@
         </e>
         <e p="PlayServicesResolver" t="Include">
           <e p="Editor" t="Include">
-            <e p="play-services-resolver_v1.2.119.0.txt" t="Include" />
+            <e p="play-services-resolver_v1.2.124.0.txt" t="Include" />
           </e>
         </e>
         <e p="Plugins" t="Include">

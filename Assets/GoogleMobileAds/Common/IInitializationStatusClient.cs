@@ -1,4 +1,4 @@
-// Copyright 2018 Google LLC
+// Copyright (C) 2018 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,10 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import <UnityAds/UnityAds.h>
+using System.Collections.Generic;
+using GoogleMobileAds.Api;
 
-void GADUMSetGDPRConsentMetaData(BOOL consent) {
-  UADSMetaData *unityAdsMetaData = [[UADSMetaData alloc] init];
-  [unityAdsMetaData set:@"gdpr.consent" value:@(consent)];
-  [unityAdsMetaData commit];
+namespace GoogleMobileAds.Common
+{
+    internal interface IInitializationStatusClient
+    {
+        AdapterStatus getAdapterStatusForClassName(string className);
+        Dictionary<string, AdapterStatus> getAdapterStatusMap();
+    }
 }
