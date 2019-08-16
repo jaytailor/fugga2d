@@ -14,10 +14,10 @@ public class AdMobSettings : ScriptableObject
     [Space(10)]
 
     [Header("Google Play Settings")]
-    [SerializeField] string android_appID = "ca-app-pub-3848397014015146~6841723256";
-    [SerializeField] string android_bannerID = "ca-app-pub-3848397014015146/1065883161";
-    [SerializeField] string android_videoID = "ca-app-pub-3848397014015146/8701599838";
-    [SerializeField] string android_promoID = "ca-app-pub-3848397014015146/8701599838";
+    [SerializeField] string android_appID = "ca-app-pub-3848397014015146~8917222258";
+    [SerializeField] string android_bannerID = "ca-app-pub-3848397014015146/1105133347";
+    [SerializeField] string android_videoID = "ca-app-pub-3848397014015146/4756940805";
+    [SerializeField] string android_promoID = "ca-app-pub-3848397014015146/3147120558";
 
 
     public string GetAppID()

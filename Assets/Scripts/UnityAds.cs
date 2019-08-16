@@ -8,6 +8,7 @@ using UnityEngine.Purchasing;
 using UnityEngine.UI;
 using GoogleMobileAds.Api;
 using UnityEngine.RCS.DecisionEngine;
+using GoogleMobileAds.Api.Mediation.UnityAds;
 
 public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 {
@@ -41,6 +42,8 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
     public void Init()
     {
         Debug.Log("Starting Ads Init");
+        GoogleMobileAds.Api.Mediation.UnityAds.UnityAds.SetGDPRConsentMetaData(true);
+        
         MobileAds.Initialize(adMobSettings.GetAppID());
         RequestBanner();
         RequestAd();
