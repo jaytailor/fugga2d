@@ -18,12 +18,12 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
     private InterstitialAd promoAd;
 
     public IDecision decisionResult = null;
-    public ISegments segmentResult = null;
+    public String segmentResult = null;
     public Text segmentText = null;
     public Text decisionText = null;
 
 #if UNITY_IOS
-		public string gameId = "2971845"; // Your iOS game ID here
+		public string gameId = "1737343"; // Your iOS game ID here
 #elif UNITY_ANDROID
 		private string gameId = "1737342"; // Your Android game ID here
 #else
@@ -33,8 +33,8 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 	public void Awake()
 	{
         RCS.Initialize();
-        RCS.RequestDecision(gameId, this);
-        RCS.RequestSegment(gameId, this);
+        RCS.RequestDecision(this);
+        RCS.RequestSegment(this);
         //Invoke("Init", 3);
         //Init();
 	}
@@ -232,9 +232,17 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 
     public void OnSegmentsReady(ISegments segments)
     {
-        Debug.Log("Segments Result: " + segments.Result);
-        segmentResult =  segments;
-        segmentText.text = "This user is a payer: " + segmentResult.IsUserInSegment("Payer");
+        if (segments.Result.Length < 1) {
+            Debug.Log("Empty Segments List");
+        }
+        Debug.Log("OnSegmentsReady: [" + segments.Result[0].segment + "] " + segments.Result[0].probability);
+
+        // my own game threshold to consider it as payer if probability is > 0%
+        if (segments.Result[0].probability > 0)
+        {
+            segmentResult = segments.Result[0].segment;
+            segmentText.text = "This user is a payer";
+        }
     }
 
     public void OnSegmentsError(ISegments segments)

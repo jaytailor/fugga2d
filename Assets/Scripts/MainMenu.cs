@@ -33,17 +33,17 @@ public class MainMenu : MonoBehaviour
     {
         if(Manager.Ads.segmentResult != null)
         {
-            if (Manager.Ads.segmentResult.IsUserInSegment("Payer"))
+            if (Manager.Ads.segmentResult == "Payer")
             {
                 Debug.Log("promo shown");
                 Manager.Ads.ShowPromo();
-                Manager.Ads.decisionResult.OperativeEvents.PromotionShown(Manager.Ads.GetGameID());
+                Manager.Ads.decisionResult.OperativeEvents.PromotionShown();
             }
             else
             {
                 Debug.Log("ad shown");
                 Manager.Ads.ClickShowAd();
-                Manager.Ads.decisionResult.OperativeEvents.AdvertisementShown(Manager.Ads.GetGameID());
+                Manager.Ads.decisionResult.OperativeEvents.AdvertisementShown();
             }
         }
     }
