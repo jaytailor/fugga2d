@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a8e57a2e931b7408c883305f02cd41a3
+guid: 2725bcfd9eda24be08b5567048506b3c
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -7,7 +7,7 @@ PluginImporter:
   executionOrder: {}
   defineConstraints: []
   isPreloaded: 0
-  isOverridable: 0
+  isOverridable: 1
   isExplicitlyReferenced: 0
   platformData:
   - first:
@@ -16,16 +16,14 @@ PluginImporter:
       enabled: 0
       settings:
         Exclude Android: 1
-        Exclude Editor: 0
+        Exclude Editor: 1
         Exclude Linux: 1
         Exclude Linux64: 1
         Exclude LinuxUniversal: 1
         Exclude OSXUniversal: 1
-        Exclude WebGL: 1
         Exclude Win: 1
         Exclude Win64: 1
-        Exclude iOS: 1
-        Exclude tvOS: 1
+        Exclude iOS: 0
   - first:
       Android: Android
     second:
@@ -40,7 +38,7 @@ PluginImporter:
   - first:
       Editor: Editor
     second:
-      enabled: 1
+      enabled: 0
       settings:
         CPU: AnyCPU
         DefaultValueInitialized: true
@@ -70,12 +68,6 @@ PluginImporter:
       settings:
         CPU: x86_64
   - first:
-      Standalone: LinuxUniversal
-    second:
-      enabled: 0
-      settings:
-        CPU: None
-  - first:
       Standalone: OSXUniversal
     second:
       enabled: 0
@@ -94,15 +86,9 @@ PluginImporter:
       settings:
         CPU: AnyCPU
   - first:
-      Windows Store Apps: WindowsStoreApps
-    second:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-  - first:
       iPhone: iOS
     second:
-      enabled: 0
+      enabled: 1
       settings:
         AddToEmbeddedBinaries: false
         CompileFlags: 
@@ -110,10 +96,8 @@ PluginImporter:
   - first:
       tvOS: tvOS
     second:
-      enabled: 0
-      settings:
-        CompileFlags: 
-        FrameworkDependencies: 
+      enabled: 1
+      settings: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
