@@ -25,9 +25,9 @@ public class BackToMenu : MonoBehaviour
         Debug.Log("TakeToMainMenu");
         int CurrPremium = Manager.PremiumScore;
 
-        if(Manager.Ads.segmentResult != null)
+        if(Manager.Ads.decisionResult != null)
         {
-            if (Manager.Ads.segmentResult == "Payer")
+            if (Manager.Ads.decisionResult.Result.ToString() == "SHOW_PROMO")
             {
                 Debug.Log("promo shown");
                 Manager.Ads.ShowPromo();

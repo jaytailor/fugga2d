@@ -4628,9 +4628,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adMobSettings: {fileID: 11400000, guid: 704a06c6ea9667642a186b6b9b3649af, type: 2}
+  segmentResult: 
   segmentText: {fileID: 989371119}
   decisionText: {fileID: 161124680}
-  gameId: 2971845
+  gameId: 1737342
 --- !u!4 &1007132264
 Transform:
   m_ObjectHideFlags: 0

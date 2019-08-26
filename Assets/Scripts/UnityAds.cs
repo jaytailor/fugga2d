@@ -241,7 +241,7 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
         if (segments.Result[0].probability > 0)
         {
             segmentResult = segments.Result[0].segment;
-            segmentText.text = "This user is a payer";
+            segmentText.text = "This user is a: Payer";
         }
     }
 
