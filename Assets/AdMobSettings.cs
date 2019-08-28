@@ -9,7 +9,7 @@ public class AdMobSettings : ScriptableObject
     [SerializeField] string ios_appID = "ca-app-pub-3848397014015146~6841723256";
     [SerializeField] string ios_bannerID = "ca-app-pub-3848397014015146/1065883161";
     [SerializeField] string ios_videoID = "ca-app-pub-3848397014015146/8701599838";
-    [SerializeField] string ios_promoID = "ca-app-pub-3848397014015146/8701599838";
+    [SerializeField] string ios_promoID = "ca-app-pub-3848397014015146/9500775910";
 
     [Space(10)]
 

@@ -27,17 +27,17 @@ public class BackToMenu : MonoBehaviour
 
         if(Manager.Ads.decisionResult != null)
         {
-            if (Manager.Ads.decisionResult.Result.ToString() == "SHOW_PROMO")
-            {
-                Debug.Log("promo shown");
-                Manager.Ads.ShowPromo();
-                Manager.Ads.decisionResult.OperativeEvents.PromotionShown();
-            }
-            else
+            if (Manager.Ads.decisionResult.Result.ToString() == "SHOW_ADS")
             {
                 Debug.Log("ad shown");
                 Manager.Ads.ClickShowAd();
                 Manager.Ads.decisionResult.OperativeEvents.AdvertisementShown();
+            }
+            else
+            {
+                Debug.Log("promo shown");
+                Manager.Ads.ShowPromo();
+                Manager.Ads.decisionResult.OperativeEvents.PromotionShown();
             }
         }
 

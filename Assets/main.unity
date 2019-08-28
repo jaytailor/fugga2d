@@ -862,7 +862,6 @@ MonoBehaviour:
   segmentResult: 
   segmentText: {fileID: 0}
   decisionText: {fileID: 0}
-  gameId: 1737343
 --- !u!1 &805616282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +1022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -11, y: -129}
+  m_AnchoredPosition: {x: -11, y: -173}
   m_SizeDelta: {x: 281, y: 76.30005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &860352801
@@ -2384,7 +2383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -13, y: -53.5}
+  m_AnchoredPosition: {x: -13, y: -97.5}
   m_SizeDelta: {x: 116.5, y: 67.400024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455010594
@@ -2601,7 +2600,6 @@ MonoBehaviour:
   segmentResult: 
   segmentText: {fileID: 0}
   decisionText: {fileID: 0}
-  gameId: 1737343
 --- !u!114 &1506243970
 MonoBehaviour:
   m_ObjectHideFlags: 0

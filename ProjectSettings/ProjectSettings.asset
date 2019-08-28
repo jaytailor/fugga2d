@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.1
+  bundleVersion: 2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -155,9 +155,10 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.jayt.fugga
     iOS: com.jayt.fugga
-  buildNumber: {}
-  AndroidBundleVersionCode: 9
-  AndroidMinSdkVersion: 16
+  buildNumber:
+    iOS: 5
+  AndroidBundleVersionCode: 34
+  AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -253,7 +254,7 @@ PlayerSettings:
   clonedFromGUID: 00000000000000000000000000000000
   templatePackageId: 
   templateDefaultScene: 
-  AndroidTargetArchitectures: 5
+  AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 2800000, guid: 8ef7a966873e44567a0bfcfe0863ff27, type: 3}
   AndroidKeystoreName: /Users/jayt/Downloads/apk keys/fugga keys/newkey.keyStore
@@ -313,22 +314,28 @@ PlayerSettings:
       m_SubKind: 
     - m_Textures:
       - {fileID: 2800000, guid: 8ef7a966873e44567a0bfcfe0863ff27, type: 3}
-      - {fileID: 0}
+      - {fileID: 2800000, guid: 5f607c77bae0b45a4bc0db2e5ace4393, type: 3}
       m_Width: 432
       m_Height: 432
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 7f7814509f74f481a8964ecb22e461f8, type: 3}
+      - {fileID: 2800000, guid: 7f7814509f74f481a8964ecb22e461f8, type: 3}
       m_Width: 324
       m_Height: 324
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 7f7814509f74f481a8964ecb22e461f8, type: 3}
+      - {fileID: 2800000, guid: 7f7814509f74f481a8964ecb22e461f8, type: 3}
       m_Width: 216
       m_Height: 216
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 7f7814509f74f481a8964ecb22e461f8, type: 3}
+      - {fileID: 2800000, guid: 7f7814509f74f481a8964ecb22e461f8, type: 3}
       m_Width: 162
       m_Height: 162
       m_Kind: 2
@@ -350,25 +357,25 @@ PlayerSettings:
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 0}
+      - {fileID: 2800000, guid: 5f607c77bae0b45a4bc0db2e5ace4393, type: 3}
       m_Width: 144
       m_Height: 144
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 0}
+      - {fileID: 2800000, guid: 39f3cb7769a004ed1b167d084b97a792, type: 3}
       m_Width: 96
       m_Height: 96
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 0}
+      - {fileID: 2800000, guid: b658222489364473ea76d46a7780a994, type: 3}
       m_Width: 72
       m_Height: 72
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 0}
+      - {fileID: 2800000, guid: fcf067302141247728758fd6a325d3f5, type: 3}
       m_Width: 48
       m_Height: 48
       m_Kind: 1
@@ -738,7 +745,8 @@ PlayerSettings:
     17: MOBILE_INPUT
     20: MOBILE_INPUT
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
