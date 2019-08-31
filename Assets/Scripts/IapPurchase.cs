@@ -95,6 +95,7 @@ public class IapPurchase : MonoBehaviour, IStoreListener
     {
         Debug.Log("UnityIAP.OnPurchaseComplete(" + e.purchasedProduct.definition.id + ")");
         Manager.PremiumScore += 1000;
+        Manager.Theme = "Beach";
         return PurchaseProcessingResult.Complete;
     }
 

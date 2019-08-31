@@ -37,13 +37,13 @@ public class MainMenu : MonoBehaviour
             {
                 Debug.Log("promo shown");
                 Manager.Ads.ShowPromo();
-                Manager.Ads.decisionResult.OperativeEvents.PromotionShown();
+                Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
             }
             else
             {
                 Debug.Log("ad shown");
                 Manager.Ads.ClickShowAd();
-                Manager.Ads.decisionResult.OperativeEvents.AdvertisementShown();
+                Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
             }
         }
     }

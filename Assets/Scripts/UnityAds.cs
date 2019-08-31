@@ -18,6 +18,7 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
     private InterstitialAd promoAd;
 
     public IDecision decisionResult = null;
+    public ISegments segmentResponse = null;
     public String segmentResult = null;
     public Text segmentText = null;
     public Text decisionText = null;
@@ -221,34 +222,36 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
     {
         Debug.Log("Decision Result: " + decision.Result);
         decisionResult = decision;
-        decisionText.text = "The Decision to: " + decision.Result;
+        //decisionText.text = "The Decision to: " + decision.Result;
     }
 
     public void OnDecisionError(IDecision decision)
     {
         Debug.Log("Decision Error: " + decision.ErrorMessage);
-        decisionText.text = "Decision Error" + decision.ErrorMessage;
+        //decisionText.text = "Decision Error" + decision.ErrorMessage;
     }
 
     public void OnSegmentsReady(ISegments segments)
     {
         if (segments.Result.Length < 1) {
             Debug.Log("Empty Segments List");
+            return;
         }
+        segmentResponse = segments;
         Debug.Log("OnSegmentsReady: [" + segments.Result[0].segment + "] " + segments.Result[0].probability);
-
+        
         // my own game threshold to consider it as payer if probability is > 0%
-        if (segments.Result[0].probability > 0)
+        if (segments.Result[0].probability > 20)
         {
             segmentResult = segments.Result[0].segment;
-            segmentText.text = "This user is a: Payer";
+            //segmentText.text = "This user is a: Payer";
         }
     }
 
     public void OnSegmentsError(ISegments segments)
     {
         Debug.Log("Segment Error: " + segments.ErrorMessage);
-        segmentText.text = "Segment Error: " + segments.ErrorMessage;
+        //segmentText.text = "Segment Error: " + segments.ErrorMessage;
     }
 
     //	public void ShowPromo()

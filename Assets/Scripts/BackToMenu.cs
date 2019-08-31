@@ -24,22 +24,38 @@ public class BackToMenu : MonoBehaviour
     {
         Debug.Log("TakeToMainMenu");
         int CurrPremium = Manager.PremiumScore;
-
-        if(Manager.Ads.decisionResult != null)
+        
+        if(Manager.Ads.segmentResult != null)
         {
-            if (Manager.Ads.decisionResult.Result.ToString() == "SHOW_ADS")
-            {
-                Debug.Log("ad shown");
-                Manager.Ads.ClickShowAd();
-                Manager.Ads.decisionResult.OperativeEvents.AdvertisementShown();
-            }
-            else
+            if (Manager.Ads.segmentResult == "Payer")
             {
                 Debug.Log("promo shown");
                 Manager.Ads.ShowPromo();
-                Manager.Ads.decisionResult.OperativeEvents.PromotionShown();
+                Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+            }
+            else
+            {
+                Debug.Log("ad shown");
+                Manager.Ads.ClickShowAd();
+                Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
             }
         }
+
+//        if(Manager.Ads.decisionResult != null)
+//        {
+//            if (Manager.Ads.decisionResult.Result.ToString() == "SHOW_ADS")
+//            {
+//                Debug.Log("ad shown");
+//                Manager.Ads.ClickShowAd();
+//                Manager.Ads.decisionResult.OperativeEvents.AdvertisementShown();
+//            }
+//            else
+//            {
+//                Debug.Log("promo shown");
+//                Manager.Ads.ShowPromo();
+//                Manager.Ads.decisionResult.OperativeEvents.PromotionShown();
+//            }
+//        }
 
         resetValues(CurrPremium);
         SceneManager.LoadScene(0);

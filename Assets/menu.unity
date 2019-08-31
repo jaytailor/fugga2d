@@ -2395,7 +2395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &468886478
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4631,6 +4631,7 @@ MonoBehaviour:
   segmentResult: 
   segmentText: {fileID: 989371119}
   decisionText: {fileID: 161124680}
+  gameId: 1737343
 --- !u!4 &1007132264
 Transform:
   m_ObjectHideFlags: 0
@@ -7090,7 +7091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1799410169
 RectTransform:
   m_ObjectHideFlags: 0
