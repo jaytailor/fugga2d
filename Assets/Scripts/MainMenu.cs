@@ -7,6 +7,14 @@ public class MainMenu : MonoBehaviour
 {
     public IapPurchase purchaseHandler;
 
+#if UNITY_IOS
+    public string gameId = "1737343"; // Your iOS game ID here
+#elif UNITY_ANDROID
+		private string gameId = "1737342"; // Your Android game ID here
+#else
+    private string gameId = "0123456"; // Prevents Editor Errors
+#endif
+
     void Start()
     {
         Manager.Ads = purchaseHandler.ads;
@@ -26,25 +34,26 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Quitting the Game");
+        ShowVideo();
         Application.Quit();
     }
 
     public void ShowVideo()
     {
-        if(Manager.Ads.segmentResult != null)
+        
+        if (Manager.Ads.payerResult == "Payer")
         {
-            if (Manager.Ads.segmentResult == "Payer")
-            {
-                Debug.Log("promo shown");
-                Manager.Ads.ShowPromo();
-                Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
-            }
-            else
-            {
-                Debug.Log("ad shown");
-                Manager.Ads.ClickShowAd();
-                Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
-            }
+            Debug.Log("Ads is : " + Manager.Ads);
+            Manager.Ads.ShowPromo();
+            Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+            Debug.Log("user is a payer so promo shown");
         }
+        else
+        {
+            Manager.Ads.ClickShowAd();
+            Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
+            Debug.Log("user is not a payer so ad shown");
+        }
+        
     }
 }

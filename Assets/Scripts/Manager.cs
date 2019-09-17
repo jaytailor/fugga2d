@@ -7,8 +7,9 @@ public static class Manager {
 	private static int diffLevel, premium;
 	private static string theme = "sky" ;
 	public static bool PremiumGranted = false;
-    private static UnityAds ads = null; 
-
+    private static UnityAds ads = null;
+    private static bool parentalGatePassed = false; 
+    
 
 	public static int DifficultyLevel
 	{
@@ -56,5 +57,17 @@ public static class Manager {
         {
             ads = value;
         }
+    }
+    
+    public static bool ParentalGatePassed
+    {
+	    get 
+	    {
+		    return parentalGatePassed;
+	    }
+	    set 
+	    {
+		    parentalGatePassed = false;
+	    }
     }
 }

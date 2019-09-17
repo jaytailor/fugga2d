@@ -105,6 +105,24 @@
             </e>
           </e>
         </e>
+        <e p="Makaka Games" t="Include">
+          <e p="Parental Gate Kit" t="Include">
+            <e p="Docs" t="Include">
+              <e p="ReadMe.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="GameControl.cs" t="Include" />
+              <e p="ParentalGateControl.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Publisher Window" t="Include">
+            <e p="Editor" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="MakakaGamesWelcomeScreen.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="PlayServicesResolver" t="Include">
           <e p="Editor" t="Include">
             <e p="play-services-resolver_v1.2.123.0.txt" t="Include" />

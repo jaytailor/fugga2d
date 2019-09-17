@@ -17,11 +17,15 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 	private InterstitialAd interstitialAd;
     private InterstitialAd promoAd;
 
-    public IDecision decisionResult = null;
+    public GameObject shopBtn;
+    public GameObject showAdBtn;
+
+    //public IDecision decisionResult = null;
     public ISegments segmentResponse = null;
-    public String segmentResult = null;
-    public Text segmentText = null;
-    public Text decisionText = null;
+    public String payerResult = "Non-Payer";
+    public String churnerResult = "Non-Churner";
+    public Text segmentText;
+    //public Text decisionText;
 
 #if UNITY_IOS
 		public string gameId = "1737343"; // Your iOS game ID here
@@ -32,19 +36,26 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 	#endif
 
 	public void Awake()
-	{
-        RCS.Initialize();
-        RCS.RequestDecision(this);
-        RCS.RequestSegment(this);
-        //Invoke("Init", 3);
-        //Init();
-	}
+    {
+        if(PlayerPrefs.GetString("PARENTAL_GATE_PASSED").Equals("true")){
+            Debug.Log("Initialising rcs");
+            RCS.Initialize();
+            //RCS.RequestDecision(this);
+            RCS.RequestSegment(this);
+        }
+    }
+
+    public void Start()
+    {
+    }
 
     public void Init()
     {
         Debug.Log("Starting Ads Init");
-        GoogleMobileAds.Api.Mediation.UnityAds.UnityAds.SetGDPRConsentMetaData(true);
+        shopBtn.SetActive(true);
         
+        GoogleMobileAds.Api.Mediation.UnityAds.UnityAds.SetGDPRConsentMetaData(true);
+
         MobileAds.Initialize(adMobSettings.GetAppID());
         RequestBanner();
         RequestAd();
@@ -58,13 +69,17 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
 
     public void ClickShowBanner()
     {
-        bannerView.Show();
+        if (bannerView != null)
+        {
+            bannerView.Show();
+        }
     }
 
     public void ClickShowAd()
     {
         if (interstitialAd.IsLoaded())
         {
+            showAdBtn.SetActive(true);
             interstitialAd.Show();
         }
     }
@@ -74,7 +89,6 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
         if (promoAd.IsLoaded())
         {
             promoAd.Show();
-            Debug.Log("Unity Ads Log: Promo Shown");
         }
     }
 
@@ -221,7 +235,7 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
     public void OnDecisionReady(IDecision decision)
     {
         Debug.Log("Decision Result: " + decision.Result);
-        decisionResult = decision;
+        //decisionResult = decision;
         //decisionText.text = "The Decision to: " + decision.Result;
     }
 
@@ -238,14 +252,39 @@ public class UnityAds : MonoBehaviour, IDecisionListener, ISegmentsListener
             return;
         }
         segmentResponse = segments;
-        Debug.Log("OnSegmentsReady: [" + segments.Result[0].segment + "] " + segments.Result[0].probability);
-        
+
         // my own game threshold to consider it as payer if probability is > 0%
-        if (segments.Result[0].probability > 20)
+        if (segments.Result.Length >= 2) // only if two segment information returned
         {
-            segmentResult = segments.Result[0].segment;
-            //segmentText.text = "This user is a: Payer";
+            Debug.Log("OnSegmentsReady: [" + segments.Result[0].segment + "] " + segments.Result[0].probability);
+            Debug.Log("OnSegmentsReady: [" + segments.Result[1].segment + "] " + segments.Result[1].probability);
+            var seg1 = "";
+            var seg2 = "";
+            if (segments.Result[0].probability > 20) // if user is likely payer
+            {
+                payerResult = segments.Result[0].segment;
+                Debug.Log("User is a : " + payerResult);
+                seg1 = "P";
+            }
+            else
+            {
+                seg1 = "NP";
+            }
+            
+            if (segments.Result[1].probability > 50) // if user is churner
+            {
+                churnerResult = segments.Result[1].segment;
+                Debug.Log("User is also a : " + churnerResult);
+                seg2 = "C";
+            }
+            else
+            {
+                seg2 = "NC";
+            }
+            
+            segmentText.text = "UP: " + seg1 + " and " + seg2 ;
         }
+        
     }
 
     public void OnSegmentsError(ISegments segments)

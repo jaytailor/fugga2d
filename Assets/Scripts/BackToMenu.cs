@@ -25,21 +25,22 @@ public class BackToMenu : MonoBehaviour
         Debug.Log("TakeToMainMenu");
         int CurrPremium = Manager.PremiumScore;
         
-        if(Manager.Ads.segmentResult != null)
+        if (Manager.ParentalGatePassed.Equals(true))
         {
-            if (Manager.Ads.segmentResult == "Payer")
+            if (Manager.Ads.payerResult == "Payer")
             {
-                Debug.Log("promo shown");
                 Manager.Ads.ShowPromo();
                 Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+                Debug.Log("user is a payer so promo shown");
             }
             else
             {
-                Debug.Log("ad shown");
                 Manager.Ads.ClickShowAd();
                 Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
+                Debug.Log("user is not a payer so ad shown");
             }
         }
+        
 
 //        if(Manager.Ads.decisionResult != null)
 //        {
@@ -56,9 +57,9 @@ public class BackToMenu : MonoBehaviour
 //                Manager.Ads.decisionResult.OperativeEvents.PromotionShown();
 //            }
 //        }
-
+        
         resetValues(CurrPremium);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
 
         //if (Manager.Ads.segmentResult == "Payer")
         //{

@@ -10,6 +10,11 @@ public class IapPurchase : MonoBehaviour, IStoreListener
 
     void Awake()
     {
+        InitialiseAdsAndIap();
+    }
+
+    public void InitialiseAdsAndIap()
+    {
         if (ads == null)
         {
             Debug.LogError("Ad not defined");
@@ -22,7 +27,10 @@ public class IapPurchase : MonoBehaviour, IStoreListener
     {
         ProductCatalog catalog = ProductCatalog.LoadDefaultCatalog();
         Debug.Log(catalog.allProducts.Count);
-        ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+        var module = StandardPurchasingModule.Instance();
+//        module.useFakeStoreAlways = true;
+//        module.useFakeStoreUIMode = FakeStoreUIMode.StandardUser;
+        ConfigurationBuilder builder = ConfigurationBuilder.Instance(module);
         IAPConfigurationHelper.PopulateConfigurationBuilder(ref builder, catalog);
         return builder;
     }
@@ -100,9 +108,14 @@ public class IapPurchase : MonoBehaviour, IStoreListener
     }
 
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
-    {
-        Debug.Log("Purchasing Initialized");
-        ads.Init();
+    {    
+        Debug.Log("called and " + PlayerPrefs.GetString("PARENTAL_GATE_PASSED") );
+        if (PlayerPrefs.GetString("PARENTAL_GATE_PASSED").Equals("true"))
+        {
+            Debug.Log("parental gate passed, ads will be shown: " + Manager.ParentalGatePassed);
+            Debug.Log("Purchasing Initialized");
+            ads.Init();   
+        }
     }
 
     public void OnPurchaseFailed(Product item, PurchaseFailureReason r)

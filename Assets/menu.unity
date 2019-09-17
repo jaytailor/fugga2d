@@ -2014,7 +2014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &356722725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3222,10 +3222,10 @@ RectTransform:
   m_Father: {fileID: 489711506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 13.4555855, y: -156.82925}
-  m_SizeDelta: {x: 579.7, y: 227.3}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 13.4555855, y: 512}
+  m_SizeDelta: {x: 579.7, y: 227.29999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607224153
 MonoBehaviour:
@@ -4628,10 +4628,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adMobSettings: {fileID: 11400000, guid: 704a06c6ea9667642a186b6b9b3649af, type: 2}
-  segmentResult: 
+  shopBtn: {fileID: 356722724}
+  showAdBtn: {fileID: 1223622540}
+  payerResult: 
+  churnerResult: 
   segmentText: {fileID: 989371119}
   decisionText: {fileID: 161124680}
-  gameId: 1737343
 --- !u!4 &1007132264
 Transform:
   m_ObjectHideFlags: 0
@@ -4640,8 +4642,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007132261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.052795075, y: 0.08935842, z: 0.12817173}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.042404175, y: -0.0778656, z: 0.07449743}
+  m_LocalScale: {x: 0.5812314, y: 0.5812314, z: 0.5812314}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -5707,7 +5709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1223622541
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6387,6 +6389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   purchaseHandler: {fileID: 1007132265}
+  parentalG: {fileID: 0}
 --- !u!1 &1622340460
 GameObject:
   m_ObjectHideFlags: 0
