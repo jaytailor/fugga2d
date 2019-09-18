@@ -3,9 +3,28 @@
   <component name="ContentModelStore">
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Makaka Games" t="Include">
+          <e p="Parental Gate Kit" t="Include">
+            <e p="Docs" t="Include">
+              <e p="ReadMe.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="GameControl.cs" t="Include" />
+              <e p="ParentalGateControl.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Publisher Window" t="Include">
+            <e p="Editor" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="MakakaGamesWelcomeScreen.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Plugins" t="Include">
           <e p="Android" t="Include">
             <e p="network_security_config.xml" t="Include" />

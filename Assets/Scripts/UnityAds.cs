@@ -18,22 +18,41 @@ public class UnityAds : MonoBehaviour
 		private string gameId = "0123456"; // Prevents Editor Errors
 	#endif
 
+	public GameObject shopBtn;
+	public GameObject gamesAd; 
+
 	public void Awake()
 	{
-		Debug.Log("UnityAds.Init()");
-		StartCoroutine("InitAds");
+		Debug.Log("called and " + PlayerPrefs.GetString("PARENTAL_GATE_PASSED") );
+		if (PlayerPrefs.GetString("PARENTAL_GATE_PASSED").Equals("true"))
+		{
+			Debug.Log("UnityAds.Init()");
+			StartCoroutine("InitAds");
+			shopBtn.SetActive(true);
+			gamesAd.SetActive(true);
+		}
+		else
+		{
+			Debug.Log("Parental gate failed hence will not initialise ads");
+		}
 	}
 
 	public void ShowPromo()
 	{
-		Debug.Log("Unity Ads Log: Promo Shown");
-		Advertisement.Show("premium1000"); // Ad Placement ID for Promo here
+		if (Advertisement.IsReady())
+		{
+			Debug.Log("Unity Ads Log: Promo Shown");
+			Advertisement.Show("premium1000"); // Ad Placement ID for Promo here
+		}
 	}
 
 	 public void ShowVideo()
 	 {
-	 	Debug.Log("Unity Ads Log: Video AD Shown");
-	 	Advertisement.Show("video"); // Ad Placement ID for video here
+		 if (Advertisement.IsReady())
+		 {
+			 Debug.Log("Unity Ads Log: Video AD Shown");
+			 Advertisement.Show("video"); // Ad Placement ID for video here
+		 }
 	 }
 
      public void ShowRewardedVideo()
@@ -79,7 +98,7 @@ public class UnityAds : MonoBehaviour
 		 yield return new WaitForSeconds(3);
 		 if (!Advertisement.isSupported || Advertisement.isInitialized)
 		 {
-			 Debug.Log("Could not start:\n" +
+			 Debug.Log("Trying to initialise ads:\n" +
 			           "\tAdvertisement.isSupported: " + Advertisement.isSupported + "\n" +
 			           "\tAdvertisement.isInitialized: " + Advertisement.isInitialized);
 			 yield break;
