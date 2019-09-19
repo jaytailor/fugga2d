@@ -25,7 +25,19 @@ public class FuggaWin : MonoBehaviour {
 	}
 
 	public void takeToMainMenu(){
-        Manager.Ads.ShowVideo();
+		if (Manager.Ads.churnerResult == "Churner")
+		{
+			Manager.Ads.ShowPromo();
+			Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+			Debug.Log("user is a Churner so promo shown");
+		}
+		else
+		{
+			Manager.Ads.ShowVideo();
+			Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
+			Debug.Log("user is not a Churner so ad shown");
+		}
+        
         SceneManager.LoadScene (1);
 		resetValues ();
 	}
