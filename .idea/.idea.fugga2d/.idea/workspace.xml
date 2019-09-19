@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-18.1.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-18.1.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-18.1.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-18.1.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-18.1.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-18.1.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-gass-18.1.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-gass-18.1.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-17.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-17.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-impl-17.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-impl-17.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-17.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-17.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-stats-17.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-stats-17.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Resources/UnityRCSSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Resources/UnityRCSSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/menu.unity" afterDir="false" />
-    </list>
+    <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +10,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="158" column="35" selection-start-line="158" selection-start-column="35" selection-end-line="158" selection-end-column="35" />
+            <state relative-caret-position="313">
+              <caret line="144" column="12" lean-forward="true" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
               <folding>
                 <marker date="1568928895984" expanded="true" signature="6:243" ph="..." />
                 <marker date="1568928895984" expanded="true" signature="301:4447" ph="{...}" />
@@ -73,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+            <state relative-caret-position="209">
+              <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
               <folding>
                 <marker date="1568928295887" expanded="true" signature="6:147" ph="..." />
                 <marker date="1568928295887" expanded="true" signature="188:1162" ph="{...}" />
@@ -433,7 +406,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32767000" />
+    <option name="totallyTimeSpent" value="33006000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -750,25 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-          <folding>
-            <marker date="1568928295887" expanded="true" signature="6:147" ph="..." />
-            <marker date="1568928295887" expanded="true" signature="188:1162" ph="{...}" />
-            <marker date="1568928295887" expanded="true" signature="361:534" ph="{...}" />
-            <marker date="1568928295887" expanded="true" signature="460:531" ph="{...}" />
-            <marker date="1568928295887" expanded="true" signature="549:589" ph="{...}" />
-            <marker date="1568928295887" expanded="true" signature="614:691" ph="{...}" />
-            <marker date="1568928295887" expanded="true" signature="716:777" ph="{...}" />
-            <marker date="1568928295887" expanded="true" signature="803:1159" ph="{...}" />
-            <marker date="1568928295887" expanded="true" signature="846:995" ph="{...}" />
-            <marker date="1568928295887" expanded="true" signature="1002:1156" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -789,8 +743,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="158" column="35" selection-start-line="158" selection-start-column="35" selection-end-line="158" selection-end-column="35" />
+        <state relative-caret-position="313">
+          <caret line="144" column="12" lean-forward="true" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
           <folding>
             <marker date="1568928895984" expanded="true" signature="6:243" ph="..." />
             <marker date="1568928895984" expanded="true" signature="301:4447" ph="{...}" />
@@ -817,6 +771,25 @@
             <marker date="1568928895984" expanded="true" signature="4039:4170" ph="{...}" />
             <marker date="1568928895984" expanded="true" signature="4179:4209" ph="{...}" />
             <marker date="1568928895984" expanded="true" signature="4379:4444" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding>
+            <marker date="1568928295887" expanded="true" signature="6:147" ph="..." />
+            <marker date="1568928295887" expanded="true" signature="188:1162" ph="{...}" />
+            <marker date="1568928295887" expanded="true" signature="361:534" ph="{...}" />
+            <marker date="1568928295887" expanded="true" signature="460:531" ph="{...}" />
+            <marker date="1568928295887" expanded="true" signature="549:589" ph="{...}" />
+            <marker date="1568928295887" expanded="true" signature="614:691" ph="{...}" />
+            <marker date="1568928295887" expanded="true" signature="716:777" ph="{...}" />
+            <marker date="1568928295887" expanded="true" signature="803:1159" ph="{...}" />
+            <marker date="1568928295887" expanded="true" signature="846:995" ph="{...}" />
+            <marker date="1568928295887" expanded="true" signature="1002:1156" ph="{...}" />
           </folding>
         </state>
       </provider>
