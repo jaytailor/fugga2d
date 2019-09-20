@@ -1,7 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="" />
+    <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/UnityAds.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/UnityAds.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/NSString+UnityAdsError.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/NSString+UnityAdsError.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSBanner.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSBanner.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSInAppPurchaseMetaData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSInAppPurchaseMetaData.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSJsonStorage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSJsonStorage.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSMediationMetaData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSMediationMetaData.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSMetaData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSMetaData.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSPlayerMetaData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSPlayerMetaData.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSPurchasing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UADSPurchasing.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UANAApiAnalytics.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UANAApiAnalytics.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONCustomEvent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONCustomEvent.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONItem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONItem.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONNativePromoAdapter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONNativePromoAdapter.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONPlacementContent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONPlacementContent.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONPromoAdPlacementContent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONPromoAdPlacementContent.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONPromoMetaData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONPromoMetaData.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONRewardablePlacementContent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONRewardablePlacementContent.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONShowAdPlacementContent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UMONShowAdPlacementContent.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURProduct.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURStore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURStore.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURTransactionDetails.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURTransactionDetails.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURTransactionError.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURTransactionError.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURTransactionErrorDetails.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UPURTransactionErrorDetails.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/USRVJsonStorage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/USRVJsonStorage.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/USRVUnityPurchasing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/USRVUnityPurchasing.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/USRVUnityPurchasingDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/USRVUnityPurchasingDelegate.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAds.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAds.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsDelegate.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsError.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsError.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsExtended.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsExtended.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsExtendedDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsExtendedDelegate.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsFinishState.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsFinishState.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsPlacementState.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAdsPlacementState.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAnalytics.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAnalytics.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAnalyticsAcquisitionType.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityAnalyticsAcquisitionType.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityMonetization.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityMonetization.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityMonetizationDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityMonetizationDelegate.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityMonetizationPlacementContentState.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityMonetizationPlacementContentState.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityServices.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Headers/UnityServices.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Info.plist.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Modules.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Modules/module.modulemap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/Modules/module.modulemap.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/UnityAds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/UnityAds.framework/UnityAds.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityAdsApiReference.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityAdsApiReference.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Advertisements.Android.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Advertisements.Android.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Advertisements.Editor.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Advertisements.Editor.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Advertisements.Unsupported.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Advertisements.Unsupported.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Advertisements.iOS.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Advertisements.iOS.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Monetization.Android.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Monetization.Android.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Monetization.Editor.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Monetization.Editor.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Monetization.Unsupported.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Monetization.Unsupported.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Monetization.iOS.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/UnityEngine.Monetization.iOS.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/link.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityAds/link.xml.meta" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,44 +123,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="144" column="12" lean-forward="true" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
+            <state relative-caret-position="30">
+              <caret line="82" column="103" selection-start-line="82" selection-start-column="103" selection-end-line="82" selection-end-column="103" />
               <folding>
-                <marker date="1568928895984" expanded="true" signature="6:243" ph="..." />
-                <marker date="1568928895984" expanded="true" signature="301:4447" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="783:1232" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="931:1146" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="1153:1229" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="1258:1419" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="1292:1416" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="1446:1611" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="1482:1607" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="1649:2002" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="1797:1987" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="2055:2481" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="2085:2475" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="2510:2709" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="2549:2705" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="2743:3135" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="2852:3088" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="3188:4328" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="3228:3284" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="3471:4283" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="3798:3920" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="3929:3959" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="4039:4170" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="4179:4209" ph="{...}" />
-                <marker date="1568928895984" expanded="true" signature="4379:4444" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="6:243" ph="..." />
+                <marker date="1568930323232" expanded="true" signature="301:4544" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="783:1232" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="931:1146" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="1153:1229" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="1258:1419" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="1292:1416" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="1446:1611" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="1482:1607" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="1649:2002" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="1797:1987" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="2055:2582" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="2186:2576" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="2611:2807" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="2650:2803" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="2841:3233" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="2950:3186" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="3286:4425" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="3326:3382" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="3569:4380" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="3895:4017" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="4026:4056" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="4136:4267" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="4276:4306" ph="{...}" />
+                <marker date="1568930323232" expanded="true" signature="4476:4541" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
-              <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+              <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
               <folding>
                 <marker date="1568928295887" expanded="true" signature="6:147" ph="..." />
                 <marker date="1568928295887" expanded="true" signature="188:1162" ph="{...}" />
@@ -153,11 +263,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+            <state relative-caret-position="241">
+              <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
               <folding>
                 <marker date="1568928140052" expanded="false" signature="6:113" ph="..." />
                 <marker date="1568928140052" expanded="true" signature="155:1199" ph="{...}" />
@@ -406,7 +516,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33006000" />
+    <option name="totallyTimeSpent" value="33812000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -705,24 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding>
-            <marker date="1568928140052" expanded="false" signature="6:113" ph="..." />
-            <marker date="1568928140052" expanded="true" signature="155:1199" ph="{...}" />
-            <marker date="1568928140052" expanded="true" signature="232:350" ph="{...}" />
-            <marker date="1568928140052" expanded="true" signature="405:412" ph="{...}" />
-            <marker date="1568928140052" expanded="true" signature="441:477" ph="{...}" />
-            <marker date="1568928140052" expanded="true" signature="510:969" ph="{...}" />
-            <marker date="1568928140052" expanded="true" signature="596:745" ph="{...}" />
-            <marker date="1568928140052" expanded="true" signature="752:906" ph="{...}" />
-            <marker date="1568928140052" expanded="true" signature="1008:1196" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -741,44 +833,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="144" column="12" lean-forward="true" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
-          <folding>
-            <marker date="1568928895984" expanded="true" signature="6:243" ph="..." />
-            <marker date="1568928895984" expanded="true" signature="301:4447" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="783:1232" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="931:1146" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="1153:1229" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="1258:1419" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="1292:1416" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="1446:1611" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="1482:1607" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="1649:2002" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="1797:1987" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="2055:2481" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="2085:2475" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="2510:2709" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="2549:2705" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="2743:3135" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="2852:3088" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="3188:4328" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="3228:3284" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="3471:4283" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="3798:3920" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="3929:3959" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="4039:4170" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="4179:4209" ph="{...}" />
-            <marker date="1568928895984" expanded="true" signature="4379:4444" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
           <folding>
             <marker date="1568928295887" expanded="true" signature="6:147" ph="..." />
             <marker date="1568928295887" expanded="true" signature="188:1162" ph="{...}" />
@@ -790,6 +848,58 @@
             <marker date="1568928295887" expanded="true" signature="803:1159" ph="{...}" />
             <marker date="1568928295887" expanded="true" signature="846:995" ph="{...}" />
             <marker date="1568928295887" expanded="true" signature="1002:1156" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="82" column="103" selection-start-line="82" selection-start-column="103" selection-end-line="82" selection-end-column="103" />
+          <folding>
+            <marker date="1568930323232" expanded="true" signature="6:243" ph="..." />
+            <marker date="1568930323232" expanded="true" signature="301:4544" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="783:1232" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="931:1146" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="1153:1229" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="1258:1419" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="1292:1416" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="1446:1611" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="1482:1607" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="1649:2002" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="1797:1987" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="2055:2582" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="2186:2576" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="2611:2807" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="2650:2803" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="2841:3233" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="2950:3186" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="3286:4425" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="3326:3382" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="3569:4380" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="3895:4017" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="4026:4056" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="4136:4267" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="4276:4306" ph="{...}" />
+            <marker date="1568930323232" expanded="true" signature="4476:4541" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+          <folding>
+            <marker date="1568928140052" expanded="false" signature="6:113" ph="..." />
+            <marker date="1568928140052" expanded="true" signature="155:1199" ph="{...}" />
+            <marker date="1568928140052" expanded="true" signature="232:350" ph="{...}" />
+            <marker date="1568928140052" expanded="true" signature="405:412" ph="{...}" />
+            <marker date="1568928140052" expanded="true" signature="441:477" ph="{...}" />
+            <marker date="1568928140052" expanded="true" signature="510:969" ph="{...}" />
+            <marker date="1568928140052" expanded="true" signature="596:745" ph="{...}" />
+            <marker date="1568928140052" expanded="true" signature="752:906" ph="{...}" />
+            <marker date="1568928140052" expanded="true" signature="1008:1196" ph="{...}" />
           </folding>
         </state>
       </provider>

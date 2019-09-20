@@ -80,6 +80,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 
     public void HandleShowResult(ShowResult result)
     {
+	    Debug.Log("Ads Version(" + Advertisement.isInitialized + "): " + Advertisement.version + "\n");
         switch (result)
         {
             case ShowResult.Finished:
@@ -98,7 +99,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 	 {
 	     if (Advertisement.IsReady())
 	     {
-	         Advertisement.Banner.Show("bannerads"); // Ad Placement ID for banner here
+		     Advertisement.Banner.Show("bannerads"); // Ad Placement ID for banner here
 	         Debug.Log("Unity Ads Log: Banner AD Shown");
 	     }
 	 }
@@ -132,7 +133,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 			 Debug.Log("OnSegmentsReady: [" + segments.Result[1].segment + "] " + segments.Result[1].probability);
 			 var seg1 = "";
 			 var seg2 = "";
-			 if (segments.Result[0].probability > 10) // if user is likely payer
+			 if (segments.Result[0].probability > 5) // if user is likely payer
 			 {
 				 payerResult = segments.Result[0].segment;
 				 Debug.Log("User is a : " + payerResult);
@@ -143,7 +144,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 				 seg1 = "NP";
 			 }
             
-			 if (segments.Result[1].probability > 30) // if user is churner
+			 if (segments.Result[1].probability > 20) // if user is churner
 			 {
 				 churnerResult = segments.Result[1].segment;
 				 Debug.Log("User is also a : " + churnerResult);
