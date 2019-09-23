@@ -25,11 +25,6 @@
             </e>
           </e>
         </e>
-        <e p="PlayServicesResolver" t="Include">
-          <e p="Editor" t="Include">
-            <e p="play-services-resolver_v1.2.124.0.txt" t="Include" />
-          </e>
-        </e>
         <e p="Plugins" t="Include">
           <e p="Android" t="Include">
             <e p="network_security_config.xml" t="Include" />

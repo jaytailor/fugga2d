@@ -52,7 +52,14 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		if (Advertisement.IsReady())
 		{
 			Debug.Log("Unity Ads Log: Promo Shown");
-			Advertisement.Show("premium1000"); // Ad Placement ID for Promo here
+			if (gameId.Equals("1737343"))
+			{
+				Advertisement.Show("rcsPromoPlacement"); // for ios promo placementId is different
+			}
+			else
+			{
+				Advertisement.Show("premium1000"); // android promo placement
+			}
 		}
 	}
 

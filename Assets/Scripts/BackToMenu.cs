@@ -26,19 +26,22 @@ public class BackToMenu : MonoBehaviour {
 	public void takeToMainMenu(){
 		int CurrPremium = Manager.PremiumScore;
 
-		if (Manager.Ads.payerResult == "Payer")
+		if (Manager.Ads.payerResult != null && Manager.Ads.segmentResponse != null)
 		{
-			Manager.Ads.ShowPromo();
-			Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
-			Debug.Log("user is a payer so promo shown");
+			if (Manager.Ads.payerResult == "Payer")
+			{
+				Manager.Ads.ShowPromo();
+				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+				Debug.Log("user is a payer so promo shown");
+			}
+			else
+			{
+				Manager.Ads.ShowVideo();
+				Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
+				Debug.Log("user is not a payer so ad shown");
+			}	
 		}
-		else
-		{
-			Manager.Ads.ShowVideo();
-			Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
-			Debug.Log("user is not a payer so ad shown");
-		}
-
+		
 		SceneManager.LoadScene (1);
 		resetValues (CurrPremium);
 	}

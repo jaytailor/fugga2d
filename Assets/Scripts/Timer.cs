@@ -9,8 +9,11 @@ public class Timer : MonoBehaviour {
 	Text timer;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		timer = GetComponent<Text> ();
+	}
+	void Start () {
+		//timer = GetComponent<Text> ();
 	}
 
 	// Update is called once per frame
