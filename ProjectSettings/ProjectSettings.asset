@@ -164,7 +164,7 @@ PlayerSettings:
     iPhone: com.jayt.fugga
   buildNumber: {}
   AndroidBundleVersionCode: 38
-  AndroidMinSdkVersion: 21
+  AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
   aotOptions: 
