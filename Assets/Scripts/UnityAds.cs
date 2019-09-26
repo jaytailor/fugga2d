@@ -29,22 +29,19 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 
 	public void Awake()
 	{
-		Debug.Log("called and " + PlayerPrefs.GetString("PARENTAL_GATE_PASSED") );
-		if (PlayerPrefs.GetString("PARENTAL_GATE_PASSED").Equals("true"))
-		{
-			Debug.Log("UnityAds.Init()");
-			StartCoroutine("InitAds");
-			shopBtn.SetActive(true);
-			gamesAd.SetActive(true);
-			
-			Debug.Log("Initialising rcs");
-			RCS.Initialize();
-			RCS.RequestSegment(this);
-		}
-		else
-		{
-			Debug.Log("Parental gate failed hence will not initialise ads");
-		}
+		
+	}
+
+	public void Init()
+	{
+		Debug.Log("UnityAds.Init()");
+		StartCoroutine("InitAds");
+		shopBtn.SetActive(true);
+		gamesAd.SetActive(true);
+		
+		Debug.Log("Initialising rcs");
+		RCS.Initialize();
+		RCS.RequestSegment(this);
 	}
 
 	public void ShowPromo()
