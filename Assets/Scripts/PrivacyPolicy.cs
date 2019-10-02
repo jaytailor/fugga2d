@@ -7,6 +7,9 @@ public class PrivacyPolicy : MonoBehaviour
     // Start is called before the first frame update
     public void OpenPrivacyPolicy()
     {
-        Application.OpenURL("https://fugga.flycricket.io/privacy.html");
+        if (PlayerPrefs.GetString("PARENTAL_GATE_PASSED").Equals("true"))
+        {
+            Application.OpenURL("https://fugga.flycricket.io/privacy.html");
+        }
     }
 }

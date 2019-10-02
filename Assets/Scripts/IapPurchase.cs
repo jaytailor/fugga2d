@@ -10,6 +10,7 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 	public UnityAds ads;
 	private IStoreController controller;
 	private IExtensionProvider extensions;
+	private const string premium1000 = "1000_premium_ios";
 
 	void Start()
 	{
@@ -41,12 +42,6 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 	public void OnPurchaseFailed(Product item, PurchaseFailureReason r)
 	{
 		Debug.Log("UnityIAP.OnPurchaseFailed(" + item + ", " + r + ")");
-	}
-
-	public void OnPurchaseComplete(Product item)
-	{
-		Debug.Log("UnityIAP.OnPurchaseComplete(" + item + ")");
-		Manager.PremiumScore += 1000;
 	}
 
 	public void PurchaseBeach(){
@@ -134,6 +129,16 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
     /// </summary>
     public PurchaseProcessingResult ProcessPurchase (PurchaseEventArgs e)
     {
+	    string purchasedItem = e.purchasedProduct.definition.id;
+
+	    switch (purchasedItem)
+	    {
+	    case premium1000: 
+		    Debug.Log("UnityIAP.OnPurchaseComplete(" + purchasedItem + ")");
+		    Manager.PremiumScore += 1000;
+		    PlayerPrefs.SetInt("premiums", Manager.PremiumScore);
+		    break;
+	    }
 	    Debug.Log("Unity IAP ProcessPurchase executed");
 	    return PurchaseProcessingResult.Complete;
     }
