@@ -19,9 +19,6 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		private string gameId = "0123456"; // Prevents Editor Errors
 	#endif
 
-	public GameObject shopBtn;
-	public GameObject gamesAd; 
-	
 	public ISegments segmentResponse = null;
 	public String payerResult = "Non-Payer";
 	public String churnerResult = "Non-Churner";
@@ -29,19 +26,17 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 
 	public void Awake()
 	{
-		
+		Debug.Log("UnityAds.Init()");
+		StartCoroutine("InitAds");
+
+		Debug.Log("Initialising rcs");
+		RCS.Initialize();
+		RCS.RequestSegment(this);
 	}
 
 	public void Init()
 	{
-		Debug.Log("UnityAds.Init()");
-		StartCoroutine("InitAds");
-		shopBtn.SetActive(true);
-		gamesAd.SetActive(true);
 		
-		Debug.Log("Initialising rcs");
-		RCS.Initialize();
-		RCS.RequestSegment(this);
 	}
 
 	public void ShowPromo()
@@ -85,7 +80,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
     public void HandleShowResult(ShowResult result)
     {
 	    Debug.Log("Ads Version(" + Advertisement.isInitialized + "): " + Advertisement.version + "\n");
-        switch (result)
+	    switch (result)
         {
             case ShowResult.Finished:
                 Debug.Log("ad finished");
@@ -103,8 +98,9 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 	 {
 	     if (Advertisement.IsReady())
 	     {
+		     Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
 		     Advertisement.Banner.Show("bannerads"); // Ad Placement ID for banner here
-	         Debug.Log("Unity Ads Log: Banner AD Shown");
+		     Debug.Log("Unity Ads Log: Banner AD Shown");
 	     }
 	 }
 		

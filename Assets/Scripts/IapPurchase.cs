@@ -10,29 +10,22 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 	public UnityAds ads;
 	private IStoreController controller;
 	private IExtensionProvider extensions;
-	private const string premium1000 = "1000_premium_ios";
+	private const string premium1000 = "1000_premium_ios2";
 
 	void Start()
 	{
-		Debug.Log("called and " + PlayerPrefs.GetString("PARENTAL_GATE_PASSED") );
-		if (PlayerPrefs.GetString("PARENTAL_GATE_PASSED").Equals("true"))
+		var module = StandardPurchasingModule.Instance();
+		ConfigurationBuilder builder = ConfigurationBuilder.Instance(module);
+		if (Application.platform.Equals(RuntimePlatform.Android))
 		{
-			var module = StandardPurchasingModule.Instance();
-			ConfigurationBuilder builder = ConfigurationBuilder.Instance(module);
-			if (Application.platform.Equals(RuntimePlatform.Android))
-			{
-				builder.AddProduct("1000_premium", ProductType.Consumable);	
-			}
-			else
-			{
-				builder.AddProduct("1000_premium_ios", ProductType.Consumable);	
-			}
-			UnityPurchasing.Initialize(this, builder);
+			builder.AddProduct("1000_premium", ProductType.Consumable);	
 		}
 		else
 		{
-			Debug.Log("Parental gate failed hence will not initialise ads or iap");
+			builder.AddProduct("1000_premium_ios2", ProductType.Consumable);	
 		}
+		UnityPurchasing.Initialize(this, builder);
+		
 	}
 
 	void Awake(){
@@ -108,7 +101,6 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 	    this.extensions = extensions;
 	    
 	    Debug.Log("Unity IAP Initialisation succeeded, init ads now...");
-	    ads.Init();
     }
 
     /// <summary>

@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1462111836, guid: 629373cbb1dcc4280a0a410ab95343ed, type: 3}
+  m_Script: {fileID: -319373777, guid: 629373cbb1dcc4280a0a410ab95343ed, type: 3}
   m_Name: UnityRCSSettings
   m_EditorClassIdentifier: 
   m_AndroidGameId: 1737342
   m_IosGameId: 1737343
-  m_AdEnabled: 0
-  m_PromoEnabled: 0
-  m_PromoAdapter: 
-  m_AdAdapter: 
-  m_AutoPerformEnabled: 0
+  m_TestModeEnabled: 0

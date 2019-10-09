@@ -1956,7 +1956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &356722725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4503,8 +4503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1aaa91e7ed647d2bd79ebf161a88de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopBtn: {fileID: 356722724}
-  gamesAd: {fileID: 1223622540}
   payerResult: Non-Payer
   churnerResult: Non-Churner
   segmentText: {fileID: 2101215155}
@@ -5594,7 +5592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1223622541
 RectTransform:
   m_ObjectHideFlags: 0

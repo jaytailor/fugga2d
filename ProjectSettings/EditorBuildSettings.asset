@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Makaka Games/Parental Gate Kit/Scenes/Demo_ParentalGateKit.unity
-    guid: 4982f86d7ac4444d3ad50543a3d756e0
-  - enabled: 1
     path: Assets/menu.unity
     guid: adccda3b7b17a4b49ab04e9b17711cd9
   - enabled: 1
