@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DeltaDNA;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
+using Product = UnityEngine.Purchasing.Product;
 
 public class IapPurchase : MonoBehaviour, IStoreListener {
 

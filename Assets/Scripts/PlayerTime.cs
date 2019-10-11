@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour {
+public class PlayerTime : MonoBehaviour {
 
 	public static string timeValue;
-	Text timer;
+	Text playerTimer;
 
 	// Use this for initialization
 	void Awake () {
-		timer = GetComponent<Text> ();
+		
 	}
 	void Start () {
-		//timer = GetComponent<Text> ();
+		playerTimer = GetComponent<Text> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		timer.text = timeValue;
+		playerTimer.text = timeValue;
 	}
 }

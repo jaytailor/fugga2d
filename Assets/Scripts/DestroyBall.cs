@@ -64,7 +64,7 @@ public class DestroyBall : MonoBehaviour {
 		if (Score.scoreValue == 60) {
 
 			fw.showWinningScreen ();
-			Timer.timeValue = "";
+			PlayerTime.timeValue = "";
 		}
 
 		//this if check for the mouse left click
@@ -145,7 +145,7 @@ public class DestroyBall : MonoBehaviour {
 			mGameOver = true;
 		}
 
-		Timer.timeValue = niceTime.ToString ();
+		PlayerTime.timeValue = niceTime.ToString ();
 	}
 
 	public int Time(){

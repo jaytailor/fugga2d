@@ -8,6 +8,7 @@ using UnityEngine.Events;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
 using UnityEngine.RCS.DecisionEngine;
+using DeltaDNA;
 
 public class UnityAds : MonoBehaviour, ISegmentsListener
 {
@@ -23,9 +24,22 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 	public String payerResult = "Non-Payer";
 	public String churnerResult = "Non-Churner";
 	public Text segmentText;
+	
+	// delta dna settings
+	public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
+	public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
+	public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
 
 	public void Awake()
 	{
+		// Configure the SDK
+		DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
+		DDNA.Instance.ClientVersion = "1.0.0";
+		
+		// Start collecting data
+		DDNA.Instance.StartSDK();
+		
+		
 		Debug.Log("UnityAds.Init()");
 		StartCoroutine("InitAds");
 
