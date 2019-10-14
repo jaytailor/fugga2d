@@ -11,7 +11,8 @@ public class PremiumCount : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		premium = GetComponent<Text> ();	
+		premium = GetComponent<Text> ();
+		Manager.PremiumScore += PlayerPrefs.GetInt("premiums");
 	}
 
 	// Update is called once per frame
