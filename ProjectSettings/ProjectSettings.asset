@@ -119,7 +119,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.1
+  bundleVersion: 1.2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -163,7 +163,7 @@ PlayerSettings:
     Android: com.jayt.fugga
     iPhone: com.unity3d.ads.jayt
   buildNumber:
-    iPhone: 1.2
+    iPhone: 4
   AndroidBundleVersionCode: 41
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 28

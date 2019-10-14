@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
@@ -21,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="241">
-              <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
               <folding>
                 <marker date="1570829521968" expanded="true" signature="6:259" ph="..." />
                 <marker date="1570829521968" expanded="true" signature="317:4901" ph="{...}" />
@@ -132,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1936">
-              <caret line="132" column="65" selection-start-line="132" selection-start-column="65" selection-end-line="132" selection-end-column="65" />
+            <state relative-caret-position="364">
+              <caret line="28" column="50" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="28" selection-end-column="50" />
               <folding>
                 <marker date="1570738753470" expanded="true" signature="6:213" ph="..." />
                 <marker date="1570738753470" expanded="true" signature="272:3700" ph="{...}" />
@@ -399,6 +391,33 @@
     <panes>
       <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="fugga2d" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="fugga2d" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="fugga2d" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assets" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="fugga2d" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assets" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Scripts" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
         <option name="show-all-files" value="false" />
       </pane>
       <pane id="FileSystemExplorer" />
@@ -473,12 +492,12 @@
       <workItem from="1570568120177" duration="7000" />
       <workItem from="1570571162435" duration="1257000" />
       <workItem from="1570574998308" duration="4466000" />
-      <workItem from="1570821477122" duration="733000" />
+      <workItem from="1570821477122" duration="1091000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47386000" />
+    <option name="totallyTimeSpent" value="47744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -816,7 +835,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
-          <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
           <folding>
             <marker date="1570829521968" expanded="true" signature="6:259" ph="..." />
             <marker date="1570829521968" expanded="true" signature="317:4901" ph="{...}" />
@@ -916,41 +935,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1936">
-          <caret line="132" column="65" selection-start-line="132" selection-start-column="65" selection-end-line="132" selection-end-column="65" />
-          <folding>
-            <marker date="1570738753470" expanded="true" signature="6:213" ph="..." />
-            <marker date="1570738753470" expanded="true" signature="272:3700" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="446:840" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="633:705" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="712:789" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="855:926" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="997:1070" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="1100:1450" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="1169:1269" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="1280:1418" ph="/* Need to setup IAP promo here ... */" />
-            <marker date="1570738753470" expanded="true" signature="1480:1831" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="1548:1648" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="1648:1828" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="1661:1799" ph="/* Need to setup IAP promo here ... */" />
-            <marker date="1570738753470" expanded="true" signature="1861:2214" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="1930:2031" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="2031:2211" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="2044:2182" ph="/* Need to setup IAP promo here ... */" />
-            <marker date="1570738753470" expanded="true" signature="2244:2297" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="2307:2397" ph="/// Called when Unity IAP is ready to make purchases. ... " />
-            <marker date="1570738753470" expanded="true" signature="2488:2647" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="2653:2917" ph="/// Called when Unity IAP encounters an unrecoverable initialization error. ... " />
-            <marker date="1570738753470" expanded="true" signature="2988:3051" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="3061:3200" ph="/// Called when a purchase completes. ... " />
-            <marker date="1570738753470" expanded="true" signature="3274:3696" ph="{...}" />
-            <marker date="1570738753470" expanded="true" signature="3371:3589" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1040,6 +1024,41 @@
             <marker date="1570572571075" expanded="true" signature="609:765" ph="{...}" />
             <marker date="1570572571075" expanded="true" signature="773:934" ph="{...}" />
             <marker date="1570572571075" expanded="true" signature="1018:1134" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="28" column="50" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="28" selection-end-column="50" />
+          <folding>
+            <marker date="1570738753470" expanded="true" signature="6:213" ph="..." />
+            <marker date="1570738753470" expanded="true" signature="272:3700" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="446:840" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="633:705" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="712:789" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="855:926" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="997:1070" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="1100:1450" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="1169:1269" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="1280:1418" ph="/* Need to setup IAP promo here ... */" />
+            <marker date="1570738753470" expanded="true" signature="1480:1831" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="1548:1648" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="1648:1828" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="1661:1799" ph="/* Need to setup IAP promo here ... */" />
+            <marker date="1570738753470" expanded="true" signature="1861:2214" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="1930:2031" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="2031:2211" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="2044:2182" ph="/* Need to setup IAP promo here ... */" />
+            <marker date="1570738753470" expanded="true" signature="2244:2297" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="2307:2397" ph="/// Called when Unity IAP is ready to make purchases. ... " />
+            <marker date="1570738753470" expanded="true" signature="2488:2647" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="2653:2917" ph="/// Called when Unity IAP encounters an unrecoverable initialization error. ... " />
+            <marker date="1570738753470" expanded="true" signature="2988:3051" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="3061:3200" ph="/// Called when a purchase completes. ... " />
+            <marker date="1570738753470" expanded="true" signature="3274:3696" ph="{...}" />
+            <marker date="1570738753470" expanded="true" signature="3371:3589" ph="{...}" />
           </folding>
         </state>
       </provider>
