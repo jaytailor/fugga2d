@@ -866,8 +866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1aaa91e7ed647d2bd79ebf161a88de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopBtn: {fileID: 0}
-  gamesAd: {fileID: 0}
   payerResult: Non-Payer
   churnerResult: Non-Churner
   segmentText: {fileID: 0}

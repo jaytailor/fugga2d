@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DeltaDNA;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,17 +23,30 @@ public class BackToMenu : MonoBehaviour {
 	public void showBackMenu(){
 		backMenuObj.SetActive (true);
 	}
+	
+	private void myGameParameterHandler(Dictionary<string,object> gameParameters)
+	{
+		// Parameters Received      
+		Debug.Log("Received game parameters from event trigger: " + DeltaDNA.MiniJSON.Json.Serialize(gameParameters));
+	}
+	
 		
 	public void takeToMainMenu(){
 		int CurrPremium = Manager.PremiumScore;
-
+		
 		if (Manager.Ads.payerResult != null && Manager.Ads.segmentResponse != null)
 		{
 			if (Manager.Ads.payerResult == "Payer")
 			{
-				Manager.Ads.ShowPromo();
-				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
-				Debug.Log("user is a payer so promo shown");
+				var gameEvent = new GameEvent("ddnaEventTriggeredAction").AddParam("eventName", "payer").AddParam("eventName", "rcs");
+ 
+				// Record ddnaEventTriggeredAction event and wire up handler callbacks
+				DDNA.Instance.RecordEvent(gameEvent).Run();
+				
+				Debug.Log("sent ddnaEventTriggeredAction");
+//				Manager.Ads.ShowPromo();
+//				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+//				Debug.Log("user is a payer so promo shown");
 			}
 			else
 			{

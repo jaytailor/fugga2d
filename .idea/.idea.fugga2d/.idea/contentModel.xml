@@ -63,6 +63,8 @@
             <e p="ConfigurationWindow.cs" t="Include" />
             <e p="DefineSymbolsHelper.cs" t="Include" />
             <e p="DeltaDNASdkChecker.cs" t="Include" />
+            <e p="EventsTreeView.cs" t="Include" />
+            <e p="EventsWindow.cs" t="Include" />
             <e p="InitialisationHelper.cs" t="Include" />
             <e p="iOS" t="Include">
               <e p="AddDefineSymbolsToXcodeProject.cs" t="Include" />
@@ -81,6 +83,7 @@
           <e p="GameEvent.cs" t="Include" />
           <e p="Helpers" t="Include">
             <e p="ActionStore.cs" t="Include" />
+            <e p="APIConfiguration.cs" t="Include" />
             <e p="ClientInfo.cs" t="Include" />
             <e p="ConcurrentQueue.cs" t="Include" />
             <e p="Configuration.cs" t="Include" />
