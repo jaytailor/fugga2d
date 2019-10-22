@@ -38,15 +38,9 @@ public class BackToMenu : MonoBehaviour {
 		{
 			if (Manager.Ads.payerResult == "Payer")
 			{
-				var gameEvent = new GameEvent("ddnaEventTriggeredAction").AddParam("eventName", "payer").AddParam("eventName", "rcs");
- 
-				// Record ddnaEventTriggeredAction event and wire up handler callbacks
-				DDNA.Instance.RecordEvent(gameEvent).Run();
-				
-				Debug.Log("sent ddnaEventTriggeredAction");
-//				Manager.Ads.ShowPromo();
-//				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
-//				Debug.Log("user is a payer so promo shown");
+				Manager.Ads.ShowPromo();
+				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+				Debug.Log("user is a payer so promo shown");
 			}
 			else
 			{

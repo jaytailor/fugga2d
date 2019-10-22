@@ -1,5 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dependencies>
-  <androidPackages></androidPackages>
-  <iosPods></iosPods>
+  <androidPackages>
+    <androidPackage spec="com.deltadna.android:deltadna-smartads-core:1.11.0">
+      <repositories>
+        <repository>https://deltadna.bintray.com/android</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="com.deltadna.android:deltadna-smartads-provider-admob:1.11.0">
+      <repositories>
+        <repository>https://deltadna.bintray.com/android</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="com.deltadna.android:deltadna-smartads-provider-unity:1.11.0">
+      <repositories>
+        <repository>https://deltadna.bintray.com/android</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="com.deltadna.android:deltadna-smartads-provider-vungle:1.11.0">
+      <repositories>
+        <repository>https://deltadna.bintray.com/android</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+  <iosPods>
+    <iosPod name="DeltaDNAAds/SmartAds" version="~&gt; 1.10.1" bitcodeEnabled="true" minTargetSdk="11.0">
+      <sources>
+        <source>https://github.com/deltaDNA/CocoaPods.git</source>
+        <source>https://github.com/CocoaPods/Specs.git</source>
+      </sources>
+    </iosPod>
+    <iosPod name="DeltaDNAAds/AdMob" version="~&gt; 1.10.1" bitcodeEnabled="true" minTargetSdk="11.0">
+      <sources>
+        <source>https://github.com/deltaDNA/CocoaPods.git</source>
+        <source>https://github.com/CocoaPods/Specs.git</source>
+      </sources>
+    </iosPod>
+    <iosPod name="DeltaDNAAds/UnityAds" version="~&gt; 1.10.1" bitcodeEnabled="true" minTargetSdk="11.0">
+      <sources>
+        <source>https://github.com/deltaDNA/CocoaPods.git</source>
+        <source>https://github.com/CocoaPods/Specs.git</source>
+      </sources>
+    </iosPod>
+    <iosPod name="DeltaDNAAds/Vungle" version="~&gt; 1.10.1" bitcodeEnabled="true" minTargetSdk="11.0">
+      <sources>
+        <source>https://github.com/deltaDNA/CocoaPods.git</source>
+        <source>https://github.com/CocoaPods/Specs.git</source>
+      </sources>
+    </iosPod>
+  </iosPods>
 </dependencies>

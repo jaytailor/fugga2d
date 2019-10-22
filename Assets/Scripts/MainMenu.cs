@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DeltaDNA;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Advertisements;
@@ -39,9 +40,19 @@ public class MainMenu : MonoBehaviour {
 		{
 			if (Manager.Ads.payerResult == "Payer")
 			{
-				Manager.Ads.ShowPromo();
-				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
-				Debug.Log("user is a payer so promo shown");
+				Debug.Log("sent ddnaEventTriggeredAction");
+				
+				var gameEvent = new GameEvent("ddnaEventTriggeredAction").
+					AddParam("eventName", "payer").
+					AddParam("eventName", "rcs").
+					AddParam("ddnaEventTriggeredCampaignID","promo2");
+ 
+				// Record ddnaEventTriggeredAction event and wire up handler callbacks
+				DDNA.Instance.RecordEvent(gameEvent).Run();
+				
+//				Manager.Ads.ShowPromo();
+//				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+//				Debug.Log("user is a payer so promo shown");
 			}
 			else
 			{

@@ -67,9 +67,8 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		RCS.RequestSegment(this);
 	}
 
-	public void Init()
+	public void Start()
 	{
-		
 	}
 	
 	// The callback indicating that the deltaDNA has downloaded its session configuration, including 
