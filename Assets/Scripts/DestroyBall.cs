@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DeltaDNA;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,6 +51,22 @@ public class DestroyBall : MonoBehaviour {
 
 	void Update()
 	{
+		if (LifeValue.lifeValue == 2 && Manager.PremiumScore < 200)
+		{
+			Debug.Log("Life value 2 and premium count less than 200");
+			DDNA.Instance.RecordEvent(new GameEvent("playerState").
+					AddParam("premium", Manager.PremiumScore).
+					AddParam("livesRemaining", 2)).
+				Add(new GameParametersHandler(gameParameters => {
+					// do something with the game parameters
+				}))
+				.Add(new ImageMessageHandler(DDNA.Instance, imageMessage => {
+					// the image message is already prepared so it will show instantly
+					imageMessage.Show();
+				}))
+				.Run();
+		}
+		
 		if (mGameOver == true || LifeValue.lifeValue == 0) {
 
 			// Disable the screen behind. Don't show any object

@@ -24,6 +24,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 	public String payerResult = "Non-Payer";
 	public String churnerResult = "Non-Churner";
 	public Text segmentText;
+	public static Boolean shownPromo = false;
 	
 	// delta dna settings
 	public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
@@ -83,7 +84,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		// Create an sdkConfigured event object
 		var gameEvent = new GameEvent("sdkConfigured")
 			.AddParam("clientVersion", DDNA.Instance.ClientVersion);
-
+		
 		// Record sdkConfigured event and run default response hander
 		DDNA.Instance.RecordEvent(gameEvent).Run();
 	}
@@ -99,14 +100,12 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		// Add a handler for the 'dismiss' action.
 		imageMessage.OnDismiss += (ImageMessage.EventArgs obj) => {
 			Debug.Log("Image Message dismissed by " + obj.ID);
- 
 			// NB : parameters not processed in this example if player dismisses action
 		};
  
 		// Add a handler for the 'action' action.
 		imageMessage.OnAction += (ImageMessage.EventArgs obj) => {
 			Debug.Log("Image Message actioned by " + obj.ID + " with command " + obj.ActionValue);
- 
 			// Process parameters on image message if player triggers image message action
 			if (imageMessage.Parameters != null) myGameParameterHandler(imageMessage.Parameters);
 		};
@@ -167,6 +166,9 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
                 break;
             case ShowResult.Failed:
                 Debug.Log("ad failed");
+                var gameEvent = new GameEvent("creativeError").
+	                AddParam("adNetwork", "facebook");
+                DDNA.Instance.RecordEvent(gameEvent).Run();
                 break;
         }
     }
@@ -209,7 +211,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 			 Debug.Log("OnSegmentsReady: [" + segments.Result[1].segment + "] " + segments.Result[1].probability);
 			 var seg1 = "";
 			 var seg2 = "";
-			 if (segments.Result[0].probability > 5) // if user is likely payer
+			 if (segments.Result[0].probability > 0) // if user is likely payer
 			 {
 				 payerResult = segments.Result[0].segment;
 				 Debug.Log("User is a : " + payerResult);
@@ -220,7 +222,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 				 seg1 = "NP";
 			 }
             
-			 if (segments.Result[1].probability > 20) // if user is churner
+			 if (segments.Result[1].probability > 0) // if user is churner
 			 {
 				 churnerResult = segments.Result[1].segment;
 				 Debug.Log("User is also a : " + churnerResult);

@@ -38,9 +38,10 @@ public class BackToMenu : MonoBehaviour {
 		{
 			if (Manager.Ads.payerResult == "Payer")
 			{
-				Manager.Ads.ShowPromo();
-				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
-				Debug.Log("user is a payer so promo shown");
+//				Manager.Ads.ShowPromo();
+//				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+//				Debug.Log("user is a payer so promo shown");
+				
 			}
 			else
 			{
@@ -52,6 +53,11 @@ public class BackToMenu : MonoBehaviour {
 		
 		SceneManager.LoadScene (0);
 		resetValues (CurrPremium);
+		var gameEvent2 = new GameEvent("creativeError").
+			AddParam("adNetwork", "facebook");
+				
+		// Record ddnaEventTriggeredAction event and wire up handler callbacks
+		DDNA.Instance.RecordEvent(gameEvent2).Run();
 	}
 
 	public void resetValues(int premium){

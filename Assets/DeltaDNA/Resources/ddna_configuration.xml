@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-16"?>
 <configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <environment_key_dev />
-  <environment_key_live>27352707823785445427718399015682</environment_key_live>
-  <environment_key>1</environment_key>
+  <environment_key_dev>27352700535940792912647246015682</environment_key_dev>
+  <environment_key_live />
+  <environment_key>0</environment_key>
   <collect_url>https://collect15753fggqz.deltadna.net/collect/api</collect_url>
   <engage_url>https://engage15753fggqz.deltadna.net</engage_url>
   <hash_secret />

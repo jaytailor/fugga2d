@@ -236,6 +236,8 @@
           <e p="LoadGameBackgrnd.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="Manager.cs" t="Include" />
+          <e p="MediationListener.cs" t="Include" />
+          <e p="MockMediationApi.cs" t="Include" />
           <e p="Notification.cs" t="Include" />
           <e p="Options.cs" t="Include" />
           <e p="PlayerTime.cs" t="Include" />
