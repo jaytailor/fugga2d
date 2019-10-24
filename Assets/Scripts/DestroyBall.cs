@@ -20,8 +20,11 @@ public class DestroyBall : MonoBehaviour {
 	public int time;
 	private bool mGameOver = false;
 
+	private DeltaDNAMediationListener mediationHandler;
+
 	void Start()
 	{		
+		Debug.Log("DestroyBall.Start");
 		InvokeRepeating ("Count", 0.0f, 1.0f);
 
 		if (Manager.DifficultyLevel == 0) {
@@ -45,28 +48,17 @@ public class DestroyBall : MonoBehaviour {
             anim = gameObject.GetComponent<Animator>();
         }
 
-
-			
+		// mediationAdapter = new MediationAdapter();
+		mediationHandler = new DeltaDNAMediationListener();
+		// mediationAdapter.LoadInterstital(mediationHandler)	
 	}
+
+
+	private bool sendDDNAEvent = true;
+	private bool showAd = false;
 
 	void Update()
 	{
-		if (LifeValue.lifeValue == 2 && Manager.PremiumScore < 200)
-		{
-			Debug.Log("Life value 2 and premium count less than 200");
-			DDNA.Instance.RecordEvent(new GameEvent("playerState").
-					AddParam("premium", Manager.PremiumScore).
-					AddParam("livesRemaining", 2)).
-				Add(new GameParametersHandler(gameParameters => {
-					// do something with the game parameters
-				}))
-				.Add(new ImageMessageHandler(DDNA.Instance, imageMessage => {
-					// the image message is already prepared so it will show instantly
-					imageMessage.Show();
-				}))
-				.Run();
-		}
-		
 		if (mGameOver == true || LifeValue.lifeValue == 0) {
 
 			// Disable the screen behind. Don't show any object
@@ -107,6 +99,16 @@ public class DestroyBall : MonoBehaviour {
 		if (hit.collider != null && hit.collider.gameObject == gameObject) {
            	if (hit.collider.gameObject.name == "BombLitSprite") {
                 LifeValue.lifeValue -= 1;
+
+				if (sendDDNAEvent && LifeValue.lifeValue == 2 && Manager.PremiumScore < 200)
+				{
+					Debug.LogFormat("Life value 2 and premium count less than 200: ({0}, {1}, {2})", sendDDNAEvent, LifeValue.lifeValue, Manager.PremiumScore);
+					sendDDNAEvent = false;
+					DDNA.Instance.RecordEvent(new GameEvent("playerState").
+							AddParam("premium", Manager.PremiumScore).
+							AddParam("livesRemaining", 2)).Run();
+				}
+
                 StartCoroutine(PopBomb(hit));
 
                 if (LifeValue.lifeValue == 0)
@@ -130,6 +132,8 @@ public class DestroyBall : MonoBehaviour {
     IEnumerator PopBomb(RaycastHit2D hit)
     {
         Debug.Log("bomb is popping");
+		mediationHandler.Show();
+
         anim.SetTrigger("blast");
         Debug.Log(anim.name);
         yield return new WaitForSeconds(0.5f);
