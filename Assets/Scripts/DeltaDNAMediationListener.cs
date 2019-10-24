@@ -11,23 +11,39 @@ using DeltaDNA;
 public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 {
     private IUnityAdUnit _adUnit;
-    private ImageMessage _imageMessage;
 
     private bool shouldShowPromo = false;
 
     private bool _ready = false;
 
+    private ImageMessage _imageMessage;
+
+    public DeltaDNAMediationListener()
+    {
+        DDNA.Instance.Settings.DefaultImageMessageHandler =
+			new ImageMessageHandler(DDNA.Instance, imageMessage => {
+				// do something with the image message
+                Debug.LogFormat("PROMO READY: {0}", imageMessage);
+				_imageMessage = imageMessage;  
+			});
+    }
+
     public void Show() {
-        if (!_ready) {
+        Debug.Log("DeltaDNAMediationListener.Show()");
+        if (!_ready && _imageMessage == null) {
+            Debug.Log("DeltaDNAMediationListener.Show: !_ready && _imageMessage == null");
             return;
         }
 
         if (_adUnit == null && _imageMessage == null) {
+            Debug.Log("DeltaDNAMediationListener.Show: _adUnit == null && _imageMessage == null");
             return;
         }
 
         if (_imageMessage != null) {
+            Debug.Log("DeltaDNAMediationListener.Show: _imageMessage != null");
             _imageMessage.Show();
+            _imageMessage = null;
             // TODO: MOVE the following to the handler for ^^^ show call.
             var gameEvent = new GameEvent("ddnaOnShown")
                 .AddParam("adNetwork", _adUnit.loadedAdDetails.AdapterKey)
@@ -38,6 +54,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
             return;
         }
         
+        Debug.Log("DeltaDNAMediationListener.Show: _adUnit.Show()");
         _adUnit.Show();
     }
 
@@ -52,11 +69,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
             .AddParam("creativeId", "creative-id") // TODO
             .AddParam("creativeType", "creative-type") // TODO
             .AddParam("floorECPM", 500.0) // TODO
-            .AddParam("placementId", adUnit.loadedAdDetails.PlacementId)
-            )
-			.Add(new ImageMessageHandler(DDNA.Instance, imageMessage => {
-                _imageMessage = imageMessage;
-			}))
+            .AddParam("placementId", adUnit.loadedAdDetails.PlacementId))
 			.Run();
         _adUnit = adUnit;
         _ready = true;	
