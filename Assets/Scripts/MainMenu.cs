@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour {
 	// Use this for initialization
 	public GameObject iapListener = null;
 	//[SerializeField] private string appID = "ca-app-pub-4734320296886796~5938213117";
+	private Mediation mediation = null;
 
 	void Awake()
 	{
@@ -24,6 +25,14 @@ public class MainMenu : MonoBehaviour {
 
 	void Start(){
         //Manager.Ads.ShowBanner();
+        var go = GameObject.Find("Mediation");
+        if (go != null)
+        {
+	        mediation = go.GetComponent<Mediation>();
+	        mediation.LoadInterstital();
+        } else {
+	        Debug.LogError("Mediation not found");
+        }
 	}
 
 	public void PlayGame(){
@@ -37,23 +46,9 @@ public class MainMenu : MonoBehaviour {
 
 	public void ShowVideo(){
 		
-		DDNA.Instance.RecordEvent(new GameEvent("ddnaEventTriggeredAction").AddParam("eventName", "rcs"))
-			.Add(new GameParametersHandler(gameParameters => {
-				// do something with the game parameters
-			}))
-			.Add(new ImageMessageHandler(DDNA.Instance, imageMessage => {
-				// the image message is already prepared so it will show instantly
-				UnityAds.shownPromo = true;
-				imageMessage.Show();
-			}))
-			.Run();
-
-		if (!UnityAds.shownPromo)
-		{
-			Manager.Ads.ShowVideo();
-			Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
-			Debug.Log("user is not a payer so ad shown");	
-		}
+		DDNA.Instance.RecordEvent(new GameEvent("playerState").
+				AddParam("payer", Manager.Ads.payerProbability)).Run();
+		mediation.handler.Show();
 
 //		if (Manager.Ads.payerResult != null && Manager.Ads.segmentResponse != null)
 //		{
