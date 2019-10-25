@@ -20,7 +20,7 @@ public class DestroyBall : MonoBehaviour {
 	public int time;
 	private bool mGameOver = false;
 
-	private DeltaDNAMediationListener mediationHandler;
+	private Mediation mediation = null;
 
 	void Start()
 	{		
@@ -48,14 +48,18 @@ public class DestroyBall : MonoBehaviour {
             anim = gameObject.GetComponent<Animator>();
         }
 
-		// mediationAdapter = new MediationAdapter();
-		mediationHandler = new DeltaDNAMediationListener();
-		// mediationAdapter.LoadInterstital(mediationHandler)	
+		var go = GameObject.Find("Mediation");
+		if (go != null)
+		{
+			mediation = go.GetComponent<Mediation>();
+			mediation.LoadInterstital();
+		} else {
+			Debug.LogError("Mediation not found");
+		}
 	}
 
 
 	private bool sendDDNAEvent = true;
-	private bool showAd = false;
 
 	void Update()
 	{
@@ -126,13 +130,12 @@ public class DestroyBall : MonoBehaviour {
                 Manager.PremiumScore += 1;
 			}
 		}
-
 	}
 
     IEnumerator PopBomb(RaycastHit2D hit)
     {
         Debug.Log("bomb is popping");
-		mediationHandler.Show();
+		mediation.handler.Show();
 
         anim.SetTrigger("blast");
         Debug.Log(anim.name);

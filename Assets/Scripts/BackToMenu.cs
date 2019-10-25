@@ -8,11 +8,22 @@ public class BackToMenu : MonoBehaviour {
 	
 	GameObject backMenuObj;
 
+	private Mediation mediation = null;
+
 	// Use this for initialization
 	void Start () {
 		backMenuObj = GameObject.Find ("BackToMenu");
 		backMenuObj.SetActive(false);
         Manager.Ads.ShowBanner();
+
+		var go = GameObject.Find("Mediation");
+		if (go != null)
+		{
+			mediation = go.GetComponent<Mediation>();
+			mediation.LoadInterstital();
+		} else {
+			Debug.LogError("Mediation not found");
+		}
 	}
 	
 	// Update is called once per frame
@@ -34,30 +45,35 @@ public class BackToMenu : MonoBehaviour {
 	public void takeToMainMenu(){
 		int CurrPremium = Manager.PremiumScore;
 		
-		if (Manager.Ads.payerResult != null && Manager.Ads.segmentResponse != null)
-		{
-			if (Manager.Ads.payerResult == "Payer")
-			{
-//				Manager.Ads.ShowPromo();
-//				Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
-//				Debug.Log("user is a payer so promo shown");
+		// if (Manager.Ads.payerResult != null && Manager.Ads.segmentResponse != null)
+		// {
+		// 	if (Manager.Ads.payerResult == "Payer")
+		// 	{
+		// 		Manager.Ads.ShowPromo();
+		// 		Manager.Ads.segmentResponse.OperativeEvents.PromotionShown();
+		// 		Debug.Log("user is a payer so promo shown");
 				
-			}
-			else
-			{
-				Manager.Ads.ShowVideo();
-				Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
-				Debug.Log("user is not a payer so ad shown");
-			}	
-		}
+		// 	}
+		// 	else
+		// 	{
+		// 		Manager.Ads.ShowVideo();
+		// 		Manager.Ads.segmentResponse.OperativeEvents.AdvertisementShown();
+		// 		Debug.Log("user is not a payer so ad shown");
+		// 	}	
+		// }
 		
 		SceneManager.LoadScene (0);
 		resetValues (CurrPremium);
-		var gameEvent2 = new GameEvent("creativeError").
-			AddParam("adNetwork", "facebook");
+		if (Manager.Ads.payerResult != null && Manager.Ads.segmentResponse != null){
+			var gameEvent2 = new GameEvent("playerState").
+			AddParam("payer", Manager.Ads.payerProbability);
 				
-		// Record ddnaEventTriggeredAction event and wire up handler callbacks
-		DDNA.Instance.RecordEvent(gameEvent2).Run();
+			// Record ddnaEventTriggeredAction event and wire up handler callbacks
+			DDNA.Instance.RecordEvent(gameEvent2).Run();
+		}
+
+		Debug.Log("BackToMenu: mediation.handler.Show()");
+		mediation.handler.Show();
 	}
 
 	public void resetValues(int premium){
@@ -70,5 +86,4 @@ public class BackToMenu : MonoBehaviour {
 		// reset to the last premium value
 		Manager.PremiumScore = premium;
 	}
-
 }

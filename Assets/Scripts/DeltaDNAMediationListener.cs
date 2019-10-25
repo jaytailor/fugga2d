@@ -20,6 +20,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 
     public DeltaDNAMediationListener()
     {
+        Debug.Log("DeltaDNAMediationListener.DeltaDNAMediationListener()");
         DDNA.Instance.Settings.DefaultImageMessageHandler =
 			new ImageMessageHandler(DDNA.Instance, imageMessage => {
 				// do something with the image message
@@ -30,16 +31,20 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 
     public void Show() {
         Debug.Log("DeltaDNAMediationListener.Show()");
+
+        Debug.LogFormat("DeltaDNAMediationListener.Show(): _ready={0}, _imageMessage={1}", _ready, _imageMessage);
         if (!_ready && _imageMessage == null) {
             Debug.Log("DeltaDNAMediationListener.Show: !_ready && _imageMessage == null");
             return;
         }
 
+        Debug.LogFormat("DeltaDNAMediationListener.Show(): _adUnit={0}, _imageMessage={1}", _adUnit, _imageMessage);
         if (_adUnit == null && _imageMessage == null) {
             Debug.Log("DeltaDNAMediationListener.Show: _adUnit == null && _imageMessage == null");
             return;
         }
 
+        Debug.LogFormat("DeltaDNAMediationListener.Show(): _imageMessage={0}", _imageMessage);
         if (_imageMessage != null) {
             Debug.Log("DeltaDNAMediationListener.Show: _imageMessage != null");
             _imageMessage.Show();
@@ -59,11 +64,13 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
     }
 
     public bool Ready() {
+        Debug.Log("DeltaDNAMediationListener.Ready()");
         return _ready;
     }
 
     public void OnLoaded(IUnityAdUnit adUnit)
     {
+        Debug.Log("DeltaDNAMediationListener.OnLoaded()");
         DDNA.Instance.RecordEvent(new GameEvent("adUnitOnLoaded")
             .AddParam("adNetwork", adUnit.loadedAdDetails.AdapterKey)
             .AddParam("creativeId", "creative-id") // TODO
@@ -77,6 +84,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 
     public void OnShown(IUnityAdUnit adUnit)
     {
+        Debug.Log("DeltaDNAMediationListener.OnShown()");
         var gameEvent = new GameEvent("adUnitOnShown")
             .AddParam("adNetwork", adUnit.loadedAdDetails.AdapterKey)
             .AddParam("creativeId", "creative-id") // TODO
@@ -88,6 +96,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 
     public void OnClick(IUnityAdUnit adUnit)
     {
+        Debug.Log("DeltaDNAMediationListener.OnClick()");
         var gameEvent = new GameEvent("adUnitOnClick")
             .AddParam("adNetwork", adUnit.loadedAdDetails.AdapterKey)
             .AddParam("creativeId", "creative-id") // TODO
@@ -99,6 +108,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 
     public void OnFinished(IUnityAdUnit adUnit)
     {
+        Debug.Log("DeltaDNAMediationListener.OnFinished()");
         var gameEvent = new GameEvent("adUnitOnFinished")
             .AddParam("adNetwork", adUnit.loadedAdDetails.AdapterKey)
             .AddParam("creativeId", "creative-id") // TODO
@@ -112,6 +122,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 
     public void OnFailed(IUnityAdUnit adUnit, int errorCode, string message)
     {
+        Debug.Log("DeltaDNAMediationListener.OnFailed()");
         DDNA.Instance.RecordEvent(new GameEvent("adUnitOnFailed")
             .AddParam("adNetwork", adUnit.loadedAdDetails.AdapterKey)
             .AddParam("creativeId", "creative-id") // TODO
