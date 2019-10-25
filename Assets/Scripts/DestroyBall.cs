@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DeltaDNA;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DestroyBall : MonoBehaviour {
 
@@ -15,6 +16,13 @@ public class DestroyBall : MonoBehaviour {
 	public Time tm;
 	private AudioSource ASource;
 	public AudioClip AClip;
+	
+	[SerializeField]
+	public GameObject popUpObj;
+	[SerializeField]
+	public Text popUpContent;
+	[SerializeField]
+	public Text popUpTitle;
 
 	//Time 
 	public int time;
@@ -60,6 +68,8 @@ public class DestroyBall : MonoBehaviour {
 
 
 	private bool sendDDNAEvent = true;
+	private bool shownGamaParam = false;
+	
 
 	void Update()
 	{
@@ -116,10 +126,25 @@ public class DestroyBall : MonoBehaviour {
 				if (LifeValue.lifeValue == 1 && Manager.DifficultyLevel == 3)
 				{
 					Debug.LogFormat("Life value 1 DifficultyLevel is super hard and churner probability: " + Manager.Ads.churnerProbability);
-					DDNA.Instance.RecordEvent(new GameEvent("playerState").
-						AddParam("difficultyLevel", Manager.DifficultyLevel).
-						AddParam("churner", Manager.Ads.churnerProbability).
-						AddParam("livesRemaining", 1)).Run();
+					DDNA.Instance
+						.RecordEvent(new GameEvent("playerState").AddParam("difficultyLevel", Manager.DifficultyLevel)
+							.AddParam("churner", Manager.Ads.churnerProbability).AddParam("livesRemaining", 1)).Add(
+							new GameParametersHandler(gameParameters =>
+							{
+								// do something with the game parameters
+								Debug.Log("parameters received... : " + MiniJSON.Json.Serialize(gameParameters));
+								if (MiniJSON.Json.Serialize(gameParameters)
+									.Equals("{\"ddnaIsPersistent\":false,\"premium\":2}"))
+								{
+									Debug.Log("we are going to grant you 200 premium free");
+									popUpTitle.text = "200 Premium Count Free";
+									Manager.PremiumScore += 200;
+									shownGamaParam = true;
+
+								}
+							})).Run();
+					popUpObj.SetActive(true);
+
 				}
 
                 StartCoroutine(PopBomb(hit));
@@ -144,7 +169,10 @@ public class DestroyBall : MonoBehaviour {
     IEnumerator PopBomb(RaycastHit2D hit)
     {
         Debug.Log("bomb is popping");
-		mediation.handler.Show();
+        if (!shownGamaParam)
+        {
+	        mediation.handler.Show();    
+        }
 
         anim.SetTrigger("blast");
         Debug.Log(anim.name);

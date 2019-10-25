@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class FuggaWin : MonoBehaviour {
 
 	GameObject winScreenObj;
+	public GameObject premiumMsg;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,12 @@ public class FuggaWin : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+	}
+
+	public void close()
+	{
+		premiumMsg = GameObject.Find("freePremium");
+		premiumMsg.SetActive(false);
 	}
 
 

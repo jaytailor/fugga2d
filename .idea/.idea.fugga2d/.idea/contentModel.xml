@@ -228,6 +228,7 @@
           <e p="BackToMenu.cs" t="Include" />
           <e p="BombBlast.cs" t="Include" />
           <e p="ChanceRemainMenu.cs" t="Include" />
+          <e p="DeltaDNAMediationListener.cs" t="Include" />
           <e p="DestroyBall.cs" t="Include" />
           <e p="Floater.cs" t="Include" />
           <e p="FuggaWin.cs" t="Include" />
@@ -236,7 +237,7 @@
           <e p="LoadGameBackgrnd.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="Manager.cs" t="Include" />
-          <e p="MediationListener.cs" t="Include" />
+          <e p="Mediation.cs" t="Include" />
           <e p="MockMediationApi.cs" t="Include" />
           <e p="Notification.cs" t="Include" />
           <e p="Options.cs" t="Include" />
@@ -252,8 +253,99 @@
       </e>
       <e p="fugga2d.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
-      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive">
+        <e p="com.unity.mediation" t="Include">
+          <e p="Editor" t="Include">
+            <e p="AssemblyInfo.cs" t="Include" />
+            <e p="RcsSettingsEditorMenu.cs" t="Include" />
+            <e p="RcsTestServiceCustomEditor.cs" t="Include" />
+            <e p="UnityEditor.Mediation.asmdef" t="Include" />
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="UnityEngine" t="Include">
+              <e p="Mediation" t="Include">
+                <e p="AdUnit.cs" t="Include" />
+                <e p="AssemblyInfo.cs" t="Include" />
+                <e p="Core" t="Include">
+                  <e p="AnalyticsInfo" t="Include">
+                    <e p="AdapterInfo.cs" t="Include" />
+                    <e p="AdTrackingInfo.cs" t="Include" />
+                    <e p="AnalyticsContext.cs" t="Include" />
+                    <e p="AnalyticsContextProvider.cs" t="Include" />
+                    <e p="DeviceInfo.cs" t="Include" />
+                    <e p="GamerInfo.cs" t="Include" />
+                    <e p="GamerProvider.cs" t="Include" />
+                    <e p="HttpRequestBuilder.cs" t="Include" />
+                    <e p="IAnalyticsContextProvider.cs" t="Include" />
+                    <e p="IGamerProvider.cs" t="Include" />
+                    <e p="IHttpRequestBuilder.cs" t="Include" />
+                    <e p="ITrackerProvider.cs" t="Include" />
+                    <e p="ProjectInfo.cs" t="Include" />
+                    <e p="SystemInfo.cs" t="Include" />
+                    <e p="TrackerProvider.cs" t="Include" />
+                  </e>
+                  <e p="CoroutineExecutor.cs" t="Include" />
+                  <e p="HttpClient.cs" t="Include" />
+                  <e p="HttpRequest.cs" t="Include" />
+                  <e p="ICoroutineExecutor.cs" t="Include" />
+                  <e p="IHttpClient.cs" t="Include" />
+                  <e p="IHttpRequest.cs" t="Include" />
+                  <e p="InternetConnectionType.cs" t="Include" />
+                  <e p="SdkMetadata.cs" t="Include" />
+                </e>
+                <e p="Entities" t="Include">
+                  <e p="AdUnitSettings.cs" t="Include" />
+                  <e p="Configuration.cs" t="Include" />
+                  <e p="LineItem.cs" t="Include" />
+                </e>
+                <e p="IAdaptor.cs" t="Include" />
+                <e p="IAdaptorAdUnit.cs" t="Include" />
+                <e p="IAdUnit.cs" t="Include" />
+                <e p="IAdUnitListener.cs" t="Include" />
+                <e p="IMediationInitializationListener.cs" t="Include" />
+                <e p="IMediationManager.cs" t="Include" />
+                <e p="MediationManager.cs" t="Include" />
+                <e p="MiniJSON.cs" t="Include" />
+                <e p="MockBackend.cs" t="Include" />
+                <e p="UnityEngine.Mediation.asmdef" t="Include" />
+                <e p="UnityMediation.cs" t="Include" />
+              </e>
+              <e p="Settings" t="Include">
+                <e p="AssemblyInfo.cs" t="Include" />
+                <e p="RcsSettings.cs" t="Include" />
+                <e p="RcsTestService.cs" t="Include" />
+                <e p="UnityEngine.Mediation.Settings.asmdef" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Tests" t="Include">
+            <e p="Editor" t="Include">
+              <e p="EditorTests.cs" t="Include" />
+              <e p="UnityEngine.Mediation.Tests.Editor.asmdef" t="Include" />
+            </e>
+            <e p="Runtime" t="Include">
+              <e p="Core" t="Include">
+                <e p="BaseHttpClientTest.cs" t="Include" />
+                <e p="CoroutineExecutorTests.cs" t="Include" />
+                <e p="GamerInfoTests.cs" t="Include" />
+                <e p="HttpClientIntegrationTests.cs" t="Include" />
+                <e p="HttpRequestBuilderTest.cs" t="Include" />
+                <e p="MockRestListener.cs" t="Include" />
+                <e p="ProjectInfoTests.cs" t="Include" />
+                <e p="TrackerProviderTests.cs" t="Include" />
+              </e>
+              <e p="GlobalChecks.cs" t="Include" />
+              <e p="UnityEngine.Mediation.Tests.Runtime.asmdef" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="UnityEditor.Mediation.csproj" t="IncludeRecursive" />
+      <e p="UnityEngine.Mediation.csproj" t="IncludeRecursive" />
+      <e p="UnityEngine.Mediation.Settings.csproj" t="IncludeRecursive" />
+      <e p="UnityEngine.Mediation.Tests.Editor.csproj" t="IncludeRecursive" />
+      <e p="UnityEngine.Mediation.Tests.Runtime.csproj" t="IncludeRecursive" />
     </e>
     <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_fugga2d.-266826415.00" t="ExcludeRecursive" />
