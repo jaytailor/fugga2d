@@ -29,7 +29,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
         if (_imageMessage != null) {
             _imageMessage.Show();
             // TODO: MOVE the following to the handler for ^^^ show call.
-            var gameEvent = new GameEvent("ddnaOnShown")
+            var gameEvent = new GameEvent("ddnaOnShownError")
                 .AddParam("adNetwork", _adUnit.loadedAdDetails.AdapterKey)
                 .AddParam("creativeId", "creative-id") // TODO
                 .AddParam("creativeType", "creative-type") // TODO
