@@ -22,7 +22,9 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 
 	public ISegments segmentResponse = null;
 	public String payerResult = "Non-Payer";
+	public float payerProbability;
 	public String churnerResult = "Non-Churner";
+	public float churnerProbability;
 	public Text segmentText;
 	public static Boolean shownPromo = false;
 	
@@ -111,7 +113,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		};
  
 		// the image message is already cached and prepared so it will show instantly
-		imageMessage.Show();
+		//imageMessage.Show();
 	}
 
 	public void ShowPromo()
@@ -211,6 +213,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 			 Debug.Log("OnSegmentsReady: [" + segments.Result[1].segment + "] " + segments.Result[1].probability);
 			 var seg1 = "";
 			 var seg2 = "";
+			 payerProbability = segments.Result[0].probability;
 			 if (segments.Result[0].probability > 0) // if user is likely payer
 			 {
 				 payerResult = segments.Result[0].segment;
@@ -222,6 +225,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 				 seg1 = "NP";
 			 }
             
+			churnerProbability = segments.Result[2].probability;
 			 if (segments.Result[1].probability > 0) // if user is churner
 			 {
 				 churnerResult = segments.Result[1].segment;
