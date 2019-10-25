@@ -11,15 +11,18 @@ using DeltaDNA;
 public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 {
     private IUnityAdUnit _adUnit;
+    private IUnityMediationAdaptor _adUnit_adapter;
 
     private bool shouldShowPromo = false;
 
     private bool _ready = false;
 
     private ImageMessage _imageMessage;
+    
 
-    public DeltaDNAMediationListener()
+    public DeltaDNAMediationListener(IUnityMediationAdaptor adUnit_adapter)
     {
+        _adUnit_adapter = adUnit_adapter;
         Debug.Log("DeltaDNAMediationListener.DeltaDNAMediationListener()");
         DDNA.Instance.Settings.DefaultImageMessageHandler =
 			new ImageMessageHandler(DDNA.Instance, imageMessage => {
@@ -61,6 +64,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
         
         Debug.Log("DeltaDNAMediationListener.Show: _adUnit.Show()");
         _adUnit.Show();
+        _adUnit_adapter.LoadInterstitial(this, null);
     }
 
     public bool Ready() {
@@ -70,6 +74,7 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 
     public void OnLoaded(IUnityAdUnit adUnit)
     {
+        
         Debug.Log("DeltaDNAMediationListener.OnLoaded()");
         DDNA.Instance.RecordEvent(new GameEvent("adUnitOnLoaded")
             .AddParam("adNetwork", adUnit.loadedAdDetails.AdapterKey)
@@ -122,20 +127,20 @@ public class DeltaDNAMediationListener: IUnityMediationAdUnitListener
 
     public void OnFailed(IUnityAdUnit adUnit, int errorCode, string message)
     {
-        Debug.Log("DeltaDNAMediationListener.OnFailed()");
+        Debug.Log("DeltaDNAMediationListener.adUnitOnFailed()");
         DDNA.Instance.RecordEvent(new GameEvent("adUnitOnFailed")
-            .AddParam("adNetwork", adUnit.loadedAdDetails.AdapterKey)
+                .AddParam("adNetwork", adUnit.loadedAdDetails.AdapterKey)
             .AddParam("creativeId", "creative-id") // TODO
             .AddParam("creativeType", "creative-type") // TODO
             .AddParam("floorECPM", 500.0) // TODO
             .AddParam("placementId", adUnit.loadedAdDetails.PlacementId)
-            .AddParam("errorCode", errorCode))
-			.Add(new ImageMessageHandler(DDNA.Instance, imageMessage => {
+            .AddParam("errorCode", errorCode)
+			).Add(new ImageMessageHandler(DDNA.Instance, imageMessage => {
                 Debug.Log("adUnit error");
                 // the image message is already prepared so it will show instantly
-				imageMessage.Show();
+                _imageMessage = imageMessage;
                 // TODO: MOVE the following to the handler for ^^^ show call.
-                var gameEvent = new GameEvent("ddnaOnShown")
+                var gameEvent = new GameEvent("ddnaOnShownError")
                     .AddParam("adNetwork", _adUnit.loadedAdDetails.AdapterKey)
                     .AddParam("creativeId", "creative-id") // TODO
                     .AddParam("creativeType", "creative-type") // TODO

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Manager {
 
-	private static int diffLevel, premium;
+	private static int diffLevel, premium, countForReady;
 	private static string theme = "sky" ;
 	public static bool PremiumGranted = false;
     private static UnityAds ads = null; 
@@ -19,6 +19,18 @@ public static class Manager {
 		set 
 		{
 			diffLevel = value;
+		}
+	}
+	
+	public static int CountReady
+	{
+		get 
+		{
+			return countForReady;
+		}
+		set 
+		{
+			countForReady = value;
 		}
 	}
 

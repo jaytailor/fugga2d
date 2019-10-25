@@ -18,6 +18,7 @@ namespace UnityEngine.Mediation
 	    #endif
 
         private IUnityMediationAdUnitListener _listener;
+        private int readyCount = 0;
 
         public MediationAdapter()
         {
@@ -51,10 +52,10 @@ namespace UnityEngine.Mediation
 
         public void OnUnityAdsReady(string placementId)
         {
-            Debug.LogFormat("MediationAdapter.OnUnityAdsReady({0})", placementId);
             if (placementId != "video") {
                 return;
             }
+            Debug.LogFormat("MediationAdapter.OnUnityAdsReady({0})", placementId);
 
             Debug.LogFormat("MediationAdapter.OnUnityAdsReady({0}): Create AdUnit", placementId);
             var adUnit = new UnityAdUnit(_listener);
@@ -64,35 +65,60 @@ namespace UnityEngine.Mediation
             if (_listener == null) {
                 Debug.LogFormat("MediationAdapter.OnUnityAdsReady({0}): _listener == null", placementId);
             }
-
+            
+ //           _listener.OnFailed(adUnit, 42, "fake failure");
             _listener.OnLoaded(adUnit);
+//            //Manager.CountReady = Manager.CountReady + 1;
+//            readyCount++;
+//            Debug.Log("counts : " +readyCount);
+//            if (readyCount != 5) {
+//                _listener.OnLoaded(adUnit);
+//            } else {
+//                _listener.OnFailed(adUnit, 42, "fake failure");
+//            }
         }
 
         public void OnUnityAdsDidError(string message)
         {
+            var adUnit = new UnityAdUnit(_listener);
+            if (_listener == null) {
+                Debug.LogFormat("MediationAdapter.OnUnityAdsDidError({0}): _listener == null", message);
+            }
+            
             Debug.LogFormat("MediationAdapter.OnUnityAdsDidError({0})", message);
             // if (placementId != "video") {
             //     return;
             // }
-            // _listener.OnFailed()
+            _listener.OnFailed(adUnit, 42, "error while playing creative");
         }
 
         public void OnUnityAdsDidStart(string placementId)
         {
+            var adUnit = new UnityAdUnit(_listener);
+            if (_listener == null) {
+                Debug.LogFormat("MediationAdapter.OnUnityAdsDidError({0}): _listener == null", placementId);
+            }
             Debug.LogFormat("MediationAdapter.OnUnityAdsDidStart({0})", placementId);
             if (placementId != "video") {
                 return;
             }
-            // _listener.OnShown()
+
+            _listener.OnShown(adUnit);
         }
 
         public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
         {
+            var adUnit = new UnityAdUnit(_listener);
+            if (_listener == null) {
+                Debug.LogFormat("MediationAdapter.OnUnityAdsDidError({0}): _listener == null", placementId);
+            }
+            
             Debug.LogFormat("MediationAdapter.OnUnityAdsDidFinish({0}, {1})", placementId, showResult.ToString());
             if (placementId != "video") {
                 return;
             }
-            // _listener.OnFinished()
+
+            _listener.OnFinished(adUnit);
         }
 
         private IUnityAdUnit BuildAdUnit(IUnityMediationAdUnitListener listener)

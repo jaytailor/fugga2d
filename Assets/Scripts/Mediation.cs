@@ -25,7 +25,7 @@ public class Mediation : MonoBehaviour
     private void Start()
     {
         adapter = new MediationAdapter();
-		handler = new DeltaDNAMediationListener();
+        handler = new DeltaDNAMediationListener(adapter);
     }
 
     public void LoadInterstital()

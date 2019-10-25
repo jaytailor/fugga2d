@@ -21,6 +21,8 @@ public class MainMenu : MonoBehaviour {
 			Manager.PremiumScore = 100; 
 			Manager.PremiumGranted = true;
 		}
+
+		Manager.CountReady = 0;
 	}
 
 	void Start(){
