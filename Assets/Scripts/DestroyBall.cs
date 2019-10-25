@@ -112,6 +112,15 @@ public class DestroyBall : MonoBehaviour {
 							AddParam("premium", Manager.PremiumScore).
 							AddParam("livesRemaining", 2)).Run();
 				}
+				
+				if (LifeValue.lifeValue == 1 && Manager.DifficultyLevel == 3)
+				{
+					Debug.LogFormat("Life value 1 DifficultyLevel is super hard and churner probability: " + Manager.Ads.churnerProbability);
+					DDNA.Instance.RecordEvent(new GameEvent("playerState").
+						AddParam("difficultyLevel", Manager.DifficultyLevel).
+						AddParam("churner", Manager.Ads.churnerProbability).
+						AddParam("livesRemaining", 1)).Run();
+				}
 
                 StartCoroutine(PopBomb(hit));
 

@@ -46,17 +46,17 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		// Allow multiple game parameter actions callbacks from a single event trigger        
 		DDNA.Instance.Settings.MultipleActionsForEventTriggerEnabled = true;
 		
-		//Register default handlers for event triggered campaigns. These will be candidates for handling ANY Event-Triggered Campaigns. 
-		//Any handlers added to RecordEvent() calls with the .Add method will be evaluated before these default handlers. 
-		DDNA.Instance.Settings.DefaultImageMessageHandler =
-			new ImageMessageHandler(DDNA.Instance, imageMessage => {
-				// do something with the image message
-				myImageMessageHandler(imageMessage);
-			});
-		DDNA.Instance.Settings.DefaultGameParameterHandler = new GameParametersHandler(gameParameters => {
-			// do something with the game parameters
-			myGameParameterHandler(gameParameters);
-		});
+//		//Register default handlers for event triggered campaigns. These will be candidates for handling ANY Event-Triggered Campaigns. 
+//		//Any handlers added to RecordEvent() calls with the .Add method will be evaluated before these default handlers. 
+//		DDNA.Instance.Settings.DefaultImageMessageHandler =
+//			new ImageMessageHandler(DDNA.Instance, imageMessage => {
+//				// do something with the image message
+//				myImageMessageHandler(imageMessage);
+//			});
+//		DDNA.Instance.Settings.DefaultGameParameterHandler = new GameParametersHandler(gameParameters => {
+//			// do something with the game parameters
+//			myGameParameterHandler(gameParameters);
+//		});
 		
 		// Start collecting data
 		DDNA.Instance.StartSDK();
@@ -225,7 +225,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 				 seg1 = "NP";
 			 }
             
-			churnerProbability = segments.Result[2].probability;
+			churnerProbability = segments.Result[1].probability;
 			 if (segments.Result[1].probability > 0) // if user is churner
 			 {
 				 churnerResult = segments.Result[1].segment;
