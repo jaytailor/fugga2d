@@ -66,7 +66,7 @@ namespace UnityEngine.Mediation
                 Debug.LogFormat("MediationAdapter.OnUnityAdsReady({0}): _listener == null", placementId);
             }
             
- //           _listener.OnFailed(adUnit, 42, "fake failure");
+//            _listener.OnFailed(adUnit, 42, "fake failure");
             _listener.OnLoaded(adUnit);
 //            //Manager.CountReady = Manager.CountReady + 1;
 //            readyCount++;

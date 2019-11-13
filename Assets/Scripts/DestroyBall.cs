@@ -140,10 +140,10 @@ public class DestroyBall : MonoBehaviour {
 									popUpTitle.text = "200 Premium Count Free";
 									Manager.PremiumScore += 200;
 									shownGamaParam = true;
+									popUpObj.SetActive(true);
 
 								}
 							})).Run();
-					popUpObj.SetActive(true);
 
 				}
 

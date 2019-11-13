@@ -4647,7 +4647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PayerPredictionEnabled: 1
-  PayerProbability: 66.9
+  PayerProbability: 60
   ChurnerPredictionEnabled: 1
   ChurnerProbability: 58.1
 --- !u!4 &970015682
