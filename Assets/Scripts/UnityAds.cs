@@ -7,10 +7,9 @@ using UnityEngine.Advertisements;
 using UnityEngine.Events;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
-using UnityEngine.RCS.DecisionEngine;
 using DeltaDNA;
 
-public class UnityAds : MonoBehaviour, ISegmentsListener
+public class UnityAds : MonoBehaviour
 {
 	#if UNITY_IOS
 		private string gameId = "1737343"; // Your iOS game ID here
@@ -20,11 +19,6 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		private string gameId = "0123456"; // Prevents Editor Errors
 	#endif
 
-	public ISegments segmentResponse = null;
-	public String payerResult = "Non-Payer";
-	public String churnerResult = "Non-Churner";
-	public Text segmentText;
-	
 	// delta dna settings
 	public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
 	public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
@@ -42,10 +36,6 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		
 		Debug.Log("UnityAds.Init()");
 		StartCoroutine("InitAds");
-
-		Debug.Log("Initialising rcs");
-		RCS.Initialize();
-		RCS.RequestSegment(this);
 	}
 
 	public void Init()
@@ -132,52 +122,48 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 		 Advertisement.Initialize(this.gameId);
 	 }
 	 
-	 public void OnSegmentsReady(ISegments segments)
-	 {
-		 if (segments.Result.Length < 1) {
-			 Debug.Log("Empty Segments List");
-			 return;
-		 }
-		 segmentResponse = segments;
+//	 public void OnSegmentsReady(ISegments segments)
+//	 {
+//		 if (segments.Result.Length < 1) {
+//			 Debug.Log("Empty Segments List");
+//			 return;
+//		 }
+//		 segmentResponse = segments;
+//
+//		 // my own game threshold to consider it as payer if probability is > 0%
+//		 if (segments.Result.Length >= 2) // only if two segment information returned
+//		 {
+//			 Debug.Log("OnSegmentsReady: [" + segments.Result[0].segment + "] " + segments.Result[0].probability);
+//			 Debug.Log("OnSegmentsReady: [" + segments.Result[1].segment + "] " + segments.Result[1].probability);
+//			 var seg1 = "";
+//			 var seg2 = "";
+//			 if (segments.Result[0].probability > 5) // if user is likely payer
+//			 {
+//				 payerResult = segments.Result[0].segment;
+//				 Debug.Log("User is a : " + payerResult);
+//				 seg1 = "P";
+//			 }
+//			 else
+//			 {
+//				 seg1 = "NP";
+//			 }
+//            
+//			 if (segments.Result[1].probability > 20) // if user is churner
+//			 {
+//				 churnerResult = segments.Result[1].segment;
+//				 Debug.Log("User is also a : " + churnerResult);
+//				 seg2 = "C";
+//			 }
+//			 else
+//			 {
+//				 seg2 = "NC";
+//			 }
+//            
+//			 segmentText.text = "UP: " + seg1 + " and " + seg2 ;
+//		 }
+//		 Debug.Log(segmentText.text);
+//        
+//	 }
 
-		 // my own game threshold to consider it as payer if probability is > 0%
-		 if (segments.Result.Length >= 2) // only if two segment information returned
-		 {
-			 Debug.Log("OnSegmentsReady: [" + segments.Result[0].segment + "] " + segments.Result[0].probability);
-			 Debug.Log("OnSegmentsReady: [" + segments.Result[1].segment + "] " + segments.Result[1].probability);
-			 var seg1 = "";
-			 var seg2 = "";
-			 if (segments.Result[0].probability > 5) // if user is likely payer
-			 {
-				 payerResult = segments.Result[0].segment;
-				 Debug.Log("User is a : " + payerResult);
-				 seg1 = "P";
-			 }
-			 else
-			 {
-				 seg1 = "NP";
-			 }
-            
-			 if (segments.Result[1].probability > 20) // if user is churner
-			 {
-				 churnerResult = segments.Result[1].segment;
-				 Debug.Log("User is also a : " + churnerResult);
-				 seg2 = "C";
-			 }
-			 else
-			 {
-				 seg2 = "NC";
-			 }
-            
-			 segmentText.text = "UP: " + seg1 + " and " + seg2 ;
-		 }
-		 Debug.Log(segmentText.text);
-        
-	 }
-
-	 public void OnSegmentsError(ISegments segments)
-	 {
-		 Debug.Log("Segment Error: " + segments.ErrorMessage);
-	 }
 
 }
