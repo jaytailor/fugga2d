@@ -214,7 +214,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 			 var seg1 = "";
 			 var seg2 = "";
 			 payerProbability = segments.Result[0].probability;
-			 if (segments.Result[0].probability > 0) // if user is likely payer
+			 if (segments.Result[0].probability > 50) // if user is likely payer
 			 {
 				 payerResult = segments.Result[0].segment;
 				 Debug.Log("User is a : " + payerResult);
@@ -226,7 +226,7 @@ public class UnityAds : MonoBehaviour, ISegmentsListener
 			 }
             
 			churnerProbability = segments.Result[1].probability;
-			 if (segments.Result[1].probability > 0) // if user is churner
+			 if (segments.Result[1].probability > 50) // if user is churner
 			 {
 				 churnerResult = segments.Result[1].segment;
 				 Debug.Log("User is also a : " + churnerResult);
