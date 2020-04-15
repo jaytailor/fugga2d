@@ -47,11 +47,9 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 
 			Manager.PremiumScore -= 1000;
 		} else {
-			// Need to setup IAP promo here
-//			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
-//			purchaseScreen.SetActive (true);
-			
-			ads.ShowPromo ();
+			// Need to setup rewarded video here
+			Manager.Ads.ShowRewardedVideo();	
+		
 		}
 	}
 
@@ -64,11 +62,8 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 			Manager.PremiumScore -= 5000;
 		}
 		else {
-			// Need to setup IAP promo here
-//			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
-//			purchaseScreen.SetActive (true);
-			
-			ads.ShowPromo ();
+			// Need to setup rewarded video here
+			Manager.Ads.ShowRewardedVideo();	
 		}
 	}
 
@@ -81,11 +76,8 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 			Manager.PremiumScore -= 10000;
 		}
 		else {
-			// Need to setup IAP promo here
-//			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
-//			purchaseScreen.SetActive (true);
-			
-			ads.ShowPromo ();
+			// Need to setup rewarded video here
+			Manager.Ads.ShowRewardedVideo();	
 		}
 	}
 
