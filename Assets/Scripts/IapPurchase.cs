@@ -51,7 +51,7 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 //			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
 //			purchaseScreen.SetActive (true);
 			
-			ads.ShowPromo ();
+			ads.ShowRewarded1 ();
 		}
 	}
 
@@ -68,7 +68,7 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 //			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
 //			purchaseScreen.SetActive (true);
 			
-			ads.ShowPromo ();
+			ads.ShowRewarded2();
 		}
 	}
 
@@ -85,7 +85,7 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 //			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
 //			purchaseScreen.SetActive (true);
 			
-			ads.ShowPromo ();
+			ads.ShowRewarded3();
 		}
 	}
 
