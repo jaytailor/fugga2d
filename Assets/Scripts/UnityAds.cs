@@ -95,8 +95,11 @@ public class UnityAds : MonoBehaviour
 
     public void ShowInterstitial()
     {
-        interstitialAd.OnFailedShow += OnFailedShow;
-        interstitialAd.Show();
+        if(interstitialAd != null)
+        {
+            interstitialAd.OnFailedShow += OnFailedShow;
+            interstitialAd.Show();
+        }
 
         // load again
         LoadInterstitial();
@@ -104,8 +107,11 @@ public class UnityAds : MonoBehaviour
 
     public void ShowInterstitial2()
     {
-        interstitialAd2.OnFailedShow += OnFailedShow;
-        interstitialAd2.Show();
+        if(interstitialAd2 != null)
+        {
+            interstitialAd2.OnFailedShow += OnFailedShow;
+            interstitialAd2.Show();
+        }
 
         // load again
         LoadQuitBtnInterstitial();
@@ -121,26 +127,26 @@ public class UnityAds : MonoBehaviour
 
     public void LoadRewarded1()
     {
-        rewardedAd = new Unity.Mediation.RewardedAd(gameId, rewardedBtn1);
-        rewardedAd.OnLoaded += OnLoaded;
-        rewardedAd.OnFailedLoad += OnFailedLoad;
-        rewardedAd.Load();
+        rewardedAd1 = new Unity.Mediation.RewardedAd(gameId, rewardedBtn1);
+        rewardedAd1.OnLoaded += OnLoaded;
+        rewardedAd1.OnFailedLoad += OnFailedLoad;
+        rewardedAd1.Load();
     }
 
     public void LoadRewarded2()
     {
-        rewardedAd = new Unity.Mediation.RewardedAd(gameId, rewardedBtn2);
-        rewardedAd.OnLoaded += OnLoaded;
-        rewardedAd.OnFailedLoad += OnFailedLoad;
-        rewardedAd.Load();
+        rewardedAd2 = new Unity.Mediation.RewardedAd(gameId, rewardedBtn2);
+        rewardedAd2.OnLoaded += OnLoaded;
+        rewardedAd2.OnFailedLoad += OnFailedLoad;
+        rewardedAd2.Load();
     }
 
     public void LoadRewarded3()
     {
-        rewardedAd = new Unity.Mediation.RewardedAd(gameId, rewardedBtn3);
-        rewardedAd.OnLoaded += OnLoaded;
-        rewardedAd.OnFailedLoad += OnFailedLoad;
-        rewardedAd.Load();
+        rewardedAd3 = new Unity.Mediation.RewardedAd(gameId, rewardedBtn3);
+        rewardedAd3.OnLoaded += OnLoaded;
+        rewardedAd3.OnFailedLoad += OnFailedLoad;
+        rewardedAd3.Load();
     }
 
     public void LoadGameOverRewarded()
@@ -161,8 +167,11 @@ public class UnityAds : MonoBehaviour
 
     public void ShowRewarded()
     {
-        rewardedAd.OnFailed += OnFailedShow;
-        rewardedAd.Show();
+        if (rewardedAd != null)
+        {
+            rewardedAd.OnFailed += OnFailedShow;
+            rewardedAd.Show();
+        }
 
         // load again
         LoadRewarded();
@@ -170,8 +179,11 @@ public class UnityAds : MonoBehaviour
 
     public void ShowRewarded1()
     {
-        rewardedAd1.OnFailed += OnFailedShow;
-        rewardedAd1.Show();
+        if (rewardedAd1 != null)
+        {
+            rewardedAd1.OnFailed += OnFailedShow;
+            rewardedAd1.Show();
+        }
 
         // load again
         LoadRewarded1();
@@ -179,8 +191,11 @@ public class UnityAds : MonoBehaviour
 
     public void ShowRewarded2()
     {
-        rewardedAd2.OnFailed += OnFailedShow;
-        rewardedAd2.Show();
+        if(rewardedAd2 != null)
+        {
+            rewardedAd2.OnFailed += OnFailedShow;
+            rewardedAd2.Show();
+        }
 
         // load again
         LoadRewarded2();
@@ -188,8 +203,11 @@ public class UnityAds : MonoBehaviour
 
     public void ShowRewarded3()
     {
-        rewardedAd3.OnFailed += OnFailedShow;
-        rewardedAd3.Show();
+        if(rewardedAd3 != null)
+        {
+            rewardedAd3.OnFailed += OnFailedShow;
+            rewardedAd3.Show();
+        }
 
         // load again
         LoadRewarded3();
@@ -197,8 +215,11 @@ public class UnityAds : MonoBehaviour
 
     public void ShowGameOverRewarded()
     {
-        goRewardedAd.OnFailed += OnFailedShow;
-        goRewardedAd.Show();
+        if(goRewardedAd != null)
+        {
+            goRewardedAd.OnFailed += OnFailedShow;
+            goRewardedAd.Show();
+        }
 
         // load again
         LoadGameOverRewarded();
@@ -206,8 +227,11 @@ public class UnityAds : MonoBehaviour
 
     public void ShowGameWinRewarded()
     {
-        gwRewardedAd.OnFailed += OnFailedShow;
-        gwRewardedAd.Show();
+        if (gwRewardedAd != null)
+        {
+            gwRewardedAd.OnFailed += OnFailedShow;
+            gwRewardedAd.Show();
+        }
 
         // also call load to load another instance
         LoadGameWinnerRewarded();
