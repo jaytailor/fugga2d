@@ -25,6 +25,7 @@ public class UnityAds : MonoBehaviour
     private string rewardedBtn1 = "2af4a5e2-eecd-4bb0-85f7-47a6dbabf670~ANDROID~rewardMediAdunit1";
     private string rewardedBtn2 = "2af4a5e2-eecd-4bb0-85f7-47a6dbabf670~ANDROID~rewardMediAdunit2";
     private string rewardedBtn3 = "2af4a5e2-eecd-4bb0-85f7-47a6dbabf670~ANDROID~rewardedAndroidMediAdunit3";
+    private string rewardedCloudBtn = "2af4a5e2-eecd-4bb0-85f7-47a6dbabf670~ANDROID~cloudUnityAdUnitRewarded";
 
 
     Unity.Mediation.InterstitialAd interstitialAd;
@@ -36,6 +37,7 @@ public class UnityAds : MonoBehaviour
     Unity.Mediation.RewardedAd rewardedAd3;
     Unity.Mediation.RewardedAd goRewardedAd;
     Unity.Mediation.RewardedAd gwRewardedAd;
+    Unity.Mediation.RewardedAd cloudRewardedAd;
 
 
     // delta dna settings
@@ -100,19 +102,17 @@ public class UnityAds : MonoBehaviour
             interstitialAd.OnFailedShow += OnFailedShow;
             interstitialAd.Show();
         }
-
         // load again
         LoadInterstitial();
     }
 
-    public void ShowInterstitial2()
+    public void ShowQuitBtnInterstitial()
     {
         if(interstitialAd2 != null)
         {
             interstitialAd2.OnFailedShow += OnFailedShow;
             interstitialAd2.Show();
         }
-
         // load again
         LoadQuitBtnInterstitial();
     }
@@ -164,16 +164,24 @@ public class UnityAds : MonoBehaviour
         gwRewardedAd.OnFailedLoad += OnFailedLoad;
         gwRewardedAd.Load();
     }
+    
+    public void LoadCloudRewarded()
+    {
+        cloudRewardedAd = new Unity.Mediation.RewardedAd(gameId, rewardedCloudBtn);
+        cloudRewardedAd.OnLoaded += OnLoaded;
+        cloudRewardedAd.OnFailedLoad += OnFailedLoad;
+        cloudRewardedAd.Load();
+    }
 
     public void ShowRewarded()
     {
         if (rewardedAd != null)
         {
-            rewardedAd.OnFailed += OnFailedShow;
+            rewardedAd.OnFailedShow += OnFailedShow;
             rewardedAd.Show();
         }
-
-        // load again
+        
+        // load again before showing
         LoadRewarded();
     }
 
@@ -181,10 +189,10 @@ public class UnityAds : MonoBehaviour
     {
         if (rewardedAd1 != null)
         {
-            rewardedAd1.OnFailed += OnFailedShow;
+            rewardedAd1.OnFailedShow += OnFailedShow;
             rewardedAd1.Show();
         }
-
+        
         // load again
         LoadRewarded1();
     }
@@ -193,10 +201,10 @@ public class UnityAds : MonoBehaviour
     {
         if(rewardedAd2 != null)
         {
-            rewardedAd2.OnFailed += OnFailedShow;
+            rewardedAd2.OnFailedShow += OnFailedShow;
             rewardedAd2.Show();
         }
-
+        
         // load again
         LoadRewarded2();
     }
@@ -205,10 +213,10 @@ public class UnityAds : MonoBehaviour
     {
         if(rewardedAd3 != null)
         {
-            rewardedAd3.OnFailed += OnFailedShow;
+            rewardedAd3.OnFailedShow += OnFailedShow;
             rewardedAd3.Show();
         }
-
+        
         // load again
         LoadRewarded3();
     }
@@ -217,10 +225,10 @@ public class UnityAds : MonoBehaviour
     {
         if(goRewardedAd != null)
         {
-            goRewardedAd.OnFailed += OnFailedShow;
+            goRewardedAd.OnFailedShow += OnFailedShow;
             goRewardedAd.Show();
         }
-
+        
         // load again
         LoadGameOverRewarded();
     }
@@ -229,12 +237,23 @@ public class UnityAds : MonoBehaviour
     {
         if (gwRewardedAd != null)
         {
-            gwRewardedAd.OnFailed += OnFailedShow;
+            gwRewardedAd.OnFailedShow += OnFailedShow;
             gwRewardedAd.Show();
         }
-
         // also call load to load another instance
         LoadGameWinnerRewarded();
+    }
+    
+    public void ShowCloudRewarded()
+    {
+        if (cloudRewardedAd != null)
+        {
+            cloudRewardedAd.OnFailedShow += OnFailedShow;
+            cloudRewardedAd.Show();
+        }
+        
+        // also call load to load another instance
+        LoadCloudRewarded();
     }
 
     void OnInitializationFailed(object sender, InitializationErrorEventArgs e)
@@ -257,6 +276,7 @@ public class UnityAds : MonoBehaviour
         LoadRewarded3();
         LoadGameOverRewarded();
         LoadGameWinnerRewarded();
+        LoadCloudRewarded();
 
     }
 
@@ -267,7 +287,6 @@ public class UnityAds : MonoBehaviour
 
     void OnFailedLoad(object sender, LoadErrorEventArgs e)
     {
-
         Debug.LogError($"{e.Error}:{e.Message}");
     }
 

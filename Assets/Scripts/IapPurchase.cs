@@ -52,6 +52,7 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 //			purchaseScreen.SetActive (true);
 			
 			ads.ShowRewarded1 ();
+			Manager.PremiumScore += 1000;
 		}
 	}
 
@@ -69,6 +70,7 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 //			purchaseScreen.SetActive (true);
 			
 			ads.ShowRewarded2();
+			Manager.PremiumScore += 5000;
 		}
 	}
 
@@ -85,7 +87,8 @@ public class IapPurchase : MonoBehaviour, IStoreListener {
 //			GameObject purchaseScreen = GameObject.Find ("PurchaseScreen");
 //			purchaseScreen.SetActive (true);
 			
-			ads.ShowRewarded3();
+			ads.ShowCloudRewarded();
+			Manager.PremiumScore += 10000;
 		}
 	}
 
