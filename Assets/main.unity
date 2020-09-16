@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdf99f2c17dd423bbf3b107c2e45963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ads: {fileID: 0}
+  ads: {fileID: 761642205}
 --- !u!4 &326194555
 Transform:
   m_ObjectHideFlags: 0
@@ -866,11 +866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1aaa91e7ed647d2bd79ebf161a88de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopBtn: {fileID: 0}
-  gamesAd: {fileID: 0}
-  payerResult: Non-Payer
-  churnerResult: Non-Churner
-  segmentText: {fileID: 0}
 --- !u!1 &805616282
 GameObject:
   m_ObjectHideFlags: 0

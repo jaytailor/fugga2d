@@ -1,401 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:task" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Docs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Docs/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Docs/ReadMe.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Prefabs/GameOverMenu.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Prefabs/GameOverMenu.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Prefabs/ParentalGateMenu.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Prefabs/ParentalGateMenu.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scenes/Demo_ParentalGateKit.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scenes/Demo_ParentalGateKit.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scripts/GameControl.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scripts/GameControl.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scripts/ParentalGateControl.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scripts/ParentalGateControl.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/128x128.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/128x128/button_no_ads.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/128x128/button_no_ads.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/128x128/button_share.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/128x128/button_share.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/64x64.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/64x64/button_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/64x64/button_close.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/MenuBG.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Sprites/UI/MenuBG.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Docs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Docs/Publisher-Tools-Unity-Asset-Store.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Docs/Publisher-Tools-Unity-Asset-Store.pdf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/AR.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/AR.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Docs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Docs.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Facebook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Facebook.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/HeaderLogo.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/HeaderLogo.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Instagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Instagram.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Support.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Support.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Twitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/Twitter.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/VK.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/VK.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/YouTube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Resources/YouTube.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Scripts/MakakaGamesWelcomeScreen.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Editor/Scripts/MakakaGamesWelcomeScreen.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Scenes/PublisherWindow_NoContent.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Makaka Games/Publisher Window/Scenes/PublisherWindow_NoContent.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Editor/UnityEditor.RCS.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Editor/UnityEditor.RCS.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Plugins.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Plugins/iOS.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Plugins/iOS/RCSDeviceInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Plugins/iOS/RCSDeviceInfo.h.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Plugins/iOS/RCSDeviceInfo.mm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Plugins/iOS/RCSDeviceInfo.mm.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Plugins/iOS/RCSDeviceInfoBridge.mm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Plugins/iOS/RCSDeviceInfoBridge.mm.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Resources/UnityRCSSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/Resources/UnityRCSSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.Settings.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.Settings.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.android.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.android.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.editor.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.editor.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.iOS.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RCS/UnityEngine.RCS.iOS.dll.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-1.1.0.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-1.1.0.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-common-2.0.0.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-common-2.0.0.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-runtime-2.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-runtime-2.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.asynclayoutinflater.asynclayoutinflater-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.asynclayoutinflater.asynclayoutinflater-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.browser.browser-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.browser.browser-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.collection.collection-1.0.0.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.collection.collection-1.0.0.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.coordinatorlayout.coordinatorlayout-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.coordinatorlayout.coordinatorlayout-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.cursoradapter.cursoradapter-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.cursoradapter.cursoradapter-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.customview.customview-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.customview.customview-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.documentfile.documentfile-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.documentfile.documentfile-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.drawerlayout.drawerlayout-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.drawerlayout.drawerlayout-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.fragment.fragment-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.fragment.fragment-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.interpolator.interpolator-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.interpolator.interpolator-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.legacy.legacy-support-core-ui-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.legacy.legacy-support-core-ui-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.legacy.legacy-support-core-utils-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.legacy.legacy-support-core-utils-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-common-2.0.0.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-common-2.0.0.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-2.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-2.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-core-2.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-core-2.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-2.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-2.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-2.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-2.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.loader.loader-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.loader.loader-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.localbroadcastmanager.localbroadcastmanager-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.localbroadcastmanager.localbroadcastmanager-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.print.print-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.print.print-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.slidingpanelayout.slidingpanelayout-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.slidingpanelayout.slidingpanelayout-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.swiperefreshlayout.swiperefreshlayout-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.swiperefreshlayout.swiperefreshlayout-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.deltadna.android.deltadna-sdk-notifications-4.12.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.deltadna.android.deltadna-sdk-notifications-4.12.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.facebook.android.audience-network-sdk-5.11.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.facebook.android.audience-network-sdk-5.11.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.datatransport.transport-api-2.2.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.datatransport.transport-api-2.2.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.datatransport.transport-backend-cct-2.2.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.datatransport.transport-backend-cct-2.2.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.datatransport.transport-runtime-2.2.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.datatransport.transport-runtime-2.2.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-19.3.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-19.3.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-19.3.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-19.3.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-19.3.0.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-19.3.0.aar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-19.3.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-19.3.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-base-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-base-17.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-gass-19.3.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-gass-19.3.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-17.1.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-17.1.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-17.1.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-17.1.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-stats-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-stats-17.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-tasks-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-tasks-17.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.auto.value.auto-value-annotations-1.6.5.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.auto.value.auto-value-annotations-1.6.5.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.dagger.dagger-2.24.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.dagger.dagger-2.24.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-common-19.3.0.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-common-19.3.0.aar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-common-19.3.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-common-19.3.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-components-16.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-components-16.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-datatransport-17.0.3.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-datatransport-17.0.3.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-encoders-json-16.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-encoders-json-16.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-iid-20.2.3.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-iid-20.2.3.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-iid-interop-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-iid-interop-17.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-installations-16.3.3.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-installations-16.3.3.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-installations-interop-16.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-installations-interop-16.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-measurement-connector-18.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-measurement-connector-18.0.0.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-messaging-20.2.4.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-messaging-20.2.4.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-java-3.11.0.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-java-3.11.0.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okhttp3.okhttp-4.6.0.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okhttp3.okhttp-4.6.0.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okio.okio-2.6.0.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okio.okio-2.6.0.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads.unity-ads-3.4.2.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads.unity-ads-3.4.2.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.admob-adapter-0.0.7.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.admob-adapter-0.0.7.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.facebook-adapter-0.0.7.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.facebook-adapter-0.0.7.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.instantiationservice.proto.instantiation-service-proto-0.0.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.instantiationservice.proto.instantiation-service-proto-0.0.7.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.tracking.proto.tracking-proto-0.0.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.tracking.proto.tracking-proto-0.0.7.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.unityads-adapter-0.0.7.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.mediation.unityads-adapter-0.0.7.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/javax.inject.javax.inject-1.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/javax.inject.javax.inject-1.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/mediation-sdk-release.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/mediation-sdk-release.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.annotations-13.0.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.annotations-13.0.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.3.71.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.3.71.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.3.71.jar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.3.71.jar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/res.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
-              <folding>
-                <marker date="1594703329384" expanded="true" signature="6:131" ph="..." />
-                <marker date="1594703329384" expanded="true" signature="170:3357" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="825:1116" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1137:1146" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1172:1475" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1206:1472" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1287:1384" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1392:1468" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1502:1667" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1538:1663" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1705:2058" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="1853:2043" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="2111:2635" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="2239:2629" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="2664:2928" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="2703:2924" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="2962:3354" ph="{...}" />
-                <marker date="1594703329384" expanded="true" signature="3071:3307" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTime.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding>
-                <marker date="1571091799399" expanded="false" signature="6:100" ph="..." />
-                <marker date="1571091799399" expanded="true" signature="142:403" ph="{...}" />
-                <marker date="1571091799399" expanded="true" signature="245:252" ph="{...}" />
-                <marker date="1571091799399" expanded="true" signature="268:311" ph="{...}" />
-                <marker date="1571091799399" expanded="true" signature="365:401" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2256">
-              <caret line="153" selection-start-line="153" selection-end-line="153" />
-              <folding>
-                <marker date="1586984665122" expanded="false" signature="6:113" ph="..." />
-                <marker date="1586984665122" expanded="true" signature="156:3402" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="460:916" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="544:563" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="600:619" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="656:675" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="712:731" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="756:814" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="840:907" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="932:1636" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="989:1172" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="1257:1321" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="1402:1633" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="1573:1628" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="1666:2410" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="1848:2406" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="1915:2247" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="2051:2125" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="2146:2232" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="2248:2402" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="2453:2690" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="2740:2946" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="2963:3039" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="2982:3014" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="3055:3359" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="3282:3308" ph="{...}" />
-                <marker date="1586984665122" expanded="true" signature="3379:3399" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-              <folding>
-                <marker date="1565044397064" expanded="true" signature="6:78" ph="..." />
-                <marker date="1565044397064" expanded="true" signature="126:737" ph="{...}" />
-                <marker date="1565044397064" expanded="true" signature="180:617" ph="{...}" />
-                <marker date="1565044397064" expanded="true" signature="214:245" ph="{...}" />
-                <marker date="1565044397064" expanded="true" signature="279:368" ph="{...}" />
-                <marker date="1565044397064" expanded="true" signature="402:491" ph="{...}" />
-                <marker date="1565044397064" expanded="true" signature="525:614" ph="{...}" />
-                <marker date="1565044397064" expanded="true" signature="666:673" ph="{...}" />
-                <marker date="1565044397064" expanded="true" signature="728:735" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="28" column="50" selection-start-line="19" selection-start-column="8" selection-end-line="28" selection-end-column="50" />
-              <folding>
-                <marker date="1592260518535" expanded="false" signature="6:213" ph="..." />
-                <marker date="1592260518535" expanded="true" signature="272:3700" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="446:840" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="633:705" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="712:789" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="855:926" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="997:1070" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="1100:1450" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="1169:1269" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="1280:1418" ph="/* Need to setup IAP promo here ... */" />
-                <marker date="1592260518535" expanded="true" signature="1480:1831" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="1548:1648" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="1648:1828" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="1661:1799" ph="/* Need to setup IAP promo here ... */" />
-                <marker date="1592260518535" expanded="true" signature="1861:2214" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="1930:2031" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="2031:2211" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="2044:2182" ph="/* Need to setup IAP promo here ... */" />
-                <marker date="1592260518535" expanded="true" signature="2244:2297" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="2307:2397" ph="/// Called when Unity IAP is ready to make purchases. ... " />
-                <marker date="1592260518535" expanded="true" signature="2488:2647" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="2653:2917" ph="/// Called when Unity IAP encounters an unrecoverable initialization error. ... " />
-                <marker date="1592260518535" expanded="true" signature="2988:3051" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="3061:3200" ph="/// Called when a purchase completes. ... " />
-                <marker date="1592260518535" expanded="true" signature="3274:3696" ph="{...}" />
-                <marker date="1592260518535" expanded="true" signature="3371:3589" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-              <folding>
-                <marker date="1594703471372" expanded="false" signature="6:147" ph="..." />
-                <marker date="1594703471372" expanded="true" signature="188:837" ph="{...}" />
-                <marker date="1594703471372" expanded="true" signature="361:534" ph="{...}" />
-                <marker date="1594703471372" expanded="true" signature="460:531" ph="{...}" />
-                <marker date="1594703471372" expanded="true" signature="549:589" ph="{...}" />
-                <marker date="1594703471372" expanded="true" signature="614:691" ph="{...}" />
-                <marker date="1594703471372" expanded="true" signature="716:777" ph="{...}" />
-                <marker date="1594703471372" expanded="true" signature="803:834" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Notification.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <marker date="1565044397065" expanded="true" signature="6:78" ph="..." />
-                <marker date="1565044397065" expanded="true" signature="122:640" ph="{...}" />
-                <marker date="1565044397065" expanded="true" signature="208:388" ph="{...}" />
-                <marker date="1565044397065" expanded="true" signature="442:447" ph="{...}" />
-                <marker date="1565044397065" expanded="true" signature="480:546" ph="{...}" />
-                <marker date="1565044397065" expanded="true" signature="580:638" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="34" column="8" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-              <folding>
-                <marker date="1594703434716" expanded="false" signature="6:113" ph="..." />
-                <marker date="1594703434716" expanded="true" signature="155:879" ph="{...}" />
-                <marker date="1594703434716" expanded="true" signature="232:350" ph="{...}" />
-                <marker date="1594703434716" expanded="true" signature="405:412" ph="{...}" />
-                <marker date="1594703434716" expanded="true" signature="441:477" ph="{...}" />
-                <marker date="1594703434716" expanded="true" signature="510:649" ph="{...}" />
-                <marker date="1594703434716" expanded="true" signature="688:876" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-              <folding>
-                <marker date="1594703458868" expanded="false" signature="6:113" ph="..." />
-                <marker date="1594703458868" expanded="true" signature="153:703" ph="{...}" />
-                <marker date="1594703458868" expanded="true" signature="230:315" ph="{...}" />
-                <marker date="1594703458868" expanded="true" signature="369:374" ph="{...}" />
-                <marker date="1594703458868" expanded="true" signature="409:446" ph="{...}" />
-                <marker date="1594703458868" expanded="true" signature="477:557" ph="{...}" />
-                <marker date="1594703458868" expanded="true" signature="585:701" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>GetDecision</find>
-      <find>Find</find>
-      <find>text</find>
-      <find>LoadScene</find>
-      <find>googleMobile</find>
-      <find>GoogleMobileAds</find>
-      <find>loadSc</find>
-      <find>LoadSce</find>
-      <find>LOad</find>
-      <find>Could</find>
-      <find>GADU</find>
-      <find>time</find>
-      <find>premium</find>
-      <find>rcsPromo</find>
-      <find>show</find>
-      <find>showProm</find>
-      <find>premium1000</find>
-      <find>initiate</find>
-      <find>Manager.Prem</find>
-      <find>flyc</find>
-      <find>ShowVideo</find>
-      <find>scene</find>
-      <find>SceneManager</find>
-      <find>Parent</find>
-      <find>RCS</find>
-      <find>1000_</find>
-      <find>1000_premi</find>
-      <find>banner</find>
-      <find>timer</find>
-    </findStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/Assets/Scripts</dir>
-      <dir>$PROJECT_DIR$/Assets</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/DeltaDNA/Editor/SdkChecker.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPDemo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/Utils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpanIfEmpty.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Notification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreSettingsEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPListener.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/015C3FB8-53EC-4DA5-8422-364ACC529880/74/490011a6/OperativeEventAction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DeltaDNA/Editor/SdkChecker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Upgrade200.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/CodelessIAPStoreListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPDemo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/Demo/DemoInventory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E647153C-0461-45FB-94BA-309B1E626B12/7d/dd0c5b45/IStoreListener.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15966B0E-0B01-470A-B47C-749D344008BB/82/c3717e92/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/menu.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/UnityAdsUpdater.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E647153C-0461-45FB-94BA-309B1E626B12/37/0f869615/UnityPurchasing.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46449F94-F6F9-443B-9C14-0BBA5DB10577/c3/e3eab2c4/RCS.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/015C3FB8-53EC-4DA5-8422-364ACC529880/5b/f5d02674/IDecisionListener.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Upgrade200.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpanIfEmpty.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/015C3FB8-53EC-4DA5-8422-364ACC529880/15/01cfc401/IDecision.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LifeValue.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/8f/8bba3eb1/CoroutineExecutor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/spawnGoodies.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E647153C-0461-45FB-94BA-309B1E626B12/cd/da424900/PurchaseProcessingResult.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Options.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTime.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PremiumCount.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/98/2f4becb9/RCS.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Notification.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15966B0E-0B01-470A-B47C-749D344008BB/23/f9479ce8/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChanceRemainMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/menu.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PrivacyPolicy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Options.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChanceRemainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PremiumCount.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/spawnGoodies.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LifeValue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreSettingsEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -413,109 +178,50 @@
         <option value="$PROJECT_DIR$/Assets/DeltaDNA/Editor/SdkChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerTime.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="5" />
-    <option name="y" value="26" />
-    <option name="width" value="1896" />
-    <option name="height" value="1046" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="SolutionExplorer" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="AssemblyExplorer" />
-      <pane id="SolutionExplorer">
-        <subPane>
-          <expand>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="fugga2d" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="fugga2d" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="fugga2d" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Assets" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="fugga2d" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Assets" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Scripts" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <option name="show-all-files" value="false" />
-      </pane>
-      <pane id="FileSystemExplorer" />
-      <pane id="UnityExplorer">
-        <subPane>
-          <expand>
-            <path>
-              <item name="" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="8711f2a6:AssetsRoot" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <option name="show-hidden-items" value="false" />
-        <option name="show-project-names" value="true" />
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1hF1MeVyF5kctdhJxPOU81h5uns" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="73783">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="73783" />
-      <option name="userSelectedPid" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="60620">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="60620" />
-      <option name="userSelectedPid" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -537,60 +243,30 @@
       <workItem from="1570574998308" duration="4466000" />
       <workItem from="1570821477122" duration="1091000" />
       <workItem from="1594703224048" duration="852000" />
+      <workItem from="1599591986637" duration="3076000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48596000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17571884" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32981133" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2665535" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="NuGet" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Performance Profiler" order="8" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Unity" order="11" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Unit Tests" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="14" />
-      <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
-      <window_info anchor="bottom" id="Thumbnails" order="16" weight="0.3299363" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Errors In Solution" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Unit Tests Coverage" order="6" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -601,473 +277,10 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs</url>
           <line>60</line>
-          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs" initialLine="60">
-            <startOffsets>
-              <option value="2366" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2605" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs" initialLine="60" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/GoogleMobileAds/Api/MobileAds.cs" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/015C3FB8-53EC-4DA5-8422-364ACC529880/74/490011a6/OperativeEventAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/QuitGame.cs" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/98/2f4becb9/RCS.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/e4/a76fe1b2/DecisionService.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="60" column="6" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPListener.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15966B0E-0B01-470A-B47C-749D344008BB/82/c3717e92/Component.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/905A8943-B530-42A1-8491-6231E9BD9B40/8f/8bba3eb1/CoroutineExecutor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15966B0E-0B01-470A-B47C-749D344008BB/23/f9479ce8/MonoBehaviour.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1565044397066" expanded="true" signature="6:100" ph="..." />
-            <marker date="1565044397066" expanded="true" signature="137:375" ph="{...}" />
-            <marker date="1565044397066" expanded="true" signature="237:275" ph="{...}" />
-            <marker date="1565044397066" expanded="true" signature="330:372" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/ChanceRemainMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <marker date="1565044397062" expanded="false" signature="6:113" ph="..." />
-            <marker date="1565044397062" expanded="true" signature="161:700" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="247:439" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="493:498" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="539:605" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="632:698" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <marker date="1565044397062" expanded="false" signature="6:78" ph="..." />
-            <marker date="1565044397062" expanded="true" signature="119:884" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="231:331" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="235:328" ph="/* bombObject = GameObject.FindGameObjectWithTag (&quot;bomb&quot;); ... */" />
-            <marker date="1565044397062" expanded="true" signature="347:882" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="353:429" ph="/* timer to spawn the next goodie Object ... */" />
-            <marker date="1565044397062" expanded="true" signature="511:879" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="652:875" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="706:845" ph="{...}" />
-            <marker date="1565044397062" expanded="true" signature="756:791" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Options.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <marker date="1565044397065" expanded="false" signature="6:78" ph="..." />
-            <marker date="1565044397065" expanded="true" signature="117:319" ph="{...}" />
-            <marker date="1565044397065" expanded="true" signature="167:174" ph="{...}" />
-            <marker date="1565044397065" expanded="true" signature="229:234" ph="{...}" />
-            <marker date="1565044397065" expanded="true" signature="278:317" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E647153C-0461-45FB-94BA-309B1E626B12/37/0f869615/UnityPurchasing.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E647153C-0461-45FB-94BA-309B1E626B12/cd/da424900/PurchaseProcessingResult.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <marker date="1569967300972" expanded="true" signature="0:376" ph="/* Decompiled with JetBrains decompiler ... */" />
-            <marker date="1569967300972" expanded="true" signature="410:488" ph="{...}" />
-            <marker date="1569967300972" expanded="true" signature="451:486" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@3.2.0/README.md" />
-    <entry file="file://$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scripts/GameControl.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-          <folding>
-            <marker date="1569533131491" expanded="false" signature="6:79" ph="..." />
-            <marker date="1569533131491" expanded="true" signature="122:762" ph="{...}" />
-            <marker date="1569533131491" expanded="true" signature="211:344" ph="{...}" />
-            <marker date="1569533131491" expanded="true" signature="259:339" ph="{...}" />
-            <marker date="1569533131491" expanded="true" signature="276:334" ph="{...}" />
-            <marker date="1569533131491" expanded="true" signature="367:460" ph="{...}" />
-            <marker date="1569533131491" expanded="true" signature="501:637" ph="{...}" />
-            <marker date="1569533131491" expanded="true" signature="549:632" ph="{...}" />
-            <marker date="1569533131491" expanded="true" signature="566:627" ph="{...}" />
-            <marker date="1569533131491" expanded="true" signature="663:759" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PrivacyPolicy.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding>
-            <marker date="1570572714866" expanded="false" signature="6:78" ph="..." />
-            <marker date="1570572714866" expanded="true" signature="122:318" ph="{...}" />
-            <marker date="1570572714866" expanded="true" signature="213:316" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-          <folding>
-            <marker date="1568843758165" expanded="false" signature="6:78" ph="..." />
-            <marker date="1568843758165" expanded="true" signature="108:757" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="311:390" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="321:350" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="357:387" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="423:498" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="433:460" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="467:495" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="527:598" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="537:562" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="569:595" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="630:755" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="648:692" ph="{...}" />
-            <marker date="1568843758165" expanded="true" signature="704:749" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PremiumCount.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding>
-            <marker date="1569968772178" expanded="false" signature="6:100" ph="..." />
-            <marker date="1569968772178" expanded="true" signature="144:509" ph="{...}" />
-            <marker date="1569968772178" expanded="true" signature="249:346" ph="{...}" />
-            <marker date="1569968772178" expanded="true" signature="400:506" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E647153C-0461-45FB-94BA-309B1E626B12/7d/dd0c5b45/IStoreListener.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <marker date="1569967350856" expanded="true" signature="0:366" ph="/* Decompiled with JetBrains decompiler ... */" />
-            <marker date="1569967350856" expanded="true" signature="400:727" ph="{...}" />
-            <marker date="1569967350856" expanded="true" signature="436:725" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@3.3.0/Runtime/Advertisement/Advertisement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Timer.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/spawnGoodies.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <marker date="1565044397067" expanded="false" signature="6:78" ph="..." />
-            <marker date="1565044397067" expanded="true" signature="122:1625" ph="{...}" />
-            <marker date="1565044397067" expanded="true" signature="539:773" ph="{...}" />
-            <marker date="1565044397067" expanded="true" signature="738:769" ph="{...}" />
-            <marker date="1565044397067" expanded="true" signature="789:909" ph="{...}" />
-            <marker date="1565044397067" expanded="true" signature="879:902" ph="{...}" />
-            <marker date="1565044397067" expanded="true" signature="953:977" ph="{...}" />
-            <marker date="1565044397067" expanded="true" signature="1004:1623" ph="{...}" />
-            <marker date="1565044397067" expanded="true" signature="1277:1347" ph="{...}" />
-            <marker date="1565044397067" expanded="true" signature="1532:1588" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/playerTimer.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/DeltaDNA/Editor/SdkChecker.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="33" column="48" lean-forward="true" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-          <folding>
-            <marker date="1542973272000" expanded="true" signature="0:621" ph="/* Copyright (c) 2017 deltaDNA Ltd. All rights reserved. ... */" />
-            <marker date="1542973272000" expanded="false" signature="629:734" ph="..." />
-            <marker date="1542973272000" expanded="true" signature="762:3385" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="827:2932" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="991:1424" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="1081:1349" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="1128:1335" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="1482:1528" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="1565:2464" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="1712:1838" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="2537:2755" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="2653:2716" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="2791:2834" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="2971:3193" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="3120:3187" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="3231:3383" ph="{...}" />
-            <marker date="1542973272000" expanded="true" signature="3309:3377" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTime.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <marker date="1571091799399" expanded="false" signature="6:100" ph="..." />
-            <marker date="1571091799399" expanded="true" signature="142:403" ph="{...}" />
-            <marker date="1571091799399" expanded="true" signature="245:252" ph="{...}" />
-            <marker date="1571091799399" expanded="true" signature="268:311" ph="{...}" />
-            <marker date="1571091799399" expanded="true" signature="365:401" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2256">
-          <caret line="153" selection-start-line="153" selection-end-line="153" />
-          <folding>
-            <marker date="1586984665122" expanded="false" signature="6:113" ph="..." />
-            <marker date="1586984665122" expanded="true" signature="156:3402" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="460:916" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="544:563" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="600:619" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="656:675" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="712:731" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="756:814" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="840:907" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="932:1636" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="989:1172" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="1257:1321" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="1402:1633" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="1573:1628" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="1666:2410" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="1848:2406" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="1915:2247" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="2051:2125" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="2146:2232" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="2248:2402" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="2453:2690" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="2740:2946" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="2963:3039" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="2982:3014" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="3055:3359" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="3282:3308" ph="{...}" />
-            <marker date="1586984665122" expanded="true" signature="3379:3399" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding>
-            <marker date="1565044397064" expanded="true" signature="6:78" ph="..." />
-            <marker date="1565044397064" expanded="true" signature="126:737" ph="{...}" />
-            <marker date="1565044397064" expanded="true" signature="180:617" ph="{...}" />
-            <marker date="1565044397064" expanded="true" signature="214:245" ph="{...}" />
-            <marker date="1565044397064" expanded="true" signature="279:368" ph="{...}" />
-            <marker date="1565044397064" expanded="true" signature="402:491" ph="{...}" />
-            <marker date="1565044397064" expanded="true" signature="525:614" ph="{...}" />
-            <marker date="1565044397064" expanded="true" signature="666:673" ph="{...}" />
-            <marker date="1565044397064" expanded="true" signature="728:735" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Notification.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1565044397065" expanded="true" signature="6:78" ph="..." />
-            <marker date="1565044397065" expanded="true" signature="122:640" ph="{...}" />
-            <marker date="1565044397065" expanded="true" signature="208:388" ph="{...}" />
-            <marker date="1565044397065" expanded="true" signature="442:447" ph="{...}" />
-            <marker date="1565044397065" expanded="true" signature="480:546" ph="{...}" />
-            <marker date="1565044397065" expanded="true" signature="580:638" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Makaka Games/Parental Gate Kit/Scripts/ParentalGateControl.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="28" column="50" selection-start-line="19" selection-start-column="8" selection-end-line="28" selection-end-column="50" />
-          <folding>
-            <marker date="1592260518535" expanded="false" signature="6:213" ph="..." />
-            <marker date="1592260518535" expanded="true" signature="272:3700" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="446:840" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="633:705" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="712:789" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="855:926" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="997:1070" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="1100:1450" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="1169:1269" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="1280:1418" ph="/* Need to setup IAP promo here ... */" />
-            <marker date="1592260518535" expanded="true" signature="1480:1831" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="1548:1648" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="1648:1828" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="1661:1799" ph="/* Need to setup IAP promo here ... */" />
-            <marker date="1592260518535" expanded="true" signature="1861:2214" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="1930:2031" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="2031:2211" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="2044:2182" ph="/* Need to setup IAP promo here ... */" />
-            <marker date="1592260518535" expanded="true" signature="2244:2297" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="2307:2397" ph="/// Called when Unity IAP is ready to make purchases. ... " />
-            <marker date="1592260518535" expanded="true" signature="2488:2647" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="2653:2917" ph="/// Called when Unity IAP encounters an unrecoverable initialization error. ... " />
-            <marker date="1592260518535" expanded="true" signature="2988:3051" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="3061:3200" ph="/// Called when a purchase completes. ... " />
-            <marker date="1592260518535" expanded="true" signature="3274:3696" ph="{...}" />
-            <marker date="1592260518535" expanded="true" signature="3371:3589" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
-          <folding>
-            <marker date="1594703329384" expanded="true" signature="6:131" ph="..." />
-            <marker date="1594703329384" expanded="true" signature="170:3357" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="825:1116" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1137:1146" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1172:1475" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1206:1472" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1287:1384" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1392:1468" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1502:1667" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1538:1663" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1705:2058" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="1853:2043" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="2111:2635" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="2239:2629" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="2664:2928" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="2703:2924" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="2962:3354" ph="{...}" />
-            <marker date="1594703329384" expanded="true" signature="3071:3307" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="34" column="8" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding>
-            <marker date="1594703434716" expanded="false" signature="6:113" ph="..." />
-            <marker date="1594703434716" expanded="true" signature="155:879" ph="{...}" />
-            <marker date="1594703434716" expanded="true" signature="232:350" ph="{...}" />
-            <marker date="1594703434716" expanded="true" signature="405:412" ph="{...}" />
-            <marker date="1594703434716" expanded="true" signature="441:477" ph="{...}" />
-            <marker date="1594703434716" expanded="true" signature="510:649" ph="{...}" />
-            <marker date="1594703434716" expanded="true" signature="688:876" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-          <folding>
-            <marker date="1594703458868" expanded="false" signature="6:113" ph="..." />
-            <marker date="1594703458868" expanded="true" signature="153:703" ph="{...}" />
-            <marker date="1594703458868" expanded="true" signature="230:315" ph="{...}" />
-            <marker date="1594703458868" expanded="true" signature="369:374" ph="{...}" />
-            <marker date="1594703458868" expanded="true" signature="409:446" ph="{...}" />
-            <marker date="1594703458868" expanded="true" signature="477:557" ph="{...}" />
-            <marker date="1594703458868" expanded="true" signature="585:701" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <marker date="1594703471372" expanded="false" signature="6:147" ph="..." />
-            <marker date="1594703471372" expanded="true" signature="188:837" ph="{...}" />
-            <marker date="1594703471372" expanded="true" signature="361:534" ph="{...}" />
-            <marker date="1594703471372" expanded="true" signature="460:531" ph="{...}" />
-            <marker date="1594703471372" expanded="true" signature="549:589" ph="{...}" />
-            <marker date="1594703471372" expanded="true" signature="614:691" ph="{...}" />
-            <marker date="1594703471372" expanded="true" signature="716:777" ph="{...}" />
-            <marker date="1594703471372" expanded="true" signature="803:834" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

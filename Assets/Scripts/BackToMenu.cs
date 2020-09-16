@@ -26,7 +26,7 @@ public class BackToMenu : MonoBehaviour {
 	public void takeToMainMenu(){
 		int CurrPremium = Manager.PremiumScore;
 		
-		Manager.Ads.ShowVideo();
+		Manager.Ads.ShowQuitBtnInterstitial();
 			
 		SceneManager.LoadScene (0);
 		resetValues (CurrPremium);

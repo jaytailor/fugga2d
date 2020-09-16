@@ -25,7 +25,7 @@ public class FuggaWin : MonoBehaviour {
 	}
 
 	public void takeToMainMenu(){
-		Manager.Ads.ShowVideo();
+		Manager.Ads.ShowGameWinRewarded();
 
 		SceneManager.LoadScene (0);
 		resetValues ();
