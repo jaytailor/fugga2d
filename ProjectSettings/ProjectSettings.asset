@@ -163,7 +163,7 @@ PlayerSettings:
     iPhone: com.unity3d.ads.jayt
   buildNumber:
     iPhone: 4
-  AndroidBundleVersionCode: 46
+  AndroidBundleVersionCode: 47
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
