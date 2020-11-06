@@ -16,13 +16,13 @@ public class spawnGoodies : MonoBehaviour {
 
 	// the range of X
 	[Header ("X Spawn Range")]
-	public float xMin;
-	public float xMax;
+	float xMin = -2;
+	float xMax = 2;
 
 	// the range of y
 	[Header ("Y Spawn Range")]
-	public float yMin;
-	public float yMax;
+	float yMin = -2;
+	float yMax = 3;
 
 
 	void Start()

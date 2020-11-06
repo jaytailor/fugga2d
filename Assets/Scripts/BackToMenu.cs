@@ -11,14 +11,8 @@ public class BackToMenu : MonoBehaviour {
 	void Start () {
 		backMenuObj = GameObject.Find ("BackToMenu");
 		backMenuObj.SetActive(false);
-        Manager.Ads.ShowBanner();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void showBackMenu(){
 		backMenuObj.SetActive (true);
 	}
@@ -26,7 +20,7 @@ public class BackToMenu : MonoBehaviour {
 	public void takeToMainMenu(){
 		int CurrPremium = Manager.PremiumScore;
 		
-		Manager.Ads.ShowQuitBtnInterstitial();
+		Manager.Ads.ShowInterstitialNew();
 			
 		SceneManager.LoadScene (0);
 		resetValues (CurrPremium);

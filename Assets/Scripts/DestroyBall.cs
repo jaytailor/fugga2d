@@ -55,8 +55,7 @@ public class DestroyBall : MonoBehaviour {
 			// Disable the screen behind. Don't show any object
 			GameObject obj = GameObject.Find ("Goodies");
 			obj.SetActive (false);
-
-			//ads.ShowPromo ();
+			
 			bm.showBackMenu ();
 		}
 
@@ -115,7 +114,7 @@ public class DestroyBall : MonoBehaviour {
         Debug.Log("bomb is popping");
         anim.SetTrigger("blast");
         Debug.Log(anim.name);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         hit.collider.gameObject.SetActive(false);
         sg.isObjectExs();
     }

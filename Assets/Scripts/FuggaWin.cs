@@ -14,18 +14,12 @@ public class FuggaWin : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
-	void Update () {
-
-	}
-
-
 	public void showWinningScreen(){
 		winScreenObj.SetActive (true);
 	}
 
 	public void takeToMainMenu(){
-		Manager.Ads.ShowGameWinRewarded();
+		Manager.Ads.ShowRewardedNew();
 
 		SceneManager.LoadScene (0);
 		resetValues ();

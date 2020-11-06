@@ -341,7 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdf99f2c17dd423bbf3b107c2e45963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ads: {fileID: 761642205}
 --- !u!4 &326194555
 Transform:
   m_ObjectHideFlags: 0
@@ -476,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4728830198012916, guid: b89f475b4f531471dae3b1fb0727a32e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114576334044821358, guid: b89f475b4f531471dae3b1fb0727a32e,
         type: 3}
@@ -649,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8fce230157d465e863815ce4518c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobj: {fileID: 2058193705}
+  mobj: {fileID: 0}
 --- !u!1 &696529941
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,18 +827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7dd963c1a8b427b96975fa211478a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumePurchase: 1
-  dontDestroyOnLoad: 1
-  onPurchaseComplete:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Purchasing.IAPListener+OnPurchaseCompletedEvent, Assembly-CSharp-firstpass,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  onPurchaseFailed:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Purchasing.IAPListener+OnPurchaseFailedEvent, Assembly-CSharp-firstpass,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!4 &761642204
 Transform:
   m_ObjectHideFlags: 0
@@ -901,7 +888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 108.34573, y: -63.117065}
+  m_AnchoredPosition: {x: 108.3457, y: -63.117188}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805616284
@@ -2488,9 +2475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0fc99e1b34cb46e4a8ff3e5b637445e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beach: {fileID: 21300000, guid: 0435905c9debb4d0cb0959a19b60f321, type: 3}
-  dream: {fileID: 21300000, guid: 2b8286c6360934b589405b1434f23217, type: 3}
-  cloud: {fileID: 21300000, guid: 1c02732bf03224e7789cb1eb7b8a0bf9, type: 3}
+  beach: {fileID: 0}
+  dream: {fileID: 0}
+  cloud: {fileID: 0}
 --- !u!1 &1500441227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2617,7 +2604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4615380661638286, guid: 9bc7bbd8633b141cba03c509ab11312d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114708015683645312, guid: 9bc7bbd8633b141cba03c509ab11312d,
         type: 3}
@@ -3137,7 +3124,7 @@ MonoBehaviour:
   fw: {fileID: 0}
   ads: {fileID: 0}
   AClip: {fileID: 0}
-  time: 10
+  time: 0
 --- !u!1001 &1953812128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3175,7 +3162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4615380661638286, guid: 9bc7bbd8633b141cba03c509ab11312d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114708015683645312, guid: 9bc7bbd8633b141cba03c509ab11312d,
         type: 3}
@@ -3236,10 +3223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8f50a528ee24da28621d024089d790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMin: -2
-  xMax: 2
-  yMin: -3
-  yMax: 3
 --- !u!4 &2058193706
 Transform:
   m_ObjectHideFlags: 0
@@ -3252,9 +3235,9 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 722192026}
+  - {fileID: 178323421}
   - {fileID: 935281890}
   - {fileID: 1953812129}
-  - {fileID: 178323421}
   m_Father: {fileID: 1246988764}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3330,7 +3313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -156, y: -65.99988}
+  m_AnchoredPosition: {x: -156, y: -66}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074857349
