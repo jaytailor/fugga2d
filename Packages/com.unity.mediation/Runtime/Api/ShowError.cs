@@ -1,0 +1,25 @@
+using System;
+
+namespace Unity.Mediation
+{
+    /// <summary>
+    /// Enum for show error codes.
+    /// </summary>
+    public enum ShowError
+    {
+        /// <summary>
+        /// Unknown error, see message
+        /// </summary>
+        Unknown,
+
+        /// <summary>
+        /// Ad wasn't loaded and cannot be shown
+        /// </summary>
+        AdNotLoaded,
+
+        /// <summary>
+        /// Ad network adapter error caused ad to not show
+        /// </summary>
+        AdNetworkError
+    }
+}

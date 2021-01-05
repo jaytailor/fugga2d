@@ -1,0 +1,6 @@
+framework module UnityMediationFacebookAdapter {
+  umbrella header "UnityMediationFacebookAdapter.h"
+
+  export *
+  module * { export * }
+}

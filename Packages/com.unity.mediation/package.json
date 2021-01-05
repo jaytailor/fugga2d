@@ -1,0 +1,25 @@
+{
+  "name": "com.unity.mediation",
+  "displayName": "Mediation",
+  "version": "0.0.10-preview",
+  "unity": "2018.4",
+  "description": "Wrapper for the mediation sdk. \n▪ Handles mediation. \n▪ Allows for the use of multiple ad networks.",
+  "dependencies": {
+    "com.unity.settings-manager": "1.0.3"
+  },
+  "samples": [
+    {
+      "displayName": "Example Usage",
+      "description": "A Sample Integration with a Demo Scene and C# Implementation",
+      "path": "Samples~/ExampleUsage"
+    }
+  ],
+  "upmCi": {
+    "footprint": "82dd2b3b557b7355ac1fa08b161ec68e06951442"
+  },
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/com.unity.mediation.git",
+    "type": "git",
+    "revision": "63076b6abd89ef37bb97acdbdc1438d668f913d4"
+  }
+}
