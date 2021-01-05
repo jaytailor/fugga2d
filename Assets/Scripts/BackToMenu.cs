@@ -5,42 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class BackToMenu : MonoBehaviour {
 	
-	GameObject backMenuObj;
+    GameObject backMenuObj;
 
-	// Use this for initialization
-	void Start () {
-		backMenuObj = GameObject.Find ("BackToMenu");
-		backMenuObj.SetActive(false);
-        Manager.Ads.ShowBanner();
-	}
+    // Use this for initialization
+    void Start () {
+        backMenuObj = GameObject.Find ("BackToMenu");
+        backMenuObj.SetActive(false);
+    }
 	
-	// Update is called once per frame
-	void Update () {
+    public void showBackMenu(){
+        backMenuObj.SetActive (true);
+    }
 		
-	}
-
-	public void showBackMenu(){
-		backMenuObj.SetActive (true);
-	}
+    public void takeToMainMenu(){
+        int CurrPremium = Manager.PremiumScore;
 		
-	public void takeToMainMenu(){
-		int CurrPremium = Manager.PremiumScore;
-		
-		Manager.Ads.ShowQuitBtnInterstitial();
+        Manager.Ads.ShowInterstitialNew();
 			
-		SceneManager.LoadScene (0);
-		resetValues (CurrPremium);
-	}
+        SceneManager.LoadScene (0);
+        resetValues (CurrPremium);
+    }
 
-	public void resetValues(int premium){
-		// Move the score back to 0
-		Score.scoreValue = 0;
+    public void resetValues(int premium){
+        // Move the score back to 0
+        Score.scoreValue = 0;
 
-		// and reset the life to 3
-		LifeValue.lifeValue = 3; 
+        // and reset the life to 3
+        LifeValue.lifeValue = 3; 
 
-		// reset to the last premium value
-		Manager.PremiumScore = premium;
-	}
+        // reset to the last premium value
+        Manager.PremiumScore = premium;
+    }
 
 }
