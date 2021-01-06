@@ -1,0 +1,22 @@
+<!-- auto-generated. do not modify by hand. -->
+<dependencies>
+  <androidPackages>
+    <repositories>
+      <repository>Packages/com.unity.mediation/Editor/Maven~</repository>
+    </repositories>
+    <!-- Mediation Android SDK -->
+    <androidPackage spec="com.unity3d.mediation:mediation-sdk:0.0.10" mediation-identifier="mediation-sdk" mediation-version="0.0.10" />
+    <!-- Mediation SDK Android Adapters -->
+    <androidPackage spec="com.unity3d.mediation:admob-adapter:0.0.10" mediation-identifier="admob-adapter" mediation-version="0.0.10" />
+    <androidPackage spec="com.unity3d.mediation:facebook-adapter:0.0.10" mediation-identifier="facebook-adapter" mediation-version="0.0.10" />
+    <androidPackage spec="com.unity3d.mediation:unityads-adapter:0.0.10" mediation-identifier="unityads-adapter" mediation-version="0.0.10" />
+  </androidPackages>
+  <iosPods>
+    <!-- Mediation iOS SDK -->
+    <iosPod name="UnityMediationSdk" path="Packages/com.unity.mediation/Editor/CocoaPods~/UnityMediationSdk" mediation-identifier="mediation-sdk" mediation-version="0.0.10" />
+    <!-- Mediation SDK iOS Adapters -->
+    <iosPod name="UnityMediationAdmobAdapter" path="Packages/com.unity.mediation/Editor/CocoaPods~/UnityMediationAdmobAdapter" mediation-identifier="admob-adapter" mediation-version="0.0.10" />
+    <iosPod name="UnityMediationFacebookAdapter" path="Packages/com.unity.mediation/Editor/CocoaPods~/UnityMediationFacebookAdapter" mediation-identifier="facebook-adapter" mediation-version="0.0.10" />
+    <iosPod name="UnityMediationUnityAdapter" path="Packages/com.unity.mediation/Editor/CocoaPods~/UnityMediationUnityAdapter" mediation-identifier="unityads-adapter" mediation-version="0.0.10" />
+  </iosPods>
+</dependencies>

@@ -1,0 +1,16 @@
+<!-- auto-generated. do not modify by hand. -->
+<dependencies>
+  <androidPackages>
+    <repositories>
+      <repository>Packages/com.unity.mediation/Editor/Maven~</repository>
+    </repositories>
+    <!-- Mediation Android SDK -->
+    <androidPackage spec="com.unity3d.mediation:mediation-sdk:0.0.10" mediation-identifier="mediation-sdk" mediation-version="0.0.10" />
+    <!-- Mediation SDK Android Adapters -->
+  </androidPackages>
+  <iosPods>
+    <!-- Mediation iOS SDK -->
+    <iosPod name="UnityMediationSdk" path="Packages/com.unity.mediation/Editor/CocoaPods~/UnityMediationSdk" mediation-identifier="mediation-sdk" mediation-version="0.0.10" />
+    <!-- Mediation SDK iOS Adapters -->
+  </iosPods>
+</dependencies>

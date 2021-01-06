@@ -1,0 +1,6 @@
+framework module UnityMediationSdk {
+  umbrella header "UnityMediationSdk.h"
+
+  export *
+  module * { export * }
+}

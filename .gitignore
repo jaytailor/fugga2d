@@ -4,7 +4,6 @@ Build/Android/
 Build/iOS/
 Build/.DS_Store
 *.cache
-Packages/
 .DS_Store
 .vs/
 

@@ -1,0 +1,145 @@
+// This file is generated. Do not modify by hand.
+// XML documentation file not found. To check if public methods have XML comments,
+// make sure the XML doc file is present and located next to the scraped dll
+namespace Unity.Mediation
+{
+    public enum AdState
+    {
+        public const Unity.Mediation.AdState Loaded = 2;
+        public const Unity.Mediation.AdState Loading = 1;
+        public const Unity.Mediation.AdState Showing = 3;
+        public const Unity.Mediation.AdState Unloaded = 0;
+        public int value__;
+    }
+
+    public class ImpressionData
+    {
+        public string AdSourceInstance;
+        public string AdSourceName;
+        public string AdUnitFormat;
+        public string AdUnitId;
+        public string AdUnitName;
+        public string AppVersion;
+        public string Country;
+        public string Currency;
+        public string ImpressionId;
+        public string LineItemId;
+        public string LineItemName;
+        public string LineItemPriority;
+        public string PublisherRevenue;
+        public string RevenueAccuracy;
+        public string Timestamp;
+        public ImpressionData() {}
+    }
+
+    public class ImpressionEventArgs : System.EventArgs
+    {
+        public string AdUnitId { get; }
+        public Unity.Mediation.ImpressionData ImpressionData { get; }
+        public ImpressionEventArgs(string adUnitId, Unity.Mediation.ImpressionData impressionData) {}
+    }
+
+    public static class ImpressionEventPublisher
+    {
+        public static event System.EventHandler<Unity.Mediation.ImpressionEventArgs> OnImpression;
+    }
+
+    public class InitializationErrorEventArgs : System.EventArgs
+    {
+        public Unity.Mediation.SdkInitializationError Error { get; }
+        public string Message { get; }
+        public InitializationErrorEventArgs(Unity.Mediation.SdkInitializationError error, string message) {}
+    }
+
+    public enum InitializationState
+    {
+        public const Unity.Mediation.InitializationState Initialized = 2;
+        public const Unity.Mediation.InitializationState Initializing = 1;
+        public const Unity.Mediation.InitializationState Uninitialized = 0;
+        public int value__;
+    }
+
+    public sealed class InterstitialAd : System.IDisposable
+    {
+        public event System.EventHandler OnClicked;
+        public event System.EventHandler OnClosed;
+        public event System.EventHandler<Unity.Mediation.LoadErrorEventArgs> OnFailedLoad;
+        public event System.EventHandler<Unity.Mediation.ShowErrorEventArgs> OnFailedShow;
+        public event System.EventHandler OnLoaded;
+        public event System.EventHandler OnShowed;
+        public Unity.Mediation.AdState AdState { get; }
+        public string AdUnitId { get; }
+        public InterstitialAd(string gameId, string adUnitId) {}
+        public virtual void Dispose();
+        public void Load();
+        public void Show();
+    }
+
+    public enum LoadError
+    {
+        public const Unity.Mediation.LoadError NetworkError = 1;
+        public const Unity.Mediation.LoadError NoFill = 0;
+        public const Unity.Mediation.LoadError Unknown = 2;
+        public int value__;
+    }
+
+    public class LoadErrorEventArgs : System.EventArgs
+    {
+        public Unity.Mediation.LoadError Error { get; }
+        public string Message { get; }
+        public LoadErrorEventArgs(Unity.Mediation.LoadError error, string message) {}
+    }
+
+    public sealed class RewardedAd : System.IDisposable
+    {
+        public event System.EventHandler OnClicked;
+        public event System.EventHandler OnClosed;
+        public event System.EventHandler<Unity.Mediation.LoadErrorEventArgs> OnFailedLoad;
+        public event System.EventHandler<Unity.Mediation.ShowErrorEventArgs> OnFailedShow;
+        public event System.EventHandler OnLoaded;
+        public event System.EventHandler OnShowed;
+        public event System.EventHandler<Unity.Mediation.RewardEventArgs> OnUserRewarded;
+        public Unity.Mediation.AdState AdState { get; }
+        public string AdUnitId { get; }
+        public RewardedAd(string gameId, string adUnitId) {}
+        public virtual void Dispose();
+        public void Load();
+        public void Show();
+    }
+
+    public class RewardEventArgs : System.EventArgs
+    {
+        public string Amount { get; }
+        public string Type { get; }
+        public RewardEventArgs(string type, string amount) {}
+    }
+
+    public enum SdkInitializationError
+    {
+        public const Unity.Mediation.SdkInitializationError Unknown = 0;
+        public int value__;
+    }
+
+    public enum ShowError
+    {
+        public const Unity.Mediation.ShowError AdNetworkError = 2;
+        public const Unity.Mediation.ShowError AdNotLoaded = 1;
+        public const Unity.Mediation.ShowError Unknown = 0;
+        public int value__;
+    }
+
+    public class ShowErrorEventArgs : System.EventArgs
+    {
+        public Unity.Mediation.ShowError Error { get; }
+        public string Message { get; }
+        public ShowErrorEventArgs(Unity.Mediation.ShowError error, string message) {}
+    }
+
+    public static class UnityMediation
+    {
+        public static event System.EventHandler OnInitializationComplete;
+        public static event System.EventHandler<Unity.Mediation.InitializationErrorEventArgs> OnInitializationFailed;
+        public static Unity.Mediation.InitializationState State { get; }
+        public static void Initialize(string gameId);
+    }
+}

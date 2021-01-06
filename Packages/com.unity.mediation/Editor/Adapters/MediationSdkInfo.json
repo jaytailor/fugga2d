@@ -1,0 +1,34 @@
+{
+  "SdkInfo": {
+    "Identifier": "mediation-sdk",
+    "DisplayName": "Mediation SDK",
+    "AndroidArtifact": "com.unity3d.mediation:mediation-sdk",
+    "IosPod": "UnityMediationSdk",
+    "PackageVersion": "0.0.10-preview",
+    "SdkVersion": "0.0.10"
+  },
+	"Adapters": [
+		{
+			"Identifier": "admob-adapter",
+			"DisplayName": "AdMob Adapter",
+			"AndroidArtifact": "com.unity3d.mediation:admob-adapter",
+			"IosPod": "UnityMediationAdmobAdapter",
+			"Versions": ["0.0.10"]
+		},
+		{
+			"Identifier": "facebook-adapter",
+			"DisplayName": "Facebook Adapter",
+			"AndroidArtifact": "com.unity3d.mediation:facebook-adapter",
+			"IosPod": "UnityMediationFacebookAdapter",
+			"Versions": ["0.0.10"]
+		},
+		{
+			"Identifier": "unityads-adapter",
+			"DisplayName": "Unity Ads Adapter",
+			"AndroidArtifact": "com.unity3d.mediation:unityads-adapter",
+			"IosPod": "UnityMediationUnityAdapter",
+			"Versions": ["0.0.10"]
+		}
+	]
+}
+
