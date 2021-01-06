@@ -46,6 +46,12 @@ public class UnityAds : MonoBehaviour
 
 		ImpressionEventPublisher.OnImpression += OnImpression;
 		
+		// load interstitial ads
+		LoadInterstitialNew();
+        
+		// load rewarded ads
+		LoadRewardedNew();
+		
 	}
 
     public void Start()
@@ -99,12 +105,6 @@ public class UnityAds : MonoBehaviour
     void OnInitializationComplete(object sender, EventArgs e)
     {
         Debug.Log("Initialization of mediation complete");
-
-        // load interstitial ads
-		LoadInterstitialNew();
-        
-        // load rewarded ads
-        LoadRewardedNew();
     }
 
     void OnLoadedInterstitial(object sender, EventArgs e)
