@@ -26,9 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DeltaDNA/Editor/Android/Dependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DeltaDNA/Editor/Android/Dependencies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +96,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" />
         <option value="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" />
+        <option value="$PROJECT_DIR$/Assets/DeltaDNA/Editor/Android/Dependencies.xml" />
       </list>
     </option>
   </component>
@@ -159,7 +161,7 @@
       <workItem from="1599591986637" duration="7662000" />
       <workItem from="1604085162978" duration="9483000" />
       <workItem from="1604622757221" duration="20303000" />
-      <workItem from="1609808148663" duration="6649000" />
+      <workItem from="1609808148663" duration="7252000" />
     </task>
     <servers />
   </component>
