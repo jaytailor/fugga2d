@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Unity.Mediation;
 using UnityEngine.UI;
@@ -10,17 +10,18 @@ public class UnityAds : MonoBehaviour
 {
 	#if UNITY_IOS
 		private string gameId = "1737343"; // Your iOS game ID here
+		private string rewardedVideoAdunitIdNew = "rv_ios_medi_adunit";
+		private string interstitialAdunitIdNew = "interstitial_ios_medi_adunit";
 	#elif UNITY_ANDROID
 		private string gameId = "1737342"; // Your Android game ID here
+		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
+		private string interstitialAdunitIdNew = "interstitial_android_medi_adunit";
 	#else
 		private string gameId = "0123456"; // Prevents Editor Errors
 	#endif
 
 	public GameObject adBtn;
-
-    private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
-    private string interstitialAdunitIdNew = "interstitial_android_medi_adunit";
-
+	
     Unity.Mediation.InterstitialAd interstitialAdNew;
     Unity.Mediation.RewardedAd rewardedVideoAdNew;
 
