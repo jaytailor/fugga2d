@@ -1,6 +1,6 @@
 <dependencies>
   <packages>
-    <package>com.deltadna.android:deltadna-sdk-notifications:4.10.0</package>
+    <package>com.deltadna.android:deltadna-sdk-notifications:4.+</package>
     <package>com.unity3d.mediation:admob-adapter:0.0.10</package>
     <package>com.unity3d.mediation:facebook-adapter:0.0.10</package>
     <package>com.unity3d.mediation:mediation-sdk:0.0.10</package>
