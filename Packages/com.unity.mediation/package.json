@@ -1,7 +1,7 @@
 {
   "name": "com.unity.mediation",
   "displayName": "Mediation",
-  "version": "0.0.10-preview",
+  "version": "0.0.11-preview",
   "unity": "2018.4",
   "description": "Wrapper for the mediation sdk. \n▪ Handles mediation. \n▪ Allows for the use of multiple ad networks.",
   "dependencies": {
@@ -15,11 +15,11 @@
     }
   ],
   "upmCi": {
-    "footprint": "82dd2b3b557b7355ac1fa08b161ec68e06951442"
+    "footprint": "4310e7fbf3ad97045312434b03d220c1c09ee5e3"
   },
   "repository": {
     "url": "https://github.cds.internal.unity3d.com/unity/com.unity.mediation.git",
     "type": "git",
-    "revision": "63076b6abd89ef37bb97acdbdc1438d668f913d4"
+    "revision": "19a0ca061d8b3ebd9cc0eb4fdea728958d4ffb62"
   }
 }

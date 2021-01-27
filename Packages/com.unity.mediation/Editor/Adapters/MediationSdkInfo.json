@@ -4,8 +4,8 @@
     "DisplayName": "Mediation SDK",
     "AndroidArtifact": "com.unity3d.mediation:mediation-sdk",
     "IosPod": "UnityMediationSdk",
-    "PackageVersion": "0.0.10-preview",
-    "SdkVersion": "0.0.10"
+    "PackageVersion": "0.0.11-preview",
+    "SdkVersion": "0.0.11"
   },
 	"Adapters": [
 		{
@@ -13,21 +13,42 @@
 			"DisplayName": "AdMob Adapter",
 			"AndroidArtifact": "com.unity3d.mediation:admob-adapter",
 			"IosPod": "UnityMediationAdmobAdapter",
-			"Versions": ["0.0.10"]
+			"Versions": ["0.0.11"]
 		},
 		{
 			"Identifier": "facebook-adapter",
 			"DisplayName": "Facebook Adapter",
 			"AndroidArtifact": "com.unity3d.mediation:facebook-adapter",
 			"IosPod": "UnityMediationFacebookAdapter",
-			"Versions": ["0.0.10"]
+			"Versions": ["0.0.11"]
 		},
 		{
 			"Identifier": "unityads-adapter",
 			"DisplayName": "Unity Ads Adapter",
 			"AndroidArtifact": "com.unity3d.mediation:unityads-adapter",
 			"IosPod": "UnityMediationUnityAdapter",
-			"Versions": ["0.0.10"]
+			"Versions": ["0.0.11"]
+		},
+		{
+			"Identifier": "adcolony-adapter",
+			"DisplayName": "AdColony Adapter",
+			"AndroidArtifact": "com.unity3d.mediation:adcolony-adapter",
+			"IosPod": "UnityMediationAdColonyAdapter",
+			"Versions": ["0.0.11"]
+		},
+		{
+			"Identifier": "ironsource-adapter",
+			"DisplayName": "Iron Source Adapter",
+			"AndroidArtifact": "com.unity3d.mediation:ironsource-adapter",
+			"IosPod": "UnityMediationIronSourceAdapter",
+			"Versions": ["0.0.11"]
+		},
+		{
+			"Identifier": "applovin-adapter",
+			"DisplayName": "Applovin Adapter",
+			"AndroidArtifact": "com.unity3d.mediation:applovin-adapter",
+			"IosPod": "UnityMediationAppLovinAdapter",
+			"Versions": ["0.0.11"]
 		}
 	]
 }

@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
     #
   
     spec.name         = "UnityMediationAdmobAdapter"
-    spec.version      = "0.0.10"
+    spec.version      = "0.0.11"
     spec.summary      = "UnityMediationAdmobAdapter for UnityMediationSdk"
   
     # This description is used to generate tags and improve search results.
@@ -140,7 +140,7 @@ Your use of Unity Monetization constitutes your acceptance of such terms. Unless
     # spec.requires_arc = true
   
     # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "UnityMediationSdk", "~> 0.0.10"
+  # spec.dependency "UnityMediationSdk", "~> 0.0.11"
     spec.dependency "Google-Mobile-Ads-SDK", "~> 7.60.0"
   end
   
