@@ -1,0 +1,6 @@
+framework module UnityMediationAppLovinAdapter {
+  umbrella header "UnityMediationAppLovinAdapter.h"
+
+  export *
+  module * { export * }
+}

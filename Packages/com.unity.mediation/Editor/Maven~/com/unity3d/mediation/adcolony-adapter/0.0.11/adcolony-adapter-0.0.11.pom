@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.unity3d.mediation</groupId>
-  <artifactId>facebook-adapter</artifactId>
-  <version>0.0.10</version>
+  <artifactId>adcolony-adapter</artifactId>
+  <version>0.0.11</version>
   <packaging>aar</packaging>
   <licenses>
     <license>
@@ -13,14 +13,19 @@
   </licenses>
   <dependencies>
     <dependency>
-      <groupId>com.facebook.android</groupId>
-      <artifactId>audience-network-sdk</artifactId>
-      <version>5.10.1</version>
+      <groupId>com.adcolony</groupId>
+      <artifactId>sdk</artifactId>
+      <version>4.2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android.gms</groupId>
+      <artifactId>play-services-ads-identifier</artifactId>
+      <version>17.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.unity3d.mediation</groupId>
       <artifactId>mediation-sdk</artifactId>
-      <version>0.0.10</version>
+      <version>0.0.11</version>
     </dependency>
   </dependencies>
 </project>

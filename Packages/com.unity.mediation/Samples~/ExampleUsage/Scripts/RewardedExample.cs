@@ -97,8 +97,8 @@ namespace Unity.Mediation.Samples
 
         void ImpressionEvent(object sender, ImpressionEventArgs args)
         {
-            Debug.Log($"Impression Event received for {args.AdUnitId}");
-            Debug.Log(args.ImpressionData);
+            var impressionData = args.ImpressionData != null ? JsonUtility.ToJson(args.ImpressionData, true) : "null";
+            Debug.Log($"Impression event from ad unit id {args.AdUnitId} : {impressionData}");
         }
     }
 }

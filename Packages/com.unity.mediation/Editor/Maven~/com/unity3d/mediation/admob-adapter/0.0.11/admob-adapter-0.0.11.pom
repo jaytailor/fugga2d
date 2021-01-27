@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.unity3d.mediation</groupId>
-  <artifactId>unityads-adapter</artifactId>
-  <version>0.0.10</version>
+  <artifactId>admob-adapter</artifactId>
+  <version>0.0.11</version>
   <packaging>aar</packaging>
   <licenses>
     <license>
@@ -13,19 +13,14 @@
   </licenses>
   <dependencies>
     <dependency>
-      <groupId>androidx.annotation</groupId>
-      <artifactId>annotation</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.unity3d.ads</groupId>
-      <artifactId>unity-ads</artifactId>
-      <version>3.5.1</version>
+      <groupId>com.google.android.gms</groupId>
+      <artifactId>play-services-ads</artifactId>
+      <version>19.3.0</version>
     </dependency>
     <dependency>
       <groupId>com.unity3d.mediation</groupId>
       <artifactId>mediation-sdk</artifactId>
-      <version>0.0.10</version>
+      <version>0.0.11</version>
     </dependency>
   </dependencies>
 </project>
