@@ -38,7 +38,7 @@ public class UnityAds : MonoBehaviour
 		//
 		// // Start collecting data
 		// DDNA.Instance.StartSDK();
-		
+
 		Debug.Log("UnityMediation Initialization");
 		UnityMediation.Initialize(this.gameId);
 	    
@@ -46,24 +46,12 @@ public class UnityAds : MonoBehaviour
 		UnityMediation.OnInitializationFailed += OnInitializationFailed;
 
 		ImpressionEventPublisher.OnImpression += OnImpression;
-		
-		// load interstitial ads
-		LoadInterstitialNew();
-        
-		// load rewarded ads
-		LoadRewardedNew();
-		
+
 	}
 
-    public void Start()
+	public void LoadInterstitialNew()
     {
-	    
-	}
-
-    
-    public void LoadInterstitialNew()
-    {
-	    interstitialAdNew = new Unity.Mediation.InterstitialAd(gameId, interstitialAdunitIdNew);
+	    interstitialAdNew = new Unity.Mediation.InterstitialAd(interstitialAdunitIdNew);
         interstitialAdNew.OnLoaded += OnLoadedInterstitial;
         interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
         Debug.Log("Loading Interstitial adunit...");
@@ -82,7 +70,7 @@ public class UnityAds : MonoBehaviour
     
     public void LoadRewardedNew()
     { 
-        rewardedVideoAdNew = new Unity.Mediation.RewardedAd(gameId, rewardedVideoAdunitIdNew);
+        rewardedVideoAdNew = new Unity.Mediation.RewardedAd(rewardedVideoAdunitIdNew);
         rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
         rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
         rewardedVideoAdNew.Load();
@@ -106,6 +94,12 @@ public class UnityAds : MonoBehaviour
     void OnInitializationComplete(object sender, EventArgs e)
     {
         Debug.Log("Initialization of mediation complete");
+        
+        // load interstitial ads
+        LoadInterstitialNew();
+        
+        // load rewarded ads
+        LoadRewardedNew();
     }
 
     void OnLoadedInterstitial(object sender, EventArgs e)
