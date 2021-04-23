@@ -123,24 +123,17 @@ public class UnityAds : MonoBehaviour
 
     void OnFailedLoadRewarded(object sender, LoadErrorEventArgs e)
     {
-	    // load again
-	    LoadRewardedNew();
-        Debug.LogError($"{e.Error}:{e.Message}");
+	    Debug.LogError($"{e.Error}:{e.Message}");
     }
     
     void OnFailedLoadInterstitial(object sender, LoadErrorEventArgs e)
     {
-	    // load again
-	    LoadInterstitialNew();
 	    Debug.LogError($"{e.Error}:{e.Message}");
     }
     
     void OnFailedShowRewarded(object sender, ShowErrorEventArgs e)
     {
 	    Debug.LogError($"{e.Error}: {e.Message}");
-        
-	    // load again
-	    LoadRewardedNew();
     }
     
     void OnClosedRewarded(object sender, EventArgs e)
@@ -153,9 +146,6 @@ public class UnityAds : MonoBehaviour
     void OnFailedShowInterstitial(object sender, ShowErrorEventArgs e)
     {
         Debug.LogError($"{e.Error}: {e.Message}");
-        
-        // load again
-        LoadInterstitialNew();
     }
     
     void OnClosedInterstitial(object sender, EventArgs e)
