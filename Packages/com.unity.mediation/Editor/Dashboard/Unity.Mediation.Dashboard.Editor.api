@@ -1,0 +1,49 @@
+// This file is generated. Do not modify by hand.
+// XML documentation file not found. To check if public methods have XML comments,
+// make sure the XML doc file is present and located next to the scraped dll
+namespace Unity.Mediation.Dashboard.Editor
+{
+    public static class DashboardClient
+    {
+        public static void GetAdUnitsAsync(System.Action<Unity.Mediation.Dashboard.Editor.DashboardClient.AdUnitInfoJson[]> callback);
+        public static void GetConfiguredAdNetworksAsync(System.Action<string> callback);
+        public static void GetGameIdAsync(System.Action<string> callback, string adNetwork);
+        public class AdUnitInfoJson
+        {
+            [Newtonsoft.Json.JsonProperty(@"adFormat")] public string AdFormat { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"adUnitId")] public string AdUnitId { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"appId")] public string AppId { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"isArchived")] public bool IsArchived { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"name")] public string Name { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"coreOrganization")] public string Organization { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"platform")] public string Platform { get; protected set; }
+            public AdUnitInfoJson() {}
+        }
+        public class OrgInfoJson
+        {
+            [Newtonsoft.Json.JsonProperty(@"org_foreign_key")] public string BackendId { get; protected set; }
+            public OrgInfoJson() {}
+        }
+        public class ProjectInfoJson
+        {
+            [Newtonsoft.Json.JsonProperty(@"adNetwork")] public string AdNetwork { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"appId")] public string AppId { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"CoreOrganizationId")] public string CoreOrganizationId { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"parameters")] public Unity.Mediation.Dashboard.Editor.DashboardClient.ProjectInfoJson.ProjectInfoParamsJson Params { get; protected set; }
+            [Newtonsoft.Json.JsonProperty(@"projectId")] public string ProjectId { get; protected set; }
+            public ProjectInfoJson() {}
+            public class ProjectInfoParamsJson
+            {
+                [Newtonsoft.Json.JsonProperty(@"gameId")] public string GameId { get; protected set; }
+                public ProjectInfoParamsJson() {}
+            }
+        }
+    }
+
+    public static class JwtToken
+    {
+        public static System.DateTime ExpireTime { get; }
+        public static string Token { get; }
+        public static void GetTokenAsync(System.Action<string> onTokenObtained);
+    }
+}

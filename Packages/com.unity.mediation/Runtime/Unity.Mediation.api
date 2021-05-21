@@ -178,4 +178,11 @@ namespace Unity.Mediation.Platform
         public virtual Unity.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
         public virtual void UserGaveConsent(Unity.Mediation.ConsentStatus consent, Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
     }
+
+    public class EditorDataPrivacy : Unity.Mediation.Platform.IDataPrivacy
+    {
+        public EditorDataPrivacy() {}
+        public virtual Unity.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
+        public virtual void UserGaveConsent(Unity.Mediation.ConsentStatus consent, Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
+    }
 }

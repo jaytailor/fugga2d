@@ -1,0 +1,61 @@
+﻿<UXML xmlns="UnityEngine.UIElements">
+    <ScrollView class="scroll-container">
+    <VisualElement class="PackageInfosSection">
+        <Label class="PackageTitle" name="PackageName" text="Mediation"/>
+        <Label name="packageDescription" text="Manage your ad network adapters and generate code snippets to implement ads in your game."/>
+        <VisualElement name="AuthorSection" class="author-section">
+            <Label text="Author: " class="title-text"/>
+            <Label name="packageAuthor" text="UnityTechnologies Inc."/>
+        </VisualElement>
+        <VisualElement name="VersionSection" class="version-section">
+            <Label text="Version " class="title-text"/>
+            <Label name="packageVersion" text="0.0.0" class="title-text"/>
+            <Label text=" - " class="title-text"/>
+            <Label name="packageVersionStatus" text="Up to date"/>
+        </VisualElement>
+        <VisualElement name="LinksSection" class="link-section">
+            <Label text="Documentation" class="link"/>
+            <Label text=" · " />
+            <Label text="Go to Dashboard" class="link"/>
+            <Label text=" · " />
+            <Label text="View in Package Manager" class="link"/>
+        </VisualElement>
+
+    </VisualElement>
+
+        <VisualElement class="separator" />
+
+    <VisualElement class="project-settings-service-specific-container">
+        <VisualElement class="project-settings-title-container">
+            <Label text="Adapter Configuration" class="project-settings-title"/>
+        </VisualElement>
+        <VisualElement class="project-settings-title-container description">
+            <Label class="label-container" text="Select and install the ad network adapters you want to use for Mediation."/>
+            <Label class="label-container" text="Unity Ads is installed by default, but to make additional configurations for Unity Ads, visit the Dashboard."/>
+        </VisualElement>
+        <VisualElement name="AdapterList" class="project-settings-title-container adapter-list"/>
+        <Button name="DoUpdate" text="Install" class="update-button"/>
+    </VisualElement>
+
+    <VisualElement class="separator" />
+
+    <VisualElement class="project-settings-service-specific-container">
+        <VisualElement class="project-settings-title-container">
+            <Label class="project-settings-title" text="Code Generator Tool" />
+        </VisualElement>
+        <VisualElement class="project-settings-title-container description bottom-pad">
+            <Label class="label-container" text="Preview your ads by using the code generator tool. Create code snippets and copy them into your game code."/>
+        </VisualElement>
+        <Button name="GoToCodeGenerator" text="Open Code Generator" class="code-gen-button"/>
+    </VisualElement>
+
+    <VisualElement class="separator" />
+
+    <VisualElement class="project-settings-service-specific-container ad-units-section" >
+        <VisualElement class="project-settings-title-container description">
+            <Label class="label-container" text="To see a read-only list of Ad Units click on the following button"/>
+        </VisualElement>
+        <Button name="GoToAdUnits" text="Ad Units" class="ad-units-button"/>
+    </VisualElement>
+    </ScrollView>
+</UXML>

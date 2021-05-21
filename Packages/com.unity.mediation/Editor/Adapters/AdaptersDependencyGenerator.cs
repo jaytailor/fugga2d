@@ -118,7 +118,7 @@ namespace Unity.Mediation.Adapters.Editor
                         new XComment(" Mediation iOS SDK "),
                         new XElement("iosPod",
                             new XAttribute("name", sdkInfo.IosPod),
-                            new XAttribute("version", VersionInfo.OptimisticVersion(SemanticVersioningType.CocoaPods, sdkInfo.SdkVersion)),
+                            new XAttribute("version", VersionInfo.OptimisticVersion(SemanticVersioningType.CocoaPods,sdkInfo.SdkVersion)),
                             new XAttribute("source", k_IOSArtifactoryURL),
                             new XAttribute(k_IdentifierKey, sdkInfo.Identifier),
                             new XAttribute(k_VersionKey, sdkInfo.SdkVersion)

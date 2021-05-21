@@ -2,6 +2,7 @@ Temp/*
 Library/*
 Build/Android/
 Build/iOS/
+build/**
 Build/.DS_Store
 *.cache
 .DS_Store
