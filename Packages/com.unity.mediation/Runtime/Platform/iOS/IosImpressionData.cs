@@ -14,7 +14,8 @@ namespace Unity.Mediation.Platform
         public string ImpressionId;
         public string Currency;
         public string RevenueAccuracy;
-        public string PublisherRevenue;
+        public string PublisherRevenuePerImpression;
+        public string PublisherRevenuePerImpressionInMicros;
         public string AdSourceName;
         public string AdSourceInstance;
         public string AppVersion;
@@ -34,7 +35,8 @@ namespace Unity.Mediation.Platform
                 ImpressionId = ImpressionId,
                 Currency = Currency,
                 RevenueAccuracy = RevenueAccuracy,
-                PublisherRevenue = PublisherRevenue,
+                PublisherRevenuePerImpression = PublisherRevenuePerImpression,
+                PublisherRevenuePerImpressionInMicros = PublisherRevenuePerImpressionInMicros,
                 AdSourceName = AdSourceName,
                 AdSourceInstance = AdSourceInstance,
                 AppVersion = AppVersion,

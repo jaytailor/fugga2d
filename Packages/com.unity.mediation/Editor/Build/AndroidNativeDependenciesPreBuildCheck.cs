@@ -125,7 +125,7 @@ namespace Unity.Mediation.Build.Editor
             }
 
             //Check if we have valid version
-            if (sdkSpec.First() != $"{sdkInfo.AndroidArtifact}:{sdkInfo.SdkVersion}")
+            if (sdkSpec.First() != $"{sdkInfo.AndroidArtifact}:{VersionInfo.OptimisticVersion(SemanticVersioningType.Maven,sdkInfo.SdkVersion)}")
             {
                 return false;
             }
@@ -145,7 +145,8 @@ namespace Unity.Mediation.Build.Editor
 
                 //Check if we have valid version
                 var adapterVersion = adapterSpec.First().Substring(adapterSpec.First().LastIndexOf(':') + 1);
-                if (!adapter.Versions.Contains(adapterVersion))
+                if (adapterVersion != SemanticVersioningFactory.Formatter(SemanticVersioningType.Maven).LatestVersionIdentifier() &&
+                    !Array.Exists(adapter.Versions, x => x.Identifier == adapterVersion))
                 {
                     return false;
                 }
@@ -165,7 +166,7 @@ namespace Unity.Mediation.Build.Editor
             var isValid = ValidateTemplateDependency(sdkInfo.AndroidArtifact, sdkInfo.SdkVersion, templateFileContent);
             foreach (var adapter in installedAdapters)
             {
-                isValid = isValid && ValidateTemplateDependency(adapter.AndroidArtifact, adapter.InstalledVersion, templateFileContent);
+                isValid = isValid && ValidateTemplateDependency(adapter.AndroidArtifact, adapter.InstalledVersion.Identifier, templateFileContent);
             }
             return isValid;
         }
@@ -176,7 +177,8 @@ namespace Unity.Mediation.Build.Editor
         /// </summary>
         bool ValidateTemplateDependency(string artifactName, string version, string templateFileContent)
         {
-            return templateFileContent.Contains($"{artifactName}:{version}");
+            var versionInfo = new VersionInfo { Identifier = version };
+            return templateFileContent.Contains($"{artifactName}:{versionInfo.Version(SemanticVersioningType.Maven)}");
         }
 
         /// <summary>
@@ -197,7 +199,7 @@ namespace Unity.Mediation.Build.Editor
             var isValid = ValidatePluginFile(sdkInfo.AndroidArtifact, sdkInfo.SdkVersion, plugins);
             foreach (var adapter in installedAdapters)
             {
-                isValid = isValid && ValidatePluginFile(adapter.AndroidArtifact, adapter.InstalledVersion, plugins);
+                isValid = isValid && ValidatePluginFile(adapter.AndroidArtifact, adapter.InstalledVersion.Identifier, plugins);
             }
             return isValid;
         }
@@ -209,8 +211,8 @@ namespace Unity.Mediation.Build.Editor
         /// </summary>
         bool ValidatePluginFile(string artifactName, string version, IEnumerable<string> files)
         {
-            var file = $"{artifactName.Replace(":", ".")}-{version}";
-            return files.Contains(file);
+            var filePrefix = $"{artifactName.Replace(":", ".")}";
+            return files.Count(x => x.StartsWith(filePrefix)) > 0;
         }
     }
 }

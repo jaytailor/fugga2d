@@ -92,12 +92,12 @@ namespace Unity.Mediation.Adapters.Editor
         /// <summary>
         /// Installed Version for this Adapter
         /// </summary>
-        public string InstalledVersion;
+        public VersionInfo InstalledVersion;
 
         /// <summary>
         /// Versions Available for this Adapter
         /// </summary>
-        public string[] Versions;
+        public VersionInfo[] Versions;
 
         /// <summary>
         /// Returns Adapter Info
@@ -120,7 +120,7 @@ namespace Unity.Mediation.Adapters.Editor
                 DisplayName == other.DisplayName &&
                 AndroidArtifact == other.AndroidArtifact &&
                 IosPod == other.IosPod &&
-                InstalledVersion == other.InstalledVersion &&
+                Equals(InstalledVersion, other.InstalledVersion) &&
                 ArrayUtility.ArrayEquals(Versions, other.Versions);
         }
 
@@ -136,6 +136,70 @@ namespace Unity.Mediation.Adapters.Editor
                 hashCode = (hashCode * 397) ^ (Versions != null ? Versions.GetHashCode() : 0);
                 return hashCode;
             }
+        }
+    }
+
+    /// <summary>
+    /// Information for a single Mediation Adapter Version
+    /// </summary>
+    [Serializable]
+    public class VersionInfo
+    {
+        /// <summary>
+        /// Default Identifier value for an adapter set to latest supported
+        /// </summary>
+        internal const string k_Latest = "latest";
+
+        /// <summary>
+        /// Identifier for the version ie: 0.0.1
+        /// </summary>
+        public string Identifier;
+
+        /// <summary>
+        /// Value to display to the user
+        /// </summary>
+        public string DisplayName;
+
+        /// <summary>
+        /// Returns optimistic version range for a given semantic type
+        /// </summary>
+        public static string OptimisticVersion(SemanticVersioningType type, string version)
+        {
+            var semanticVersioningFormatter = SemanticVersioningFactory.Formatter(type);
+            return semanticVersioningFormatter.OptimisticVersion(version);
+        }
+
+        /// <summary>
+        /// Returns true is the Identifier is set to latest supported
+        /// </summary>
+        public bool IsLatestSupported()
+        {
+            return Identifier == k_Latest;
+        }
+
+        /// <summary>
+        /// Returns the presentation of the version required by the resolver xml for the given semantic versioning type
+        /// </summary>
+        public string Version(SemanticVersioningType type)
+        {
+            var semanticVersioningFormatter = SemanticVersioningFactory.Formatter(type);
+            return IsLatestSupported() ? semanticVersioningFormatter.LatestVersionIdentifier() : Identifier;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is VersionInfo other)) return false;
+            return Equals(other);
+        }
+
+        protected bool Equals(VersionInfo other)
+        {
+            return Identifier == other.Identifier;
+        }
+
+        public override int GetHashCode()
+        {
+            return (Identifier != null ? Identifier.GetHashCode() : 0);
         }
     }
 
@@ -229,11 +293,11 @@ namespace Unity.Mediation.Adapters.Editor
         /// If version is not specified, latest available version will be installed.
         /// </summary>
         /// <param name="identifier">The identifier of the adapter</param>
-        /// <param name="version">Version of the adapter, or null to use the latest</param>
+        /// <param name="versionInfo">Version of the adapter</param>
         /// <exception cref="InvalidOperationException">Thrown if combination of identifier/version is not valid</exception>
-        public static void Install(string identifier, string version = null)
+        public static void Install(string identifier, VersionInfo versionInfo = null)
         {
-            s_Generator.InstallAdapter(identifier, version);
+            s_Generator.InstallAdapter(identifier, versionInfo);
         }
 
         /// <summary>

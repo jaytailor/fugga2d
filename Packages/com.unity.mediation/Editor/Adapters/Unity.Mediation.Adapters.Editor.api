@@ -1,3 +1,36 @@
 // This file is generated. Do not modify by hand.
 // XML documentation file not found. To check if public methods have XML comments,
 // make sure the XML doc file is present and located next to the scraped dll
+namespace Unity.Mediation.Adapters.Editor
+{
+    public interface ISemanticVersioningFormatter
+    {
+        public abstract string LatestVersionIdentifier();
+        public abstract string OptimisticVersion(string version);
+    }
+
+    public static class SemanticVersioningFactory
+    {
+        public static Unity.Mediation.Adapters.Editor.ISemanticVersioningFormatter Formatter(Unity.Mediation.Adapters.Editor.SemanticVersioningType type);
+    }
+
+    public enum SemanticVersioningType
+    {
+        public const Unity.Mediation.Adapters.Editor.SemanticVersioningType CocoaPods = 0;
+        public const Unity.Mediation.Adapters.Editor.SemanticVersioningType Maven = 1;
+        public int value__;
+    }
+
+    public class VersionInfo
+    {
+        public string DisplayName;
+        public string Identifier;
+        public VersionInfo() {}
+        public virtual bool Equals(object obj);
+        protected bool Equals(Unity.Mediation.Adapters.Editor.VersionInfo other);
+        public virtual int GetHashCode();
+        public bool IsLatestSupported();
+        public static string OptimisticVersion(Unity.Mediation.Adapters.Editor.SemanticVersioningType type, string version);
+        public string Version(Unity.Mediation.Adapters.Editor.SemanticVersioningType type);
+    }
+}

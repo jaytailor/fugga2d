@@ -1,23 +1,27 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 namespace Unity.Mediation.Settings.Editor
 {
     class UnityAdsSettings : BaseAdapterSettings
     {
-        const string k_UnityAdsWarning = "If you have an existing Unity Ads SDK added through the Package manager or " +
-            "the Asset Store, this may cause a conflict with Unity Monetization SDK. Please remove " +
-            "Unity Ads SDK prior to installing Unity Monetization SDK";
+        const string k_AdapterTemplate = @"Packages/com.unity.mediation/Editor/Settings/Adapters/Layout/UnityAdsTemplate.uxml";
 
         public override string AdapterId => "unityads-adapter";
         bool? m_UnityAdsDetected;
 
-        public override void OnAdapterSettingsGui(string searchContext)
+        public override void OnAdapterSettingsGui(string searchContext, VisualElement rootElement)
         {
-            if (Enabled.value && IsUnityAdsDetected())
+            if (IsUnityAdsDetected())
             {
-                EditorGUILayout.HelpBox(k_UnityAdsWarning, MessageType.Warning);
+                VisualTreeAsset adapterTemplate  = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_AdapterTemplate);
+                VisualElement holder = new VisualElement();
+
+                adapterTemplate.CloneTree(rootElement);
             }
         }
 

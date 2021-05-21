@@ -5,7 +5,7 @@ namespace Unity.Mediation.Platform
 {
     class EditorInterstitialAd : IInterstitialAd
     {
-        public EditorInterstitialAd(string gameId, string adUnitId) {}
+        public EditorInterstitialAd(string adUnitId) {}
 
 #pragma warning disable 67
         public event EventHandler OnLoaded;

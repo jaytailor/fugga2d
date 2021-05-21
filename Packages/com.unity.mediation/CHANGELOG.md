@@ -4,6 +4,42 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.0.14-preview] - 2021-04-23
+
+### Fixed
+* Fixed issue with a ContentProvider authority collision that prevented users from installing apps/games that used Unity Mediation on the same device.
+
+## [0.0.13-preview] - 2021-03-22
+
+### Added
+* LoadError SdkNotInitialized when loading fails due to an initialization failure
+* SdkInitializationError NetworkError when initialization fails due to networking conditions
+* Data Privacy API
+  * Methods
+    * UserGaveConsent
+    * GetConsentStatusForLaw
+  * Enums
+    * DataPrivacyLaw 
+    * ConsentStatus 
+* 1 New Ad Network
+    * Vungle
+
+### Changed
+* SDK Initialization is now required (via UnityMediation.Initialize())
+* InterstitialAd / RewardedAd
+  * Removed GameId from Constructor parameter
+* iOS frameworks are now xcframeworks
+
+## [0.0.12-preview] - 2021-02-26
+
+### Added 
+- ImpressionData
+    - Added String PublisherRevenuePerImpressionInMicros.
+    - Added String PublisherRevenuePerImpression. 
+
+### Removed
+- ImpressionData.PublisherRevenue has been removed in favor of the two new fields listed above.
+
 ## [0.0.11-preview] - 2021-01-25
 
 ### Added

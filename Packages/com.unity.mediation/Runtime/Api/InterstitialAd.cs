@@ -52,18 +52,17 @@ namespace Unity.Mediation
         /// <summary>
         /// Constructor for managing a specific Interstitial Ad.
         /// </summary>
-        /// <param name="gameId">Unique Id for the game you are showing from.</param>
         /// <param name="adUnitId">Unique Id for the Ad you want to show.</param>
-        public InterstitialAd(string gameId, string adUnitId)
+        public InterstitialAd(string adUnitId)
         {
 #if UNITY_EDITOR
-            InterstitialAdImpl = new EditorInterstitialAd(gameId, adUnitId);
+            InterstitialAdImpl = new EditorInterstitialAd(adUnitId);
 #elif UNITY_ANDROID
-            InterstitialAdImpl = new AndroidInterstitialAd(gameId, adUnitId);
+            InterstitialAdImpl = new AndroidInterstitialAd(adUnitId);
 #elif UNITY_IOS
-            InterstitialAdImpl = new IosInterstitialAd(gameId, adUnitId);
+            InterstitialAdImpl = new IosInterstitialAd(adUnitId);
 #else
-            InterstitialAdImpl = new UnsupportedInterstitialAd(gameId, adUnitId);
+            InterstitialAdImpl = new UnsupportedInterstitialAd(adUnitId);
 #endif
             InitializeCallbacks();
         }

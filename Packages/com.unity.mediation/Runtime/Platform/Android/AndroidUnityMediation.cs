@@ -66,11 +66,11 @@ namespace Unity.Mediation.Platform
         public event EventHandler OnInitializationComplete;
         public event EventHandler<InitializationErrorEventArgs> OnInitializationFailed;
 
-        public InitializationState State
+        public InitializationState InitializationState
         {
             get
             {
-                if (CheckDisposedAndLogError("Cannot call State")) return InitializationState.Uninitialized;
+                if (CheckDisposedAndLogError("Cannot call InitializationState")) return InitializationState.Uninitialized;
                 try
                 {
                     return m_UnityMediationClass

@@ -45,7 +45,7 @@ namespace Unity.Mediation.Build.Editor
         {
             var adMobSettings = new AdMobSettings();
             //If we're not including AdMob, no need to modify Info.plist
-            if (!adMobSettings.Enabled.value || string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdIos))
+            if (string.IsNullOrEmpty(adMobSettings.InstalledVersion.value) || string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdIos))
                 return;
 
             string plistPath = outputPath + "/Info.plist";

@@ -58,8 +58,8 @@ namespace Unity.Mediation.Tests
         {
             foreach (var state in (InitializationState[])Enum.GetValues(typeof(InitializationState)))
             {
-                m_UnityMediationMock.Setup(mediation => mediation.State).Returns(state);
-                Assert.AreEqual(UnityMediation.State, state, "UnityMediation.State mismatch");
+                m_UnityMediationMock.Setup(mediation => mediation.InitializationState).Returns(state);
+                Assert.AreEqual(UnityMediation.InitializationState, state, "UnityMediation.InitializationState mismatch");
             }
         }
     }

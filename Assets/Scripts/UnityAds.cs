@@ -63,7 +63,7 @@ public class UnityAds : MonoBehaviour
     
     public void LoadInterstitialNew()
     {
-	    interstitialAdNew = new Unity.Mediation.InterstitialAd(gameId, interstitialAdunitIdNew);
+	    interstitialAdNew = new Unity.Mediation.InterstitialAd(interstitialAdunitIdNew);
         interstitialAdNew.OnLoaded += OnLoadedInterstitial;
         interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
         Debug.Log("Loading Interstitial adunit...");
@@ -82,7 +82,7 @@ public class UnityAds : MonoBehaviour
     
     public void LoadRewardedNew()
     { 
-        rewardedVideoAdNew = new Unity.Mediation.RewardedAd(gameId, rewardedVideoAdunitIdNew);
+        rewardedVideoAdNew = new Unity.Mediation.RewardedAd(rewardedVideoAdunitIdNew);
         rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
         rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
         rewardedVideoAdNew.Load();

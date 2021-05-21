@@ -1,42 +1,40 @@
 #import "UnityAppController.h"
 #import <UnityMediationSdk/UnityMediationSdk.h>
-#import "UMSPRewardedAdLoadListener.h"
-#import "UMSPRewardedAdShowListener.h"
+#import "UMSPRewardedAdLoadDelegate.h"
+#import "UMSPRewardedAdShowDelegate.h"
 #include <string.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void * UMSPRewardedAdCreate(const char *gameId, const char *adUnitId) {
-    NSString *gameIdString = [NSString stringWithUTF8String:gameId];
+void * UMSPRewardedAdCreate(const char *adUnitId) {
     NSString *adUnitIdString = [NSString stringWithUTF8String:adUnitId];
     UMSRewardedAd *rewardedAd = [[UMSRewardedAd alloc]
-                                 initWithGameId:gameIdString
-                                       adUnitId:adUnitIdString];
+                                 initWithAdUnitId:adUnitIdString];
 
     return (__bridge_retained void *)rewardedAd;
 }
 
-void UMSPRewardedAdLoad(void *ptr, void *listenerPtr) {
+void UMSPRewardedAdLoad(void *ptr, void *delegatePtr) {
     if (!ptr) return;
 
     UMSRewardedAd *rewardedAd = (__bridge UMSRewardedAd *)ptr;
-    UMSPRewardedAdLoadListener *listener = listenerPtr ? (__bridge UMSPRewardedAdLoadListener *)listenerPtr : nil;
+    UMSPRewardedAdLoadDelegate *delegate = delegatePtr ? (__bridge UMSPRewardedAdLoadDelegate *)delegatePtr : nil;
 
-    [rewardedAd loadWithListener:listener];
+    [rewardedAd loadWithDelegate:delegate];
 }
 
-void UMSPRewardedAdShow(void *ptr, void *listenerPtr) {
+void UMSPRewardedAdShow(void *ptr, void *delegatePtr) {
     if (!ptr) return;
 
     UMSRewardedAd *rewardedAd = (__bridge UMSRewardedAd *)ptr;
-    UMSPRewardedAdShowListener *listener = listenerPtr ? (__bridge UMSPRewardedAdShowListener *)listenerPtr : nil;
+    UMSPRewardedAdShowDelegate *delegate = delegatePtr ? (__bridge UMSPRewardedAdShowDelegate *)delegatePtr : nil;
 
     UIViewController *viewController = [GetAppController() rootViewController];
 
     [rewardedAd showWithViewController:viewController
-                              listener:listener];
+                              delegate:delegate];
 }
 
 const char * UMSPRewardedAdGetAdUnitId(void *ptr) {

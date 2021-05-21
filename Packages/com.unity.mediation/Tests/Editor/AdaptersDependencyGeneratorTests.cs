@@ -39,7 +39,7 @@ namespace Unity.Mediation.EditorTests
             var adapters = MediationSdkInfo.GetAllAdapters();
             foreach (var adapter in adapters)
             {
-                adapter.InstalledVersion = adapter.Versions.Last();
+                adapter.InstalledVersion = adapter.Versions.First();
             }
             GenerateTest(adapters, xmlTemplatePathAll);
         }
@@ -52,7 +52,7 @@ namespace Unity.Mediation.EditorTests
 
         [Test]
         [TestCase("MediationDepsNone.xml", new string[] {})]
-        [TestCase("MediationDepsAll.xml", new[] {"AdMob Adapter", "Facebook Adapter", "Unity Ads Adapter", "AdColony Adapter", "Iron Source Adapter", "Applovin Adapter"})]
+        [TestCase("MediationDepsAll.xml", new[] {"AdMob Adapter", "Facebook Adapter", "Unity Ads Adapter", "AdColony Adapter", "Iron Source Adapter", "Applovin Adapter", "Vungle Adapter"})]
         public void GetInstalledAdaptersTest(string xmlFile, string[] expectedAdapters)
         {
             string xmlPath = $"Packages/com.unity.mediation/Tests/Editor/{xmlFile}";

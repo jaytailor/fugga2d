@@ -11,6 +11,11 @@ namespace Unity.Mediation
         /// <summary>
         /// Unknown error
         /// </summary>
-        Unknown
+        Unknown,
+
+        /// <summary>
+        /// Networking error
+        /// </summary>
+        NetworkError
     }
 }

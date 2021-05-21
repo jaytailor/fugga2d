@@ -63,7 +63,7 @@ namespace Unity.Mediation.Platform
         AndroidRewardedAdShowListener m_RewardedAdShowListener;
         volatile bool m_Disposed;
 
-        public AndroidRewardedAd(string gameId, string adUnitId)
+        public AndroidRewardedAd(string adUnitId)
         {
             ThreadUtil.Send(state =>
             {
@@ -72,7 +72,7 @@ namespace Unity.Mediation.Platform
                     using (var activity = ActivityUtil.GetUnityActivity())
                     {
                         m_RewardedAd = new AndroidJavaObject("com.unity3d.mediation.RewardedAd",
-                            activity, gameId, adUnitId);
+                            activity, adUnitId);
                     }
                 }
                 catch (Exception e)

@@ -15,7 +15,7 @@ namespace Unity.Mediation.Platform
         public event EventHandler OnInitializationComplete;
         public event EventHandler<InitializationErrorEventArgs> OnInitializationFailed;
 
-        public InitializationState State => UnityMediationGetInitializationState();
+        public InitializationState InitializationState => UnityMediationGetInitializationState();
 
         public void Initialize(string gameId)
         {
