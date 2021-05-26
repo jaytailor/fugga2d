@@ -5,7 +5,7 @@ namespace Unity.Mediation.Platform
 {
     class UnsupportedRewardedAd : IRewardedAd
     {
-        public UnsupportedRewardedAd(string gameId, string adUnitId) {}
+        public UnsupportedRewardedAd(string adUnitId) {}
 
         public event EventHandler OnLoaded;
 

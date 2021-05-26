@@ -10,6 +10,11 @@ namespace Unity.Mediation.Platform
         {
             return (T)(ValueType)androidEnum.Call<int>("getValue");
         }
+
+        public static AndroidJavaObject ToAndroidEnum(string enumClassPath, int enumValue)
+        {
+            return new AndroidJavaClass(enumClassPath).CallStatic<AndroidJavaObject[]>("values")[enumValue];
+        }
     }
 }
 #endif

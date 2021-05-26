@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace Unity.Mediation.Samples
@@ -22,11 +22,11 @@ namespace Unity.Mediation.Samples
 
             if (Application.platform == RuntimePlatform.Android)
             {
-                m_RewardedAd = new RewardedAd(gameId, androidAdUnitId);
+                m_RewardedAd = new RewardedAd(androidAdUnitId);
             }
             else
             {
-                m_RewardedAd = new RewardedAd(gameId, iosAdUnitId);
+                m_RewardedAd = new RewardedAd(iosAdUnitId);
             }
 
             // Load Events
@@ -35,6 +35,7 @@ namespace Unity.Mediation.Samples
 
             // Show Events
             m_RewardedAd.OnUserRewarded += UserRewarded;
+            m_RewardedAd.OnClosed += AdClosed;
             m_RewardedAd.OnShowed += AdShown;
             m_RewardedAd.OnFailedShow += AdFailedShow;
 
@@ -62,9 +63,10 @@ namespace Unity.Mediation.Samples
         void InitializationComplete(object sender, EventArgs args)
         {
             UnityMediation.OnInitializationComplete -= InitializationComplete;
+            Debug.Log("Initialized On Start. Loading Ad...");
             LoadAd();
-            Debug.Log("Initialized On Start");
         }
+
         void InitializationFailed(object sender, EventArgs args)
         {
             Debug.Log("Initialization Failed");
@@ -74,6 +76,7 @@ namespace Unity.Mediation.Samples
         {
             Debug.Log("Loaded Rewarded!");
         }
+
         void AdFailedLoad(object sender, LoadErrorEventArgs args)
         {
             Debug.Log("Rewarded Load Failure");
@@ -85,14 +88,20 @@ namespace Unity.Mediation.Samples
             Debug.Log($"User Rewarded! Type: {e.Type} Amount: {e.Amount}");
         }
 
-        void AdShown(object sender, EventArgs args)
+        void AdShown(object sender, EventArgs e)
         {
-            LoadAd();
             Debug.Log("Rewarded Shown!");
         }
+
+        void AdClosed(object sender, EventArgs args)
+        {
+            Debug.Log("Rewarded Closed! Loading Ad...");
+            LoadAd();
+        }
+
         void AdFailedShow(object sender, ShowErrorEventArgs args)
         {
-            Debug.Log(args.Message);
+            Debug.Log($"Rewarded failed to show: {args.Message}");
         }
 
         void ImpressionEvent(object sender, ImpressionEventArgs args)

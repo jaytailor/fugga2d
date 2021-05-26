@@ -12,21 +12,21 @@ namespace Unity.Mediation.Platform
 
         public IosRewardedLoadListener() : base(false)
         {
-            NativePtr = RewardedAdLoadListenerCreate(LoadSuccess, LoadFail);
+            NativePtr = RewardedAdLoadDelegateCreate(LoadSuccess, LoadFail);
         }
 
         public override void Dispose()
         {
             if (NativePtr == IntPtr.Zero) return;
-            RewardedAdLoadListenerDestroy(NativePtr);
+            RewardedAdLoadDelegateDestroy(NativePtr);
             NativePtr = IntPtr.Zero;
         }
 
-        [DllImport("__Internal", EntryPoint = "UMSPRewardedAdLoadListenerCreate")]
-        static extern IntPtr RewardedAdLoadListenerCreate(LoadSuccessCallback loadSuccessCallback, LoadFailCallback loadFailCallback);
+        [DllImport("__Internal", EntryPoint = "UMSPRewardedAdLoadDelegateCreate")]
+        static extern IntPtr RewardedAdLoadDelegateCreate(LoadSuccessCallback loadSuccessCallback, LoadFailCallback loadFailCallback);
 
-        [DllImport("__Internal", EntryPoint = "UMSPRewardedAdLoadListenerDestroy")]
-        static extern void RewardedAdLoadListenerDestroy(IntPtr ptr);
+        [DllImport("__Internal", EntryPoint = "UMSPRewardedAdLoadDelegateDestroy")]
+        static extern void RewardedAdLoadDelegateDestroy(IntPtr ptr);
 
         [MonoPInvokeCallback(typeof(LoadSuccessCallback))]
         static void LoadSuccess(IntPtr ptr)

@@ -6,6 +6,7 @@ using UnityEditor.Android;
 
 namespace Unity.Mediation.Build.Editor
 {
+    
     class AndroidManifestPostGenerateGradleProject : IPostGenerateGradleAndroidProject
     {
         /*
@@ -25,7 +26,7 @@ namespace Unity.Mediation.Build.Editor
         {
             var adMobSettings = new AdMobSettings();
             //If we're not including AdMob, no need to modify AndroidManifest.xml
-            if (!adMobSettings.Enabled.value || string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdAndroid))
+            if (string.IsNullOrEmpty(adMobSettings.InstalledVersion.value) || string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdAndroid))
                 return;
 
             string manifestPath = path + k_AndroidManifestPath;

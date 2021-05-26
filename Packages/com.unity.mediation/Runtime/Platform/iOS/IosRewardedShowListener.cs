@@ -15,22 +15,22 @@ namespace Unity.Mediation.Platform
 
         public IosRewardedShowListener() : base(false)
         {
-            NativePtr = RewardedAdShowListenerCreate(Shown, Clicked, Closed, FailedShow, UserRewarded);
+            NativePtr = RewardedAdShowDelegateCreate(Shown, Clicked, Closed, FailedShow, UserRewarded);
         }
 
         public override void Dispose()
         {
             if (NativePtr == IntPtr.Zero) return;
-            RewardedAdShowListenerDestroy(NativePtr);
+            RewardedAdShowDelegateDestroy(NativePtr);
             NativePtr = IntPtr.Zero;
         }
 
-        [DllImport("__Internal", EntryPoint = "UMSPRewardedAdShowListenerCreate")]
-        static extern IntPtr RewardedAdShowListenerCreate(ShownCallback startedCallback, ClickedCallback clickedCallback,
+        [DllImport("__Internal", EntryPoint = "UMSPRewardedAdShowDelegateCreate")]
+        static extern IntPtr RewardedAdShowDelegateCreate(ShownCallback startedCallback, ClickedCallback clickedCallback,
             ClosedCallback finishedCallback, FailedShowCallback failedShowCallback, UserRewardedCallback userRewardedCallback);
 
-        [DllImport("__Internal", EntryPoint = "UMSPRewardedAdShowListenerDestroy")]
-        static extern void RewardedAdShowListenerDestroy(IntPtr ptr);
+        [DllImport("__Internal", EntryPoint = "UMSPRewardedAdShowDelegateDestroy")]
+        static extern void RewardedAdShowDelegateDestroy(IntPtr ptr);
 
         [MonoPInvokeCallback(typeof(ShownCallback))]
         static void Shown(IntPtr ptr)

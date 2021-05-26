@@ -34,9 +34,9 @@ namespace Unity.Mediation.Platform
         IosInterstitialLoadListener m_InterstitialLoadListener;
         IosInterstitialShowListener m_InterstitialShowListener;
 
-        public IosInterstitialAd(string gameId, string adUnitId) : base(true)
+        public IosInterstitialAd(string adUnitId) : base(true)
         {
-            NativePtr = InterstitialAdCreate(gameId, adUnitId);
+            NativePtr = InterstitialAdCreate(adUnitId);
         }
 
         public void Load()
@@ -104,7 +104,7 @@ namespace Unity.Mediation.Platform
         }
 
         [DllImport("__Internal", EntryPoint = "UMSPInterstitialAdCreate")]
-        static extern IntPtr InterstitialAdCreate(string gameId, string adUnitId);
+        static extern IntPtr InterstitialAdCreate(string adUnitId);
 
         [DllImport("__Internal", EntryPoint = "UMSPInterstitialAdLoad")]
         static extern void InterstitialAdLoad(IntPtr nativePtr, IntPtr listener);

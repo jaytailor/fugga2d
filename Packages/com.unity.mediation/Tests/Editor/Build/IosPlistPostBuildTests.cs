@@ -27,14 +27,13 @@ namespace Unity.Mediation.EditorTests
         public void OneTimeSetUp()
         {
             m_AdMobSettings = new AdMobSettings();
-            m_AdMobEnabled = m_AdMobSettings.Enabled.value;
+            m_AdMobEnabled = !string.IsNullOrEmpty(m_AdMobSettings.InstalledVersion.value);
             m_AdMobAppIdIos = m_AdMobSettings.AdMobAppIdIos;
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            m_AdMobSettings.Enabled.value = m_AdMobEnabled;
             m_AdMobSettings.AdMobAppIdIos = m_AdMobAppIdIos;
         }
 
@@ -61,8 +60,7 @@ namespace Unity.Mediation.EditorTests
         [TestCase(true, "")]
         public void IosInfoPlistWithAdMobDisabledTest(bool enabled, string appId)
         {
-            m_AdMobSettings.AdMobAppIdIos = appId;
-            m_AdMobSettings.Enabled.value = enabled;
+            m_AdMobSettings.AdMobAppIdIos = enabled ? appId : "";
 
             var generator = new IosPlistPostBuild();
             generator.OnPostprocessBuild(m_TempIosProjectPath);
@@ -77,7 +75,6 @@ namespace Unity.Mediation.EditorTests
         public void IosInfoPlistWithAdMobEnabledTest(bool enabled, string appId)
         {
             m_AdMobSettings.AdMobAppIdIos = k_KAdMobTestAppId;
-            m_AdMobSettings.Enabled.value = enabled;
 
             var generator = new IosPlistPostBuild();
             generator.OnPostprocessBuild(m_TempIosProjectPath);

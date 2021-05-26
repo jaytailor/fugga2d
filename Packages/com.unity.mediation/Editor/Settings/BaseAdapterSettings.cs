@@ -1,5 +1,7 @@
 using UnityEditor.SettingsManagement;
 using UnityEngine;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 namespace Unity.Mediation.Settings.Editor
 {
@@ -17,14 +19,12 @@ namespace Unity.Mediation.Settings.Editor
 
         void Initialize(string adapterId, bool enabled = false)
         {
-            Enabled = new ReloadableUserSetting<bool>(MediationSettingsProvider.instance, $"{adapterId}.enabled", enabled);
             InstalledVersion = new ReloadableUserSetting<string>(MediationSettingsProvider.instance, $"{adapterId}.version", "");
         }
 
-        public ReloadableUserSetting<bool> Enabled { get; private set; }
         public ReloadableUserSetting<string> InstalledVersion { get; private set; }
         public abstract string AdapterId { get; }
-        public virtual void OnAdapterSettingsGui(string searchContext) {}
+        public virtual void OnAdapterSettingsGui(string searchContext, VisualElement root) {}
 
         public void Save()
         {
@@ -33,7 +33,6 @@ namespace Unity.Mediation.Settings.Editor
 
         public virtual void Dispose()
         {
-            Enabled.Dispose();
             InstalledVersion.Dispose();
         }
     }

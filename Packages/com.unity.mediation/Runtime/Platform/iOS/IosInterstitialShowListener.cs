@@ -14,22 +14,22 @@ namespace Unity.Mediation.Platform
 
         public IosInterstitialShowListener() : base(false)
         {
-            NativePtr = InterstitialAdShowListenerCreate(Started, Clicked, Finished, FailedShow);
+            NativePtr = InterstitialAdShowDelegateCreate(Started, Clicked, Finished, FailedShow);
         }
 
         public override void Dispose()
         {
             if (NativePtr == IntPtr.Zero) return;
-            InterstitialAdShowListenerDestroy(NativePtr);
+            InterstitialAdShowDelegateDestroy(NativePtr);
             NativePtr = IntPtr.Zero;
         }
 
-        [DllImport("__Internal", EntryPoint = "UMSPInterstitialAdShowListenerCreate")]
-        static extern IntPtr InterstitialAdShowListenerCreate(StartedCallback startedCallback, ClickedCallback clickedCallback,
+        [DllImport("__Internal", EntryPoint = "UMSPInterstitialAdShowDelegateCreate")]
+        static extern IntPtr InterstitialAdShowDelegateCreate(StartedCallback startedCallback, ClickedCallback clickedCallback,
             FinishedCallback finishedCallback, FailedShowCallback failedShowCallback);
 
-        [DllImport("__Internal", EntryPoint = "UMSPInterstitialAdShowListenerDestroy")]
-        static extern void InterstitialAdShowListenerDestroy(IntPtr ptr);
+        [DllImport("__Internal", EntryPoint = "UMSPInterstitialAdShowDelegateDestroy")]
+        static extern void InterstitialAdShowDelegateDestroy(IntPtr ptr);
 
         [MonoPInvokeCallback(typeof(StartedCallback))]
         static void Started(IntPtr ptr)

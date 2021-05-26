@@ -44,9 +44,14 @@ namespace Unity.Mediation
         public string RevenueAccuracy;
 
         /// <summary>
-        /// The publisher revenue for the impression event.
+        /// Returns the single impression publisher revenue for an impression event. For example, a CPM of 2.55 will return a value of 0.00255 for that impression.
         /// </summary>
-        public string PublisherRevenue;
+        public string PublisherRevenuePerImpression;
+
+        /// <summary>
+        /// Returns the single impression publisher revenue for an impression event. For example, a single impression value of 0.00255 will return a value of 2550 for that impression.
+        /// </summary>
+        public string PublisherRevenuePerImpressionInMicros;
 
         /// <summary>
         /// Name of Ad Network serving the impression, for example the ad_network_id.

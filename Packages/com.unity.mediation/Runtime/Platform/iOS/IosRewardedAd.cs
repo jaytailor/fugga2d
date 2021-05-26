@@ -34,9 +34,9 @@ namespace Unity.Mediation.Platform
         IosRewardedLoadListener m_RewardedLoadListener;
         IosRewardedShowListener m_RewardedShowListener;
 
-        public IosRewardedAd(string gameId, string adUnitId) : base(true)
+        public IosRewardedAd(string adUnitId) : base(true)
         {
-            NativePtr = RewardedAdCreate(gameId, adUnitId);
+            NativePtr = RewardedAdCreate(adUnitId);
         }
 
         public void Load()
@@ -109,7 +109,7 @@ namespace Unity.Mediation.Platform
         }
 
         [DllImport("__Internal", EntryPoint = "UMSPRewardedAdCreate")]
-        static extern IntPtr RewardedAdCreate(string gameId, string adUnitId);
+        static extern IntPtr RewardedAdCreate(string adUnitId);
 
         [DllImport("__Internal", EntryPoint = "UMSPRewardedAdLoad")]
         static extern void RewardedAdLoad(IntPtr nativePtr, IntPtr listener);

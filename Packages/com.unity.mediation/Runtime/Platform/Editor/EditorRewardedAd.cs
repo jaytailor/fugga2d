@@ -5,7 +5,7 @@ namespace Unity.Mediation.Platform
 {
     class EditorRewardedAd : IRewardedAd
     {
-        public EditorRewardedAd(string gameId, string adUnitId) {}
+        public EditorRewardedAd(string adUnitId) {}
 
 #pragma warning disable 67
         public event EventHandler OnLoaded;

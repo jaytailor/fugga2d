@@ -20,6 +20,11 @@ namespace Unity.Mediation
         /// <summary>
         /// Ad network adapter error caused ad to not show
         /// </summary>
-        AdNetworkError
+        AdNetworkError,
+
+        /// <summary>
+        /// Android Only: The activity passed to the ad unit was invalid.
+        /// </summary>
+        InvalidActivity
     }
 }

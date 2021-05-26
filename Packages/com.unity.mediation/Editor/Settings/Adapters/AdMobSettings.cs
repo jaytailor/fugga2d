@@ -1,11 +1,17 @@
 using UnityEditor;
 using UnityEditor.SettingsManagement;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
+
 
 namespace Unity.Mediation.Settings.Editor
 {
     class AdMobSettings : BaseAdapterSettings
     {
+        const string k_AdapterTemplate = @"Packages/com.unity.mediation/Editor/Settings/Adapters/Layout/AdMobTemplate.uxml";
+
         public override string AdapterId => "admob-adapter";
 
         public string AdMobAppIdAndroid
@@ -31,20 +37,13 @@ namespace Unity.Mediation.Settings.Editor
                 $"{AdapterId}.app-id.ios", "");
         }
 
-        public override void OnAdapterSettingsGui(string searchContext)
+        public override void OnAdapterSettingsGui(string searchContext, VisualElement rootElement)
         {
-            const string label = "AdMob Application Identifier";
-            if (!SettingsGUILayoutEx.MatchSearchGroups(searchContext, label))
-                return;
-            EditorGUILayout.LabelField(label);
-            EditorGUI.indentLevel++;
-            m_AdMobAppIdAndroid.value = SettingsGUILayout.SettingsTextField("Android", m_AdMobAppIdAndroid, searchContext);
-            m_AdMobAppIdIos.value = SettingsGUILayout.SettingsTextField("iOS", m_AdMobAppIdIos, searchContext);
-            if (GUI.enabled && (string.IsNullOrWhiteSpace(m_AdMobAppIdAndroid.value) || string.IsNullOrWhiteSpace(m_AdMobAppIdIos.value)))
-            {
-                EditorGUILayout.HelpBox("Application identifier is required to use AdMob adapter", MessageType.Warning);
-            }
-            EditorGUI.indentLevel--;
+            VisualTreeAsset adapterTemplate  = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_AdapterTemplate);
+            adapterTemplate.CloneTree(rootElement);
+
+            rootElement.Q<TextField>("AndroidAdmobID").value = m_AdMobAppIdAndroid.value;
+            rootElement.Q<TextField>("IosAdmobID").value = m_AdMobAppIdIos.value;
         }
 
         public override void Dispose()
