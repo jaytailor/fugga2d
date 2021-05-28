@@ -27,14 +27,13 @@ namespace Unity.Mediation.EditorTests
         public void OneTimeSetUp()
         {
             m_AdMobSettings = new AdMobSettings();
-            m_AdMobEnabled = m_AdMobSettings.Enabled.value;
+            m_AdMobEnabled = !string.IsNullOrEmpty(m_AdMobSettings.InstalledVersion);
             m_AdMobAppIdAndroid = m_AdMobSettings.m_AdMobAppIdAndroid.value;
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            m_AdMobSettings.Enabled.value = m_AdMobEnabled;
             m_AdMobSettings.m_AdMobAppIdAndroid.value = m_AdMobAppIdAndroid;
         }
 
@@ -60,7 +59,7 @@ namespace Unity.Mediation.EditorTests
         public void AndroidManifestWithAdMobDisabledTest()
         {
             m_AdMobSettings.m_AdMobAppIdAndroid.value = k_KAdMobTestAppId;
-            m_AdMobSettings.Enabled.value = false;
+            m_AdMobSettings.InstalledVersion.value = "";
 
             var generator = new AndroidManifestPostGenerateGradleProject();
             generator.OnPostGenerateGradleAndroidProject(m_TempAndroidProjectPath);
@@ -74,7 +73,7 @@ namespace Unity.Mediation.EditorTests
         public void AndroidManifestWithAdMobEnabledTest()
         {
             m_AdMobSettings.m_AdMobAppIdAndroid.value = k_KAdMobTestAppId;
-            m_AdMobSettings.Enabled.value = true;
+            m_AdMobSettings.InstalledVersion.value = "1.0.0";
 
             var generator = new AndroidManifestPostGenerateGradleProject();
             generator.OnPostGenerateGradleAndroidProject(m_TempAndroidProjectPath);

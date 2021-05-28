@@ -1,6 +1,0 @@
-framework module UnityMediationAdColonyAdapter {
-  umbrella header "UnityMediationAdColonyAdapter.h"
-
-  export *
-  module * { export * }
-}

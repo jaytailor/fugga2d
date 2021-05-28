@@ -44,7 +44,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DeltaDNA/Editor/SdkChecker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -91,9 +90,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" />
         <option value="$PROJECT_DIR$/Assets/DeltaDNA/Editor/Android/Dependencies.xml" />
+        <option value="$PROJECT_DIR$/Packages/com.unity.mediation/Editor/Build/AndroidManifestPostGenerateGradleProject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Android/launcherTemplate.gradle" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Android/gradleTemplate.properties" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" />
       </list>
     </option>
@@ -161,6 +163,7 @@
       <workItem from="1604622757221" duration="20303000" />
       <workItem from="1609808148663" duration="9292000" />
       <workItem from="1619221774903" duration="146000" />
+      <workItem from="1621979873946" duration="6843000" />
     </task>
     <servers />
   </component>
@@ -185,14 +188,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2261" y="190" key="SettingsEditor" timestamp="1606199468588">
+    <state x="2105" y="155" width="1225" height="802" key="find.popup" timestamp="1622057434999">
       <screen x="1792" y="23" width="1920" height="1057" />
     </state>
-    <state x="2261" y="190" key="SettingsEditor/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1606199468588" />
-    <state x="493" y="224" width="805" height="735" key="find.popup" timestamp="1604546670045">
-      <screen x="0" y="23" width="1792" height="1097" />
-    </state>
-    <state x="493" y="224" width="805" height="735" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1604546670045" />
+    <state x="2105" y="155" width="1225" height="802" key="find.popup/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1622057434999" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

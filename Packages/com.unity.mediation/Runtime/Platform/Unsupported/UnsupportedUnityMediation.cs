@@ -9,7 +9,7 @@ namespace Unity.Mediation.Platform
 
         public event EventHandler<InitializationErrorEventArgs> OnInitializationFailed;
 
-        public InitializationState State => InitializationState.Uninitialized;
+        public InitializationState InitializationState => InitializationState.Uninitialized;
 
         public void Initialize(string gameId) {}
     }

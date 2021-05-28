@@ -19,6 +19,14 @@ namespace Unity.Mediation.Adapters.Editor
         const string k_IdentifierKey = "mediation-identifier";
         const string k_VersionKey = "mediation-version";
 
+        const string k_AndroidStagingArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-stg-local/";
+        const string k_AndroidProductionArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-prod-local/";
+        const string k_AndroidArtifactoryURL = k_AndroidProductionArtifactoryURL;
+
+        const string k_IOSStagingArtifactoryURL = @"'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'";
+        const string k_IOSProductionArtifactoryURL = @"'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'";
+        const string k_IOSArtifactoryURL = k_IOSProductionArtifactoryURL;
+
         string m_DependenciesPath;
         Regex m_MavenRegex;
 
@@ -59,28 +67,25 @@ namespace Unity.Mediation.Adapters.Editor
                 new XElement("dependencies",
                     new XElement("androidPackages",
                         new XElement("repositories",
-                            new XElement("repository", "https://mediation-artifactory.stg.mz.internal.unity3d.com/artifactory/libs-release-local/")
+                            new XElement("repository", k_AndroidArtifactoryURL)
                         ),
                         new XComment(" Mediation SDK Android Adapters "),
                         adapters.OrderBy(info => info.Identifier)
                             .Select(info => new XElement("androidPackage",
-                                new XAttribute("spec", $"{info.AndroidArtifact}:{info.InstalledVersion}"),
+                                new XAttribute("spec", $"{info.AndroidArtifact}:{info.InstalledVersion.Version(SemanticVersioningType.Maven)}"),
                                 new XAttribute(k_IdentifierKey, info.Identifier),
-                                new XAttribute(k_VersionKey, info.InstalledVersion)
+                                new XAttribute(k_VersionKey, info.InstalledVersion.Identifier)
                             ))
                     ),
                     new XElement("iosPods",
-                        //TODO: remove private repo
-                        new XElement("sources",
-                            new XComment(" Important! this is a private repository. Please reach out for access. "),
-                            new XElement("source", "https://github.com/Unity-Technologies/mz-mediation-cocoapods")
-                        ),
                         new XComment(" Mediation SDK iOS Adapters "),
                         adapters.OrderBy(info => info.Identifier)
                             .Select(info => new XElement("iosPod",
                                 new XAttribute("name", info.IosPod),
+                                new XAttribute("version", info.InstalledVersion.Version(SemanticVersioningType.CocoaPods)),
+                                new XAttribute("source", k_IOSArtifactoryURL),
                                 new XAttribute(k_IdentifierKey, info.Identifier),
-                                new XAttribute(k_VersionKey, $"~> {info.InstalledVersion}")
+                                new XAttribute(k_VersionKey, info.InstalledVersion.Identifier)
                             ))
                     )
                 )
@@ -95,37 +100,43 @@ namespace Unity.Mediation.Adapters.Editor
                 new XElement("dependencies",
                     new XElement("androidPackages",
                         new XElement("repositories",
-                            new XElement("repository", FindLocalMavenRepo())
+                            new XElement("repository", k_AndroidArtifactoryURL)
                         ),
                         new XComment(" Mediation Android SDK "),
                         new XElement("androidPackage",
-                            new XAttribute("spec", $"{sdkInfo.AndroidArtifact}:{sdkInfo.SdkVersion}"),
+                            new XAttribute("spec", $"{sdkInfo.AndroidArtifact}:{VersionInfo.OptimisticVersion(SemanticVersioningType.Maven,sdkInfo.SdkVersion)}"),
                             new XAttribute(k_IdentifierKey, sdkInfo.Identifier),
                             new XAttribute(k_VersionKey, sdkInfo.SdkVersion)
                         ),
                         new XComment(" Mediation SDK Android Adapters "),
                         adapters.OrderBy(info => info.Identifier)
                             .Select(info => new XElement("androidPackage",
-                                new XAttribute("spec", $"{info.AndroidArtifact}:{info.InstalledVersion}"),
+                                new XAttribute("spec", $"{info.AndroidArtifact}:{info.InstalledVersion.Version(SemanticVersioningType.Maven)}"),
                                 new XAttribute(k_IdentifierKey, info.Identifier),
-                                new XAttribute(k_VersionKey, info.InstalledVersion)
+                                new XAttribute(k_VersionKey, info.InstalledVersion.Identifier)
                             ))
                     ),
                     new XElement("iosPods",
                         new XComment(" Mediation iOS SDK "),
                         new XElement("iosPod",
                             new XAttribute("name", sdkInfo.IosPod),
-                            new XAttribute("path", FindPodSpecPath(sdkInfo.IosPod)),
+                            new XAttribute("version", VersionInfo.OptimisticVersion(SemanticVersioningType.CocoaPods,sdkInfo.SdkVersion)),
+                            new XAttribute("source", k_IOSArtifactoryURL),
                             new XAttribute(k_IdentifierKey, sdkInfo.Identifier),
                             new XAttribute(k_VersionKey, sdkInfo.SdkVersion)
+                        ),
+                        new XComment(" Mediation Dependency Required For resolution "),
+                        new XElement("iosPod",
+                            new XAttribute("name", "Protobuf")
                         ),
                         new XComment(" Mediation SDK iOS Adapters "),
                         adapters.OrderBy(info => info.Identifier)
                             .Select(info => new XElement("iosPod",
                                 new XAttribute("name", $"{info.IosPod}"),
-                                new XAttribute("path", FindPodSpecPath(info.IosPod)),
+                                new XAttribute("version", info.InstalledVersion.Version(SemanticVersioningType.CocoaPods)),
+                                new XAttribute("source", k_IOSArtifactoryURL),
                                 new XAttribute(k_IdentifierKey, info.Identifier),
-                                new XAttribute(k_VersionKey, info.InstalledVersion)
+                                new XAttribute(k_VersionKey, info.InstalledVersion.Identifier)
                             ))
                     )
                 )
@@ -251,14 +262,14 @@ namespace Unity.Mediation.Adapters.Editor
                     continue;
                 }
 
-                var version = element.Attribute(k_VersionKey)?.Value;
-                if (!string.IsNullOrWhiteSpace(version) && adapter.Versions.Contains(version))
+                var versionIdentifier = element.Attribute(k_VersionKey)?.Value;
+                if (!string.IsNullOrWhiteSpace(versionIdentifier) && Array.Exists(adapter.Versions, (x) => x.Identifier == versionIdentifier))
                 {
-                    adapter.InstalledVersion = version;
+                    adapter.InstalledVersion = adapter.Versions.First(versionInfo => versionInfo.Identifier == versionIdentifier);
                 }
                 else
                 {
-                    adapter.InstalledVersion = adapter.Versions.First();
+                    adapter.InstalledVersion = adapter.Versions.Last();
                     needRegeneration = true;
                 }
                 installedAdapters.Add(adapter);
@@ -278,16 +289,16 @@ namespace Unity.Mediation.Adapters.Editor
         /// If version is not specified, latest available version will be installed.
         /// </summary>
         /// <param name="identifier">The identifier of the adapter</param>
-        /// <param name="version">Version of the adapter, or null to use the latest</param>
+        /// <param name="versionInfo">Version of the adapter</param>
         /// <exception cref="InvalidOperationException">Thrown if combination of identifier/version is not valid</exception>
-        public virtual void InstallAdapter(string identifier, string version = null)
+        public virtual void InstallAdapter(string identifier, VersionInfo versionInfo = null)
         {
             var xmlPath = GetDependenciesPath();
 
-            InstallAdapter(identifier, version, xmlPath);
+            InstallAdapter(identifier, versionInfo, xmlPath);
         }
 
-        internal void InstallAdapter(string identifier, string version, string xmlPath)
+        internal void InstallAdapter(string identifier, VersionInfo versionInfo, string xmlPath)
         {
             var adapter = MediationSdkInfo.GetAllAdapters().FirstOrDefault(info => info.Identifier == identifier);
             if (adapter == null)
@@ -295,27 +306,27 @@ namespace Unity.Mediation.Adapters.Editor
                 throw new InvalidOperationException($"Can't install adapter with identifier \'{identifier}\'");
             }
 
-            if (version != null && !adapter.Versions.Contains(version))
+            if (versionInfo != null && !Array.Exists(adapter.Versions,  (x) => x == versionInfo))
             {
                 throw new InvalidOperationException(
-                    $"Can't install adapter with identifier \'{identifier}\': version \'{version}\' not available");
+                    $"Can't install adapter with identifier \'{identifier}\': version \'{versionInfo.Identifier}\' not available");
             }
 
-            if (version == null)
+            if (versionInfo == null)
             {
-                version = adapter.Versions.Last();
+                versionInfo = adapter.Versions.First();
             }
 
             var installedAdapters = GetInstalledAdapters(xmlPath);
             var installedAdapter = installedAdapters.FirstOrDefault(info => info.Identifier == identifier);
             if (installedAdapter != null)
             {
-                if (installedAdapter.InstalledVersion == version) return;
-                installedAdapter.InstalledVersion = version;
+                if (installedAdapter.InstalledVersion == versionInfo) return;
+                installedAdapter.InstalledVersion = versionInfo;
             }
             else
             {
-                adapter.InstalledVersion = version;
+                adapter.InstalledVersion = versionInfo;
                 installedAdapters.Add(adapter);
             }
 

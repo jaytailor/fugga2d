@@ -20,10 +20,16 @@ namespace Unity.Mediation.Settings.Editor
         [SettingsProvider]
         static SettingsProvider CreateSettingsProvider()
         {
-            var provider = new UserSettingsProvider("Project/Mediation",
+            var provider = new UserSettingsProviderWrapper("Project/Services/Mediation",
                 instance,
                 new[] { typeof(MediationSettingsProvider).Assembly },
-                SettingsScope.Project);
+                SettingsScope.Project)
+            {
+                activateHandler = (searchContext, rootElement) =>
+                {
+                    MediationAdapterSettings.GenerateUIElementUI(searchContext, rootElement);
+                }
+            };
             return provider;
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -24,19 +25,20 @@ namespace Unity.Mediation.EditorTests
         [Test]
         public void SdkVersionMatchesPackageVersionTest()
         {
-            Assert.AreEqual(GetPackageVersion(true), MediationSdkInfo.GetSdkInfo().SdkVersion, "Version mismatch");
-            Assert.AreEqual(GetPackageVersion(), MediationSdkInfo.GetSdkInfo().PackageVersion, "Version mismatch");
+            Assert.IsTrue(GetPackageVersion(true).StartsWith(MediationSdkInfo.GetSdkInfo().SdkVersion), "SdkVersion mismatch");
+            Assert.AreEqual(GetPackageVersion(), MediationSdkInfo.GetSdkInfo().PackageVersion, "PackageVersion mismatch");
         }
 
         [Test]
-        public void AdapterVersionsMatchesPackageVersionTest()
+        public void AdapterVersionsContainsLatestVersionTest()
         {
-            var version = GetPackageVersion(true);
+            var version = VersionInfo.k_Latest;
             var adapters = MediationSdkInfo.GetAllAdapters();
             foreach (var adapter in adapters)
             {
-                Assert.Contains(version, adapter.Versions, "Adapter {0} does not contain version {1}",
-                    adapter.DisplayName, version);
+                var versions = adapter.Versions.Select(x => x.Identifier).ToArray();
+                Assert.Contains(version, versions, "Adapter {0} does not contain version {1}",
+                    adapter.Identifier, version);
             }
         }
 
@@ -50,16 +52,7 @@ namespace Unity.Mediation.EditorTests
 
         static string GetPackageVersion(bool noSuffix = false)
         {
-#if UNITY_2019_4_OR_NEWER
             var version = PackageInfo.FindForAssembly(typeof(UnityMediation).Assembly).version;
-#else
-            var packageJsonFile = AssetDatabase.FindAssets("t:TextAsset")
-                .Select(AssetDatabase.GUIDToAssetPath)
-                .FirstOrDefault(path => path == "Packages/com.unity.mediation/package.json");
-            var packageJson = new PackageJson();
-            EditorJsonUtility.FromJsonOverwrite(File.ReadAllText(packageJsonFile), packageJson);
-            var version = packageJson.version;
-#endif
             if (noSuffix)
             {
                 //Remove suffix e.g. 1.2.3-preview => 1.2.3

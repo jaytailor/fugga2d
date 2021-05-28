@@ -1,5 +1,5 @@
 #import <UnityMediationSdk/UnityMediationSdk.h>
-#import "UMSPImpressionListener.h"
+#import "UMSPImpressionDelegate.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -8,17 +8,17 @@ extern "C" {
 void UMSPImpressionEventPublisherSubscribe(void *ptr) {
     if (!ptr) return;
 
-    UMSPImpressionListener *listener = (__bridge UMSPImpressionListener *)ptr;
+    UMSPImpressionDelegate *delegate = (__bridge UMSPImpressionDelegate *)ptr;
 
-    [UMSImpressionEventPublisher subscribe:listener];
+    [UMSImpressionEventPublisher subscribe:delegate];
 }
 
 void UMSPImpressionEventPublisherUnsubscribe(void *ptr) {
     if (!ptr) return;
 
-    UMSPImpressionListener *listener = (__bridge UMSPImpressionListener *)ptr;
+    UMSPImpressionDelegate *delegate = (__bridge UMSPImpressionDelegate *)ptr;
 
-    [UMSImpressionEventPublisher unsubscribe:listener];
+    [UMSImpressionEventPublisher unsubscribe:delegate];
 }
 
 #ifdef __cplusplus

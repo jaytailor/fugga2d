@@ -12,16 +12,16 @@ namespace Unity.Mediation.Tests
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            if (UnityMediation.State != InitializationState.Initialized)
+            if (UnityMediation.InitializationState != InitializationState.Initialized)
             {
                 UnityMediation.OnInitializationComplete += (sender, args) =>
-                    Assert.AreEqual(InitializationState.Initialized, UnityMediation.State);
+                    Assert.AreEqual(InitializationState.Initialized, UnityMediation.InitializationState);
                 UnityMediation.OnInitializationFailed += (sender, args) => Assert.Fail("Initialization Failed");
                 UnityMediation.Initialize(TestConstants.GameId);
             }
 
-            yield return new WaitUntil(() => UnityMediation.State == InitializationState.Initialized);
-            m_InterstitialAd = new InterstitialAd(TestConstants.GameId, TestConstants.AdUnitInterstitialId);
+            yield return new WaitUntil(() => UnityMediation.InitializationState == InitializationState.Initialized);
+            m_InterstitialAd = new InterstitialAd(TestConstants.AdUnitInterstitialId);
         }
 
         [Test]

@@ -44,7 +44,7 @@ namespace Unity.Mediation
         /// <summary>
         /// Getter for the current initialization state of the mediation sdk.
         /// </summary>
-        public static InitializationState State => UnityMediationImpl.State;
+        public static InitializationState InitializationState => UnityMediationImpl.InitializationState;
 
         /// <summary>
         /// Mediation api for Initializing the Unity Mediation SDK.

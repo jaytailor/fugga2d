@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace Unity.Mediation.Samples
@@ -22,11 +22,11 @@ namespace Unity.Mediation.Samples
 
             if (Application.platform == RuntimePlatform.Android)
             {
-                m_InterstitialAd = new InterstitialAd(gameId, androidAdUnitId);
+                m_InterstitialAd = new InterstitialAd(androidAdUnitId);
             }
             else
             {
-                m_InterstitialAd = new InterstitialAd(gameId, iosAdUnitId);
+                m_InterstitialAd = new InterstitialAd(iosAdUnitId);
             }
 
             // Load Events
@@ -34,6 +34,7 @@ namespace Unity.Mediation.Samples
             m_InterstitialAd.OnFailedLoad += AdFailedLoad;
 
             // Show Events
+            m_InterstitialAd.OnClosed += AdClosed;
             m_InterstitialAd.OnShowed += AdShown;
             m_InterstitialAd.OnFailedShow += AdFailedShow;
 
@@ -61,9 +62,10 @@ namespace Unity.Mediation.Samples
         void InitializationComplete(object sender, EventArgs args)
         {
             UnityMediation.OnInitializationComplete -= InitializationComplete;
+            Debug.Log("Initialized On Start! Loading Ad...");
             LoadAd();
-            Debug.Log("Initialized On Start");
         }
+
         void InitializationFailed(object sender, EventArgs args)
         {
             Debug.Log("Initialization Failed");
@@ -73,20 +75,27 @@ namespace Unity.Mediation.Samples
         {
             Debug.Log("Loaded Interstitial!");
         }
+
         void AdFailedLoad(object sender, LoadErrorEventArgs args)
         {
             Debug.Log("Interstitial Load Failure");
             Debug.Log(args.Message);
         }
 
-        void AdShown(object sender, EventArgs args)
+        void AdClosed(object sender, EventArgs args)
         {
+            Debug.Log("Interstitial Closed! Loading Ad...");
             LoadAd();
+        }
+
+        void AdShown(object sender, EventArgs e)
+        {
             Debug.Log("Interstitial Shown!");
         }
+
         void AdFailedShow(object sender, ShowErrorEventArgs args)
         {
-            Debug.Log(args.Message);
+            Debug.Log($"Interstitial failed to show : {args.Message}");
         }
 
         void ImpressionEvent(object sender, ImpressionEventArgs args)

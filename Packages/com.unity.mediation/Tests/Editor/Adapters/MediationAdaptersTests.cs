@@ -60,9 +60,10 @@ namespace Unity.Mediation.EditorTests
         [TestCase(k_TestAdapter, null)]
         public void InstallTest(string adapterId, string version)
         {
-            m_GeneratorMock.Setup(generator => generator.InstallAdapter(adapterId, version));
-            MediationSdkInfo.Install(adapterId, version);
-            m_GeneratorMock.Verify(generator => generator.InstallAdapter(adapterId, version));
+            var versionInfo = new VersionInfo { Identifier = version };
+            m_GeneratorMock.Setup(generator => generator.InstallAdapter(adapterId, versionInfo));
+            MediationSdkInfo.Install(adapterId, versionInfo);
+            m_GeneratorMock.Verify(generator => generator.InstallAdapter(adapterId, versionInfo));
         }
 
         [Test]

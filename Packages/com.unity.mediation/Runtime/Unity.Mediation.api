@@ -12,6 +12,27 @@ namespace Unity.Mediation
         public int value__;
     }
 
+    public enum ConsentStatus
+    {
+        public const Unity.Mediation.ConsentStatus Denied = 2;
+        public const Unity.Mediation.ConsentStatus Given = 1;
+        public const Unity.Mediation.ConsentStatus NotDetermined = 0;
+        public int value__;
+    }
+
+    public static class DataPrivacy
+    {
+        public static Unity.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
+        public static void UserGaveConsent(Unity.Mediation.ConsentStatus consent, Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
+    }
+
+    public enum DataPrivacyLaw
+    {
+        public const Unity.Mediation.DataPrivacyLaw CCPA = 1;
+        public const Unity.Mediation.DataPrivacyLaw GDPR = 0;
+        public int value__;
+    }
+
     public class ImpressionData
     {
         public string AdSourceInstance;
@@ -26,7 +47,8 @@ namespace Unity.Mediation
         public string LineItemId;
         public string LineItemName;
         public string LineItemPriority;
-        public string PublisherRevenue;
+        public string PublisherRevenuePerImpression;
+        public string PublisherRevenuePerImpressionInMicros;
         public string RevenueAccuracy;
         public string Timestamp;
         public ImpressionData() {}
@@ -69,7 +91,7 @@ namespace Unity.Mediation
         public event System.EventHandler OnShowed;
         public Unity.Mediation.AdState AdState { get; }
         public string AdUnitId { get; }
-        public InterstitialAd(string gameId, string adUnitId) {}
+        public InterstitialAd(string adUnitId) {}
         public virtual void Dispose();
         public void Load();
         public void Show();
@@ -77,9 +99,10 @@ namespace Unity.Mediation
 
     public enum LoadError
     {
-        public const Unity.Mediation.LoadError NetworkError = 1;
-        public const Unity.Mediation.LoadError NoFill = 0;
-        public const Unity.Mediation.LoadError Unknown = 2;
+        public const Unity.Mediation.LoadError NetworkError = 2;
+        public const Unity.Mediation.LoadError NoFill = 1;
+        public const Unity.Mediation.LoadError SdkNotInitialized = 3;
+        public const Unity.Mediation.LoadError Unknown = 0;
         public int value__;
     }
 
@@ -101,7 +124,7 @@ namespace Unity.Mediation
         public event System.EventHandler<Unity.Mediation.RewardEventArgs> OnUserRewarded;
         public Unity.Mediation.AdState AdState { get; }
         public string AdUnitId { get; }
-        public RewardedAd(string gameId, string adUnitId) {}
+        public RewardedAd(string adUnitId) {}
         public virtual void Dispose();
         public void Load();
         public void Show();
@@ -116,6 +139,7 @@ namespace Unity.Mediation
 
     public enum SdkInitializationError
     {
+        public const Unity.Mediation.SdkInitializationError NetworkError = 1;
         public const Unity.Mediation.SdkInitializationError Unknown = 0;
         public int value__;
     }
@@ -139,7 +163,26 @@ namespace Unity.Mediation
     {
         public static event System.EventHandler OnInitializationComplete;
         public static event System.EventHandler<Unity.Mediation.InitializationErrorEventArgs> OnInitializationFailed;
-        public static Unity.Mediation.InitializationState State { get; }
+        public static Unity.Mediation.InitializationState InitializationState { get; }
         public static void Initialize(string gameId);
+    }
+}
+
+namespace Unity.Mediation.Platform
+{
+    public class AndroidDataPrivacy : System.IDisposable, Unity.Mediation.Platform.IDataPrivacy
+    {
+        public AndroidDataPrivacy() {}
+        public virtual void Dispose();
+        protected virtual void Finalize();
+        public virtual Unity.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
+        public virtual void UserGaveConsent(Unity.Mediation.ConsentStatus consent, Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
+    }
+
+    public class EditorDataPrivacy : Unity.Mediation.Platform.IDataPrivacy
+    {
+        public EditorDataPrivacy() {}
+        public virtual Unity.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
+        public virtual void UserGaveConsent(Unity.Mediation.ConsentStatus consent, Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
     }
 }

@@ -16,7 +16,7 @@ namespace Unity.Mediation.Build.Editor
         public void OnPreprocessBuild(BuildReport report)
         {
             var adMobSettings = new AdMobSettings();
-            if (!adMobSettings.Enabled.value)
+            if (string.IsNullOrEmpty(adMobSettings.InstalledVersion))
                 return;
 
             if (report.summary.platform == BuildTarget.Android && string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdAndroid) ||

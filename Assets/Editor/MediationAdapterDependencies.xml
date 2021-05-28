@@ -13,7 +13,6 @@
     <androidPackage spec="com.unity3d.mediation:facebook-adapter:+" mediation-identifier="facebook-adapter" mediation-version="latest" />
     <androidPackage spec="com.unity3d.mediation:ironsource-adapter:+" mediation-identifier="ironsource-adapter" mediation-version="latest" />
     <androidPackage spec="com.unity3d.mediation:unityads-adapter:+" mediation-identifier="unityads-adapter" mediation-version="latest" />
-    <androidPackage spec="com.unity3d.mediation:vungle-adapter:+" mediation-identifier="vungle-adapter" mediation-version="latest" />
   </androidPackages>
   <iosPods>
     <!-- Mediation iOS SDK -->
@@ -27,6 +26,5 @@
     <iosPod name="UnityMediationFacebookAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="facebook-adapter" mediation-version="latest" />
     <iosPod name="UnityMediationIronSourceAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="ironsource-adapter" mediation-version="latest" />
     <iosPod name="UnityMediationUnityAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="unityads-adapter" mediation-version="latest" />
-    <iosPod name="UnityMediationVungleAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="vungle-adapter" mediation-version="latest" />
   </iosPods>
 </dependencies>

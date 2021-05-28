@@ -58,18 +58,17 @@ namespace Unity.Mediation
         /// <summary>
         /// Constructor for managing a specific Rewarded Ad.
         /// </summary>
-        /// <param name="gameId">Unique Id for the game you are showing from.</param>
         /// <param name="adUnitId">Unique Id for the Ad you want to show.</param>
-        public RewardedAd(string gameId, string adUnitId)
+        public RewardedAd(string adUnitId)
         {
 #if UNITY_EDITOR
-            RewardedAdImpl = new EditorRewardedAd(gameId, adUnitId);
+            RewardedAdImpl = new EditorRewardedAd(adUnitId);
 #elif UNITY_ANDROID
-            RewardedAdImpl = new AndroidRewardedAd(gameId, adUnitId);
+            RewardedAdImpl = new AndroidRewardedAd(adUnitId);
 #elif UNITY_IOS
-            RewardedAdImpl = new IosRewardedAd(gameId, adUnitId);
+            RewardedAdImpl = new IosRewardedAd(adUnitId);
 #else
-            RewardedAdImpl = new UnsupportedRewardedAd(gameId, adUnitId);
+            RewardedAdImpl = new UnsupportedRewardedAd(adUnitId);
 #endif
             InitializeCallbacks();
         }

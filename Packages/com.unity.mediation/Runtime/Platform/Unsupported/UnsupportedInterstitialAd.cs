@@ -5,7 +5,7 @@ namespace Unity.Mediation.Platform
 {
     class UnsupportedInterstitialAd : IInterstitialAd
     {
-        public UnsupportedInterstitialAd(string gameId, string adUnitId) {}
+        public UnsupportedInterstitialAd(string adUnitId) {}
 
         public event EventHandler OnLoaded;
 

@@ -14,7 +14,12 @@ namespace Unity.Mediation
     public enum LoadError
     {
         /// <summary>
-        /// Error that occurs when the sdk fails to load an ad for an entire waterfall.
+        /// This occurs if a non-network error happens during instantiation service load.
+        /// </summary>
+        Unknown,
+
+        /// <summary>
+        /// Error that occurs when the SDK fails to load an ad for an entire waterfall.
         /// </summary>
         NoFill,
 
@@ -24,8 +29,8 @@ namespace Unity.Mediation
         NetworkError,
 
         /// <summary>
-        /// This occurs if a non-network error happens during instantiation service load.
+        /// Error that occurs when an ad unit failed to load because the SDK was not initialized.
         /// </summary>
-        Unknown
+        SdkNotInitialized
     }
 }

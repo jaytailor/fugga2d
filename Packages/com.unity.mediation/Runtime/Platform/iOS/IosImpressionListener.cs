@@ -9,13 +9,13 @@ namespace Unity.Mediation.Platform
     {
         public IosImpressionListener() : base(false)
         {
-            NativePtr = ImpressionListenerCreate(Impression);
+            NativePtr = ImpressionDelegateCreate(Impression);
         }
 
         public override void Dispose()
         {
             if (NativePtr == IntPtr.Zero) return;
-            ImpressionListenerDestroy(NativePtr);
+            ImpressionDelegateDestroy(NativePtr);
             NativePtr = IntPtr.Zero;
         }
 
@@ -26,11 +26,11 @@ namespace Unity.Mediation.Platform
 
         delegate void ImpressionCallback(string adUnitId, IntPtr iosImpressionDataPtr);
 
-        [DllImport("__Internal", EntryPoint = "UMSPImpressionListenerCreate")]
-        static extern IntPtr ImpressionListenerCreate(ImpressionCallback impressionCallback);
+        [DllImport("__Internal", EntryPoint = "UMSPImpressionDelegateCreate")]
+        static extern IntPtr ImpressionDelegateCreate(ImpressionCallback impressionCallback);
 
-        [DllImport("__Internal", EntryPoint = "UMSPImpressionListenerDestroy")]
-        static extern void ImpressionListenerDestroy(IntPtr ptr);
+        [DllImport("__Internal", EntryPoint = "UMSPImpressionDelegateDestroy")]
+        static extern void ImpressionDelegateDestroy(IntPtr ptr);
 
         [MonoPInvokeCallback(typeof(ImpressionCallback))]
         static void Impression(string adUnitId, IntPtr iosImpressionDataPtr)

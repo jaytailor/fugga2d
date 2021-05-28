@@ -55,7 +55,7 @@ namespace Unity.Mediation.Platform
         AndroidInterstitialAdShowListener m_InterstitialAdShowListener;
         volatile bool m_Disposed;
 
-        public AndroidInterstitialAd(string gameId, string adUnitId)
+        public AndroidInterstitialAd(string adUnitId)
         {
             ThreadUtil.Send(state =>
             {
@@ -64,7 +64,7 @@ namespace Unity.Mediation.Platform
                     using (var activity = ActivityUtil.GetUnityActivity())
                     {
                         m_InterstitialAd = new AndroidJavaObject("com.unity3d.mediation.InterstitialAd",
-                            activity, gameId, adUnitId);
+                            activity, adUnitId);
                     }
                 }
                 catch (Exception e)

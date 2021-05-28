@@ -1,5 +1,8 @@
 using System;
 using UnityEditor.SettingsManagement;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
+
 
 namespace Unity.Mediation.Settings.Editor
 {
@@ -7,10 +10,8 @@ namespace Unity.Mediation.Settings.Editor
     {
         string AdapterId { get; }
 
-        ReloadableUserSetting<bool> Enabled { get; }
-
         ReloadableUserSetting<string> InstalledVersion { get; }
 
-        void OnAdapterSettingsGui(string searchContext);
+        void OnAdapterSettingsGui(string searchContext, VisualElement root);
     }
 }

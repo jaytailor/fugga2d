@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Unity.Mediation;
 using UnityEngine.UI;
-using DeltaDNA;
 
 public class UnityAds : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class UnityAds : MonoBehaviour
 	#elif UNITY_ANDROID
 		private string gameId = "1737342"; // Your Android game ID here
 		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
-		private string interstitialAdunitIdNew = "interstitial_android_medi_adunit";
+		private string interstitialAdunitIdNew = "Android_Interstitial";
 	#else
 		private string gameId = "0123456"; // Prevents Editor Errors
 	#endif
@@ -38,21 +37,20 @@ public class UnityAds : MonoBehaviour
 		//
 		// // Start collecting data
 		// DDNA.Instance.StartSDK();
+
+		UnityMediation.OnInitializationComplete += OnInitializationComplete;
+		UnityMediation.OnInitializationFailed += OnInitializationFailed;
 		
 		Debug.Log("UnityMediation Initialization");
 		UnityMediation.Initialize(this.gameId);
-	    
-		UnityMediation.OnInitializationComplete += OnInitializationComplete;
-		UnityMediation.OnInitializationFailed += OnInitializationFailed;
 
-		ImpressionEventPublisher.OnImpression += OnImpression;
-		
 		// load interstitial ads
 		LoadInterstitialNew();
         
 		// load rewarded ads
 		LoadRewardedNew();
-		
+		ImpressionEventPublisher.OnImpression += OnImpression;
+
 	}
 
     public void Start()
@@ -63,7 +61,7 @@ public class UnityAds : MonoBehaviour
     
     public void LoadInterstitialNew()
     {
-	    interstitialAdNew = new Unity.Mediation.InterstitialAd(gameId, interstitialAdunitIdNew);
+	    interstitialAdNew = new Unity.Mediation.InterstitialAd(interstitialAdunitIdNew);
         interstitialAdNew.OnLoaded += OnLoadedInterstitial;
         interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
         Debug.Log("Loading Interstitial adunit...");
@@ -82,7 +80,7 @@ public class UnityAds : MonoBehaviour
     
     public void LoadRewardedNew()
     { 
-        rewardedVideoAdNew = new Unity.Mediation.RewardedAd(gameId, rewardedVideoAdunitIdNew);
+        rewardedVideoAdNew = new Unity.Mediation.RewardedAd(rewardedVideoAdunitIdNew);
         rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
         rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
         rewardedVideoAdNew.Load();
@@ -142,7 +140,7 @@ public class UnityAds : MonoBehaviour
 	    Debug.Log("loading again rewarded video ad");
 	    LoadRewardedNew();
     }
-
+    
     void OnFailedShowInterstitial(object sender, ShowErrorEventArgs e)
     {
         Debug.LogError($"{e.Error}: {e.Message}");
@@ -154,7 +152,7 @@ public class UnityAds : MonoBehaviour
 	    Debug.Log("loading again interstitial ad");
 	    LoadInterstitialNew();
     }
-
+    
     static void OnImpression(object sender, ImpressionEventArgs e)
     {
         var impressionData = e.ImpressionData != null ? JsonUtility.ToJson(e.ImpressionData, true) : "null";
@@ -176,11 +174,11 @@ public class UnityAds : MonoBehaviour
         ShowRewardedNew();
      }
 
-  //    public IEnumerator initMediation()
-	 // {
-		//  yield return new WaitForSeconds(3);
-		//  Debug.Log("Initializing unity mediation");
-		//  
-	 // }
+     public IEnumerator initMediation()
+	 {
+		 yield return new WaitForSeconds(3);
+		 Debug.Log("Initializing unity mediation");
+		 
+	 }
 
 }

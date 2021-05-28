@@ -1,42 +1,40 @@
 #import "UnityAppController.h"
 #import <UnityMediationSdk/UnityMediationSdk.h>
-#import "UMSPInterstitialAdLoadListener.h"
-#import "UMSPInterstitialAdShowListener.h"
+#import "UMSPInterstitialAdLoadDelegate.h"
+#import "UMSPInterstitialAdShowDelegate.h"
 #include <string.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void * UMSPInterstitialAdCreate(const char *gameId, const char *adUnitId) {
-    NSString *gameIdString = [NSString stringWithUTF8String:gameId];
+void * UMSPInterstitialAdCreate(const char *adUnitId) {
     NSString *adUnitIdString = [NSString stringWithUTF8String:adUnitId];
     UMSInterstitialAd *interstitialAd = [[UMSInterstitialAd alloc]
-                                         initWithGameId:gameIdString
-                                               adUnitId:adUnitIdString];
+                                         initWithAdUnitId:adUnitIdString];
 
     return (__bridge_retained void *)interstitialAd;
 }
 
-void UMSPInterstitialAdLoad(void *ptr, void *listenerPtr) {
+void UMSPInterstitialAdLoad(void *ptr, void *delegatePtr) {
     if (!ptr) return;
 
     UMSInterstitialAd *interstitialAd = (__bridge UMSInterstitialAd *)ptr;
-    UMSPInterstitialAdLoadListener *listener = listenerPtr ? (__bridge UMSPInterstitialAdLoadListener *)listenerPtr : nil;
+    UMSPInterstitialAdLoadDelegate *delegate = delegatePtr ? (__bridge UMSPInterstitialAdLoadDelegate *)delegatePtr : nil;
 
-    [interstitialAd loadWithListener:listener];
+    [interstitialAd loadWithDelegate:delegate];
 }
 
-void UMSPInterstitialAdShow(void *ptr, void *listenerPtr) {
+void UMSPInterstitialAdShow(void *ptr, void *delegatePtr) {
     if (!ptr) return;
 
     UMSInterstitialAd *interstitialAd = (__bridge UMSInterstitialAd *)ptr;
-    UMSPInterstitialAdShowListener *listener = listenerPtr ? (__bridge UMSPInterstitialAdShowListener *)listenerPtr : nil;
+    UMSPInterstitialAdShowDelegate *delegate = delegatePtr ? (__bridge UMSPInterstitialAdShowDelegate *)delegatePtr : nil;
 
     UIViewController *viewController = [GetAppController() rootViewController];
 
     [interstitialAd showWithViewController:viewController
-                                  listener:listener];
+                                  delegate:delegate];
 }
 
 const char * UMSPInterstitialAdGetAdUnitId(void *ptr) {

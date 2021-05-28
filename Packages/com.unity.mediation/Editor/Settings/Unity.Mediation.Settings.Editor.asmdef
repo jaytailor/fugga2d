@@ -2,7 +2,8 @@
     "name": "Unity.Mediation.Settings.Editor",
     "references": [
         "Unity.Settings.Editor",
-        "Unity.Mediation.Adapters.Editor"
+        "Unity.Mediation.Adapters.Editor",
+        "Unity.Mediation.Dashboard.Editor"
     ],
     "includePlatforms": [
         "Editor"
