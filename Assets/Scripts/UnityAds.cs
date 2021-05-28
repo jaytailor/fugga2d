@@ -13,8 +13,8 @@ public class UnityAds : MonoBehaviour
 		private string interstitialAdunitIdNew = "interstitial_ios_medi_adunit";
 	#elif UNITY_ANDROID
 		private string gameId = "1737342"; // Your Android game ID here
-		private string rewardedVideoAdunitIdNew = "testMediationPlacementSync";
-		private string interstitialAdunitIdNew = "interstitial_android_medi_adunit";
+		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
+		private string interstitialAdunitIdNew = "Android_Interstitial";
 	#else
 		private string gameId = "0123456"; // Prevents Editor Errors
 	#endif
@@ -43,15 +43,14 @@ public class UnityAds : MonoBehaviour
 		
 		Debug.Log("UnityMediation Initialization");
 		UnityMediation.Initialize(this.gameId);
-		
-		ImpressionEventPublisher.OnImpression += OnImpression;
-		
+
 		// load interstitial ads
 		LoadInterstitialNew();
         
 		// load rewarded ads
 		LoadRewardedNew();
-		
+		ImpressionEventPublisher.OnImpression += OnImpression;
+
 	}
 
     public void Start()
@@ -175,11 +174,11 @@ public class UnityAds : MonoBehaviour
         ShowRewardedNew();
      }
 
-  //    public IEnumerator initMediation()
-	 // {
-		//  yield return new WaitForSeconds(3);
-		//  Debug.Log("Initializing unity mediation");
-		//  
-	 // }
+     public IEnumerator initMediation()
+	 {
+		 yield return new WaitForSeconds(3);
+		 Debug.Log("Initializing unity mediation");
+		 
+	 }
 
 }
