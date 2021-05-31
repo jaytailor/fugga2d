@@ -6,7 +6,6 @@ using UnityEditor.Android;
 
 namespace Unity.Mediation.Build.Editor
 {
-    
     class AndroidManifestPostGenerateGradleProject : IPostGenerateGradleAndroidProject
     {
         /*

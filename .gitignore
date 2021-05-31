@@ -1,8 +1,7 @@
-Temp/*
-Library/*
-Build/Android/
-Build/iOS/
-Build/.DS_Store
+/[Tt]emp/
+/[Ll]ibrary/
+/[Bb]uild/
+/[Bb]uilds/
 *.cache
 .DS_Store
 .vs/
