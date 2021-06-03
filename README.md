@@ -3,7 +3,7 @@ This is my 2d Unity game source code.
 
 # How to build 
 
-Use unity hub to build it on any of unity version, Currently built on 2019.1.4f1 but should build for later version. You can build it on 
+Use unity hub to build it on any of unity version, Currently built on 2019.4.17f1 but should build for later version. You can build it on 
 - andrdoid
 - ios
 
