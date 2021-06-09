@@ -52,13 +52,10 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'com.unity3d.mediation:adcolony-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:10
-    implementation 'com.unity3d.mediation:admob-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:11
-    implementation 'com.unity3d.mediation:applovin-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:12
-    implementation 'com.unity3d.mediation:facebook-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:13
-    implementation 'com.unity3d.mediation:ironsource-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:14
+    implementation 'com.unity3d.mediation:adcolony-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:11
+    implementation 'com.unity3d.mediation:ironsource-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:12
     implementation 'com.unity3d.mediation:mediation-sdk:0.1.+' // Assets/Editor/MediationAdapterDependencies.xml:8
-    implementation 'com.unity3d.mediation:unityads-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:15
+    implementation 'com.unity3d.mediation:unityads-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:13
 // Android Resolver Dependencies End
 **DEPS**}
 
