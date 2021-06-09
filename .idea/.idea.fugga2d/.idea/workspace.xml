@@ -27,7 +27,12 @@
   <component name="ChangeListManager">
     <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/MediationAdapterDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/MediationAdapterDependencies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.mediation/Editor/Build/AndroidManifestPostGenerateGradleProject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.unity.mediation/Editor/Build/AndroidManifestPostGenerateGradleProject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,21 +54,21 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Upgrade200.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTime.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPButton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/CodelessIAPStoreListener.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPListener.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPDemo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/Demo/DemoInventory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/UnityAdsUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPListener.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/menu.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPDemo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PrivacyPolicy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/IAPButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/CodelessIAPStoreListener.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Options.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChanceRemainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PremiumCount.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityPurchasing/script/Demo/DemoInventory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/spawnGoodies.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LifeValue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreSettingsEditor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,6 +102,8 @@
         <option value="$PROJECT_DIR$/Assets/Plugins/Android/gradleTemplate.properties" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/MediationAdapterDependencies.xml" />
+        <option value="$PROJECT_DIR$/Packages/com.unity.mediation/Editor/Settings/Layout/SettingsStyle.uss" />
       </list>
     </option>
   </component>
@@ -188,10 +195,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2105" y="155" width="1225" height="802" key="find.popup" timestamp="1622057434999">
+    <state x="2105" y="155" width="1225" height="802" key="find.popup" timestamp="1623192861185">
       <screen x="1792" y="23" width="1920" height="1057" />
     </state>
-    <state x="2105" y="155" width="1225" height="802" key="find.popup/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1622057434999" />
+    <state x="2105" y="155" width="1225" height="802" key="find.popup/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1623192861185" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
