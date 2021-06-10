@@ -9,6 +9,7 @@
     <!-- Mediation SDK Android Adapters -->
     <androidPackage spec="com.unity3d.mediation:adcolony-adapter:+" mediation-identifier="adcolony-adapter" mediation-version="latest" />
     <androidPackage spec="com.unity3d.mediation:adcolony-adapter:+" mediation-identifier="adcolony-adapter" mediation-version="latest" />
+    <androidPackage spec="com.unity3d.mediation:facebook-adapter:+" mediation-identifier="facebook-adapter" mediation-version="latest" />
     <androidPackage spec="com.unity3d.mediation:ironsource-adapter:+" mediation-identifier="ironsource-adapter" mediation-version="latest" />
     <androidPackage spec="com.unity3d.mediation:unityads-adapter:+" mediation-identifier="unityads-adapter" mediation-version="latest" />
   </androidPackages>
@@ -20,6 +21,7 @@
     <!-- Mediation SDK iOS Adapters -->
     <iosPod name="UnityMediationAdColonyAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="adcolony-adapter" mediation-version="latest" />
     <iosPod name="UnityMediationAdColonyAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="adcolony-adapter" mediation-version="latest" />
+    <iosPod name="UnityMediationFacebookAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="facebook-adapter" mediation-version="latest" />
     <iosPod name="UnityMediationIronSourceAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="ironsource-adapter" mediation-version="latest" />
     <iosPod name="UnityMediationUnityAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="unityads-adapter" mediation-version="latest" />
   </iosPods>
