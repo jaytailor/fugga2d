@@ -42,6 +42,18 @@
             </e>
           </e>
         </e>
+        <e p="Samples" t="Include">
+          <e p="Mediation" t="Include">
+            <e p="0.1.1-preview" t="Include">
+              <e p="Example Usage" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="InterstitialExample.cs" t="Include" />
+                  <e p="RewardedExample.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="BackToMenu.cs" t="Include" />
           <e p="BombBlast.cs" t="Include" />
