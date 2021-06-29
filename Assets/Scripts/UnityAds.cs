@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Unity.Mediation;
 using UnityEngine.UI;
+using Unity.RemoteConfig;
 
 public class UnityAds : MonoBehaviour
 {
@@ -24,24 +25,57 @@ public class UnityAds : MonoBehaviour
     Unity.Mediation.InterstitialAd interstitialAdNew;
     Unity.Mediation.RewardedAd rewardedVideoAdNew;
 
- //    // delta dna settings
- //    public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
-	// public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
-	// public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
+    //    // delta dna settings
+    //    public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
+    // public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
+    // public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
 
-	public void Awake()
+
+    public bool show_ads;
+    public int num_ads;
+
+    public struct userAttributes
+    {
+        // Optionally declare variables for any custom user attributes:
+        // public bool expansionFlag;
+    }
+
+    public struct appAttributes
+    {
+        // Optionally declare variables for any custom app attributes:
+        // public int level;
+        // public int score;
+        // public string appVersion;
+    }
+
+
+    public void Awake()
 	{
-		// // Configure the SDK
-		// DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
-		// DDNA.Instance.ClientVersion = "1.0.0";
-		//
-		// // Start collecting data
-		// DDNA.Instance.StartSDK();
+        // // Configure the SDK
+        // DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
+        // DDNA.Instance.ClientVersion = "1.0.0";
+        //
+        // // Start collecting data
+        // DDNA.Instance.StartSDK();
 
-		UnityMediation.OnInitializationComplete += OnInitializationComplete;
+
+
+        // Add a listener to apply settings when successfully retrieved:
+        ConfigManager.FetchCompleted += ApplyRemoteSettings;
+
+        // Set the user’s unique ID:
+        // ConfigManager.SetCustomUserID("some-user-id");
+
+        // Set the environment ID:
+        // ConfigManager.SetEnvironmentID("an-env-id");
+
+        // Fetch configuration setting from the remote service:
+        ConfigManager.FetchConfigs<userAttributes, appAttributes>(new userAttributes(), new appAttributes());
+
+        UnityMediation.OnInitializationComplete += OnInitializationComplete;
 		UnityMediation.OnInitializationFailed += OnInitializationFailed;
 		
-		Debug.Log("UnityMediation Initialization");
+		Debug.Log("Hey UnityMediation Initialization");
 		UnityMediation.Initialize(this.gameId);
 
 		// load interstitial ads
@@ -180,5 +214,27 @@ public class UnityAds : MonoBehaviour
 		 Debug.Log("Initializing unity mediation");
 		 
 	 }
+
+    void ApplyRemoteSettings(ConfigResponse configResponse)
+    {
+        // Conditionally update settings, depending on the response's origin:
+        switch (configResponse.requestOrigin)
+        {
+            case ConfigOrigin.Default:
+                Debug.Log("Juqi No settings loaded this session; using default values.");
+                break;
+            case ConfigOrigin.Cached:
+                Debug.Log("Juqi No settings loaded this session; using cached values from a previous session.");
+                break;
+            case ConfigOrigin.Remote:
+                Debug.Log("Juqi New settings loaded this session; update values accordingly.");
+                show_ads = ConfigManager.appConfig.GetBool("show_ads");
+                num_ads = ConfigManager.appConfig.GetInt("num_ads");
+                break;
+        }
+
+        Debug.Log($"Message for JUQI: show_ads={show_ads}, num_ads={num_ads}");
+
+    }
 
 }

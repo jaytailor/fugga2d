@@ -12,75 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  rsKeyList:
-  - metadata:
-      entityId: 80cb8f8d-b5fa-4486-8739-2112592202ed
-    rs:
-      key: show_ads
-      type: bool
-      value: true
-  rsLastCachedKeyList:
-  - metadata:
-      entityId: 80cb8f8d-b5fa-4486-8739-2112592202ed
-    rs:
-      key: show_ads
-      type: bool
-      value: true
-  configId: 8101b9a2-7ffb-4c8e-9b6a-49d72ffb66fe
-  currentEnvironmentId: 41a2930f-ec38-4c6c-98f9-ea39198afc99
-  environments:
-  - id: 919b1e6c-93cb-40a7-8da9-6a982e7f3f86
-    appId: 
-    name: Production
-    description: 
-    createdAt: 2020-11-11T01:07:53Z
-    updatedAt: 2021-06-10T13:39:28Z
-  - id: 77029274-af51-46e0-92fe-39c87a1609fe
-    appId: 
-    name: Release
-    description: 
-    createdAt: 2021-06-10T13:40:25Z
-    updatedAt: 2021-06-10T13:40:25Z
-  - id: 41a2930f-ec38-4c6c-98f9-ea39198afc99
-    appId: 
-    name: Development (Default)
-    description: 
-    createdAt: 2021-06-10T13:40:25Z
-    updatedAt: 2021-06-10T13:48:37Z
-  rulesList:
-  - id: 95db091f-d357-40d1-b4ee-b03483fd5b50
-    name: test
-    enabled: 0
-    priority: 500
-    type: 
-    condition: true
-    rolloutPercentage: 100
-    value:
-    - metadata:
-        entityId: f8083142-0e17-48e7-ac4c-115fcf1992e4
-      rs:
-        key: 
-        type: variant
-        value: 
-    startDate: 
-    endDate: 
-  lastCachedRulesList:
-  - id: 95db091f-d357-40d1-b4ee-b03483fd5b50
-    name: test
-    enabled: 0
-    priority: 500
-    type: 
-    condition: true
-    rolloutPercentage: 100
-    value:
-    - metadata:
-        entityId: f8083142-0e17-48e7-ac4c-115fcf1992e4
-      rs:
-        key: 
-        type: variant
-        value: 
-    startDate: 
-    endDate: 
-  addedRulesIDs: []
-  updatedRulesIDs: []
-  deletedRulesIDs: []
+  _rsKeyList: '[]'
+  _rsLastCachedKeyList: '[]'
+  _environments: '[]'
+  _rulesList: '[]'
+  _lastCachedRulesList: '[]'
