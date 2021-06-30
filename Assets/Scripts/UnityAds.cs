@@ -31,8 +31,8 @@ public class UnityAds : MonoBehaviour
     // public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
 
 
-    public bool show_ads;
-    public int num_ads;
+    public bool show_ads = true;
+    public int num_ads = 10000;
 
     public struct userAttributes
     {
@@ -47,6 +47,8 @@ public class UnityAds : MonoBehaviour
         // public int score;
         // public string appVersion;
     }
+
+   
 
 
     public void Awake()
@@ -104,11 +106,18 @@ public class UnityAds : MonoBehaviour
     
     public void ShowInterstitialNew()
     {
-        if(interstitialAdNew != null)
+        if (!showAds())
+        {
+            Debug.Log("Not showing reward video");
+            return;
+        }
+
+        if (interstitialAdNew != null)
         {
             interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
             interstitialAdNew.OnClosed += OnClosedInterstitial;
             interstitialAdNew.Show();
+            num_ads--;
         }
     }
     
@@ -122,11 +131,18 @@ public class UnityAds : MonoBehaviour
     
     public void ShowRewardedNew()
     {
+        if (! showAds() )
+        {
+            Debug.Log("Not showing reward video");
+            return;
+        }
+
 	    if (rewardedVideoAdNew != null)
 	    {
 		    rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
 		    rewardedVideoAdNew.OnClosed += OnClosedRewarded;
 		    rewardedVideoAdNew.Show();
+            num_ads--;
 	    }
     }
 
@@ -166,6 +182,7 @@ public class UnityAds : MonoBehaviour
     void OnFailedShowRewarded(object sender, ShowErrorEventArgs e)
     {
 	    Debug.LogError($"{e.Error}: {e.Message}");
+        num_ads++;
     }
     
     void OnClosedRewarded(object sender, EventArgs e)
@@ -178,6 +195,7 @@ public class UnityAds : MonoBehaviour
     void OnFailedShowInterstitial(object sender, ShowErrorEventArgs e)
     {
         Debug.LogError($"{e.Error}: {e.Message}");
+        num_ads++;
     }
     
     void OnClosedInterstitial(object sender, EventArgs e)
@@ -235,6 +253,11 @@ public class UnityAds : MonoBehaviour
 
         Debug.Log($"Message for JUQI: show_ads={show_ads}, num_ads={num_ads}");
 
+    }
+
+    bool showAds()
+    {
+        return show_ads && num_ads > 0;
     }
 
 }
