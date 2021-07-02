@@ -31,24 +31,18 @@ public class UnityAds : MonoBehaviour
     // public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
 
 
-    public bool show_ads = true;
-    public int num_ads = 10000;
+    private int interstitials = 100;
+    private int rewardedVideos = 100;
 
     public struct userAttributes
     {
         // Optionally declare variables for any custom user attributes:
-        // public bool expansionFlag;
     }
 
     public struct appAttributes
     {
         // Optionally declare variables for any custom app attributes:
-        // public int level;
-        // public int score;
-        // public string appVersion;
     }
-
-   
 
 
     public void Awake()
@@ -61,15 +55,8 @@ public class UnityAds : MonoBehaviour
         // DDNA.Instance.StartSDK();
 
 
-
         // Add a listener to apply settings when successfully retrieved:
         ConfigManager.FetchCompleted += ApplyRemoteSettings;
-
-        // Set the user’s unique ID:
-        // ConfigManager.SetCustomUserID("some-user-id");
-
-        // Set the environment ID:
-        // ConfigManager.SetEnvironmentID("an-env-id");
 
         // Fetch configuration setting from the remote service:
         ConfigManager.FetchConfigs<userAttributes, appAttributes>(new userAttributes(), new appAttributes());
@@ -106,7 +93,7 @@ public class UnityAds : MonoBehaviour
     
     public void ShowInterstitialNew()
     {
-        if (!showAds())
+        if (interstitials == 0)
         {
             Debug.Log("Not showing reward video");
             return;
@@ -117,7 +104,7 @@ public class UnityAds : MonoBehaviour
             interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
             interstitialAdNew.OnClosed += OnClosedInterstitial;
             interstitialAdNew.Show();
-            num_ads--;
+            interstitials--;
         }
     }
     
@@ -131,7 +118,7 @@ public class UnityAds : MonoBehaviour
     
     public void ShowRewardedNew()
     {
-        if (! showAds() )
+        if (rewardedVideos==0)
         {
             Debug.Log("Not showing reward video");
             return;
@@ -142,8 +129,17 @@ public class UnityAds : MonoBehaviour
 		    rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
 		    rewardedVideoAdNew.OnClosed += OnClosedRewarded;
 		    rewardedVideoAdNew.Show();
-            num_ads--;
-	    }
+            rewardedVideos--;
+            if (rewardedVideos == 0)
+            {
+                Debug.Log("Hiding the purchase button");
+                GameObject btn = GameObject.FindGameObjectWithTag("purchase");
+                if (btn != null)
+                {
+                    btn.SetActive(false);
+                }
+            }
+        }
     }
 
     void OnInitializationFailed(object sender, InitializationErrorEventArgs e)
@@ -182,7 +178,7 @@ public class UnityAds : MonoBehaviour
     void OnFailedShowRewarded(object sender, ShowErrorEventArgs e)
     {
 	    Debug.LogError($"{e.Error}: {e.Message}");
-        num_ads++;
+        rewardedVideos++;
     }
     
     void OnClosedRewarded(object sender, EventArgs e)
@@ -195,7 +191,7 @@ public class UnityAds : MonoBehaviour
     void OnFailedShowInterstitial(object sender, ShowErrorEventArgs e)
     {
         Debug.LogError($"{e.Error}: {e.Message}");
-        num_ads++;
+        interstitials++;
     }
     
     void OnClosedInterstitial(object sender, EventArgs e)
@@ -239,25 +235,20 @@ public class UnityAds : MonoBehaviour
         switch (configResponse.requestOrigin)
         {
             case ConfigOrigin.Default:
-                Debug.Log("Juqi No settings loaded this session; using default values.");
+                Debug.Log("No settings loaded this session; using default values.");
                 break;
             case ConfigOrigin.Cached:
-                Debug.Log("Juqi No settings loaded this session; using cached values from a previous session.");
+                Debug.Log("No settings loaded this session; using cached values from a previous session.");
                 break;
             case ConfigOrigin.Remote:
-                Debug.Log("Juqi New settings loaded this session; update values accordingly.");
-                show_ads = ConfigManager.appConfig.GetBool("show_ads");
-                num_ads = ConfigManager.appConfig.GetInt("num_ads");
+                Debug.Log("New settings loaded this session; update values accordingly.");
+                interstitials = ConfigManager.appConfig.GetInt("interstitials");
+                rewardedVideos = ConfigManager.appConfig.GetInt("rewardedVideos");
                 break;
         }
 
-        Debug.Log($"Message for JUQI: show_ads={show_ads}, num_ads={num_ads}");
+        Debug.Log($"interstitials={interstitials}, rewardedVideos={rewardedVideos}");
 
-    }
-
-    bool showAds()
-    {
-        return show_ads && num_ads > 0;
     }
 
 }
