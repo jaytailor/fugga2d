@@ -104,7 +104,6 @@ public class UnityAds : MonoBehaviour
             interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
             interstitialAdNew.OnClosed += OnClosedInterstitial;
             interstitialAdNew.Show();
-            interstitials--;
         }
     }
     
@@ -128,17 +127,7 @@ public class UnityAds : MonoBehaviour
 	    {
 		    rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
 		    rewardedVideoAdNew.OnClosed += OnClosedRewarded;
-		    rewardedVideoAdNew.Show();
-            rewardedVideos--;
-            if (rewardedVideos == 0)
-            {
-                Debug.Log("Hiding the purchase button");
-                GameObject btn = GameObject.FindGameObjectWithTag("purchase");
-                if (btn != null)
-                {
-                    btn.SetActive(false);
-                }
-            }
+            rewardedVideoAdNew.Show();
         }
     }
 
@@ -178,26 +167,38 @@ public class UnityAds : MonoBehaviour
     void OnFailedShowRewarded(object sender, ShowErrorEventArgs e)
     {
 	    Debug.LogError($"{e.Error}: {e.Message}");
-        rewardedVideos++;
     }
     
     void OnClosedRewarded(object sender, EventArgs e)
     {
-	    // load again
-	    Debug.Log("loading again rewarded video ad");
+        // load again
+        Debug.Log("Decrease rewardedVideos");
+        rewardedVideos--;
+        if (rewardedVideos == 0)
+        {
+            Debug.Log("Hiding the purchase button");
+            GameObject btn = GameObject.FindGameObjectWithTag("purchase");
+            if (btn != null)
+            {
+                btn.SetActive(false);
+            }
+            return;
+        }
+        Debug.Log("loading again rewarded video ad");
 	    LoadRewardedNew();
     }
     
     void OnFailedShowInterstitial(object sender, ShowErrorEventArgs e)
     {
         Debug.LogError($"{e.Error}: {e.Message}");
-        interstitials++;
     }
     
     void OnClosedInterstitial(object sender, EventArgs e)
     {
-	    // load again
-	    Debug.Log("loading again interstitial ad");
+        Debug.Log("Decrease interstitials");
+        interstitials--;
+        // load again
+        Debug.Log("loading again interstitial ad");
 	    LoadInterstitialNew();
     }
     
