@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -25,10 +25,10 @@ public class UnityAds : MonoBehaviour
     Unity.Mediation.InterstitialAd interstitialAdNew;
     Unity.Mediation.RewardedAd rewardedVideoAdNew;
 
-    //    // delta dna settings
-    //    public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
-    // public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
-    // public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
+ //    // delta dna settings
+ //    public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
+	// public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
+	// public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
 
 
     private int interstitials = 100;
@@ -45,14 +45,14 @@ public class UnityAds : MonoBehaviour
     }
 
 
-    public void Awake()
+	public void Awake()
 	{
-        // // Configure the SDK
-        // DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
-        // DDNA.Instance.ClientVersion = "1.0.0";
-        //
-        // // Start collecting data
-        // DDNA.Instance.StartSDK();
+		// // Configure the SDK
+		// DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
+		// DDNA.Instance.ClientVersion = "1.0.0";
+		//
+		// // Start collecting data
+		// DDNA.Instance.StartSDK();
 
 
         // Add a listener to apply settings when successfully retrieved:
@@ -61,10 +61,11 @@ public class UnityAds : MonoBehaviour
         // Fetch configuration setting from the remote service:
         ConfigManager.FetchConfigs<userAttributes, appAttributes>(new userAttributes(), new appAttributes());
 
-        UnityMediation.OnInitializationComplete += OnInitializationComplete;
+
+		UnityMediation.OnInitializationComplete += OnInitializationComplete;
 		UnityMediation.OnInitializationFailed += OnInitializationFailed;
 		
-		Debug.Log("Hey UnityMediation Initialization");
+		Debug.Log("UnityMediation Initialization");
 		UnityMediation.Initialize(this.gameId);
 
 		// load interstitial ads
@@ -99,7 +100,7 @@ public class UnityAds : MonoBehaviour
             return;
         }
 
-        if (interstitialAdNew != null)
+        if(interstitialAdNew != null)
         {
             interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
             interstitialAdNew.OnClosed += OnClosedInterstitial;
@@ -127,8 +128,8 @@ public class UnityAds : MonoBehaviour
 	    {
 		    rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
 		    rewardedVideoAdNew.OnClosed += OnClosedRewarded;
-            rewardedVideoAdNew.Show();
-        }
+		    rewardedVideoAdNew.Show();
+	    }
     }
 
     void OnInitializationFailed(object sender, InitializationErrorEventArgs e)
@@ -197,8 +198,8 @@ public class UnityAds : MonoBehaviour
     {
         Debug.Log("Decrease interstitials");
         interstitials--;
-        // load again
-        Debug.Log("loading again interstitial ad");
+	    // load again
+	    Debug.Log("loading again interstitial ad");
 	    LoadInterstitialNew();
     }
     
