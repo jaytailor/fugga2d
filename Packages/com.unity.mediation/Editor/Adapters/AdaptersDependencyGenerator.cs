@@ -8,7 +8,7 @@ using PlayServicesResolver.Utils.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace Unity.Mediation.Adapters.Editor
+namespace Unity.Services.Mediation.Adapters.Editor
 {
     class AdaptersDependencyGenerator
     {
@@ -21,7 +21,7 @@ namespace Unity.Mediation.Adapters.Editor
 
         const string k_AndroidStagingArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-stg-local/";
         const string k_AndroidProductionArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-prod-local/";
-        const string k_AndroidArtifactoryURL = k_AndroidProductionArtifactoryURL;
+        const string k_AndroidArtifactoryURL = k_AndroidStagingArtifactoryURL;
 
         const string k_IOSStagingArtifactoryURL = @"'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'";
         const string k_IOSProductionArtifactoryURL = @"'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'";
@@ -120,7 +120,7 @@ namespace Unity.Mediation.Adapters.Editor
                         new XComment(" Mediation iOS SDK "),
                         new XElement("iosPod",
                             new XAttribute("name", sdkInfo.IosPod),
-                            new XAttribute("version", VersionInfo.OptimisticVersion(SemanticVersioningType.CocoaPods,sdkInfo.SdkVersion)),
+                            new XAttribute("version", VersionInfo.OptimisticVersion(SemanticVersioningType.CocoaPods, sdkInfo.SdkVersion)),
                             new XAttribute("source", k_IOSArtifactoryURL),
                             new XAttribute(k_IdentifierKey, sdkInfo.Identifier),
                             new XAttribute(k_VersionKey, sdkInfo.SdkVersion)

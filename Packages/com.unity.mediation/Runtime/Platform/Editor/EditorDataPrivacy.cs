@@ -1,7 +1,7 @@
 #if UNITY_EDITOR
 using System;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
     class EditorDataPrivacy : IDataPrivacy
     {

@@ -3,7 +3,7 @@
     "references": [
         "Unity.Settings.Editor",
         "Unity.Mediation.Adapters.Editor",
-        "Unity.Mediation.Dashboard.Editor"
+        "Unity.Services.Core.Editor"
     ],
     "includePlatforms": [
         "Editor"

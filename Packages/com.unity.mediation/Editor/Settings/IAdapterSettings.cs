@@ -4,7 +4,7 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     interface IAdapterSettings : IDisposable
     {

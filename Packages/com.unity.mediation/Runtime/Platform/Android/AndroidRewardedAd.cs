@@ -1,9 +1,9 @@
 #if UNITY_ANDROID
 using System;
-using Unity.Mediation.Platform;
+using Unity.Services.Mediation.Platform;
 using UnityEngine;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
     class AndroidRewardedAd : IRewardedAd, IAndroidRewardedLoadListener, IAndroidRewardedShowListener
     {

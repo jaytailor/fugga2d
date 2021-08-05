@@ -56,16 +56,16 @@ ListView.list-view
     flex-direction: row;
     align-self: center;
     align-items: center;
-    padding: 1;
-    margin: 2;
+    padding: 1px;
+    margin: 2px;
 }
 
 .help-box-image
 {
     -unity-background-scale-mode: scale-to-fit;
-    width: 32;
-    height: 32;
-    margin: 2;
+    width: 32px;
+    height: 32px;
+    margin: 2px;
 }
 
 .help-box-warning
@@ -81,5 +81,5 @@ ListView.list-view
 .loading-label
 {
     align-self: center;
-    margin: 5;
+    margin: 5px;
 }

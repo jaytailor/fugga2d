@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Unity.Mediation.Adapters.Editor
+namespace Unity.Services.Mediation.Adapters.Editor
 {
     interface ISemanticVersioningFormatter
     {

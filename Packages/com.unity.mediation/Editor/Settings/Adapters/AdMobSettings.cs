@@ -6,12 +6,15 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     class AdMobSettings : BaseAdapterSettings
     {
+#if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_AdapterTemplate = @"Assets/UnityMonetization/Editor/Settings/Adapters/Layout/AdMobTemplate.uxml";
+#else
         const string k_AdapterTemplate = @"Packages/com.unity.mediation/Editor/Settings/Adapters/Layout/AdMobTemplate.uxml";
-
+#endif
         public override string AdapterId => "admob-adapter";
 
         public string AdMobAppIdAndroid
@@ -29,6 +32,9 @@ namespace Unity.Mediation.Settings.Editor
         internal ReloadableUserSetting<string> m_AdMobAppIdAndroid;
         internal ReloadableUserSetting<string> m_AdMobAppIdIos;
 
+        TextField m_txtAdMobAppIdAndroid;
+        TextField m_txtAdMobAppIdIos;
+
         public AdMobSettings()
         {
             m_AdMobAppIdAndroid = new ReloadableUserSetting<string>(MediationSettingsProvider.instance,
@@ -42,8 +48,14 @@ namespace Unity.Mediation.Settings.Editor
             VisualTreeAsset adapterTemplate  = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_AdapterTemplate);
             adapterTemplate.CloneTree(rootElement);
 
-            rootElement.Q<TextField>("AndroidAdmobID").value = m_AdMobAppIdAndroid.value;
-            rootElement.Q<TextField>("IosAdmobID").value = m_AdMobAppIdIos.value;
+            m_txtAdMobAppIdAndroid = rootElement.Q<TextField>("AndroidAdmobID");
+            m_txtAdMobAppIdIos     = rootElement.Q<TextField>("IosAdmobID");
+
+            m_txtAdMobAppIdAndroid.value = m_AdMobAppIdAndroid.value;
+            m_txtAdMobAppIdIos.value     = m_AdMobAppIdIos.value;
+
+            m_txtAdMobAppIdAndroid.RegisterValueChangedCallback((changeEvent) => AdMobAppIdAndroid = changeEvent.newValue);
+            m_txtAdMobAppIdIos.RegisterValueChangedCallback((changeEvent) => AdMobAppIdIos     = changeEvent.newValue);
         }
 
         public override void Dispose()

@@ -4,7 +4,7 @@ using System.Collections.Concurrent;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
     abstract class IosNativeObject : IDisposable
     {

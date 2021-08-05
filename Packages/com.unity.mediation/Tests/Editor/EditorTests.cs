@@ -4,12 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using Unity.Mediation.Adapters.Editor;
+using Unity.Services.Mediation.Adapters.Editor;
 using UnityEditor;
 using UnityEngine;
 using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 
-namespace Unity.Mediation.EditorTests
+namespace Unity.Services.Mediation.EditorTests
 {
     public class EditorTests
     {
@@ -52,7 +52,7 @@ namespace Unity.Mediation.EditorTests
 
         static string GetPackageVersion(bool noSuffix = false)
         {
-            var version = PackageInfo.FindForAssembly(typeof(UnityMediation).Assembly).version;
+            var version = PackageInfo.FindForAssembly(typeof(MediationService).Assembly).version;
             if (noSuffix)
             {
                 //Remove suffix e.g. 1.2.3-preview => 1.2.3

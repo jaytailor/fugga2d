@@ -64,7 +64,7 @@
     width:5px;
     height:10px;
     margin-left:5px;
-    background-image: url('../Icons/menu.png');
+    background-image: url('../Images/menu.png');
 }
 
 .adapter-row-data {
@@ -85,7 +85,7 @@
     width:22px;
     height:22px;
     margin-left:5px;
-    background-image: url('../Icons/info.png');
+    background-image: url('../Images/info.png');
 }
 
 .info-icon {
@@ -109,15 +109,7 @@
     height:10px;
     margin-left:5px;
     margin-right:9px;
-    background-image: url('../Icons/check.png');
-}
-
-.adapter-select-toggle {
-    border-right-width:10px;
-}
-
-.version-dropdown {
-    padding-top:2px;
+    background-image: url('../Images/check.png');
 }
 
 .install-info-section {

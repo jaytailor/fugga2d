@@ -2,9 +2,9 @@
 using System;
 using UnityEngine;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
-    public class AndroidDataPrivacy : IDataPrivacy, IDisposable
+    class AndroidDataPrivacy : IDataPrivacy, IDisposable
     {
         AndroidJavaClass m_DataPrivacyClass;
         volatile bool m_Disposed;

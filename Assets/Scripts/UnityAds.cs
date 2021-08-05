@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
+using Unity.Services.Core;
 using UnityEngine;
-using Unity.Mediation;
-using UnityEngine.UI;
+using Unity.Services.Mediation;
 
 public class UnityAds : MonoBehaviour
 {
@@ -21,15 +20,15 @@ public class UnityAds : MonoBehaviour
 
 	public GameObject adBtn;
 	
-    Unity.Mediation.InterstitialAd interstitialAdNew;
-    Unity.Mediation.RewardedAd rewardedVideoAdNew;
+    InterstitialAd interstitialAdNew;
+    RewardedAd rewardedVideoAdNew;
 
  //    // delta dna settings
  //    public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
 	// public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
 	// public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
 
-	public void Awake()
+	public async void Awake()
 	{
 		// // Configure the SDK
 		// DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
@@ -38,30 +37,29 @@ public class UnityAds : MonoBehaviour
 		// // Start collecting data
 		// DDNA.Instance.StartSDK();
 
-		UnityMediation.OnInitializationComplete += OnInitializationComplete;
-		UnityMediation.OnInitializationFailed += OnInitializationFailed;
-		
-		Debug.Log("UnityMediation Initialization");
-		UnityMediation.Initialize(this.gameId);
+		try
+		{
+			print("Initializing Mediation...");
+			await UnityServices.Initialize();
+			Debug.Log("Mediation Initialized!");
+		}
+		catch (InitializeFailedException e)
+		{
+			OnInitializationFailed(e);
+			throw;
+		}
 
 		// load interstitial ads
 		LoadInterstitialNew();
         
 		// load rewarded ads
 		LoadRewardedNew();
-		ImpressionEventPublisher.OnImpression += OnImpression;
-
+		MediationService.Instance.ImpressionEventPublisher.OnImpression += OnImpression;
 	}
 
-    public void Start()
+	public void LoadInterstitialNew()
     {
-	    
-	}
-
-    
-    public void LoadInterstitialNew()
-    {
-	    interstitialAdNew = new Unity.Mediation.InterstitialAd(interstitialAdunitIdNew);
+	    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;
         interstitialAdNew.OnLoaded += OnLoadedInterstitial;
         interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
         Debug.Log("Loading Interstitial adunit...");
@@ -80,7 +78,7 @@ public class UnityAds : MonoBehaviour
     
     public void LoadRewardedNew()
     { 
-        rewardedVideoAdNew = new Unity.Mediation.RewardedAd(rewardedVideoAdunitIdNew);
+        rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew) as RewardedAd;
         rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
         rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
         rewardedVideoAdNew.Load();
@@ -96,12 +94,12 @@ public class UnityAds : MonoBehaviour
 	    }
     }
 
-    void OnInitializationFailed(object sender, InitializationErrorEventArgs e)
+    void OnInitializationFailed(InitializeFailedException e)
     {
-        Debug.LogError($"{e.Error}:{e.Message}");
+        Debug.LogError($"{e.initializationError}:{e.Message}");
     }
 
-    void OnInitializationComplete(object sender, EventArgs e)
+    void OnInitializationComplete(EventArgs e)
     {
         Debug.Log("Initialization of mediation complete");
     }
@@ -159,11 +157,6 @@ public class UnityAds : MonoBehaviour
         Debug.Log($"Impression event from ad unit id {e.AdUnitId} : {impressionData}");
     }
 
-    public void ShowPromo()
-	{
-        ShowInterstitialNew();
-	}
-
 	 public void ShowVideo()
 	 {
 		 ShowInterstitialNew();
@@ -173,12 +166,4 @@ public class UnityAds : MonoBehaviour
      {
         ShowRewardedNew();
      }
-
-     public IEnumerator initMediation()
-	 {
-		 yield return new WaitForSeconds(3);
-		 Debug.Log("Initializing unity mediation");
-		 
-	 }
-
 }

@@ -2,9 +2,9 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
-    public class IosDataPrivacy : IDataPrivacy
+    class IosDataPrivacy : IDataPrivacy
     {
         static IosDataPrivacy s_Instance;
 

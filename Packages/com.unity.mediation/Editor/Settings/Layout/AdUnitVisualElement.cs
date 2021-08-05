@@ -2,12 +2,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Unity.Mediation.Settings.Editor.Layout
+namespace Unity.Services.Mediation.Settings.Editor.Layout
 {
     sealed class AdUnitVisualElement : VisualElement
     {
-        const string k_TemplatePath   = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsListItemTemplate.uxml";
-        const string k_StylePath = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsListItemStyle.uss";
+#if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_TemplatePath = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsListItemTemplate.uxml";
+        const string k_StylePath    = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsListItemStyle.uss";
+#else
+        const string k_TemplatePath = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsListItemTemplate.uxml";
+        const string k_StylePath    = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsListItemStyle.uss";
+#endif
 
         private static VisualTreeAsset m_Template;
         private static StyleSheet m_StyleSheet;
@@ -29,7 +34,7 @@ namespace Unity.Mediation.Settings.Editor.Layout
 
             m_Template.CloneTree(contentContainer);
 
-            contentContainer.Q<Button>("clipboard").clicked += () =>
+            contentContainer.Q<Button>("clipboard").clickable.clicked += () =>
             {
                 Debug.Log($"Copied Ad Unit ID for \"{contentContainer.Q<Label>("ad-unit").text}\"");
                 GUIUtility.systemCopyBuffer = contentContainer.Q<Label>("id").text;

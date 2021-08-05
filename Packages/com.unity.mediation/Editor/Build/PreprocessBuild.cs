@@ -1,11 +1,11 @@
 #if UNITY_ANDROID || UNITY_IOS
-using Unity.Mediation.Settings.Editor;
+using Unity.Services.Mediation.Settings.Editor;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-namespace Unity.Mediation.Build.Editor
+namespace Unity.Services.Mediation.Build.Editor
 {
     class PreprocessBuild : IPreprocessBuildWithReport
     {

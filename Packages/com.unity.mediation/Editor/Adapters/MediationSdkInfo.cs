@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Unity.Mediation.Adapters.Editor
+namespace Unity.Services.Mediation.Adapters.Editor
 {
     [Serializable]
     class MediationInfo

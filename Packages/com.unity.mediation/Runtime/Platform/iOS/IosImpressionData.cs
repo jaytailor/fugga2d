@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     struct IosImpressionData

@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
-using Unity.Mediation.Platform;
+using Unity.Services.Mediation.Platform;
 
-namespace Unity.Mediation.Tests
+namespace Unity.Services.Mediation.Tests
 {
     public class InterstitialAdTests
     {

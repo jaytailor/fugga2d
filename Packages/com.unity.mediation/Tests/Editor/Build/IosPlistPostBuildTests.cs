@@ -1,11 +1,11 @@
 #if UNITY_IOS
 using System.IO;
 using NUnit.Framework;
-using Unity.Mediation.Build.Editor;
-using Unity.Mediation.Settings.Editor;
+using Unity.Services.Mediation.Build.Editor;
+using Unity.Services.Mediation.Settings.Editor;
 using UnityEditor.iOS.Xcode;
 
-namespace Unity.Mediation.EditorTests
+namespace Unity.Services.Mediation.EditorTests
 {
     public class IosPlistPostBuildTests
     {

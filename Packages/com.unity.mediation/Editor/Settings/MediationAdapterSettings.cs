@@ -1,55 +1,55 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Mediation.Adapters.Editor;
+using Unity.Services.Mediation.Adapters.Editor;
 using UnityEditor;
 using UnityEditor.SettingsManagement;
 using UnityEngine;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
-using PopupWindow = UnityEngine.UIElements.PopupWindow;
-using UnityEngine.PlayerLoop;
 
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     class MediationAdapterSettings : EditorWindow
     {
         const string k_DashboardUrl     = @"https://dashboard.unity3d.com/monetization";
         const string k_DocumentationUrl = @"https://docs.unity3d.com/2020.2/Documentation/Manual/";
         const string k_Install          = "Install";
-        const string k_Update           = "Update";
-        const string k_InstallAndUpdate = "Install and Update";
-        const string k_UninstallVersion = "Uninstall";
-        const string k_UpdateToVersion  = "Update to ";
+        const string k_Uninstall        = "Uninstall";
         const string k_ApiRangeTooltip  = "This adapter supports API versions: \n" + "Android: {0} to {1} \n" + "iOS: {2} to {3}";
 
-        const string k_SettingsStyle       = @"Packages/com.unity.mediation/Editor/Settings/Layout/SettingsStyle.uss";
+#if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_SettingsStyle       = @"Assets/UnityMonetization/Editor/Settings/Layout/SettingsStyle.uss";
 
+        const string k_SettingsTemplate    = @"Assets/UnityMonetization/Editor/Settings/Layout/SettingsTemplate.uxml";
+        const string k_AdapterTemplate     = @"Assets/UnityMonetization/Editor/Settings/Layout/AdapterTemplate.uxml";
+#else
+        const string k_SettingsStyle       = @"Packages/com.unity.mediation/Editor/Settings/Layout/SettingsStyle.uss";
 
         const string k_SettingsTemplate    = @"Packages/com.unity.mediation/Editor/Settings/Layout/SettingsTemplate.uxml";
         const string k_AdapterTemplate     = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdapterTemplate.uxml";
+#endif
 
 
 #if UNITY_2020_1_OR_NEWER
         const string k_ServiceBaseStyle    = @"StyleSheets/ServicesWindow/ServicesProjectSettingsCommon.uss";
         static readonly string k_SkinStyle = $@"StyleSheets/ServicesWindow/ServicesProjectSettings{(EditorGUIUtility.isProSkin ? "Dark" : "Light")}.uss";
 #else
+    #if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_ServiceBaseStyle    = @"Assets/UnityMonetization/Editor/Settings/Layout/2019/BaseStyle.uss";
+        static readonly string k_SkinStyle = $@"Assets/UnityMonetization/Editor/Settings/Layout/2019/SkinStyle{(EditorGUIUtility.isProSkin ? "Dark" : "Light")}.uss";
+    #else
         const string k_ServiceBaseStyle    = @"Packages/com.unity.mediation/Editor/Settings/Layout/2019/BaseStyle.uss";
         static readonly string k_SkinStyle = $@"Packages/com.unity.mediation/Editor/Settings/Layout/2019/SkinStyle{(EditorGUIUtility.isProSkin ? "Dark" : "Light")}.uss";
+    #endif
 #endif
 
-
         static Dictionary<string, AdapterInfo> s_AdapterInfos;
-        static Dictionary<string, VisualElement> s_AdapterVersionDropdownContainer;
-        static Dictionary<string, PopupField<VersionInfoDropdownDisplay>> s_AdapterVersionDropdown;
         static Dictionary<string, Toggle> s_AdapterSelectToggle;
         static Dictionary<string, VisualElement> s_AdapterInstalledInfo;
-        static Dictionary<string, TextElement> s_AdapterInstalledText;
-        static Dictionary<string, Image> s_AdapterPackageInfoIcon;
-        static Dictionary<string, Image> s_AdapterOptionsMenu;
+        static Dictionary<string, Button> s_AdapterInstallButton;
         static List<IAdapterSettings> s_AdapterSettings;
-        static Button s_InstallButton;
         static bool s_Initialized;
         static bool s_SettingsChanged;
 
@@ -59,16 +59,12 @@ namespace Unity.Mediation.Settings.Editor
             if (s_Initialized) return;
             s_Initialized = true;
 
-            var adapters        = MediationSdkInfo.GetAllAdapters();
+            var adapters       = MediationSdkInfo.GetAllAdapters();
             s_AdapterInfos                    = adapters.ToDictionary(info => info.Identifier);
             s_AdapterSettings                 = FindAdapterSettings(adapters);
-            s_AdapterVersionDropdownContainer = new Dictionary<string, VisualElement>();
-            s_AdapterVersionDropdown          = new Dictionary<string, PopupField<VersionInfoDropdownDisplay>>();
             s_AdapterSelectToggle             = new Dictionary<string, Toggle>();
             s_AdapterInstalledInfo            = new Dictionary<string, VisualElement>();
-            s_AdapterInstalledText            = new Dictionary<string, TextElement>();
-            s_AdapterPackageInfoIcon          = new Dictionary<string, Image>();
-            s_AdapterOptionsMenu              = new Dictionary<string, Image>();
+            s_AdapterInstallButton            = new Dictionary<string, Button>();
             MediationSdkInfo.AdaptersChanged += Refresh;
         }
 
@@ -110,10 +106,10 @@ namespace Unity.Mediation.Settings.Editor
                 MediationSettingsProvider.instance.Save();
 
             RefreshAdaptersData();
-            RefreshInstallButton();
+            RefreshAllInstallButton();
         }
 
-        [MenuItem("Services/Mediation/Settings")]
+        [MenuItem("Services/Mediation/Configure", priority = 100)]
         public static void ShowWindow()
         {
             SettingsService.OpenProjectSettings("Project/Services/Mediation");
@@ -154,8 +150,9 @@ namespace Unity.Mediation.Settings.Editor
             return instances;
         }
 
-        public static void GenerateUIElementUI(string searchContext, VisualElement rootElement)
+        public static VisualElement GenerateUIElementUI()
         {
+            VisualElement rootElement = new VisualElement();
             VisualTreeAsset settingsTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_SettingsTemplate);
             VisualTreeAsset adapterTemplate  = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_AdapterTemplate);
 
@@ -170,22 +167,13 @@ namespace Unity.Mediation.Settings.Editor
 
             settingsTemplate.CloneTree(rootElement);
 
-            rootElement.Q<Label>("packageVersion").text = MediationSdkInfo.GetSdkInfo().SdkVersion;
-
-            rootElement.Q<Button>("DoUpdate").clickable.clicked += UpdateAdapters;
-
-            rootElement.Q<Button>("GoToAdUnits").clickable.clicked += () => { MediationAdUnitsWindow.ShowWindow(); };
-            rootElement.Q<Button>("GoToCodeGenerator").clickable.clicked += () => { MediationCodeGeneratorWindow.ShowWindow(); };
-
-            s_InstallButton = rootElement.Q<Button>("DoUpdate");
+            rootElement.Q<Button>("GoToAdUnits").clickable.clicked += MediationAdUnitsWindow.ShowWindow;
+            rootElement.Q<Button>("GoToCodeGenerator").clickable.clicked += MediationCodeGeneratorWindow.ShowWindow;
 
             //Clear references to graphic elements as they will be generated here.
-            s_AdapterVersionDropdownContainer.Clear();
             s_AdapterSelectToggle.Clear();
             s_AdapterInstalledInfo.Clear();
-            s_AdapterInstalledText.Clear();
-            s_AdapterPackageInfoIcon.Clear();
-            s_AdapterOptionsMenu.Clear();
+            s_AdapterInstallButton.Clear();
 
             // Fill the adapters list
             var adapterListRoot = rootElement.Q<VisualElement>("AdapterList");
@@ -199,36 +187,25 @@ namespace Unity.Mediation.Settings.Editor
                 adapterTemplate.CloneTree(adapter);
                 adapter.Q<TextElement>("AdapterName").text = adapterInfo.DisplayName;
 
-                GenericMenu menu = new GenericMenu();
-                menu.AddItem(new GUIContent(k_UninstallVersion), false, () => MediationSdkInfo.Uninstall(adapterInfo.Identifier));
-
-                var optionsButton = adapter.Q<Image>("OptionsButton");
-                optionsButton.AddManipulator(new Clickable(() =>
-                {
-                    menu.DropDown(optionsButton.worldBound);
-                }));
-
-                var selectToggle = adapter.Q<Toggle>("AdapterSelectToggle");
-                selectToggle.RegisterCallback<ChangeEvent<bool>>(evt =>
-                {
-                    RefreshInstallButton();
-                });
+                adapter.Q<Button>("InstallButton").clickable.clickedWithEventInfo += evt => AdapterInstallClicked(s_AdapterInstallButton.FirstOrDefault(pair => pair.Value == evt.target).Key);
 
                 // Keep a reference to the graphic elements we will need to update.
-                s_AdapterVersionDropdownContainer.Add(adapterSetting.AdapterId, adapter.Q<VisualElement>("VersionsDropdown"));
-                s_AdapterSelectToggle.Add(adapterSetting.AdapterId, selectToggle);
                 s_AdapterInstalledInfo.Add(adapterSetting.AdapterId, adapter.Q<VisualElement>("InstalledInfo"));
-                s_AdapterInstalledText.Add(adapterSetting.AdapterId, adapter.Q<TextElement>("InstalledVersion"));
-                s_AdapterPackageInfoIcon.Add(adapterSetting.AdapterId, adapter.Q<Image>("PackageInfoIcon"));
-                s_AdapterOptionsMenu.Add(adapterSetting.AdapterId, optionsButton);
+                s_AdapterInstallButton.Add(adapterSetting.AdapterId, adapter.Q<Button>("InstallButton"));
 
-                adapterSetting.OnAdapterSettingsGui(searchContext, adapter.Q<VisualElement>("Adapter"));
+                adapterSetting.OnAdapterSettingsGui("", adapter.Q<VisualElement>("Adapter"));
 
                 adapterListRoot.Add(adapter);
             }
 
             RefreshAdaptersData();
-            RefreshInstallButton();
+            RefreshAllInstallButton();
+
+#if !ENABLE_EDITOR_GAME_SERVICES
+            MediationEditorService.RefreshGameId();
+#endif
+
+            return rootElement;
         }
 
         /// <summary>
@@ -236,125 +213,72 @@ namespace Unity.Mediation.Settings.Editor
         /// </summary>
         static void RefreshAdaptersData()
         {
-            s_AdapterVersionDropdown.Clear();
-
             foreach (var adapterSetting in s_AdapterSettings)
             {
+                // If the UI has not been created yet, skip this adapter
+                if (!s_AdapterInstalledInfo.ContainsKey(adapterSetting.AdapterId))
+                    continue;
+
                 var adapterInfo = s_AdapterInfos[adapterSetting.AdapterId];
                 var isInstalled = !string.IsNullOrEmpty(adapterSetting.InstalledVersion.value);
                 var installedVersionInfo = Array.Find(adapterInfo.Versions, x => x.Identifier == adapterSetting.InstalledVersion.value);
                 s_AdapterInstalledInfo[adapterSetting.AdapterId].visible   = isInstalled;
-                s_AdapterInstalledText[adapterSetting.AdapterId].text = installedVersionInfo?.DisplayName ?? "";
-                s_AdapterPackageInfoIcon[adapterSetting.AdapterId].visible = false;
+                s_AdapterInstallButton[adapterSetting.AdapterId].visible = !(adapterSetting is UnityAdsSettings);
 
-                //Refresh the Adapter version list
-                var versionInfoDropdownDisplayList = adapterInfo.Versions.Select(versionInfo => new VersionInfoDropdownDisplay(versionInfo, isInstalled)).ToList();
-                versionInfoDropdownDisplayList.ForEach(versionInfoDropdownDisplay => versionInfoDropdownDisplay.NotifyCurrentlyInstalledVersion(adapterSetting.InstalledVersion));
-
-                s_AdapterVersionDropdownContainer[adapterSetting.AdapterId].Clear();
-
-                var versionDropdown = new PopupField<VersionInfoDropdownDisplay>(
-                    versionInfoDropdownDisplayList,
-                    versionInfoDropdownDisplayList.FirstOrDefault(versionInfoDropdownDisplay => versionInfoDropdownDisplay.VersionInfo.Identifier == adapterSetting.InstalledVersion.value) ?? versionInfoDropdownDisplayList[0]);
-                versionDropdown.AddToClassList("adapter-versions-dropdown");
-                versionDropdown.RegisterCallback<ChangeEvent<VersionInfoDropdownDisplay>>(evt =>
-                {
-                    var versionInfo = evt.newValue.VersionInfo;
-                    CheckAdapterToggleIfVersionSelectionDifferent(versionInfo, adapterSetting);
-                    RefreshInstallButton();
-                });
-                s_AdapterVersionDropdown[adapterSetting.AdapterId] = versionDropdown;
-                s_AdapterVersionDropdownContainer[adapterSetting.AdapterId].Add(versionDropdown);
-
-                // Do not allow uninstalling unity ads
-                s_AdapterOptionsMenu[adapterSetting.AdapterId].visible = isInstalled && !(adapterSetting is UnityAdsSettings);
-            }
-        }
-
-        static void CheckAdapterToggleIfVersionSelectionDifferent(VersionInfo versionInfo, IAdapterSettings adapterSetting)
-        {
-            var selectedStatus = s_AdapterSelectToggle[adapterSetting.AdapterId].value;
-
-            if (selectedStatus)
-            {
-                return;
-            }
-
-            if (versionInfo.Identifier != adapterSetting.InstalledVersion.value)
-            {
-                s_AdapterSelectToggle[adapterSetting.AdapterId].value = true;
+                RefreshAllInstallButton();
             }
         }
 
         /// <summary>
-        /// Sets the appropriate text on the Install button ie Install, Update, or Install and Update
+        /// Sets the appropriate text on the Install button ie Install or Uninstall for each adapter.
         /// </summary>
-        static void RefreshInstallButton()
+        static void RefreshAllInstallButton()
         {
-            bool install = false;
-            bool update  = false;
-
             foreach (var adapterSetting in s_AdapterSettings)
             {
-                var selectedVersion = s_AdapterVersionDropdown[adapterSetting.AdapterId].value;
-                var selectedStatus = s_AdapterSelectToggle[adapterSetting.AdapterId].value;
                 var isInstalled = !string.IsNullOrEmpty(adapterSetting.InstalledVersion.value);
 
-                if (selectedStatus)
+                if (s_AdapterInstallButton.ContainsKey(adapterSetting.AdapterId))
                 {
-                    if (!isInstalled)
-                    {
-                        install = true;
-                    }
-                    else if (selectedVersion.VersionInfo.Identifier != adapterSetting.InstalledVersion.value)
-                    {
-                        update = true;
-                    }
+                    s_AdapterInstallButton[adapterSetting.AdapterId].text = isInstalled ? k_Uninstall : k_Install;
                 }
             }
+        }
 
-            if (install)
-            {
-                if (update)
-                {
-                    s_InstallButton.text = k_InstallAndUpdate;
-                }
-                else
-                {
-                    s_InstallButton.text = k_Install;
-                }
-            }
-            else if (update)
-            {
-                s_InstallButton.text = k_Update;
-            }
+        /// <summary>
+        /// Sets the appropriate text on the Install button ie Install or Uninstall for a specific adapter.
+        /// </summary>
+        static void RefreshInstallButton(string adapterIdentifier)
+        {
+            bool isInstalled = !string.IsNullOrEmpty(s_AdapterSettings.
+                FirstOrDefault(adapterSettings => adapterSettings.AdapterId == adapterIdentifier)?.
+                InstalledVersion.value);
 
-            s_InstallButton.SetEnabled(install || update);
+            s_AdapterInstallButton[adapterIdentifier].text = isInstalled ? k_Uninstall : k_Install;
         }
 
         /// <summary>
         /// Installs/updates to a selected version of the adapter
         /// </summary>
-        static void UpdateAdapters()
+        static void AdapterInstallClicked(string adapterIdentifier)
         {
-            var tempUserSelections = new List<(string Adapter, VersionInfo VersionInfo)>();
-            s_AdapterSettings.ForEach(adapterSetting =>
+            if (adapterIdentifier != default)
             {
-                var selectedStatus = s_AdapterSelectToggle[adapterSetting.AdapterId].value;
+                bool isInstalled = !string.IsNullOrEmpty(s_AdapterSettings.
+                    FirstOrDefault(adapterSettings => adapterSettings.AdapterId == adapterIdentifier)?.
+                    InstalledVersion.value);
 
-                // Only install or update if the checkbox is checked
-                if (selectedStatus)
+                if (!isInstalled)
                 {
-                    var adapterInfo = s_AdapterInfos[adapterSetting.AdapterId];
-                    var selectedVersion = s_AdapterVersionDropdown[adapterSetting.AdapterId].value;
-                    tempUserSelections.Add((adapterInfo.Identifier, selectedVersion.VersionInfo));
+                    MediationSdkInfo.Install(adapterIdentifier);
                 }
-            });
+                else
+                {
+                    MediationSdkInfo.Uninstall(adapterIdentifier);
+                }
 
-            tempUserSelections.ForEach(userSelection =>
-            {
-                MediationSdkInfo.Install(userSelection.Adapter, userSelection.VersionInfo);
-            });
+                RefreshInstallButton(adapterIdentifier);
+            }
         }
     }
 }

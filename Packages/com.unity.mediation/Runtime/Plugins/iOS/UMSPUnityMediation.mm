@@ -1,4 +1,5 @@
 #import <UnityMediationSdk/UnityMediationSdk.h>
+#import <UnityMediationSdk/UMSInitializationConfiguration.h>
 
 typedef void (*InitSuccessCallback)();
 typedef void (*InitFailureCallback)(int, const char *);
@@ -33,12 +34,22 @@ int UMSPUnityMediationGetInitializationState() {
     return (int)[UMSUnityMediation getInitializationState];
 }
 
-void UMSPUnityMediationInitialize(const char *gameId, InitSuccessCallback successCallback, InitFailureCallback failCallback) {
+void UMSPUnityMediationInitialize(const char *gameId, InitSuccessCallback successCallback, InitFailureCallback failCallback, const char *installId) {
     s_InitializationSuccess = successCallback;
     s_InitializationFailed = failCallback;
     NSString *convertedGameId = [NSString stringWithUTF8String:gameId];
+    NSString *convertedInstallId = [NSString stringWithUTF8String:installId];
+    NSString *const installIdKey = @"installation_id";
 
-    [UMSUnityMediation initializeWithGameId:convertedGameId delegate:[UMSPInitializeDelegate new]];
+    UMSPInitializeDelegate *initializationDelegate = [UMSPInitializeDelegate new];
+
+    UMSInitializationConfiguration *initializationConfiguration = [[[[[UMSInitializationConfigurationBuilder builder]
+                                                                      setGameId:convertedGameId]
+                                                                     setInitializationDelegate:initializationDelegate]
+                                                                    setOption:installIdKey forKey:convertedInstallId]
+                                                                   build];
+
+    [UMSUnityMediation initializeWithConfiguration:initializationConfiguration];
 }
 
 #ifdef __cplusplus

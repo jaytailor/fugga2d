@@ -1,7 +1,7 @@
 using System;
-using Unity.Mediation.Dashboard.Editor;
+using Unity.Services.Mediation.Dashboard.Editor;
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     class AdUnitData
     {
@@ -10,7 +10,7 @@ namespace Unity.Mediation.Settings.Editor
         public string AdFormat;
         public string Id;
 
-        public AdUnitData(DashboardClient.AdUnitInfoJson adUnitInfo)
+        internal AdUnitData(DashboardClient.AdUnitInfoJson adUnitInfo)
         {
             AdFormat = adUnitInfo?.AdFormat;
             Id = adUnitInfo?.AdUnitId;
@@ -18,22 +18,22 @@ namespace Unity.Mediation.Settings.Editor
             Platform = adUnitInfo?.Platform;
         }
 
-        public static int CompareByAdUnit(SortMode sortMode, AdUnitData data, AdUnitData unitData)
+        internal static int CompareByAdUnit(SortMode sortMode, AdUnitData data, AdUnitData unitData)
         {
             return CompareStringsWithSortMode(sortMode, data.AdUnit, unitData.AdUnit);
         }
 
-        public static int CompareByAdFormat(SortMode sortMode, AdUnitData data, AdUnitData unitData)
+        internal static int CompareByAdFormat(SortMode sortMode, AdUnitData data, AdUnitData unitData)
         {
             return CompareStringsWithSortMode(sortMode, data.AdFormat, unitData.AdFormat);
         }
 
-        public static int CompareByPlatform(SortMode sortMode, AdUnitData data, AdUnitData unitData)
+        internal static int CompareByPlatform(SortMode sortMode, AdUnitData data, AdUnitData unitData)
         {
             return CompareStringsWithSortMode(sortMode, data.Platform, unitData.Platform);
         }
 
-        public static int CompareById(SortMode sortMode, AdUnitData data, AdUnitData unitData)
+        internal static int CompareById(SortMode sortMode, AdUnitData data, AdUnitData unitData)
         {
             return CompareStringsWithSortMode(sortMode, data.Id, unitData.Id);
         }

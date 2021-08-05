@@ -9,8 +9,7 @@
             <Label name="list-header-adformat" text="Ad Format" class="list-header-label"/>
             <Label name="list-header-id" text="ID" class="list-header-label-id"/>
         </VisualElement>
-        <ListView class="list-view" item-height="27.55px">
-            <Label name="loading" text="Loading Ad Units..." class="loading-label"/>
-        </ListView>
+        <Label name="loading" text="Loading Ad Units..." class="loading-label"/>
+        <ListView class="list-view" item-height="27.55px"/>
     </VisualElement>
 </UXML>

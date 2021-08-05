@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.SettingsManagement;
 using UnityEngine;
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     static class SettingsGUILayoutEx
     {

@@ -1,12 +1,16 @@
 {
     "name": "Unity.Mediation",
-    "references": [],
-    "optionalUnityReferences": [],
+    "references": [
+        "Unity.Services.Core",
+        "Unity.Services.Core.Internal"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

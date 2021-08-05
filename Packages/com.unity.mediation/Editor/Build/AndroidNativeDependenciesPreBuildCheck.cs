@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using PlayServicesResolver.Utils.Editor;
-using Unity.Mediation.Adapters.Editor;
+using Unity.Services.Mediation.Adapters.Editor;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-namespace Unity.Mediation.Build.Editor
+namespace Unity.Services.Mediation.Build.Editor
 {
     class AndroidNativeDependenciesPreBuildCheck : IPreprocessBuildWithReport
     {
@@ -22,6 +22,8 @@ namespace Unity.Mediation.Build.Editor
         const string k_InvalidTemplate = "It looks like 'mainTemplate.gradle' was not patched correctly. " + k_ResolveQuestion;
         const string k_InvalidPluginFiles = "It looks like there are a few files missing from '" + k_PluginFolder + "'. " + k_ResolveQuestion;
         const string k_PlayServicesResolverNotFound = "Play Services Resolver not detected in this project.\nThis might cause dependencies to be missing in your build.";
+        const string k_GradleTemplateWarningTitle = "Warning: Editor might be unresponsive";
+        const string k_GradleTemplateWarningDescription = "This project's Play Services Resolver settings indicate that libraries will be downloaded in the editor. This resolution method might cause the editor to hang until resolution is complete.\n To change this go to Assets > Android Resolver > Settings and look for \"Patch mainTemplate.gradle\".";
 
         enum UserAction
         {
@@ -30,15 +32,16 @@ namespace Unity.Mediation.Build.Editor
         }
 
         public int callbackOrder { get; }
+
         public void OnPreprocessBuild(BuildReport report)
         {
             if (report.summary.platform != BuildTarget.Android)
             {
                 return;
             }
-
             // Since we display a dialog for the user, set noDialog to true if in batch mode
             ValidateDependencies(UnityEditorInternal.InternalEditorUtility.inBatchMode);
+            MediationSdkInfo.Apply(true);
         }
 
         public void ValidateDependencies(bool noDialog)
@@ -98,7 +101,13 @@ namespace Unity.Mediation.Build.Editor
                         "Issue with Android dependencies detected:\n" + issue +
                         "\nWould you like to resolve dependencies before building?", "Resolve", "Ignore"))
                     {
-                        PlayServicesResolverUtils.ResolveSync(false);
+                        if (!PlayServicesResolverUtils.MainTemplateEnabled)
+                        {
+                            EditorUtility.DisplayProgressBar("", "Resolving...", 0.20f);
+                            Debug.LogWarning(k_GradleTemplateWarningDescription);
+                        }
+
+                        PlayServicesResolverUtils.ResolveSync(true);
                         return true;
                     }
                     return false;

@@ -2,7 +2,7 @@ using System;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
 
-namespace Unity.Mediation.EditorTests
+namespace Unity.Services.Mediation.EditorTests
 {
     class EditorTestUtils
     {

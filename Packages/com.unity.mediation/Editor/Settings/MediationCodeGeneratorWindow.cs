@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Mediation.Dashboard.Editor;
+using Unity.Services.Mediation.Dashboard.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     /// <summary>
     /// Window allowing to generate sample code with a given Adapter / Ad Unit Id
@@ -16,97 +16,137 @@ namespace Unity.Mediation.Settings.Editor
     /// </summary>
     class MediationCodeGeneratorWindow : EditorWindow
     {
+#if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_CodeGeneratorWindowTemplate = @"Assets/UnityMonetization/Editor/Settings/Layout/CodeGenerationWindowTemplate.uxml";
+
+        const string k_SettingsStyle               = @"Assets/UnityMonetization/Editor/Settings/Layout/SettingsStyle.uss";
+        const string k_CodeGeneratorStyle          = @"Assets/UnityMonetization/Editor/Settings/Layout/CodeGeneratorStyle.uss";
+#else
         const string k_CodeGeneratorWindowTemplate = @"Packages/com.unity.mediation/Editor/Settings/Layout/CodeGenerationWindowTemplate.uxml";
 
         const string k_SettingsStyle               = @"Packages/com.unity.mediation/Editor/Settings/Layout/SettingsStyle.uss";
         const string k_CodeGeneratorStyle          = @"Packages/com.unity.mediation/Editor/Settings/Layout/CodeGeneratorStyle.uss";
-
+#endif
         const string k_GeneratedCodeTemplate  =
-@"{adType} ad;
-string gameId = ""{gameId}"";
-string adUnitId = ""{adUnitId}"";
+@"using System;
+using Unity.Services.Core;
+using Unity.Services.Mediation;
+using UnityEngine;
 
-public void SetupAd()
+namespace Unity.Example
 {
-    // Initialization Events
-    UnityMediation.OnInitializationComplete += InitializationComplete;
-    UnityMediation.OnInitializationFailed   += InitializationFailed;
-
-    //Create
-    ad = new {adType}(adUnitId);
-
-    //Subscribe to events
-    ad.OnLoaded += AdLoaded;
-    ad.OnFailedLoad += AdFailedLoad;
-
-    ad.OnShowed += AdShown;
-    ad.OnFailedShow += AdFailedShow;
-
-    ad.OnUserRewarded += OnUserRewarded;
-
-    // Impression Event
-    ImpressionEventPublisher.OnImpression += ImpressionEvent;
-
-    UnityMediation.Initialize(gameId);
-}
-
-public void ShowAd()
-{
-    if (ad.AdState == AdState.Loaded)
+    public class MyAdExampleClass
     {
-        ad.Show();
+        I{adType} ad;
+        string adUnitId = ""{adUnitId}"";
+
+        public async void InitServices()
+        {
+            try
+            {
+                await UnityServices.Initialize();
+                InitializationComplete();
+            }
+            catch (Exception e)
+            {
+                InitializationFailed(e);
+            }
+        }
+
+        public void SetupAd()
+        {
+            //Create
+            ad = MediationService.Instance.Create{adType}(adUnitId);
+
+            //Subscribe to events
+            ad.OnLoaded += AdLoaded;
+            ad.OnFailedLoad += AdFailedLoad;
+
+            ad.OnShowed += AdShown;
+            ad.OnFailedShow += AdFailedShow;
+
+            {rewardedCallback}
+
+            // Impression Event
+            MediationService.Instance.ImpressionEventPublisher.OnImpression += ImpressionEvent;
+        }
+
+        public void ShowAd()
+        {
+            if (ad.AdState == AdState.Loaded)
+            {
+                ad.Show();
+            }
+        }
+
+        void InitializationComplete()
+        {
+            SetupAd();
+            ad.Load();
+        }
+
+        void InitializationFailed(Exception e)
+        {
+            Debug.Log(""Initialization Failed: "" + e.Message);
+        }
+
+        void AdLoaded(object sender, EventArgs sargs)
+        {
+            Debug.Log(""Ad loaded"");
+        }
+
+        void AdFailedLoad(object sender, LoadErrorEventArgs args)
+        {
+            Debug.Log(""Failed to load ad"");
+            Debug.Log(args.Message);
+        }
+
+        void AdShown(object sender, EventArgs args)
+        {
+            //pre-load the next ad
+            ad.Load();
+            Debug.Log(""Ad shown!"");
+        }
+
+        void AdFailedShow(object sender, ShowErrorEventArgs args)
+        {
+            Debug.Log(args.Message);
+        }
+
+        void ImpressionEvent(object sender, ImpressionEventArgs args)
+        {
+            var impressionData = args.ImpressionData != null ? JsonUtility.ToJson(args.ImpressionData, true) : ""null"";
+            Debug.Log(""Impression event from ad unit id "" + args.AdUnitId + "" "" + impressionData);
+        }
+
+        {rewardedFunction}
     }
 }
-
-void InitializationComplete(object sender, EventArgs args)
+";
+        const string k_OnRewardedTemplate =
+@"
+void OnUserRewarded(object sender, RewardEventArgs e)
 {
-    UnityMediation.OnInitializationComplete -= InitializationComplete;
-    ad.Load();
+    Debug.Log($""Received reward: type:{e.Type}; amount:{e.Amount}"");
 }
+";
 
-void InitializationFailed(object sender, EventArgs args)
-{
-    Debug.Log(""Initialization Failed"");
-}
-
-void AdLoaded(object sender, EventArgs sargs)
-{
-    Debug.Log(""Ad loaded"");
-}
-
-void AdFailedLoad(object sender, LoadErrorEventArgs args)
-{
-    Debug.Log(""Failed to load ad"");
-    Debug.Log(args.Message);
-}
-
-void AdShown(object sender, EventArgs args)
-{
-    //pre-load the next ad
-    ad.Load();
-    Debug.Log(""Ad shown!"");
-}
-
-void AdFailedShow(object sender, ShowErrorEventArgs args)
-{
-    Debug.Log(args.Message);
-}
-
-void ImpressionEvent(object sender, ImpressionEventArgs args)
-{
-    var impressionData = args.ImpressionData != null ? JsonUtility.ToJson(args.ImpressionData, true) : ""null"";
-    Debug.Log(""Impression event from ad unit id "" + (args.AdUnitId : impressionData));
-}";
         const string k_LoadingText = "Loading...";
         const string k_ErrorText = "Error loading window. See console for details.";
+        const string k_ErrorTextNoAds = "Error loading window. No Ad units were found.";
 
 
 #if UNITY_2020_1_OR_NEWER
         const string k_ServiceBaseStyle    = @"StyleSheets/ServicesWindow/ServicesProjectSettingsCommon.uss";
         static readonly string k_SkinStyle = @"StyleSheets/ServicesWindow/ServicesProjectSettings{0}.uss";
 #else
+    #if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_ServiceBaseStyle    = @"Assets/UnityMonetization/Editor/Settings/Layout/2019/BaseStyle.uss";
+        static readonly string k_SkinStyle = @"Assets/UnityMonetization/Editor/Settings/Layout/2019/SkinStyle{0}.uss";
+    #else
         const string k_ServiceBaseStyle    = @"Packages/com.unity.mediation/Editor/Settings/Layout/2019/BaseStyle.uss";
         static readonly string k_SkinStyle = @"Packages/com.unity.mediation/Editor/Settings/Layout/2019/SkinStyle{0}.uss";
+    #endif
 #endif
 
         Dictionary<(string, string), List<(string, string)>> m_AdUnitsPerGameId;
@@ -116,7 +156,7 @@ void ImpressionEvent(object sender, ImpressionEventArgs args)
         PopupField<(string, string)> m_AdUnitsDropdownContent;
         TextField     m_CodeGenField;
 
-        [MenuItem("Services/Mediation/Code Generator")]
+        [MenuItem("Services/Mediation/Code Generator", priority = 112)]
         public static void ShowWindow()
         {
             GetWindow<MediationCodeGeneratorWindow>("Mediation - Code Generator", new Type[] { typeof(MediationAdUnitsWindow), typeof(SceneView), typeof(EditorWindow)});
@@ -162,8 +202,8 @@ void ImpressionEvent(object sender, ImpressionEventArgs args)
             m_CodeGenField = rootVisualElement.Q<TextField>("codeGenField");
             m_CodeGenField.value = k_LoadingText;
 
-            rootVisualElement.Q<Button>("copyToClipboard").clicked += CopyToClipboard;
-            rootVisualElement.Q<Button>("goToAdUnits").clicked += GoToAdUnits;
+            rootVisualElement.Q<Button>("copyToClipboard").clickable.clicked += CopyToClipboard;
+            rootVisualElement.Q<Button>("goToAdUnits").clickable.clicked += GoToAdUnits;
 
             PopulateGameIds();
         }
@@ -187,6 +227,12 @@ void ImpressionEvent(object sender, ImpressionEventArgs args)
                 {
                     // Project is not linked, no internet connexion or other issue; we could not retrieve the ad units
                     m_CodeGenField.value = k_ErrorText;
+                    return;
+                }
+
+                if (adUnits.Length == 0)
+                {
+                    m_CodeGenField.value = k_ErrorTextNoAds;
                     return;
                 }
 
@@ -246,10 +292,19 @@ void ImpressionEvent(object sender, ImpressionEventArgs args)
                 m_AdUnitsDropdownContent.value.Item1.Substring(1).ToLower()
                 + "Ad";
 
+            var rewardedCallback = "";
+            var rewardedFunction = "";
+            if (formattedAdType == "RewardedAd")
+            {
+                rewardedCallback = "ad.OnUserRewarded += OnUserRewarded;";
+                rewardedFunction = k_OnRewardedTemplate;
+            }
+
             var codeString = k_GeneratedCodeTemplate
-                .Replace("{gameId}", gameId)
                 .Replace("{adUnitId}", adUnitId)
-                .Replace("{adType}", formattedAdType);
+                .Replace("{adType}", formattedAdType)
+                .Replace("{rewardedCallback}", rewardedCallback)
+                .Replace("{rewardedFunction}", rewardedFunction);
             m_CodeGenField.value = codeString;
         }
     }

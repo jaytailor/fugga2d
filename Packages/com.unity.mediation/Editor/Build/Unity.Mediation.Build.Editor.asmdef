@@ -5,7 +5,9 @@
         "Unity.Mediation.Adapters.Editor",
         "Unity.Settings.Editor",
         "Unity.Mediation.Settings.Editor",
-        "PlayServicesResolver.Utils.Editor"
+        "PlayServicesResolver.Utils.Editor",
+        "Unity.Services.Core.Configuration.Editor",
+        "Unity.Services.Core.Configuration"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,50 +1,35 @@
 using System;
 using UnityEngine;
+using Unity.Services.Core;
+using System.Threading.Tasks;
 
-namespace Unity.Mediation.Samples
+namespace Unity.Services.Mediation.Samples
 {
     /// <summary>
     /// Sample Implementation of Unity Mediation
     /// </summary>
     public class RewardedExample : MonoBehaviour
     {
-        public string gameId;
+        [Header("Ad Unit Ids"), Tooltip("Ad Unit Ids for each platform that represent Mediation waterfalls.")]
         public string androidAdUnitId;
+        [Tooltip("Ad Unit Ids for each platform that represent Mediation waterfalls.")]
         public string iosAdUnitId;
 
-        RewardedAd m_RewardedAd;
+        IRewardedAd m_RewardedAd;
 
-        void Start()
+        async void Start()
         {
-            // Initialization Events
-            UnityMediation.OnInitializationComplete += InitializationComplete;
-            UnityMediation.OnInitializationFailed   += InitializationFailed;
-
-            if (Application.platform == RuntimePlatform.Android)
+            try
             {
-                m_RewardedAd = new RewardedAd(androidAdUnitId);
+                Debug.Log("Initializing...");
+                await UnityServices.Initialize();
+                Debug.Log("Initialized!");
+                InitializationComplete();
             }
-            else
+            catch (Exception e)
             {
-                m_RewardedAd = new RewardedAd(iosAdUnitId);
+                InitializationFailed(e);
             }
-
-            // Load Events
-            m_RewardedAd.OnLoaded += AdLoaded;
-            m_RewardedAd.OnFailedLoad += AdFailedLoad;
-
-            // Show Events
-            m_RewardedAd.OnUserRewarded += UserRewarded;
-            m_RewardedAd.OnClosed += AdClosed;
-            m_RewardedAd.OnShowed += AdShown;
-            m_RewardedAd.OnFailedShow += AdFailedShow;
-
-            // Impression Event
-            ImpressionEventPublisher.OnImpression += ImpressionEvent;
-
-            UnityMediation.Initialize(gameId);
-
-            Debug.Log("Initializing...");
         }
 
         public void ShowRewarded()
@@ -60,16 +45,52 @@ namespace Unity.Mediation.Samples
             m_RewardedAd.Load();
         }
 
-        void InitializationComplete(object sender, EventArgs args)
+        void InitializationComplete()
         {
-            UnityMediation.OnInitializationComplete -= InitializationComplete;
-            Debug.Log("Initialized On Start. Loading Ad...");
+            // Impression Event
+            MediationService.Instance.ImpressionEventPublisher.OnImpression += ImpressionEvent;
+            
+            switch (Application.platform)
+            {
+                case RuntimePlatform.Android:
+                    m_RewardedAd = MediationService.Instance.CreateRewardedAd(androidAdUnitId);
+                    break;
+
+                case RuntimePlatform.IPhonePlayer:
+                    m_RewardedAd = MediationService.Instance.CreateRewardedAd(iosAdUnitId);
+                    break;
+                case RuntimePlatform.WindowsEditor:
+                case RuntimePlatform.OSXEditor:
+                case RuntimePlatform.LinuxEditor:
+                    m_RewardedAd = MediationService.Instance.CreateRewardedAd(!string.IsNullOrEmpty(androidAdUnitId) ? androidAdUnitId : iosAdUnitId);
+                    break;
+                default:
+                    Debug.LogWarning("Mediation service is not available for this platform:" + Application.platform);
+                    return;
+            }
+
+            // Load Events
+            m_RewardedAd.OnLoaded += AdLoaded;
+            m_RewardedAd.OnFailedLoad += AdFailedLoad;
+
+            // Show Events
+            m_RewardedAd.OnUserRewarded += UserRewarded;
+            m_RewardedAd.OnClosed += AdClosed;
+            m_RewardedAd.OnShowed += AdShown;
+            m_RewardedAd.OnFailedShow += AdFailedShow;
+
+            Debug.Log($"Initialized On Start. Loading Ad...");
             LoadAd();
         }
 
-        void InitializationFailed(object sender, EventArgs args)
+        void InitializationFailed(Exception error)
         {
-            Debug.Log("Initialization Failed");
+            SdkInitializationError initializationError = SdkInitializationError.Unknown;
+            if (error is InitializeFailedException initializeFailedException)
+            {
+                initializationError = initializeFailedException.initializationError;
+            }
+            Debug.Log($"Initialization Failed: {initializationError}:{error.Message}");
         }
 
         void AdLoaded(object sender, EventArgs sargs)

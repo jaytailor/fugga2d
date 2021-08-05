@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Unity.Mediation.Dashboard.Editor;
-using Unity.Mediation.Settings.Editor.Layout;
+using Unity.Services.Mediation.Dashboard.Editor;
+using Unity.Services.Mediation.Settings.Editor.Layout;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     /// <summary>
     /// Window listing the available Ad Units defined in the dashboard and their infos for the user's convenience
@@ -20,14 +20,21 @@ namespace Unity.Mediation.Settings.Editor
 
         private static SortMode[] SortModes = {SortMode.Ascending, SortMode.Ascending, SortMode.Ascending, SortMode.Ascending};
 
-        const string k_AdUnitsTemplate   = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsTemplate.uxml";
-        const string k_AdUnitsStyle      = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsStyle.uss";
+#if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_AdUnitsTemplate = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsTemplate.uxml";
+        const string k_AdUnitsStyle    = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsStyle.uss";
 
-        const string k_AdUnitsWarningTemplate   = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsWarningTemplate.uxml";
+        const string k_AdUnitsWarningTemplate = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsWarningTemplate.uxml";
+        const string k_AdUnitsErrorTemplate   = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsErrorTemplate.uxml";
+#else
+        const string k_AdUnitsTemplate = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsTemplate.uxml";
+        const string k_AdUnitsStyle    = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsStyle.uss";
+
+        const string k_AdUnitsWarningTemplate = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsWarningTemplate.uxml";
         const string k_AdUnitsErrorTemplate   = @"Packages/com.unity.mediation/Editor/Settings/Layout/AdUnitsErrorTemplate.uxml";
+#endif
 
-
-        [MenuItem("Services/Mediation/Ad Units")]
+        [MenuItem("Services/Mediation/Ad Units", priority = 111)]
         public static void ShowWindow()
         {
             GetWindow<MediationAdUnitsWindow>("Mediation - Ad Units", new Type[] { typeof(MediationCodeGeneratorWindow), typeof(SceneView), typeof(EditorWindow)});
@@ -64,26 +71,26 @@ namespace Unity.Mediation.Settings.Editor
         {
             DashboardClient.GetAdUnitsAsync(adUnits =>
             {
+                // Remove Loading Element
+                root.Q<Label>("loading")?.RemoveFromHierarchy();
+
                 // Can't fetch ad unit data, display error message box
                 if (adUnits == null)
                 {
-                    root.Q(className: "list-view").RemoveFromHierarchy();
+                    root.Q(className: "list-view")?.RemoveFromHierarchy();
 
                     VisualTreeAsset errorTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_AdUnitsErrorTemplate);
                     errorTemplate.CloneTree(root.Q(className: "table-box"));
                 }
                 else if (adUnits.Length == 0)
                 {
-                    root.Q(className: "list-view").RemoveFromHierarchy();
+                    root.Q(className: "list-view")?.RemoveFromHierarchy();
 
                     VisualTreeAsset warningTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_AdUnitsWarningTemplate);
                     warningTemplate.CloneTree(root.Q(className: "table-box"));
                 }
                 else
                 {
-                    // Remove Loading Element
-                    root.Q(className: "list-view").Q<Label>("loading")?.RemoveFromHierarchy();
-
                     // Received data construct ad units list.
                     List<AdUnitData> dashboardAdUnits = new List<AdUnitData>();
                     foreach (DashboardClient.AdUnitInfoJson adUnitInfo in adUnits)
@@ -173,8 +180,11 @@ namespace Unity.Mediation.Settings.Editor
         {
             StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>(k_AdUnitsStyle);
             root.styleSheets.Add(styleSheet);
-
+#if GAMEGROWTH_UNITY_MONETIZATION
+            string k_SkinStyle = $@"Assets/UnityMonetization/Editor/Settings/Layout/2019/SkinStyle{(EditorGUIUtility.isProSkin ? "Dark" : "Light")}.uss";
+#else
             string k_SkinStyle = $@"Packages/com.unity.mediation/Editor/Settings/Layout/2019/SkinStyle{(EditorGUIUtility.isProSkin ? "Dark" : "Light")}.uss";
+#endif
             styleSheet = EditorGUIUtility.Load(k_SkinStyle) as StyleSheet;
             root.styleSheets.Add(styleSheet);
         }

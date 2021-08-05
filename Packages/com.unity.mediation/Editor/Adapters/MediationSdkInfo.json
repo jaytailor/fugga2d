@@ -4,8 +4,8 @@
     "DisplayName": "Mediation SDK",
     "AndroidArtifact": "com.unity3d.mediation:mediation-sdk",
     "IosPod": "UnityMediationSdk",
-    "PackageVersion": "0.1.1-preview",
-    "SdkVersion": "0.1"
+    "PackageVersion": "0.2.0-preview",
+    "SdkVersion": "0.2"
   },
   "Adapters": [
     {

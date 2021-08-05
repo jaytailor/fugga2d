@@ -8,7 +8,12 @@ namespace PlayServicesResolver.Installer.Editor
 {
     static class PlayServicesResolverInstaller
     {
-        const string k_PackagePath = "Packages/com.unity.mediation/PlayServicesResolver/Editor/play-services-resolver-1.2.135.0.unitypackage";
+#if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_PackagePath = "Assets/PlayServicesResolver/Editor/play-services-resolver-1.2.135.1.unitypackage";
+#else
+        const string k_PackagePath = "Packages/com.unity.mediation/PlayServicesResolver/Editor/play-services-resolver-1.2.135.1.unitypackage";
+#endif
+
         const string k_DoNotAskAgain = "Unity.Mediation.PlayServicesResolver.DoNotAskAgain";
 
         [InitializeOnLoadMethod]

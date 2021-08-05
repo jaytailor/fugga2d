@@ -4,7 +4,7 @@ using System.Reflection;
 using Moq;
 using UnityEngine;
 
-namespace Unity.Mediation.Tests
+namespace Unity.Services.Mediation.Tests
 {
     public class MockedEvent<T> where T : class
     {

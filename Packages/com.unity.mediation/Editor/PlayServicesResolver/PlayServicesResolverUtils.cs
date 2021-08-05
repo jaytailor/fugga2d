@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace PlayServicesResolver.Utils.Editor
@@ -37,6 +38,18 @@ namespace PlayServicesResolver.Utils.Editor
                 var psrType = PlayServicesResolverType;
                 if (psrType == null) return false;
                 var autoResolutionProperty = psrType.GetProperty("GradleTemplateEnabled");
+                if (autoResolutionProperty == null) return false;
+                return (bool)autoResolutionProperty.GetValue(null);
+            }
+        }
+
+        public static bool MainTemplateEnabled
+        {
+            get
+            {
+                var psrType = Type.GetType("GooglePlayServices.SettingsDialog, Google.JarResolver");
+                if (psrType == null) return false;
+                var autoResolutionProperty = psrType.GetProperty("PatchMainTemplateGradle", BindingFlags.Static | BindingFlags.NonPublic);
                 if (autoResolutionProperty == null) return false;
                 return (bool)autoResolutionProperty.GetValue(null);
             }

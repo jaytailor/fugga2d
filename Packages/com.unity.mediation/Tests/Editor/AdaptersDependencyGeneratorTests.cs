@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
-using Unity.Mediation.Adapters.Editor;
+using Unity.Services.Mediation.Adapters.Editor;
 using UnityEngine;
 
-namespace Unity.Mediation.EditorTests
+namespace Unity.Services.Mediation.EditorTests
 {
     public class AdaptersDependencyGeneratorTests
     {

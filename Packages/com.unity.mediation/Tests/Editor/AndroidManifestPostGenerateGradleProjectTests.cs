@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using NUnit.Framework;
-using Unity.Mediation.Build.Editor;
-using Unity.Mediation.Settings.Editor;
+using Unity.Services.Mediation.Build.Editor;
+using Unity.Services.Mediation.Settings.Editor;
 using UnityEngine;
 
-namespace Unity.Mediation.EditorTests
+namespace Unity.Services.Mediation.EditorTests
 {
     public class AndroidManifestPostGenerateGradleProjectTests
     {

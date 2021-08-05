@@ -1,9 +1,9 @@
 using System.Linq;
 using NUnit.Framework;
-using Unity.Mediation.Adapters.Editor;
-using Unity.Mediation.Settings.Editor;
+using Unity.Services.Mediation.Adapters.Editor;
+using Unity.Services.Mediation.Settings.Editor;
 
-namespace Unity.Mediation.EditorTests
+namespace Unity.Services.Mediation.EditorTests
 {
     public class SettingsTests
     {

@@ -1,9 +1,13 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SettingsManagement;
+using Unity.Services.Core.Editor;
+using UnityEngine;
+using UnityEngine.UIElements;
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
-    static class MediationSettingsProvider
+    class MediationSettingsProvider : EditorGameServiceSettingsProvider
     {
         static UnityEditor.SettingsManagement.Settings s_SettingsInstance;
 
@@ -18,19 +22,30 @@ namespace Unity.Mediation.Settings.Editor
         }
 
         [SettingsProvider]
-        static SettingsProvider CreateSettingsProvider()
+        public static SettingsProvider CreateSettingsProvider()
         {
-            var provider = new UserSettingsProviderWrapper("Project/Services/Mediation",
-                instance,
-                new[] { typeof(MediationSettingsProvider).Assembly },
-                SettingsScope.Project)
-            {
-                activateHandler = (searchContext, rootElement) =>
-                {
-                    MediationAdapterSettings.GenerateUIElementUI(searchContext, rootElement);
-                }
-            };
-            return provider;
+            return new MediationSettingsProvider(GenerateProjectSettingsPath(new MediationServiceIdentifier().GetKey()), SettingsScope.Project);
+        }
+
+        MediationSettingsProvider(string path, SettingsScope scopes, IEnumerable<string> keywords = null)
+            : base(path, scopes, keywords)
+        {
+            MediationEditorService.RefreshGameId();
+        }
+
+        protected override IEditorGameService EditorGameService => EditorGameServiceRegistry.Instance.GetEditorGameService<MediationServiceIdentifier>();
+
+        protected override string Title => EditorGameService.Name;
+        protected override string Description => "Manage your ad network adapters and generate code snippets to implement ads in your game.";
+
+        protected override VisualElement GenerateServiceDetailUI()
+        {
+            return MediationAdapterSettings.GenerateUIElementUI();
+        }
+
+        protected override VisualElement GenerateUnsupportedDetailUI()
+        {
+            return MediationAdapterSettings.GenerateUIElementUI();
         }
     }
 }

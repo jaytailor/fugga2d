@@ -1,13 +1,13 @@
 #if UNITY_IOS
 using System;
 using System.IO;
-using Unity.Mediation.Settings.Editor;
+using Unity.Services.Mediation.Settings.Editor;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEditor.iOS.Xcode;
 
-namespace Unity.Mediation.Build.Editor
+namespace Unity.Services.Mediation.Build.Editor
 {
     class IosPlistPostBuild : IPostprocessBuildWithReport
     {

@@ -3,10 +3,10 @@ using System;
 using System.Threading;
 using Moq;
 using NUnit.Framework;
-using Unity.Mediation.Platform;
+using Unity.Services.Mediation.Platform;
 using UnityEngine;
 
-namespace Unity.Mediation.Tests
+namespace Unity.Services.Mediation.Tests
 {
     public class ThreadUtilTests
     {

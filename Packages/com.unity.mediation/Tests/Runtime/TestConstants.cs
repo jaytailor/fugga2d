@@ -1,9 +1,11 @@
-namespace Unity.Mediation.Tests
+namespace Unity.Services.Mediation.Tests
 {
     public class TestConstants
     {
         public const int Timeout = 10000;
         public const string InvalidGameId = "InvalidGameId";
+
+        public const string InstallId = "test-install-id";
 
 #if UNITY_ANDROID
         public const string GameId = "3804049";

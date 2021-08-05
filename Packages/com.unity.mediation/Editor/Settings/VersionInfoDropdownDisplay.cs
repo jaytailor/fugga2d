@@ -1,8 +1,8 @@
 using System;
-using Unity.Mediation.Adapters.Editor;
+using Unity.Services.Mediation.Adapters.Editor;
 using UnityEngine;
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     class VersionInfoDropdownDisplay
     {

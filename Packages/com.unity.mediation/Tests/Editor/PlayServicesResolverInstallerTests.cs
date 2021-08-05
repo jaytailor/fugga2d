@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PlayServicesResolver.Installer.Editor;
 using UnityEngine;
 
-namespace Unity.Mediation.EditorTests
+namespace Unity.Services.Mediation.EditorTests
 {
     public class PlayServicesResolverInstallerTests
     {

@@ -57,15 +57,15 @@
     height: 50%;
     align-self: center;
     border-color: initial;
-    background-image: url("../Icons/copy.png");
+    background-image: url("../Images/copy.png");
 }
 
 .list-item:hover > .list-item-button
 {
     opacity: initial;
-    width:1px;
-    height:50%;
+    width: 1px;
+    height: 50%;
     align-self: center;
     border-color: initial;
-    background-image: url("../Icons/copy.png");
+    background-image: url("../Images/copy.png");
 }

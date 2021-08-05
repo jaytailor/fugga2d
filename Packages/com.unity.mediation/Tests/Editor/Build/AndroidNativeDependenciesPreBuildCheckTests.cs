@@ -1,9 +1,9 @@
 #if UNITY_ANDROID
 using System;
 using NUnit.Framework;
-using Unity.Mediation.Build.Editor;
+using Unity.Services.Mediation.Build.Editor;
 
-namespace Unity.Mediation.EditorTests
+namespace Unity.Services.Mediation.EditorTests
 {
     public class AndroidNativeDependenciesPreBuildCheckTests
     {

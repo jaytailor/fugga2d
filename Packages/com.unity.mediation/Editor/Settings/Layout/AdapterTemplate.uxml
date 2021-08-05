@@ -2,9 +2,7 @@
     <VisualElement name="Adapter" class="adapter-container">
         <VisualElement name="AdapterHeader" class="adapter-header">
             <VisualElement class="centered-row">
-                <Toggle name="AdapterSelectToggle" class="adapter-select-toggle"/>
                 <TextElement class="adapter-title" name="AdapterName" text="Unity Ads Adapter"/>
-                <Image name="PackageInfoIcon" class="info-icon"/>
             </VisualElement>
 
             <VisualElement name="InstalledInfo" class="install-info-section">
@@ -12,18 +10,12 @@
                     <Image class="installed-icon"/>
                     <TextElement text="Installed"/>
                 </VisualElement>
-                <VisualElement class="centered-row" >
-                    <TextElement text="Version "/>
-                    <TextElement name="InstalledVersion" text="1.2.3"/>
-                </VisualElement>
             </VisualElement>
 
             <VisualElement class="centered-row">
                 <VisualElement class="flex-end-column">
-                    <TextElement text="Adapter version"/>
-                    <VisualElement name="VersionsDropdown" class="version-dropdown"/>
+                    <Button name="InstallButton" text="Install"/>
                 </VisualElement>
-                <Image name="OptionsButton" class="adapter-options-button"/>
             </VisualElement>
         </VisualElement>
     </VisualElement>

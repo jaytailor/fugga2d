@@ -1,49 +1,35 @@
 using System;
 using UnityEngine;
+using Unity.Services.Core;
+using System.Threading.Tasks;
 
-namespace Unity.Mediation.Samples
+namespace Unity.Services.Mediation.Samples
 {
     /// <summary>
     /// Sample Implementation of Unity Mediation
     /// </summary>
     public class InterstitialExample : MonoBehaviour
     {
-        public string gameId;
+        [Header("Ad Unit Ids"), Tooltip("Ad Unit Ids for each platform that represent Mediation waterfalls.")]
         public string androidAdUnitId;
+        [Tooltip("Ad Unit Ids for each platform that represent Mediation waterfalls.")]
         public string iosAdUnitId;
 
-        InterstitialAd m_InterstitialAd;
+        IInterstitialAd m_InterstitialAd;
 
-        void Start()
+        async void Start()
         {
-            // Initialization Events
-            UnityMediation.OnInitializationComplete += InitializationComplete;
-            UnityMediation.OnInitializationFailed   += InitializationFailed;
-
-            if (Application.platform == RuntimePlatform.Android)
+            try
             {
-                m_InterstitialAd = new InterstitialAd(androidAdUnitId);
+                Debug.Log("Initializing...");
+                await UnityServices.Initialize();
+                Debug.Log("Initialized!");
+                InitializationComplete();
             }
-            else
+            catch (Exception e)
             {
-                m_InterstitialAd = new InterstitialAd(iosAdUnitId);
+                InitializationFailed(e);
             }
-
-            // Load Events
-            m_InterstitialAd.OnLoaded += AdLoaded;
-            m_InterstitialAd.OnFailedLoad += AdFailedLoad;
-
-            // Show Events
-            m_InterstitialAd.OnClosed += AdClosed;
-            m_InterstitialAd.OnShowed += AdShown;
-            m_InterstitialAd.OnFailedShow += AdFailedShow;
-
-            // Impression Event
-            ImpressionEventPublisher.OnImpression += ImpressionEvent;
-
-            UnityMediation.Initialize(gameId);
-
-            Debug.Log("Initializing...");
         }
 
         public void ShowInterstitial()
@@ -59,19 +45,54 @@ namespace Unity.Mediation.Samples
             m_InterstitialAd.Load();
         }
 
-        void InitializationComplete(object sender, EventArgs args)
+        void InitializationComplete()
         {
-            UnityMediation.OnInitializationComplete -= InitializationComplete;
+            // Impression Event
+            MediationService.Instance.ImpressionEventPublisher.OnImpression += ImpressionEvent;
+            
+            switch (Application.platform)
+            {
+                case RuntimePlatform.Android:
+                    m_InterstitialAd = MediationService.Instance.CreateInterstitialAd(androidAdUnitId);
+                    break;
+
+                case RuntimePlatform.IPhonePlayer:
+                    m_InterstitialAd = MediationService.Instance.CreateInterstitialAd(iosAdUnitId);
+                    break;
+                case RuntimePlatform.WindowsEditor:
+                case RuntimePlatform.OSXEditor:
+                case RuntimePlatform.LinuxEditor:
+                    m_InterstitialAd = MediationService.Instance.CreateInterstitialAd(!string.IsNullOrEmpty(androidAdUnitId) ? androidAdUnitId : iosAdUnitId);
+                    break;
+                default:
+                    Debug.LogWarning("Mediation service is not available for this platform:" + Application.platform);
+                    return;
+            }
+
+            // Load Events
+            m_InterstitialAd.OnLoaded += AdLoaded;
+            m_InterstitialAd.OnFailedLoad += AdFailedLoad;
+
+            // Show Events
+            m_InterstitialAd.OnClosed += AdClosed;
+            m_InterstitialAd.OnShowed += AdShown;
+            m_InterstitialAd.OnFailedShow += AdFailedShow;
+
             Debug.Log("Initialized On Start! Loading Ad...");
             LoadAd();
         }
 
-        void InitializationFailed(object sender, EventArgs args)
+        void InitializationFailed(Exception error)
         {
-            Debug.Log("Initialization Failed");
+            SdkInitializationError initializationError = SdkInitializationError.Unknown;
+            if (error is InitializeFailedException initializeFailedException)
+            {
+                initializationError = initializeFailedException.initializationError;
+            }
+            Debug.Log($"Initialization Failed: {initializationError}:{error.Message}");
         }
 
-        void AdLoaded(object sender, EventArgs sargs)
+        void AdLoaded(object sender, EventArgs args)
         {
             Debug.Log("Loaded Interstitial!");
         }

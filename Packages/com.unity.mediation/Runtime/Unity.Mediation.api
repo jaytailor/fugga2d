@@ -1,36 +1,63 @@
 // This file is generated. Do not modify by hand.
 // XML documentation file not found. To check if public methods have XML comments,
 // make sure the XML doc file is present and located next to the scraped dll
-namespace Unity.Mediation
+namespace Unity.Services.Mediation
 {
     public enum AdState
     {
-        public const Unity.Mediation.AdState Loaded = 2;
-        public const Unity.Mediation.AdState Loading = 1;
-        public const Unity.Mediation.AdState Showing = 3;
-        public const Unity.Mediation.AdState Unloaded = 0;
+        public const Unity.Services.Mediation.AdState Loaded = 2;
+        public const Unity.Services.Mediation.AdState Loading = 1;
+        public const Unity.Services.Mediation.AdState Showing = 3;
+        public const Unity.Services.Mediation.AdState Unloaded = 0;
         public int value__;
     }
 
     public enum ConsentStatus
     {
-        public const Unity.Mediation.ConsentStatus Denied = 2;
-        public const Unity.Mediation.ConsentStatus Given = 1;
-        public const Unity.Mediation.ConsentStatus NotDetermined = 0;
+        public const Unity.Services.Mediation.ConsentStatus Denied = 2;
+        public const Unity.Services.Mediation.ConsentStatus Given = 1;
+        public const Unity.Services.Mediation.ConsentStatus NotDetermined = 0;
         public int value__;
-    }
-
-    public static class DataPrivacy
-    {
-        public static Unity.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
-        public static void UserGaveConsent(Unity.Mediation.ConsentStatus consent, Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
     }
 
     public enum DataPrivacyLaw
     {
-        public const Unity.Mediation.DataPrivacyLaw CCPA = 1;
-        public const Unity.Mediation.DataPrivacyLaw GDPR = 0;
+        public const Unity.Services.Mediation.DataPrivacyLaw CCPA = 1;
+        public const Unity.Services.Mediation.DataPrivacyLaw GDPR = 0;
         public int value__;
+    }
+
+    public interface IDataPrivacy
+    {
+        public abstract Unity.Services.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Services.Mediation.DataPrivacyLaw dataPrivacyLaw);
+        public abstract void UserGaveConsent(Unity.Services.Mediation.ConsentStatus consent, Unity.Services.Mediation.DataPrivacyLaw dataPrivacyLaw);
+    }
+
+    public interface IImpressionEventPublisher
+    {
+        public event System.EventHandler<Unity.Services.Mediation.ImpressionEventArgs> OnImpression;
+    }
+
+    public interface IInterstitialAd : System.IDisposable
+    {
+        public event System.EventHandler OnClicked;
+        public event System.EventHandler OnClosed;
+        public event System.EventHandler<Unity.Services.Mediation.LoadErrorEventArgs> OnFailedLoad;
+        public event System.EventHandler<Unity.Services.Mediation.ShowErrorEventArgs> OnFailedShow;
+        public event System.EventHandler OnLoaded;
+        public event System.EventHandler OnShowed;
+        public abstract Unity.Services.Mediation.AdState AdState { get; }
+        public abstract string AdUnitId { get; }
+        public abstract void Load();
+        public abstract void Show();
+    }
+
+    public interface IMediationService
+    {
+        public abstract Unity.Services.Mediation.IDataPrivacy DataPrivacy { get; }
+        public abstract Unity.Services.Mediation.IImpressionEventPublisher ImpressionEventPublisher { get; }
+        public abstract Unity.Services.Mediation.IInterstitialAd CreateInterstitialAd(string adUnitId);
+        public abstract Unity.Services.Mediation.IRewardedAd CreateRewardedAd(string adUnitId);
     }
 
     public class ImpressionData
@@ -57,77 +84,91 @@ namespace Unity.Mediation
     public class ImpressionEventArgs : System.EventArgs
     {
         public string AdUnitId { get; }
-        public Unity.Mediation.ImpressionData ImpressionData { get; }
-        public ImpressionEventArgs(string adUnitId, Unity.Mediation.ImpressionData impressionData) {}
-    }
-
-    public static class ImpressionEventPublisher
-    {
-        public static event System.EventHandler<Unity.Mediation.ImpressionEventArgs> OnImpression;
-    }
-
-    public class InitializationErrorEventArgs : System.EventArgs
-    {
-        public Unity.Mediation.SdkInitializationError Error { get; }
-        public string Message { get; }
-        public InitializationErrorEventArgs(Unity.Mediation.SdkInitializationError error, string message) {}
+        public Unity.Services.Mediation.ImpressionData ImpressionData { get; }
+        public ImpressionEventArgs(string adUnitId, Unity.Services.Mediation.ImpressionData impressionData) {}
     }
 
     public enum InitializationState
     {
-        public const Unity.Mediation.InitializationState Initialized = 2;
-        public const Unity.Mediation.InitializationState Initializing = 1;
-        public const Unity.Mediation.InitializationState Uninitialized = 0;
+        public const Unity.Services.Mediation.InitializationState Initialized = 2;
+        public const Unity.Services.Mediation.InitializationState Initializing = 1;
+        public const Unity.Services.Mediation.InitializationState Uninitialized = 0;
         public int value__;
     }
 
-    public sealed class InterstitialAd : System.IDisposable
+    public class InitializeFailedException : System.Exception
+    {
+        public Unity.Services.Mediation.SdkInitializationError initializationError;
+    }
+
+    public sealed class InterstitialAd : System.IDisposable, Unity.Services.Mediation.IInterstitialAd
     {
         public event System.EventHandler OnClicked;
         public event System.EventHandler OnClosed;
-        public event System.EventHandler<Unity.Mediation.LoadErrorEventArgs> OnFailedLoad;
-        public event System.EventHandler<Unity.Mediation.ShowErrorEventArgs> OnFailedShow;
+        public event System.EventHandler<Unity.Services.Mediation.LoadErrorEventArgs> OnFailedLoad;
+        public event System.EventHandler<Unity.Services.Mediation.ShowErrorEventArgs> OnFailedShow;
         public event System.EventHandler OnLoaded;
         public event System.EventHandler OnShowed;
-        public Unity.Mediation.AdState AdState { get; }
-        public string AdUnitId { get; }
+        public virtual Unity.Services.Mediation.AdState AdState { get; }
+        public virtual string AdUnitId { get; }
         public InterstitialAd(string adUnitId) {}
         public virtual void Dispose();
-        public void Load();
-        public void Show();
+        public virtual void Load();
+        public virtual void Show();
+    }
+
+    public interface IRewardedAd : System.IDisposable
+    {
+        public event System.EventHandler OnClicked;
+        public event System.EventHandler OnClosed;
+        public event System.EventHandler<Unity.Services.Mediation.LoadErrorEventArgs> OnFailedLoad;
+        public event System.EventHandler<Unity.Services.Mediation.ShowErrorEventArgs> OnFailedShow;
+        public event System.EventHandler OnLoaded;
+        public event System.EventHandler OnShowed;
+        public event System.EventHandler<Unity.Services.Mediation.RewardEventArgs> OnUserRewarded;
+        public abstract Unity.Services.Mediation.AdState AdState { get; }
+        public abstract string AdUnitId { get; }
+        public abstract void Load();
+        public abstract void Show();
     }
 
     public enum LoadError
     {
-        public const Unity.Mediation.LoadError NetworkError = 2;
-        public const Unity.Mediation.LoadError NoFill = 1;
-        public const Unity.Mediation.LoadError SdkNotInitialized = 3;
-        public const Unity.Mediation.LoadError Unknown = 0;
+        public const Unity.Services.Mediation.LoadError NetworkError = 2;
+        public const Unity.Services.Mediation.LoadError NoFill = 1;
+        public const Unity.Services.Mediation.LoadError SdkNotInitialized = 3;
+        public const Unity.Services.Mediation.LoadError Unknown = 0;
         public int value__;
     }
 
     public class LoadErrorEventArgs : System.EventArgs
     {
-        public Unity.Mediation.LoadError Error { get; }
+        public Unity.Services.Mediation.LoadError Error { get; }
         public string Message { get; }
-        public LoadErrorEventArgs(Unity.Mediation.LoadError error, string message) {}
+        public LoadErrorEventArgs(Unity.Services.Mediation.LoadError error, string message) {}
     }
 
-    public sealed class RewardedAd : System.IDisposable
+    public static class MediationService
+    {
+        public static Unity.Services.Mediation.InitializationState InitializationState { get; }
+        public static Unity.Services.Mediation.IMediationService Instance { get; }
+    }
+
+    public sealed class RewardedAd : System.IDisposable, Unity.Services.Mediation.IRewardedAd
     {
         public event System.EventHandler OnClicked;
         public event System.EventHandler OnClosed;
-        public event System.EventHandler<Unity.Mediation.LoadErrorEventArgs> OnFailedLoad;
-        public event System.EventHandler<Unity.Mediation.ShowErrorEventArgs> OnFailedShow;
+        public event System.EventHandler<Unity.Services.Mediation.LoadErrorEventArgs> OnFailedLoad;
+        public event System.EventHandler<Unity.Services.Mediation.ShowErrorEventArgs> OnFailedShow;
         public event System.EventHandler OnLoaded;
         public event System.EventHandler OnShowed;
-        public event System.EventHandler<Unity.Mediation.RewardEventArgs> OnUserRewarded;
-        public Unity.Mediation.AdState AdState { get; }
-        public string AdUnitId { get; }
+        public event System.EventHandler<Unity.Services.Mediation.RewardEventArgs> OnUserRewarded;
+        public virtual Unity.Services.Mediation.AdState AdState { get; }
+        public virtual string AdUnitId { get; }
         public RewardedAd(string adUnitId) {}
         public virtual void Dispose();
-        public void Load();
-        public void Show();
+        public virtual void Load();
+        public virtual void Show();
     }
 
     public class RewardEventArgs : System.EventArgs
@@ -139,50 +180,24 @@ namespace Unity.Mediation
 
     public enum SdkInitializationError
     {
-        public const Unity.Mediation.SdkInitializationError NetworkError = 1;
-        public const Unity.Mediation.SdkInitializationError Unknown = 0;
+        public const Unity.Services.Mediation.SdkInitializationError NetworkError = 1;
+        public const Unity.Services.Mediation.SdkInitializationError Unknown = 0;
         public int value__;
     }
 
     public enum ShowError
     {
-        public const Unity.Mediation.ShowError AdNetworkError = 2;
-        public const Unity.Mediation.ShowError AdNotLoaded = 1;
-        public const Unity.Mediation.ShowError Unknown = 0;
+        public const Unity.Services.Mediation.ShowError AdNetworkError = 2;
+        public const Unity.Services.Mediation.ShowError AdNotLoaded = 1;
+        public const Unity.Services.Mediation.ShowError InvalidActivity = 3;
+        public const Unity.Services.Mediation.ShowError Unknown = 0;
         public int value__;
     }
 
     public class ShowErrorEventArgs : System.EventArgs
     {
-        public Unity.Mediation.ShowError Error { get; }
+        public Unity.Services.Mediation.ShowError Error { get; }
         public string Message { get; }
-        public ShowErrorEventArgs(Unity.Mediation.ShowError error, string message) {}
-    }
-
-    public static class UnityMediation
-    {
-        public static event System.EventHandler OnInitializationComplete;
-        public static event System.EventHandler<Unity.Mediation.InitializationErrorEventArgs> OnInitializationFailed;
-        public static Unity.Mediation.InitializationState InitializationState { get; }
-        public static void Initialize(string gameId);
-    }
-}
-
-namespace Unity.Mediation.Platform
-{
-    public class AndroidDataPrivacy : System.IDisposable, Unity.Mediation.Platform.IDataPrivacy
-    {
-        public AndroidDataPrivacy() {}
-        public virtual void Dispose();
-        protected virtual void Finalize();
-        public virtual Unity.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
-        public virtual void UserGaveConsent(Unity.Mediation.ConsentStatus consent, Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
-    }
-
-    public class EditorDataPrivacy : Unity.Mediation.Platform.IDataPrivacy
-    {
-        public EditorDataPrivacy() {}
-        public virtual Unity.Mediation.ConsentStatus GetConsentStatusForLaw(Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
-        public virtual void UserGaveConsent(Unity.Mediation.ConsentStatus consent, Unity.Mediation.DataPrivacyLaw dataPrivacyLaw);
+        public ShowErrorEventArgs(Unity.Services.Mediation.ShowError error, string message) {}
     }
 }

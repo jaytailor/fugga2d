@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Unity.Mediation.Tests
+namespace Unity.Services.Mediation.Tests
 {
     public class EventArgsTests
     {
@@ -23,8 +24,8 @@ namespace Unity.Mediation.Tests
             };
 
             Type type = eventArgs[eventName].GetType();
-            Assert.AreEqual("Unknown", type.GetProperty("Error")?.GetValue(eventArgs[eventName]).ToString(), "Event Enum Mismatch");
-            Assert.AreEqual(message, type.GetProperty("Message")?.GetValue(eventArgs[eventName]), "Event Error Message Mismatch");
+            Assert.AreEqual("Unknown", type.GetProperty("Error", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(eventArgs[eventName]).ToString(), "Event Enum Mismatch");
+            Assert.AreEqual(message, type.GetProperty("Message", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(eventArgs[eventName]), "Event Error Message Mismatch");
         }
 
         [Test]

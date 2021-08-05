@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEditor.SettingsManagement;
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     class ReloadableUserSetting<T> : UserSetting<T>, IDisposable
     {

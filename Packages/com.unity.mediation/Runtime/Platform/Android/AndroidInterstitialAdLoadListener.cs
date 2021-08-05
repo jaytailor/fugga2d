@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
     class AndroidInterstitialAdLoadListener : AndroidJavaProxy, IAndroidInterstitialLoadListener
     {

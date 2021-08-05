@@ -1,4 +1,4 @@
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     enum SortMode
     {

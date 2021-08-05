@@ -1,11 +1,45 @@
 #if UNITY_EDITOR
 using System;
+using UnityEditor;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
     class EditorInterstitialAd : IInterstitialAd
     {
-        public EditorInterstitialAd(string adUnitId) {}
+#if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_PrefabPath = @"Assets/UnityMonetization/Runtime/Platform/Editor/TestAds/MockInterstitial.prefab";
+#else
+        const string k_PrefabPath = "Packages/com.unity.mediation/Runtime/Platform/Editor/TestAds/MockInterstitial.prefab";
+#endif
+        
+        private MockInterstitial m_MockInterstitial;
+
+        public EditorInterstitialAd(string adUnitId)
+        {
+            if (Object.FindObjectOfType<MockInterstitial>() is MockInterstitial mockInterstitial && mockInterstitial.AdUnitId == adUnitId)
+            {
+                m_MockInterstitial = mockInterstitial;
+            }
+            else
+            {
+                GameObject mockPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(k_PrefabPath);
+                var adGameObject = Object.Instantiate(mockPrefab);
+                Object.DontDestroyOnLoad(adGameObject);
+                adGameObject.hideFlags = HideFlags.HideInHierarchy;
+
+                m_MockInterstitial = adGameObject.GetComponent<MockInterstitial>();
+                m_MockInterstitial.AdUnitId = adUnitId;
+
+                m_MockInterstitial.OnLoaded += (sender, args) => OnLoaded?.Invoke(this, args);
+                m_MockInterstitial.OnFailedLoad += (sender, args) => OnFailedLoad?.Invoke(this, args);
+                m_MockInterstitial.OnShowed += (sender, args) => OnShowed?.Invoke(this, args);
+                m_MockInterstitial.OnClicked += (sender, args) => OnClicked?.Invoke(this, args);
+                m_MockInterstitial.OnClosed += (sender, args) => OnClosed?.Invoke(this, args);
+                m_MockInterstitial.OnFailedShow += (sender, args) => OnFailedShow?.Invoke(this, args);
+            }
+        }
 
 #pragma warning disable 67
         public event EventHandler OnLoaded;
@@ -21,15 +55,24 @@ namespace Unity.Mediation.Platform
         public event EventHandler<ShowErrorEventArgs> OnFailedShow;
 #pragma warning restore 67
 
-        public AdState AdState => AdState.Unloaded;
+        public AdState AdState => m_MockInterstitial.AdState;
 
-        public string AdUnitId { get; }
+        public string AdUnitId => m_MockInterstitial.AdUnitId;
 
-        public void Load() {}
+        public void Load()
+        {
+            m_MockInterstitial.Load();
+        }
 
-        public void Show() {}
+        public void Show()
+        {
+            m_MockInterstitial.Show();
+        }
 
-        public void Dispose() {}
+        public void Dispose()
+        {
+            m_MockInterstitial.Dispose();
+        }
     }
 }
 #endif

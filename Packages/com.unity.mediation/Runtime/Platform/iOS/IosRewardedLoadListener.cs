@@ -3,7 +3,7 @@ using System;
 using System.Runtime.InteropServices;
 using AOT;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
     class IosRewardedLoadListener : IosNativeObject
     {

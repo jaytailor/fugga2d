@@ -4,6 +4,33 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.0-preview] - 2021-07-30
+
+### Added
+- Editor now offers mock ads for testing
+- Added support for Unity 2021
+
+### Changed
+- Adapter settings will now only allow installing and uninstalling. The latest version will be used unless specified in a -Dependencies.xml file
+- Initialization of mediation is now done through Unity.Core.Services
+- The project's gameId is now fetched from the Dashboard upon linking the project to it
+- API changes:
+    - To initialize, instead of `UnityMediation.Initialize(string gameId)`, use `UnityServices.Initialize()`
+    - The namespace `Unity.Mediation` has been renamed to `Unity.Services.Mediation`
+    - `UnityMediation` has been renamed to `MediationService`
+    - `ImpressionEventPublisher` is accessible via `MediationService.Instance.ImpressionEventPublisher`
+    - `DataPrivacy` is accessible via `MediationService.Instance.DataPrivacy`
+    - Creating a new instance of `InterstitialAd` is achieved using `MediationService.Instance.CreateInterstitialAd(string adUnitId)`
+    - Creating a new instance of `RewardedAd` is achieved using `MediationService.Instance.CreateRewardedAd(string adUnitId)`
+
+### Fixed
+- Fixed a minor leak related to Dashboard requests
+- Fixed error when using Proguard's minify, stripping some adapter functions.
+- Fixed AdMob IDs not being saved properly.
+
+### Removed
+- Removed dependency on Newtonsoft, now favoring Unity's jsonUtility
+
 ## [0.1.1-preview] - 2021-05-25
 
 #### Fixed

@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace Unity.Mediation.Settings.Editor
+namespace Unity.Services.Mediation.Settings.Editor
 {
     class UnityAdsSettings : BaseAdapterSettings
     {
+#if GAMEGROWTH_UNITY_MONETIZATION
+        const string k_AdapterTemplate = @"Assets/UnityMonetization/Editor/Settings/Adapters/Layout/UnityAdsTemplate.uxml";
+#else
         const string k_AdapterTemplate = @"Packages/com.unity.mediation/Editor/Settings/Adapters/Layout/UnityAdsTemplate.uxml";
-
+#endif
         public override string AdapterId => "unityads-adapter";
         bool? m_UnityAdsDetected;
 

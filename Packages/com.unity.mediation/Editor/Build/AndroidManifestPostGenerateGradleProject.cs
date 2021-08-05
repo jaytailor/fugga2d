@@ -1,10 +1,10 @@
 #if UNITY_ANDROID
 using System;
 using System.Xml;
-using Unity.Mediation.Settings.Editor;
+using Unity.Services.Mediation.Settings.Editor;
 using UnityEditor.Android;
 
-namespace Unity.Mediation.Build.Editor
+namespace Unity.Services.Mediation.Build.Editor
 {
     class AndroidManifestPostGenerateGradleProject : IPostGenerateGradleAndroidProject
     {

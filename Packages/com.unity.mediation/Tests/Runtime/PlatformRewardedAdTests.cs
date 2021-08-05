@@ -3,7 +3,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Unity.Mediation.Tests
+namespace Unity.Services.Mediation.Tests
 {
     public class PlatformRewardedAdTests
     {
@@ -12,15 +12,12 @@ namespace Unity.Mediation.Tests
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            if (UnityMediation.InitializationState != InitializationState.Initialized)
+            if (MediationService.InitializationState != InitializationState.Initialized)
             {
-                UnityMediation.OnInitializationComplete += (sender, args) =>
-                    Assert.AreEqual(InitializationState.Initialized, UnityMediation.InitializationState);
-                UnityMediation.OnInitializationFailed += (sender, args) => Assert.Fail("Initialization Failed");
-                UnityMediation.Initialize(TestConstants.GameId);
+                MediationService.Initialize(TestConstants.GameId, TestConstants.InstallId);
             }
 
-            yield return new WaitUntil(() => UnityMediation.InitializationState == InitializationState.Initialized);
+            yield return new WaitUntil(() => MediationService.InitializationState == InitializationState.Initialized);
             m_RewardedAd = new RewardedAd(TestConstants.AdUnitRewardedId);
         }
 

@@ -2,10 +2,10 @@
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
-using Unity.Mediation.Adapters.Editor;
+using Unity.Services.Mediation.Adapters.Editor;
 using UnityEngine;
 
-namespace Unity.Mediation.Build.Editor
+namespace Unity.Services.Mediation.Build.Editor
 {
     class NoAdapterPreBuildCheck : IPreprocessBuildWithReport
     {

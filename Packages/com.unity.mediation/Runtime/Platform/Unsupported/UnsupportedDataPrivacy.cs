@@ -1,7 +1,7 @@
 #if !UNITY_ANDROID && !UNITY_IOS && !UNITY_EDITOR
 using System;
 
-namespace Unity.Mediation.Platform
+namespace Unity.Services.Mediation.Platform
 {
     class UnsupportedDataPrivacy : IDataPrivacy
     {
