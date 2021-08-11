@@ -18,28 +18,20 @@ namespace Unity.Services.Mediation.Platform
 
         public EditorRewardedAd(string adUnitId)
         {
-            if (Object.FindObjectOfType<MockRewarded>() is MockRewarded mockRewarded && mockRewarded.AdUnitId == adUnitId)
-            {
-                m_MockRewarded = mockRewarded;
-            }
-            else
-            {
-                GameObject mockPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(k_PrefabPath);
-                var adGameObject = Object.Instantiate(mockPrefab);
-                Object.DontDestroyOnLoad(adGameObject);
-                adGameObject.hideFlags = HideFlags.HideInHierarchy;
+            GameObject mockPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(k_PrefabPath);
+            var adGameObject = Object.Instantiate(mockPrefab);
+            adGameObject.hideFlags = HideFlags.HideInHierarchy;
 
-                m_MockRewarded = adGameObject.GetComponent<MockRewarded>();
-                m_MockRewarded.AdUnitId = adUnitId;
+            m_MockRewarded = adGameObject.GetComponent<MockRewarded>();
+            m_MockRewarded.AdUnitId = adUnitId;
 
-                m_MockRewarded.OnLoaded += (sender, args) => OnLoaded?.Invoke(this, args);
-                m_MockRewarded.OnFailedLoad += (sender, args) => OnFailedLoad?.Invoke(this, args);
-                m_MockRewarded.OnClicked += (sender, args) => OnClicked?.Invoke(this, args);
-                m_MockRewarded.OnClosed += (sender, args) => OnClosed?.Invoke(this, args);
-                m_MockRewarded.OnUserRewarded += (sender, args) => OnUserRewarded?.Invoke(this, args);
-                m_MockRewarded.OnShowed += (sender, args) => OnShowed?.Invoke(this, args);
-                m_MockRewarded.OnFailedShow += (sender, args) => OnFailedShow?.Invoke(this, args);
-            }
+            m_MockRewarded.OnLoaded += (sender, args) => OnLoaded?.Invoke(this, args);
+            m_MockRewarded.OnFailedLoad += (sender, args) => OnFailedLoad?.Invoke(this, args);
+            m_MockRewarded.OnClicked += (sender, args) => OnClicked?.Invoke(this, args);
+            m_MockRewarded.OnClosed += (sender, args) => OnClosed?.Invoke(this, args);
+            m_MockRewarded.OnUserRewarded += (sender, args) => OnUserRewarded?.Invoke(this, args);
+            m_MockRewarded.OnShowed += (sender, args) => OnShowed?.Invoke(this, args);
+            m_MockRewarded.OnFailedShow += (sender, args) => OnFailedShow?.Invoke(this, args);
         }
 
 #pragma warning disable 67

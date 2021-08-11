@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Unity.Services.Core;
 using Unity.Services.Mediation.Platform;
 using UnityEngine;
 
@@ -72,7 +73,9 @@ namespace Unity.Services.Mediation
 
         void InitializationFailed(object sender, InitializationErrorEventArgs args)
         {
-            m_InitializationCompletionSource.TrySetException(new InitializeFailedException(args.Error, args.Message));
+            var innerException = new InitializeFailedException(args.Error, args.Message);
+            var exception = new ServicesInitializationException(args.Message, innerException);
+            m_InitializationCompletionSource.TrySetException(exception);
             UnsubscribeEventHandlers();
         }
 

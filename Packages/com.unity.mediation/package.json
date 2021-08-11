@@ -21,17 +21,8 @@
   },
   "dependencies": {
     "com.unity.settings-manager": "1.0.3",
-    "com.unity.services.core": "1.1.0-pre.4"
+    "com.unity.services.core": "1.1.0-pre.8"
   },
-  "scopedRegistries": [
-    {
-      "name": "Devex Core",
-      "url": "https://artifactory.prd.it.unity3d.com/artifactory/api/npm/upm-candidates/",
-      "scopes": [
-        "com.unity.services.core"
-      ]
-    }
-  ],
   "samples": [
     {
       "displayName": "Example Usage",

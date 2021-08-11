@@ -22,7 +22,7 @@ namespace Unity.Services.Mediation.Samples
             try
             {
                 Debug.Log("Initializing...");
-                await UnityServices.Initialize();
+                await UnityServices.InitializeAsync();
                 Debug.Log("Initialized!");
                 InitializationComplete();
             }

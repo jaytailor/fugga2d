@@ -40,7 +40,7 @@ public class UnityAds : MonoBehaviour
 		try
 		{
 			print("Initializing Mediation...");
-			await UnityServices.Initialize();
+			await UnityServices.InitializeAsync();
 			Debug.Log("Mediation Initialized!");
 		}
 		catch (InitializeFailedException e)

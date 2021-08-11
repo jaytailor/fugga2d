@@ -311,7 +311,6 @@ namespace Unity.Services.Mediation.Dashboard.Editor
                 return;
             }
 
-            Debug.Log(request.downloadHandler.text);
             ProjectInfoJson[] projectInfo = JsonUtilityExtension.FromJsonArray<ProjectInfoJson>(request.downloadHandler.text);
             callback?.Invoke(projectInfo[0].Params.GameId);
         }

@@ -34,7 +34,6 @@ namespace Unity.Services.Mediation
             if (string.IsNullOrEmpty(gameId))
             {
                 Debug.LogError("No gameId was set for the mediation service. Please make sure your project is linked to the dashboard when you build your application.");
-                return;
             }
 
             await MediationService.Initialize(gameId, installId);

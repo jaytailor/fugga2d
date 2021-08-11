@@ -229,7 +229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6227144628909856619
 Transform:
   m_ObjectHideFlags: 0
@@ -1135,6 +1135,7 @@ MonoBehaviour:
   ProgressBar: {fileID: 1727664764135342640}
   Canvas: {fileID: 7781888934929023820}
   CanvasPanel: {fileID: 5478343146043219574}
+  EventSystem: {fileID: 64810779625420245}
 --- !u!1 &8997096532989416355
 GameObject:
   m_ObjectHideFlags: 0

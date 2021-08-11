@@ -44,7 +44,7 @@ namespace Unity.Example
         {
             try
             {
-                await UnityServices.Initialize();
+                await UnityServices.InitializeAsync();
                 InitializationComplete();
             }
             catch (Exception e)
@@ -200,6 +200,7 @@ void OnUserRewarded(object sender, RewardEventArgs e)
             }
 
             m_CodeGenField = rootVisualElement.Q<TextField>("codeGenField");
+            m_CodeGenField.isReadOnly = true;
             m_CodeGenField.value = k_LoadingText;
 
             rootVisualElement.Q<Button>("copyToClipboard").clickable.clicked += CopyToClipboard;
@@ -259,6 +260,8 @@ void OnUserRewarded(object sender, RewardEventArgs e)
 
                 m_AdUnitsDropdown = rootVisualElement.Q<VisualElement>("adUnitDropdown");
 
+                var selectedGameId = m_GameIdsDropdownContent?.value ?? ("", "");
+
                 m_GameIdsDropdownContent = new PopupField<(string, string)>(m_AdUnitsPerGameId.Keys.ToList(), 0);
                 m_GameIdsDropdown = rootVisualElement.Q<VisualElement>("gameIdDropdown");
                 m_GameIdsDropdown.Clear();
@@ -267,12 +270,20 @@ void OnUserRewarded(object sender, RewardEventArgs e)
                 {
                     PopulateAdUnits(evt.newValue);
                 });
-                PopulateAdUnits(m_AdUnitsPerGameId.Keys.FirstOrDefault());
+
+                if (m_AdUnitsPerGameId.Keys.Contains(selectedGameId))
+                {
+                    m_GameIdsDropdownContent.SetValueWithoutNotify(selectedGameId);
+                }
+
+                PopulateAdUnits(m_GameIdsDropdownContent.value);
             });
         }
 
         void PopulateAdUnits((string, string) selectedGameId)
         {
+            var selectedAdUnit = m_AdUnitsDropdownContent?.value ?? ("", "");
+
             m_AdUnitsDropdownContent = new PopupField<(string, string)>(m_AdUnitsPerGameId[selectedGameId].ToList(), 0);
             m_AdUnitsDropdown.Clear();
             m_AdUnitsDropdown.Add(m_AdUnitsDropdownContent);
@@ -280,6 +291,12 @@ void OnUserRewarded(object sender, RewardEventArgs e)
             {
                 RefreshCode();
             });
+
+            if (m_AdUnitsPerGameId[selectedGameId].Contains(selectedAdUnit))
+            {
+                m_AdUnitsDropdownContent.SetValueWithoutNotify(selectedAdUnit);
+            }
+
             RefreshCode();
         }
 

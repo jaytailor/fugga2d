@@ -4,6 +4,7 @@ using System.Collections;
 using Unity.Services.Mediation;
 using Unity.Services.Mediation.Platform;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -24,6 +25,7 @@ class MockRewarded : MonoBehaviour, IRewardedAd
     public Image  ProgressBar;
     public Canvas Canvas;
     public RectTransform CanvasPanel;
+    public EventSystem EventSystem;
 
     private Coroutine m_AdCoroutine;
 
@@ -41,6 +43,12 @@ class MockRewarded : MonoBehaviour, IRewardedAd
     private void Awake()
     {
         Canvas.enabled = false;
+
+        if (EventSystem.current == null)
+        {
+            EventSystem.gameObject.SetActive(true);
+            EventSystem.current = EventSystem;
+        }
 
         if (DisplayConsoleMessages)
         {
@@ -67,13 +75,14 @@ class MockRewarded : MonoBehaviour, IRewardedAd
         {
             OnFailedLoad?.Invoke(this, new LoadErrorEventArgs(LoadError.SdkNotInitialized, "Unity Mediation not Initialized."));
         }
-
-        if (string.IsNullOrEmpty(AdUnitId))
+        else if (string.IsNullOrEmpty(AdUnitId))
         {
             OnFailedLoad?.Invoke(this, new LoadErrorEventArgs(LoadError.Unknown, "Ad Unit Id is Empty."));
         }
-
-        StartCoroutine(AttemptLoad());
+        else
+        {
+            StartCoroutine(AttemptLoad());
+        }
     }
 
     private IEnumerator AttemptLoad()

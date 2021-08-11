@@ -25,7 +25,7 @@ namespace Unity.Services.Mediation.Adapters.Editor
 
         const string k_IOSStagingArtifactoryURL = @"'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'";
         const string k_IOSProductionArtifactoryURL = @"'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'";
-        const string k_IOSArtifactoryURL = k_IOSProductionArtifactoryURL;
+        const string k_IOSArtifactoryURL = k_IOSStagingArtifactoryURL;
 
         string m_DependenciesPath;
         Regex m_MavenRegex;
@@ -56,7 +56,13 @@ namespace Unity.Services.Mediation.Adapters.Editor
                 return m_DependenciesPath;
             }
             Directory.CreateDirectory(k_DefaultFolder);
-            InstallOverrideAdapters(k_DefaultPath, new List<AdapterInfo>());
+
+            AdapterInfo unityAdsAdapterInfo = MediationSdkInfo.GetAllAdapters().Find((x) => x.Identifier == "unityads-adapter");
+            if (unityAdsAdapterInfo.InstalledVersion == null || unityAdsAdapterInfo.InstalledVersion.Identifier == null)
+            {
+                unityAdsAdapterInfo.InstalledVersion = unityAdsAdapterInfo.Versions.First();
+            }
+            InstallOverrideAdapters(k_DefaultPath, new List<AdapterInfo>(){unityAdsAdapterInfo});
             m_DependenciesPath = k_DefaultPath;
             return m_DependenciesPath;
         }
