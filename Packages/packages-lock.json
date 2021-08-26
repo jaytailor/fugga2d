@@ -51,15 +51,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.mediation": {
-      "version": "file:com.unity.mediation",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.unity.settings-manager": "1.0.3",
-        "com.unity.services.core": "1.1.0-pre.8"
-      }
-    },
     "com.unity.services.core": {
       "version": "1.1.0-pre.8",
       "depth": 1,
@@ -68,6 +59,15 @@
         "com.unity.modules.unitywebrequest": "1.0.0"
       },
       "url": "https://artifactory.prd.it.unity3d.com/artifactory/api/npm/upm-candidates"
+    },
+    "com.unity.services.mediation": {
+      "version": "file:com.unity.services.mediation",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.settings-manager": "1.0.3",
+        "com.unity.services.core": "1.1.0-pre.8"
+      }
     },
     "com.unity.settings-manager": {
       "version": "1.0.3",

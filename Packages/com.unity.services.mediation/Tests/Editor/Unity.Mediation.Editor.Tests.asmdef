@@ -1,0 +1,33 @@
+{
+    "name": "Unity.Mediation.Editor.Tests",
+    "references": [
+        "Unity.Mediation",
+        "Unity.Mediation.Editor",
+        "Unity.Mediation.Adapters.Editor",
+        "PlayServicesResolver.Installer.Editor",
+        "Unity.Mediation.Settings.Editor",
+        "Unity.Mediation.Build.Editor",
+        "Unity.Settings.Editor"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Moq.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "nuget.moq",
+            "expression": "1.0.0",
+            "define": "NUGET_MOQ_AVAILABLE"
+        }
+    ]
+}

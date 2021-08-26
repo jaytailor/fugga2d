@@ -38,7 +38,7 @@ allprojects {
             url "https://maven.google.com"
         }
         maven {
-            url "https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-stg-local/" // Assets/Editor/MediationAdapterDependencies.xml:6
+            url "https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-prod-local/" // Assets/Editor/MediationAdapterDependencies.xml:6
         }
         mavenLocal()
         jcenter()
@@ -52,14 +52,13 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'com.unity3d.mediation:adcolony-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:11
-    implementation 'com.unity3d.mediation:admob-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:12
-    implementation 'com.unity3d.mediation:applovin-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:13
-    implementation 'com.unity3d.mediation:facebook-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:14
-    implementation 'com.unity3d.mediation:ironsource-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:15
-    implementation 'com.unity3d.mediation:mediation-sdk:0.2.+' // Assets/Editor/MediationAdapterDependencies.xml:8
-    implementation 'com.unity3d.mediation:unityads-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:16
-    implementation 'com.unity3d.mediation:vungle-adapter:+' // Assets/Editor/MediationAdapterDependencies.xml:17
+    implementation 'com.unity3d.mediation:adcolony-adapter:[0.2,0.3[' // Assets/Editor/MediationAdapterDependencies.xml:10
+    implementation 'com.unity3d.mediation:applovin-adapter:[0.2,0.3[' // Assets/Editor/MediationAdapterDependencies.xml:11
+    implementation 'com.unity3d.mediation:facebook-adapter:[0.2,0.3[' // Assets/Editor/MediationAdapterDependencies.xml:12
+    implementation 'com.unity3d.mediation:ironsource-adapter:[0.2,0.3[' // Assets/Editor/MediationAdapterDependencies.xml:13
+    implementation 'com.unity3d.mediation:mediation-sdk:[0.2,0.3[' // Assets/Editor/MediationAdapterDependencies.xml:8
+    implementation 'com.unity3d.mediation:unityads-adapter:[0.2,0.3[' // Assets/Editor/MediationAdapterDependencies.xml:14
+    implementation 'com.unity3d.mediation:vungle-adapter:[0.2,0.3[' // Assets/Editor/MediationAdapterDependencies.xml:15
 // Android Resolver Dependencies End
 **DEPS**}
 
