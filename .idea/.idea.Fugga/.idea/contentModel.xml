@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Plugins" t="Include">
+          <e p="Android" t="Include">
+            <e p="network_security_config.xml" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="UnityAdsUpdater.cs" t="Include" />
+          </e>
+          <e p="UDP" t="Include">
+            <e p="Editor" t="Include">
+              <e p="Analytics" t="Include">
+                <e p="Common.cs" t="Include" />
+                <e p="EditorAnalytcisApi.cs" t="Include" />
+                <e p="ProjectBuildEvent.cs" t="Include" />
+                <e p="ProjectOpenEvent.cs" t="Include" />
+                <e p="SdkImportEvent.cs" t="Include" />
+                <e p="WebRequestQueue.cs" t="Include" />
+              </e>
+              <e p="AppStoreModel.cs" t="Include" />
+              <e p="AppStoreOnboardApi.cs" t="Include" />
+              <e p="AppStoreSettingsEditor.cs" t="Include" />
+              <e p="BuildConfig.cs" t="Include" />
+              <e p="Utils.cs" t="Include" />
+            </e>
+          </e>
+          <e p="UnityChannel" t="Include">
+            <e p="XiaomiSupport" t="Include">
+              <e p="AppStoreSettings.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="AppStoreModel.cs" t="Include" />
+                <e p="AppStoreOnboardApi.cs" t="Include" />
+                <e p="AppStoreSettingsEditor.cs" t="Include" />
+                <e p="XiaomiPackageNameExtension.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="BackToMenu.cs" t="Include" />
+          <e p="BombBlast.cs" t="Include" />
+          <e p="ChanceRemainMenu.cs" t="Include" />
+          <e p="DestroyBall.cs" t="Include" />
+          <e p="Floater.cs" t="Include" />
+          <e p="FuggaWin.cs" t="Include" />
+          <e p="IapPurchase.cs" t="Include" />
+          <e p="LifeValue.cs" t="Include" />
+          <e p="LoadGameBackgrnd.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
+          <e p="Manager.cs" t="Include" />
+          <e p="Notification.cs" t="Include" />
+          <e p="Options.cs" t="Include" />
+          <e p="PlayerTime.cs" t="Include" />
+          <e p="PremiumCount.cs" t="Include" />
+          <e p="PrivacyPolicy.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
+          <e p="SpanIfEmpty.cs" t="Include" />
+          <e p="spawnGoodies.cs" t="Include" />
+          <e p="UnityAds.cs" t="Include" />
+        </e>
+        <e p="Upgrade200.cs" t="Include" />
+      </e>
+      <e p="Fugga.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive">
+        <e p="com.unity.mediation" t="Include">
+          <e p="Editor" t="Include">
+            <e p="Adapters" t="Include">
+              <e p="AdaptersDependencyGenerator.cs" t="Include" />
+              <e p="AssemblyInfo.cs" t="Include" />
+              <e p="MediationSdkInfo.cs" t="Include" />
+              <e p="SemanticVersioningFormatter.cs" t="Include" />
+              <e p="Unity.Mediation.Adapters.Editor.asmdef" t="Include" />
+            </e>
+            <e p="Build" t="Include">
+              <e p="AndroidManifestPostGenerateGradleProject.cs" t="Include" />
+              <e p="AndroidNativeDependenciesPreBuildCheck.cs" t="Include" />
+              <e p="AndroidProguardPostGenerateGradleProject.cs" t="Include" />
+              <e p="AssemblyInfo.cs" t="Include" />
+              <e p="IosPlistPostBuild.cs" t="Include" />
+              <e p="MediationConfigurationProvider.cs" t="Include" />
+              <e p="NoAdapterPreBuildCheck.cs" t="Include" />
+              <e p="PreprocessBuild.cs" t="Include" />
+              <e p="Unity.Mediation.Build.Editor.asmdef" t="Include" />
+            </e>
+            <e p="PlayServicesResolver" t="Include">
+              <e p="AssemblyInfo.cs" t="Include" />
+              <e p="PlayServicesResolver.Utils.Editor.asmdef" t="Include" />
+              <e p="PlayServicesResolverUtils.cs" t="Include" />
+            </e>
+            <e p="Settings" t="Include">
+              <e p="Adapters" t="Include">
+                <e p="AdMobSettings.cs" t="Include" />
+                <e p="GenericAdapterSettings.cs" t="Include" />
+                <e p="Layout" t="Include">
+                  <e p="AdMobTemplate.uxml" t="Include" />
+                  <e p="UnityAdsTemplate.uxml" t="Include" />
+                </e>
+                <e p="UnityAdsSettings.cs" t="Include" />
+              </e>
+              <e p="AdUnitData.cs" t="Include" />
+              <e p="AssemblyInfo.cs" t="Include" />
+              <e p="BaseAdapterSettings.cs" t="Include" />
+              <e p="Dashboard" t="Include">
+                <e p="DashboardClient.cs" t="Include" />
+                <e p="DashboardPoller.cs" t="Include" />
+                <e p="JsonUtilityExtension.cs" t="Include" />
+                <e p="JwtToken.cs" t="Include" />
+              </e>
+              <e p="IAdapterSettings.cs" t="Include" />
+              <e p="Layout" t="Include">
+                <e p="2019" t="Include">
+                  <e p="BaseStyle.uss" t="Include" />
+                  <e p="SkinStyleDark.uss" t="Include" />
+                  <e p="SkinStyleLight.uss" t="Include" />
+                </e>
+                <e p="AdapterTemplate.uxml" t="Include" />
+                <e p="AdUnitsErrorTemplate.uxml" t="Include" />
+                <e p="AdUnitsListItemStyle.uss" t="Include" />
+                <e p="AdUnitsListItemTemplate.uxml" t="Include" />
+                <e p="AdUnitsStyle.uss" t="Include" />
+                <e p="AdUnitsTemplate.uxml" t="Include" />
+                <e p="AdUnitsWarningTemplate.uxml" t="Include" />
+                <e p="AdUnitVisualElement.cs" t="Include" />
+                <e p="CodeGenerationWindowTemplate.uxml" t="Include" />
+                <e p="CodeGeneratorStyle.uss" t="Include" />
+                <e p="SettingsStyle.uss" t="Include" />
+                <e p="SettingsTemplate.uxml" t="Include" />
+              </e>
+              <e p="MediationAdapterSettings.cs" t="Include" />
+              <e p="MediationAdUnitsWindow.cs" t="Include" />
+              <e p="MediationCodeGeneratorWindow.cs" t="Include" />
+              <e p="MediationEditorService.cs" t="Include" />
+              <e p="MediationServiceEnabler.cs" t="Include" />
+              <e p="MediationServiceIdentifier.cs" t="Include" />
+              <e p="MediationSettingsProvider.cs" t="Include" />
+              <e p="ReloadableUserSetting.cs" t="Include" />
+              <e p="SettingsGUILayoutEx.cs" t="Include" />
+              <e p="SortMode.cs" t="Include" />
+              <e p="Unity.Mediation.Settings.Editor.asmdef" t="Include" />
+              <e p="VersionInfoDropdownDisplay.cs" t="Include" />
+            </e>
+          </e>
+          <e p="PlayServicesResolver" t="Include">
+            <e p="Editor" t="Include">
+              <e p="AssemblyInfo.cs" t="Include" />
+              <e p="PlayServicesResolver.Installer.Editor.asmdef" t="Include" />
+              <e p="PlayServicesResolverInstaller.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="Api" t="Include">
+              <e p="Internal" t="Include">
+                <e p="IMediationServiceImpl.cs" t="Include" />
+                <e p="InitializationErrorEventArgs.cs" t="Include" />
+                <e p="MediationServiceImpl.cs" t="Include" />
+              </e>
+              <e p="MediationServiceInitializer.cs" t="Include" />
+              <e p="Public" t="Include">
+                <e p="AdState.cs" t="Include" />
+                <e p="IDataPrivacy.cs" t="Include" />
+                <e p="IImpressionEventPublisher.cs" t="Include" />
+                <e p="IInterstitialAd.cs" t="Include" />
+                <e p="IMediationService.cs" t="Include" />
+                <e p="ImpressionData.cs" t="Include" />
+                <e p="ImpressionEventArgs.cs" t="Include" />
+                <e p="InitializationState.cs" t="Include" />
+                <e p="InitializeFailedException.cs" t="Include" />
+                <e p="InterstitialAd.cs" t="Include" />
+                <e p="IRewardedAd.cs" t="Include" />
+                <e p="LoadError.cs" t="Include" />
+                <e p="LoadErrorEventArgs.cs" t="Include" />
+                <e p="MediationService.cs" t="Include" />
+                <e p="RewardedAd.cs" t="Include" />
+                <e p="RewardEventArgs.cs" t="Include" />
+                <e p="SdkInitializationError.cs" t="Include" />
+                <e p="ShowError.cs" t="Include" />
+                <e p="ShowErrorEventArgs.cs" t="Include" />
+              </e>
+            </e>
+            <e p="AssemblyInfo.cs" t="Include" />
+            <e p="Platform" t="Include">
+              <e p="Android" t="Include">
+                <e p="ActivityUtil.cs" t="Include" />
+                <e p="AndroidDataPrivacy.cs" t="Include" />
+                <e p="AndroidImpressionEventPublisher.cs" t="Include" />
+                <e p="AndroidImpressionListener.cs" t="Include" />
+                <e p="AndroidInitializationListener.cs" t="Include" />
+                <e p="AndroidInterstitialAd.cs" t="Include" />
+                <e p="AndroidInterstitialAdLoadListener.cs" t="Include" />
+                <e p="AndroidInterstitialAdShowListener.cs" t="Include" />
+                <e p="AndroidJavaObjectExtensions.cs" t="Include" />
+                <e p="AndroidMediationService.cs" t="Include" />
+                <e p="AndroidRewardedAd.cs" t="Include" />
+                <e p="AndroidRewardedAdLoadListener.cs" t="Include" />
+                <e p="AndroidRewardedAdShowListener.cs" t="Include" />
+                <e p="IAndroidImpressionListener.cs" t="Include" />
+                <e p="IAndroidInitializationListener.cs" t="Include" />
+                <e p="IAndroidInterstitialLoadListener.cs" t="Include" />
+                <e p="IAndroidInterstitialShowListener.cs" t="Include" />
+                <e p="IAndroidRewardedLoadListener.cs" t="Include" />
+                <e p="IAndroidRewardedShowListener.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="EditorDataPrivacy.cs" t="Include" />
+                <e p="EditorImpressionEventPublisher.cs" t="Include" />
+                <e p="EditorInterstitialAd.cs" t="Include" />
+                <e p="EditorMediationService.cs" t="Include" />
+                <e p="EditorRewardedAd.cs" t="Include" />
+                <e p="IExternallyInvokableEventPublisher.cs" t="Include" />
+                <e p="TestAds" t="Include">
+                  <e p="MockInterstitial.cs" t="Include" />
+                  <e p="MockRewarded.cs" t="Include" />
+                  <e p="roboto" t="Include">
+                    <e p="NOTICE.txt" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="iOS" t="Include">
+                <e p="IosDataPrivacy.cs" t="Include" />
+                <e p="IosImpressionData.cs" t="Include" />
+                <e p="IosImpressionEventPublisher.cs" t="Include" />
+                <e p="IosImpressionListener.cs" t="Include" />
+                <e p="IosInterstitialAd.cs" t="Include" />
+                <e p="IosInterstitialLoadListener.cs" t="Include" />
+                <e p="IosInterstitialShowListener.cs" t="Include" />
+                <e p="IosMediationService.cs" t="Include" />
+                <e p="IosNativeObject.cs" t="Include" />
+                <e p="IosRewardedAd.cs" t="Include" />
+                <e p="IosRewardedLoadListener.cs" t="Include" />
+                <e p="IosRewardedShowListener.cs" t="Include" />
+              </e>
+              <e p="IPlatformMediationService.cs" t="Include" />
+              <e p="ThreadUtil.cs" t="Include" />
+              <e p="Unsupported" t="Include">
+                <e p="UnsupportedDataPrivacy.cs" t="Include" />
+                <e p="UnsupportedImpressionEventPublisher.cs" t="Include" />
+                <e p="UnsupportedInterstitialAd.cs" t="Include" />
+                <e p="UnsupportedMediationService.cs" t="Include" />
+                <e p="UnsupportedRewardedAd.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Unity.Mediation.asmdef" t="Include" />
+          </e>
+          <e p="Tests" t="Include">
+            <e p="Editor" t="Include">
+              <e p="Adapters" t="Include">
+                <e p="MediationAdaptersTests.cs" t="Include" />
+                <e p="SemanticVersioningFormatterTests.cs" t="Include" />
+              </e>
+              <e p="AdaptersDependencyGeneratorTests.cs" t="Include" />
+              <e p="AndroidManifestPostGenerateGradleProjectTests.cs" t="Include" />
+              <e p="Build" t="Include">
+                <e p="AndroidNativeDependenciesPreBuildCheckTests.cs" t="Include" />
+                <e p="IosPlistPostBuildTests.cs" t="Include" />
+              </e>
+              <e p="DummyAndroidManifest.xml" t="Include" />
+              <e p="EditorTests.cs" t="Include" />
+              <e p="EditorTestUtils.cs" t="Include" />
+              <e p="MediationDepsAll.xml" t="Include" />
+              <e p="MediationDepsNone.xml" t="Include" />
+              <e p="PlayServicesResolverInstallerTests.cs" t="Include" />
+              <e p="SettingsTests.cs" t="Include" />
+              <e p="Unity.Mediation.Editor.Tests.asmdef" t="Include" />
+            </e>
+            <e p="Runtime" t="Include">
+              <e p="DataPrivacyTests.cs" t="Include" />
+              <e p="EventArgsTests.cs" t="Include" />
+              <e p="ImpressionEventPublisherTests.cs" t="Include" />
+              <e p="InterstitialAdTests.cs" t="Include" />
+              <e p="MediationServiceTests.cs" t="Include" />
+              <e p="MockedEvent.cs" t="Include" />
+              <e p="MockedStaticEvent.cs" t="Include" />
+              <e p="PlatformInitializationTests.cs" t="Include" />
+              <e p="PlatformInterstitialAdTests.cs" t="Include" />
+              <e p="PlatformRewardedAdTests.cs" t="Include" />
+              <e p="RewardedAdTests.cs" t="Include" />
+              <e p="TestConstants.cs" t="Include" />
+              <e p="ThreadUtilTests.cs" t="Include" />
+              <e p="Unity.Mediation.Tests.asmdef" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="PlayServicesResolver.Installer.Editor.csproj" t="IncludeRecursive" />
+      <e p="PlayServicesResolver.Utils.Editor.csproj" t="IncludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="Unity.Mediation.Adapters.Editor.csproj" t="IncludeRecursive" />
+      <e p="Unity.Mediation.Build.Editor.csproj" t="IncludeRecursive" />
+      <e p="Unity.Mediation.csproj" t="IncludeRecursive" />
+      <e p="Unity.Mediation.EditorTests.csproj" t="IncludeRecursive" />
+      <e p="Unity.Mediation.Settings.Editor.csproj" t="IncludeRecursive" />
+      <e p="Unity.Mediation.Tests.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Fugga.-698686056.00" t="ExcludeRecursive" />
+  </component>
+</project>

@@ -20,7 +20,7 @@ public class BackToMenu : MonoBehaviour {
     public void takeToMainMenu(){
         int CurrPremium = Manager.PremiumScore;
 		
-        Manager.Ads.ShowInterstitialNew();
+        Manager.Ads.ShowRewardedNew();
 			
         SceneManager.LoadScene (0);
         resetValues (CurrPremium);

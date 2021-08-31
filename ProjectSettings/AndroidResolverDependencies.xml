@@ -1,12 +1,12 @@
 <dependencies>
   <packages>
     <package>com.unity3d.mediation:adcolony-adapter:[0.2,0.3[</package>
-    <package>com.unity3d.mediation:admob-adapter:[0.2,0.3[</package>
     <package>com.unity3d.mediation:applovin-adapter:[0.2,0.3[</package>
     <package>com.unity3d.mediation:facebook-adapter:[0.2,0.3[</package>
     <package>com.unity3d.mediation:ironsource-adapter:[0.2,0.3[</package>
     <package>com.unity3d.mediation:mediation-sdk:[0.2,0.3[</package>
     <package>com.unity3d.mediation:unityads-adapter:[0.2,0.3[</package>
+    <package>com.unity3d.mediation:vungle-adapter:[0.2,0.3[</package>
   </packages>
   <files />
   <settings>

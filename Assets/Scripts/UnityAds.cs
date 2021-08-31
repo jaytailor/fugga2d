@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
-using UnityEngine;
 using Unity.Services.Core;
+using UnityEngine;
 using Unity.Services.Mediation;
-using UnityEngine.UI;
 
 public class UnityAds : MonoBehaviour
 {
@@ -59,19 +57,13 @@ public class UnityAds : MonoBehaviour
 		MediationService.Instance.ImpressionEventPublisher.OnImpression += OnImpression;
 	}
 
-    public void Start()
-    {
-	    
-	}
-
-    
-    public void LoadInterstitialNew()
+	public void LoadInterstitialNew()
     {
 	    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;
-	    interstitialAdNew.OnLoaded += OnLoadedInterstitial;
-	    interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
-	    Debug.Log("Loading Interstitial adunit...");
-	    interstitialAdNew.Load();
+        interstitialAdNew.OnLoaded += OnLoadedInterstitial;
+        interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
+        Debug.Log("Loading Interstitial adunit...");
+        interstitialAdNew.Load();
     }
     
     public void ShowInterstitialNew()
@@ -86,10 +78,10 @@ public class UnityAds : MonoBehaviour
     
     public void LoadRewardedNew()
     { 
-	    rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew) as RewardedAd;
-	    rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
-	    rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
-	    rewardedVideoAdNew.Load();
+        rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew) as RewardedAd;
+        rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
+        rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
+        rewardedVideoAdNew.Load();
     }
     
     public void ShowRewardedNew()
@@ -104,12 +96,12 @@ public class UnityAds : MonoBehaviour
 
     void OnInitializationFailed(InitializeFailedException e)
     {
-	    Debug.LogError($"{e.initializationError}:{e.Message}");
+        Debug.LogError($"{e.initializationError}:{e.Message}");
     }
 
     void OnInitializationComplete(EventArgs e)
     {
-	    Debug.Log("Initialization of mediation complete");
+        Debug.Log("Initialization of mediation complete");
     }
 
     void OnLoadedInterstitial(object sender, EventArgs e)
@@ -122,7 +114,7 @@ public class UnityAds : MonoBehaviour
     }
     void OnLoadedRewarded(object sender, EventArgs e)
     {
-	    Debug.Log("Rewarded Ad loaded from mediation partner");
+        Debug.Log("Rewarded Ad loaded from mediation partner");
     }
 
     void OnFailedLoadRewarded(object sender, LoadErrorEventArgs e)
@@ -149,7 +141,7 @@ public class UnityAds : MonoBehaviour
     
     void OnFailedShowInterstitial(object sender, ShowErrorEventArgs e)
     {
-	    Debug.LogError($"{e.Error}: {e.Message}");
+        Debug.LogError($"{e.Error}: {e.Message}");
     }
     
     void OnClosedInterstitial(object sender, EventArgs e)
@@ -161,14 +153,9 @@ public class UnityAds : MonoBehaviour
     
     static void OnImpression(object sender, ImpressionEventArgs e)
     {
-	    var impressionData = e.ImpressionData != null ? JsonUtility.ToJson(e.ImpressionData, true) : "null";
-	    Debug.Log($"Impression event from ad unit id {e.AdUnitId} : {impressionData}");
+        var impressionData = e.ImpressionData != null ? JsonUtility.ToJson(e.ImpressionData, true) : "null";
+        Debug.Log($"Impression event from ad unit id {e.AdUnitId} : {impressionData}");
     }
-
-    public void ShowPromo()
-	{
-        ShowInterstitialNew();
-	}
 
 	 public void ShowVideo()
 	 {
@@ -179,5 +166,4 @@ public class UnityAds : MonoBehaviour
      {
         ShowRewardedNew();
      }
-
 }
