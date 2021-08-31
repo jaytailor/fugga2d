@@ -30,21 +30,31 @@
 .adapter-list {
     flex-direction: column;
     display:flex;
-    margin-bottom: 30px;
+    padding:0;
+    margin:0;
 }
 
 .adapter-container {
-    flex-direction:column;
-    border-top-width: 18px;
-    border-bottom-width: 18px;
+    flex-direction: column;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
     border-left-width: 16px;
     border-right-width: 16px;
-    background-color:#4D4B4B;
-    margin-bottom: 6px;
+    margin: 0;
+    background-color: #353535;
+}
+
+.adapter-container-alt {
+    flex-direction: column;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 16px;
+    border-right-width: 16px;
+    background-color: #303030;
 }
 
 .adapter-title {
-    font-size: 14px;
+    font-size: 11px;
     -unity-font-style: bold;
     color: #d2d2d2;
 }
@@ -199,3 +209,51 @@
 .subtext {
     font-size:10px;
 }
+
+.table-box
+{
+    flex-direction: column;
+    border-color: black;
+    border-width: 1px;
+    margin: 3px 10px 10px;
+    overflow: hidden;
+}
+
+.list-header
+{
+    flex-direction:row;
+    justify-content: space-between;
+    align-items:center;
+    height: 30px;
+    -unity-text-align: middle-left;
+    border-width: 1px;
+    border-color: black;
+    overflow: hidden;
+}
+
+.list-header-label-network
+{
+    margin-left: 15px;
+    flex-direction: row;
+    -unity-font-style: bold;
+    overflow: hidden;
+}
+
+.list-header-label-status
+{
+    margin-left: 15px;
+    flex-direction: row;
+    -unity-font-style: bold;
+    overflow: hidden;
+}
+
+.list-header-label-action
+{
+    margin-right:25px;
+    align-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+    -unity-font-style: bold;
+    overflow: hidden;
+}
+

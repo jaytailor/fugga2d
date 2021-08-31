@@ -8,7 +8,17 @@
                 <Label class="label-container" text="Select and install the ad network adapters you want to use for Mediation."/>
                 <Label class="label-container" text="Unity Ads is installed by default, but to make additional configurations for Unity Ads, visit the Dashboard."/>
             </VisualElement>
-            <VisualElement name="AdapterList" class="project-settings-title-container adapter-list"/>
+
+            <VisualElement class="table-box">
+                <VisualElement class="list-header">
+                    <Label name="list-header-ad-network" text="Ad Network" class="list-header-label-network"/>
+                    <Label name="list-header-status"     text="Status"     class="list-header-label-status"/>
+                    <Label name="list-header-action"     text="Action"     class="list-header-label-action"/>
+                </VisualElement>
+                <VisualElement name="AdapterList" class="adapter-list"/>
+            </VisualElement>
+
+
         </VisualElement>
 
         <VisualElement class="separator" />

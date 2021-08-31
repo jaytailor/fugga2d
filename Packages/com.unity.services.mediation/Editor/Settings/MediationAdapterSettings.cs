@@ -48,6 +48,7 @@ namespace Unity.Services.Mediation.Settings.Editor
         static Dictionary<string, AdapterInfo> s_AdapterInfos;
         static Dictionary<string, Toggle> s_AdapterSelectToggle;
         static Dictionary<string, VisualElement> s_AdapterInstalledInfo;
+        static Dictionary<string, VisualElement> s_AdapterUninstalledInfo;
         static Dictionary<string, Button> s_AdapterInstallButton;
         static List<IAdapterSettings> s_AdapterSettings;
         static bool s_Initialized;
@@ -64,6 +65,7 @@ namespace Unity.Services.Mediation.Settings.Editor
             s_AdapterSettings                 = FindAdapterSettings(adapters);
             s_AdapterSelectToggle             = new Dictionary<string, Toggle>();
             s_AdapterInstalledInfo            = new Dictionary<string, VisualElement>();
+            s_AdapterUninstalledInfo          = new Dictionary<string, VisualElement>();
             s_AdapterInstallButton            = new Dictionary<string, Button>();
             MediationSdkInfo.AdaptersChanged += Refresh;
         }
@@ -182,11 +184,13 @@ namespace Unity.Services.Mediation.Settings.Editor
             //Clear references to graphic elements as they will be generated here.
             s_AdapterSelectToggle.Clear();
             s_AdapterInstalledInfo.Clear();
+            s_AdapterUninstalledInfo.Clear();
             s_AdapterInstallButton.Clear();
 
             // Fill the adapters list
             var adapterListRoot = rootElement.Q<VisualElement>("AdapterList");
 
+            int i = 0;
             foreach (var adapterSetting in s_AdapterSettings)
             {
                 var adapterInfo = s_AdapterInfos[adapterSetting.AdapterId];
@@ -194,17 +198,25 @@ namespace Unity.Services.Mediation.Settings.Editor
                 var adapter = new VisualElement();
 
                 adapterTemplate.CloneTree(adapter);
+                if (i % 2 == 0)
+                {
+                    var adapterContainer = adapter.Q<VisualElement>("Adapter");
+                    adapterContainer.RemoveFromClassList("adapter-container");
+                    adapterContainer.AddToClassList("adapter-container-alt");
+                }
                 adapter.Q<TextElement>("AdapterName").text = adapterInfo.DisplayName;
 
                 adapter.Q<Button>("InstallButton").clickable.clickedWithEventInfo += evt => AdapterInstallClicked(s_AdapterInstallButton.FirstOrDefault(pair => pair.Value == evt.target).Key);
 
                 // Keep a reference to the graphic elements we will need to update.
                 s_AdapterInstalledInfo.Add(adapterSetting.AdapterId, adapter.Q<VisualElement>("InstalledInfo"));
+                s_AdapterUninstalledInfo.Add(adapterSetting.AdapterId, adapter.Q<VisualElement>("UninstalledInfo"));
                 s_AdapterInstallButton.Add(adapterSetting.AdapterId, adapter.Q<Button>("InstallButton"));
 
                 adapterSetting.OnAdapterSettingsGui("", adapter.Q<VisualElement>("Adapter"));
 
                 adapterListRoot.Add(adapter);
+                ++i;
             }
 
             RefreshAdaptersData();
@@ -232,6 +244,7 @@ namespace Unity.Services.Mediation.Settings.Editor
                 var isInstalled = !string.IsNullOrEmpty(adapterSetting.InstalledVersion.value);
                 var installedVersionInfo = Array.Find(adapterInfo.Versions, x => x.Identifier == adapterSetting.InstalledVersion.value);
                 s_AdapterInstalledInfo[adapterSetting.AdapterId].visible   = isInstalled;
+                s_AdapterUninstalledInfo[adapterSetting.AdapterId].visible = !isInstalled;
                 s_AdapterInstallButton[adapterSetting.AdapterId].visible = !(adapterSetting is UnityAdsSettings);
 
                 RefreshAllInstallButton();

@@ -39,14 +39,14 @@ void UMSPUnityMediationInitialize(const char *gameId, InitSuccessCallback succes
     s_InitializationFailed = failCallback;
     NSString *convertedGameId = [NSString stringWithUTF8String:gameId];
     NSString *convertedInstallId = [NSString stringWithUTF8String:installId];
-    NSString *const installIdKey = @"installation_id";
+    NSString *installIdKey = @"installation_id";
 
     UMSPInitializeDelegate *initializationDelegate = [UMSPInitializeDelegate new];
 
     UMSInitializationConfiguration *initializationConfiguration = [[[[[UMSInitializationConfigurationBuilder builder]
                                                                       setGameId:convertedGameId]
                                                                      setInitializationDelegate:initializationDelegate]
-                                                                    setOption:installIdKey forKey:convertedInstallId]
+                                                                    setOption:convertedInstallId forKey:installIdKey]
                                                                    build];
 
     [UMSUnityMediation initializeWithConfiguration:initializationConfiguration];

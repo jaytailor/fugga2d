@@ -12,6 +12,12 @@
                 </VisualElement>
             </VisualElement>
 
+            <VisualElement name="UninstalledInfo" class="install-info-section">
+                <VisualElement class="centered-row" >
+                    <TextElement text="Not installed"/>
+                </VisualElement>
+            </VisualElement>
+
             <VisualElement class="centered-row">
                 <VisualElement class="flex-end-column">
                     <Button name="InstallButton" text="Install"/>
