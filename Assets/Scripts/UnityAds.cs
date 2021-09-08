@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Unity.Services.AdStrategyOptimization;
 using Unity.Services.Core;
 using UnityEngine;
 using Unity.Services.Mediation;
@@ -22,8 +23,9 @@ public class UnityAds : MonoBehaviour
 	
     InterstitialAd interstitialAdNew;
     RewardedAd rewardedVideoAdNew;
+    public OptimizedStrategy interstitialStrategy;
 
- //    // delta dna settings
+    //    // delta dna settings
  //    public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
 	// public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
 	// public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
@@ -57,22 +59,26 @@ public class UnityAds : MonoBehaviour
 		MediationService.Instance.ImpressionEventPublisher.OnImpression += OnImpression;
 	}
 
-	public void LoadInterstitialNew()
-    {
-	    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;
-        interstitialAdNew.OnLoaded += OnLoadedInterstitial;
-        interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
-        Debug.Log("Loading Interstitial adunit...");
-        interstitialAdNew.Load();
-    }
-    
-    public void ShowInterstitialNew()
+	public async void LoadInterstitialNew()
+	{
+		interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;
+		interstitialAdNew.OnLoaded += OnLoadedInterstitial;
+		interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
+		Debug.Log("Loading Interstitial adunit...");
+		interstitialAdNew.Load();
+	}
+
+	public async void ShowInterstitialNew()
     {
         if(interstitialAdNew != null)
         {
-            interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
-            interstitialAdNew.OnClosed += OnClosedInterstitial;
-            interstitialAdNew.Show();
+	        interstitialStrategy = AdStrategyOptimizationService.Instance.RequestNextStrategy("interstitial");
+	        if (interstitialStrategy.SelectedStrategy == StrategyType.ShowAd)
+	        {
+		        interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
+		        interstitialAdNew.OnClosed += OnClosedInterstitial;
+		        interstitialAdNew.Show();
+	        }
         }
     }
     
@@ -149,6 +155,8 @@ public class UnityAds : MonoBehaviour
 	    // load again
 	    Debug.Log("loading again interstitial ad");
 	    LoadInterstitialNew();
+
+	    interstitialStrategy?.ReportImpression();
     }
     
     static void OnImpression(object sender, ImpressionEventArgs e)

@@ -1,0 +1,25 @@
+{
+  "name": "com.unity.services.aos",
+  "displayName": "Ad Strategy Optimization Service",
+  "version": "0.1.0-preview",
+  "unity": "2019.4",
+  "description": "This is a template package. This package will showcase the minimum required code to implement Runtime and Editor functionality of the Services SDK Core package.",
+  "_upm": {
+    "gameService": {
+      "groupIndex": 100,
+      "groupName": "Ads",
+      "genericDashboardUrl": "https://unity.com",
+      "projectDashboardUrl": "https://dashboard.unity3d.com/organizations/{0}/template/project/{1}",
+      "projectDashboardUrlType": "OrganizationKeyAndProjectId",
+      "useCasesUrl": "https://dashboard.unity3d.com/template/use-cases.md",
+      "configurePath": "Project/Services/Ad Optimization Strategy"
+    },
+    "supportedPlatforms": [
+      "Android",
+      "iOS"
+    ]
+  },
+  "dependencies": {
+    "com.unity.services.core": "1.1.0-pre.8"
+  }
+}

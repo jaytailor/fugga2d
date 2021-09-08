@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.AdStrategyOptimization;
+using Unity.Services.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +11,8 @@ public class MainMenu : MonoBehaviour {
 
     // Use this for initialization
     public GameObject iapListener = null;
+
+    public GameObject WatchAdButton;
     //[SerializeField] private string appID = "ca-app-pub-4734320296886796~5938213117";
 
     void Awake()
@@ -22,6 +27,24 @@ public class MainMenu : MonoBehaviour {
 
     void Start(){
         //Manager.Ads.ShowBanner();
+    }
+
+    private void Update()
+    {
+        if (UnityServices.State != ServicesInitializationState.Initialized)
+        {
+            return;
+        }
+        
+        var strategy = AdStrategyOptimizationService.Instance.RequestNextStrategy("interstitial");
+        if (strategy.SelectedStrategy == StrategyType.ShowAd)
+        {
+            WatchAdButton.SetActive(true);
+        }
+        else
+        {
+            WatchAdButton.SetActive(false);
+        }
     }
 
     public void PlayGame(){

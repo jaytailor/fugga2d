@@ -1,0 +1,17 @@
+{
+    "name": "Unity.Services.AdStrategyOptimization",
+    "references": [
+        "Unity.Services.Core",
+        "Unity.Services.Core.Internal"
+    ],
+    "rootNamespace": "Unity.Service.AdStrategyOptimization",
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

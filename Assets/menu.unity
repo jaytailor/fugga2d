@@ -6228,6 +6228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iapListener: {fileID: 1007132261}
+  WatchAdButton: {fileID: 1223622540}
 --- !u!1 &1622340460
 GameObject:
   m_ObjectHideFlags: 0
