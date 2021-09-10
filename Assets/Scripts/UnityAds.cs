@@ -60,36 +60,53 @@ public class UnityAds : MonoBehaviour
 	public void LoadInterstitialNew()
     {
 	    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;
-        interstitialAdNew.OnLoaded += OnLoadedInterstitial;
-        interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
-        Debug.Log("Loading Interstitial adunit...");
-        interstitialAdNew.Load();
+
+	    if (interstitialAdNew != null)
+	    {
+		    interstitialAdNew.OnLoaded += OnLoadedInterstitial;
+		    interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
+		    Debug.Log("Loading Interstitial adunit...");
+        
+		    // Show events callback registration
+		    interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
+		    interstitialAdNew.OnClosed += OnClosedInterstitial;
+		    interstitialAdNew.OnShowed += InterstitialAdShown;
+        
+		    interstitialAdNew.Load();   
+	    }
     }
     
     public void ShowInterstitialNew()
     {
-        if(interstitialAdNew != null)
+        if(interstitialAdNew.AdState == AdState.Loaded)
         {
-            interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
-            interstitialAdNew.OnClosed += OnClosedInterstitial;
-            interstitialAdNew.Show();
+	        interstitialAdNew.Show();
         }
     }
     
     public void LoadRewardedNew()
     { 
         rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew) as RewardedAd;
-        rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
-        rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
-        rewardedVideoAdNew.Load();
+
+        if (rewardedVideoAdNew != null)
+        {
+	        rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
+	        rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
+        
+	        // Show events call back 
+	        rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
+	        rewardedVideoAdNew.OnShowed += RewardedAdShown;
+	        rewardedVideoAdNew.OnClosed += OnClosedRewarded;
+	        rewardedVideoAdNew.OnUserRewarded += UserRewarded;
+        
+	        rewardedVideoAdNew.Load();
+        }
     }
     
     public void ShowRewardedNew()
     {
-	    if (rewardedVideoAdNew != null)
+	    if (rewardedVideoAdNew.AdState == AdState.Loaded)
 	    {
-		    rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
-		    rewardedVideoAdNew.OnClosed += OnClosedRewarded;
 		    rewardedVideoAdNew.Show();
 	    }
     }
@@ -116,15 +133,34 @@ public class UnityAds : MonoBehaviour
     {
         Debug.Log("Rewarded Ad loaded from mediation partner");
     }
+    
+    void UserRewarded(object sender, RewardEventArgs args)
+    {
+	    Debug.Log("Ad has rewarded user.");
+	    Manager.PremiumScore += 1000;
+		// Execute logic for rewarding the user.
+    }
 
     void OnFailedLoadRewarded(object sender, LoadErrorEventArgs e)
     {
 	    Debug.LogError($"{e.Error}:{e.Message}");
     }
     
+    void RewardedAdShown(object sender, EventArgs args)
+    {
+	    Debug.Log("Rewarded Ad shown successfully.");
+		// Execute logic for the ad showing successfully.
+    }
+    
     void OnFailedLoadInterstitial(object sender, LoadErrorEventArgs e)
     {
 	    Debug.LogError($"{e.Error}:{e.Message}");
+    }
+    
+    void InterstitialAdShown(object sender, EventArgs args)
+    {
+	    Debug.Log("Interstitial Ad shown successfully.");
+	    // Execute logic for the ad showing successfully.
     }
     
     void OnFailedShowRewarded(object sender, ShowErrorEventArgs e)

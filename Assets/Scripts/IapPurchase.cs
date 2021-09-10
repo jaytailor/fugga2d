@@ -15,35 +15,32 @@ public class IapPurchase : MonoBehaviour {
             Manager.PremiumScore -= 1000;
         } else {
             Manager.Ads.ShowRewardedNew();
-            Manager.PremiumScore += 1000;
         }
     }
 
     public void PurchaseDream(){
         // Check the premium amount 
-        if (Manager.PremiumScore >= 5000){
+        if (Manager.PremiumScore >= 2000){
             Manager.Theme = "Dream";
             Debug.Log ("bought dream..");
 
-            Manager.PremiumScore -= 5000;
+            Manager.PremiumScore -= 2000;
         }
         else {
             Manager.Ads.ShowRewardedNew();
-            Manager.PremiumScore += 5000;
         }
     }
 
     public void PurchaseCloud(){
         // Check the premium amount 
-        if (Manager.PremiumScore >= 10000){
+        if (Manager.PremiumScore >= 3000){
             Manager.Theme = "Cloud";
             Debug.Log ("bought cloud..");
 
-            Manager.PremiumScore -= 10000;
+            Manager.PremiumScore -= 3000;
         }
         else {
             Manager.Ads.ShowRewardedNew();
-            Manager.PremiumScore += 10000;
         }
     }
 

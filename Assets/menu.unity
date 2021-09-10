@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10000
+  m_Text: 3000
 --- !u!222 &3690510
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3023,7 +3023,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ce769b332a4aa4d3d80a2c252c6ad10a, type: 3}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3034,7 +3034,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Watch Ad to get \n200 premium"
+  m_Text: "Watch Ad to get \n1000 premium"
 --- !u!222 &535636862
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7061,7 +7061,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5000
+  m_Text: 2000
 --- !u!222 &1841489627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7166,7 +7166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1848346774
 Transform:
   m_ObjectHideFlags: 0

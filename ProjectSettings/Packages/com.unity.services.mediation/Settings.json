@@ -6,17 +6,17 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "admob-adapter.version",
-                "value": "{\"m_Value\":\"\"}"
+                "value": "{\"m_Value\":\"latest\"}"
             },
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "admob-adapter.app-id.android",
-                "value": "{\"m_Value\":\"\"}"
+                "value": "{\"m_Value\":\"ca-app-pub-4734320296886796~3776610909\"}"
             },
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "admob-adapter.app-id.ios",
-                "value": "{\"m_Value\":\"\"}"
+                "value": "{\"m_Value\":\"ca-app-pub-4734320296886796~5307395670\"}"
             },
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
