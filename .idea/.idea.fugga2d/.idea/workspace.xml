@@ -25,10 +25,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +164,7 @@
       <workItem from="1623284742815" duration="438000" />
       <workItem from="1623353819722" duration="1803000" />
       <workItem from="1629937200916" duration="2727000" />
-      <workItem from="1631306227146" duration="5387000" />
+      <workItem from="1631306227146" duration="5748000" />
     </task>
     <servers />
   </component>
@@ -196,10 +193,11 @@
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
     <state x="100" y="135" width="1592" height="890" key="VCS.FileHistoryDialog/1792.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1629937351011" />
-    <state x="2105" y="155" width="1225" height="802" key="find.popup" timestamp="1623192861185">
-      <screen x="1792" y="23" width="1920" height="1057" />
+    <state x="2105" y="157" width="1225" height="801" key="find.popup" timestamp="1631557798140">
+      <screen x="1792" y="25" width="1920" height="1055" />
     </state>
     <state x="2105" y="155" width="1225" height="802" key="find.popup/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1623192861185" />
+    <state x="2105" y="157" width="1225" height="801" key="find.popup/1792.25.1920.1055/0.25.1792.1095@1792.25.1920.1055" timestamp="1631557798140" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
