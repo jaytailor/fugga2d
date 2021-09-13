@@ -3,6 +3,8 @@ using System.Collections;
 using Unity.Services.Core;
 using UnityEngine;
 using Unity.Services.Mediation;
+using Unity.Services.Analytics;
+using Unity.Services.Core;
 
 public class UnityAds : MonoBehaviour
 {
@@ -23,19 +25,8 @@ public class UnityAds : MonoBehaviour
     InterstitialAd interstitialAdNew;
     RewardedAd rewardedVideoAdNew;
 
- //    // delta dna settings
- //    public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
-	// public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
-	// public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
-
 	public async void Awake()
 	{
-		// // Configure the SDK
-		// DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
-		// DDNA.Instance.ClientVersion = "1.0.0";
-		//
-		// // Start collecting data
-		// DDNA.Instance.StartSDK();
 
 		try
 		{
