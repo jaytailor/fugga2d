@@ -1,5 +1,5 @@
-Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.135.0.dll
-Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.135.0.dll.mdb
+Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll
+Assets/PlayServicesResolver/Editor/Google.IOSResolver.mdb
 Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.135.0.dll
 Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.135.0.dll.mdb
 Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll

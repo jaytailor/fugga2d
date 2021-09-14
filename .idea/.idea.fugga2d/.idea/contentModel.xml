@@ -3,14 +3,25 @@
   <component name="ContentModelStore">
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Editor" t="Include">
+          <e p="MediationAdapterDependencies.xml" t="Include" />
+        </e>
+        <e p="PlayServicesResolver" t="Include">
+          <e p="Editor" t="Include">
+            <e p="play-services-resolver_v1.2.135.0.txt" t="Include" />
+          </e>
+        </e>
         <e p="Plugins" t="Include">
           <e p="Android" t="Include">
             <e p="network_security_config.xml" t="Include" />
           </e>
           <e p="Editor" t="Include">
+            <e p="ExternalPackageInstallationData.json" t="Include" />
+            <e p="PackageImporterStatus.json" t="Include" />
             <e p="UnityAdsUpdater.cs" t="Include" />
           </e>
           <e p="UDP" t="Include">
@@ -41,6 +52,9 @@
               </e>
             </e>
           </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="IAPProductCatalog.json" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="BackToMenu.cs" t="Include" />
@@ -75,6 +89,7 @@
               <e p="AdaptersDependencyGenerator.cs" t="Include" />
               <e p="AssemblyInfo.cs" t="Include" />
               <e p="MediationSdkInfo.cs" t="Include" />
+              <e p="MediationSdkInfo.json" t="Include" />
               <e p="SemanticVersioningFormatter.cs" t="Include" />
               <e p="Unity.Mediation.Adapters.Editor.asmdef" t="Include" />
             </e>

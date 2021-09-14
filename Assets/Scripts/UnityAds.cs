@@ -3,6 +3,8 @@ using System.Collections;
 using Unity.Services.Core;
 using UnityEngine;
 using Unity.Services.Mediation;
+using Unity.Services.Analytics;
+using Unity.Services.Core;
 
 public class UnityAds : MonoBehaviour
 {
@@ -23,19 +25,8 @@ public class UnityAds : MonoBehaviour
     InterstitialAd interstitialAdNew;
     RewardedAd rewardedVideoAdNew;
 
- //    // delta dna settings
- //    public const string ENVIRONMENT_KEY = "27352707823785445427718399015682";
-	// public const string COLLECT_URL     = "https://collect15753fggqz.deltadna.net/collect/api";
-	// public const string ENGAGE_URL      = "https://engage15753fggqz.deltadna.net";
-
 	public async void Awake()
 	{
-		// // Configure the SDK
-		// DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
-		// DDNA.Instance.ClientVersion = "1.0.0";
-		//
-		// // Start collecting data
-		// DDNA.Instance.StartSDK();
 
 		try
 		{
@@ -60,36 +51,53 @@ public class UnityAds : MonoBehaviour
 	public void LoadInterstitialNew()
     {
 	    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;
-        interstitialAdNew.OnLoaded += OnLoadedInterstitial;
-        interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
-        Debug.Log("Loading Interstitial adunit...");
-        interstitialAdNew.Load();
+
+	    if (interstitialAdNew != null)
+	    {
+		    interstitialAdNew.OnLoaded += OnLoadedInterstitial;
+		    interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
+		    Debug.Log("Loading Interstitial adunit...");
+        
+		    // Show events callback registration
+		    interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
+		    interstitialAdNew.OnClosed += OnClosedInterstitial;
+		    interstitialAdNew.OnShowed += InterstitialAdShown;
+        
+		    interstitialAdNew.Load();   
+	    }
     }
     
     public void ShowInterstitialNew()
     {
-        if(interstitialAdNew != null)
+        if(interstitialAdNew.AdState == AdState.Loaded)
         {
-            interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
-            interstitialAdNew.OnClosed += OnClosedInterstitial;
-            interstitialAdNew.Show();
+	        interstitialAdNew.Show();
         }
     }
     
     public void LoadRewardedNew()
     { 
         rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew) as RewardedAd;
-        rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
-        rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
-        rewardedVideoAdNew.Load();
+
+        if (rewardedVideoAdNew != null)
+        {
+	        rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
+	        rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
+        
+	        // Show events call back 
+	        rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
+	        rewardedVideoAdNew.OnShowed += RewardedAdShown;
+	        rewardedVideoAdNew.OnClosed += OnClosedRewarded;
+	        rewardedVideoAdNew.OnUserRewarded += UserRewarded;
+        
+	        rewardedVideoAdNew.Load();
+        }
     }
     
     public void ShowRewardedNew()
     {
-	    if (rewardedVideoAdNew != null)
+	    if (rewardedVideoAdNew.AdState == AdState.Loaded)
 	    {
-		    rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
-		    rewardedVideoAdNew.OnClosed += OnClosedRewarded;
 		    rewardedVideoAdNew.Show();
 	    }
     }
@@ -116,15 +124,34 @@ public class UnityAds : MonoBehaviour
     {
         Debug.Log("Rewarded Ad loaded from mediation partner");
     }
+    
+    void UserRewarded(object sender, RewardEventArgs args)
+    {
+	    Debug.Log("Ad has rewarded user.");
+	    Manager.PremiumScore += 1000;
+		// Execute logic for rewarding the user.
+    }
 
     void OnFailedLoadRewarded(object sender, LoadErrorEventArgs e)
     {
 	    Debug.LogError($"{e.Error}:{e.Message}");
     }
     
+    void RewardedAdShown(object sender, EventArgs args)
+    {
+	    Debug.Log("Rewarded Ad shown successfully.");
+		// Execute logic for the ad showing successfully.
+    }
+    
     void OnFailedLoadInterstitial(object sender, LoadErrorEventArgs e)
     {
 	    Debug.LogError($"{e.Error}:{e.Message}");
+    }
+    
+    void InterstitialAdShown(object sender, EventArgs args)
+    {
+	    Debug.Log("Interstitial Ad shown successfully.");
+	    // Execute logic for the ad showing successfully.
     }
     
     void OnFailedShowRewarded(object sender, ShowErrorEventArgs e)
