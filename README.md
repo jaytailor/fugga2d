@@ -7,7 +7,7 @@ Use unity hub to build it on any of unity version, Currently built on 2021.2.0b1
 - andrdoid
 - ios
 
-**Important. This works for android only with gradle version 5.6.4 so download that and change it in preferences gradle version in unity 2019.4
+**Important. For older unity versions for making it work with android you may need to have gradle version 5.6.4 so download that and change it in preferences gradle version in unity 2019.4 
 more information is here - https://developers.google.com/ar/develop/unity/android-11-build **
 
 # How to play
