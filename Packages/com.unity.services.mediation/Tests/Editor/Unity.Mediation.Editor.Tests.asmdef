@@ -5,6 +5,7 @@
         "Unity.Mediation.Editor",
         "Unity.Mediation.Adapters.Editor",
         "PlayServicesResolver.Installer.Editor",
+        "PlayServicesResolver.Utils.Editor",
         "Unity.Mediation.Settings.Editor",
         "Unity.Mediation.Build.Editor",
         "Unity.Settings.Editor"

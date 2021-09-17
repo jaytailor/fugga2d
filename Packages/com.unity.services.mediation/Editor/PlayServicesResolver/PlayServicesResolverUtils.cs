@@ -53,6 +53,14 @@ namespace PlayServicesResolver.Utils.Editor
                 if (autoResolutionProperty == null) return false;
                 return (bool)autoResolutionProperty.GetValue(null);
             }
+            set
+            {
+                var psrType = Type.GetType("GooglePlayServices.SettingsDialog, Google.JarResolver");
+                if (psrType == null) return;
+                var autoResolutionProperty = psrType.GetProperty("PatchMainTemplateGradle", BindingFlags.Static | BindingFlags.NonPublic);
+                if (autoResolutionProperty == null) return;
+                autoResolutionProperty.SetValue(null, value);
+            }
         }
 
         public static void Resolve()
@@ -71,6 +79,15 @@ namespace PlayServicesResolver.Utils.Editor
             var resolveMethod = psrType.GetMethod("ResolveSync");
             if (resolveMethod == null) return;
             resolveMethod.Invoke(null, new object[] {forceResolution});
+        }
+
+        public static void DeleteResolvedLibraries()
+        {
+            var psrType = PlayServicesResolverType;
+            if (psrType == null) return;
+            var resolveMethod = psrType.GetMethod("DeleteResolvedLibrariesSync");
+            if (resolveMethod == null) return;
+            resolveMethod.Invoke(null, new object[] {});
         }
 
         public static IList<KeyValuePair<string, string>> GetPackageSpecs()

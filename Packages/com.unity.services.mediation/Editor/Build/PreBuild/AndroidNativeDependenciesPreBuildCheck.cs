@@ -92,7 +92,6 @@ namespace Unity.Services.Mediation.Build.Editor
                     if (!DisplayIssueDetectedDialog(noDialog, k_IncompatibleSDKPackageVersions, UserAction.CancelBuild))
                         return;
                 }
-
             }
         }
 
@@ -108,7 +107,6 @@ namespace Unity.Services.Mediation.Build.Editor
             var packageVersion = Version.Parse(sdkInfo.SdkVersion);
             //Logic subject to change at GA! Change to check major only.
             return sdkVersion.Major == packageVersion.Major && sdkVersion.Minor == packageVersion.Minor;
-
         }
 
         bool DisplayIssueDetectedDialog(bool noDialog, string issue, UserAction action)

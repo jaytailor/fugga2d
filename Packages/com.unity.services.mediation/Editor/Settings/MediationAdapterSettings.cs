@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Services.Mediation.Adapters.Editor;
 using UnityEditor;
+using UnityEditor.Advertisements;
 using UnityEditor.SettingsManagement;
 using UnityEngine;
 using UnityEditor.UIElements;
@@ -225,6 +226,8 @@ namespace Unity.Services.Mediation.Settings.Editor
 #if !ENABLE_EDITOR_GAME_SERVICES
             MediationEditorService.RefreshGameId();
 #endif
+            rootElement.Q<TextElement>("android-game-id").text = AdvertisementSettings.GetGameId(RuntimePlatform.IPhonePlayer);
+            rootElement.Q<TextElement>("ios-game-id").text     = AdvertisementSettings.GetGameId(RuntimePlatform.Android);
 
             return rootElement;
         }

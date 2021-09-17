@@ -17,6 +17,7 @@ namespace Unity.Services.Mediation.Dashboard.Editor
         const string k_AdUnitsListUrl    = "https://services.unity.com/api/monetize/mediation/v1/organizations/{0}/projects/{1}/ad-units";
         const string k_GameIdUrl         = "https://services.unity.com/api/monetize/mediation/v1/organizations/{0}/projects/{1}/app-adnetwork-parameters/{2}";
         const string k_AdNetworksListUrl = "https://services.unity.com/api/monetize/mediation/v1/organizations/{0}/apps/{1}/app-adnetwork-parameters";
+        const string k_AdNetworkUnity = "UNITY";
 
         static string s_CachedProjectId;
         static string s_CachedOrgId;
@@ -190,8 +191,7 @@ namespace Unity.Services.Mediation.Dashboard.Editor
         /// Returns the game Id, asynchronously
         /// </summary>
         /// <param name="callback">Called upon completion, with a dictionary of platform:gameId or null if we failed</param>
-        /// <param name="adNetwork">The ad Network for which we want a gameId</param>
-        internal static void GetGameIdAsync(Action<Dictionary<string, string>> callback, string adNetwork)
+        internal static void GetGameIdAsync(Action<Dictionary<string, string>> callback)
         {
             IsProjectReadyForConfigurationRequests(ready =>
             {
@@ -200,7 +200,7 @@ namespace Unity.Services.Mediation.Dashboard.Editor
                     GetOrgIdAsync(orgId =>
                     {
                         var dashboardUri = new Uri(string.Format(k_GameIdUrl, orgId, CloudProjectSettings.projectId,
-                            adNetwork));
+                            k_AdNetworkUnity));
                         var dashboardRequest = new UnityWebRequest(dashboardUri, UnityWebRequest.kHttpVerbGET);
 
                         PrepareRequestToken(dashboardRequest, () =>
@@ -219,15 +219,15 @@ namespace Unity.Services.Mediation.Dashboard.Editor
             });
         }
 
-        internal static void GetGameIdAsyncOrWait(Action<Dictionary<string, string>> callback, string adNetwork)
+        internal static void GetGameIdAsyncOrWait(Action<Dictionary<string, string>> callback)
         {
             if (!IsCloudProjectSettingsValid())
             {
-                s_NoTimeoutPoller.AddCallback((success) => GetGameIdAsync(callback, adNetwork));
+                s_NoTimeoutPoller.AddCallback((success) => GetGameIdAsync(callback));
             }
             else
             {
-                GetGameIdAsync(callback, adNetwork);
+                GetGameIdAsync(callback);
             }
         }
 

@@ -8,6 +8,7 @@
     height:60px;
     background-color: #181818;
 }
+
 .ToggleService{
     position:absolute;
     right:0px;
@@ -208,6 +209,13 @@
 
 .subtext {
     font-size:10px;
+}
+
+.game-id-row {
+    width:150px;
+    left:10px;
+    flex-direction:row;
+    justify-content: space-between;
 }
 
 .table-box

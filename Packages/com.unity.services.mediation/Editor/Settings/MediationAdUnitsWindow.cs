@@ -95,7 +95,10 @@ namespace Unity.Services.Mediation.Settings.Editor
                     List<AdUnitData> dashboardAdUnits = new List<AdUnitData>();
                     foreach (DashboardClient.AdUnitInfoJson adUnitInfo in adUnits)
                     {
-                        dashboardAdUnits.Add(new AdUnitData(adUnitInfo));
+                        if (!adUnitInfo.isArchived)
+                        {
+                            dashboardAdUnits.Add(new AdUnitData(adUnitInfo));
+                        }
                     }
                     AdUnitDataSource = dashboardAdUnits;
                     ConstructListFromAdUnits(root);
