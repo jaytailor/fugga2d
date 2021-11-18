@@ -1,4 +1,4 @@
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID
 using System;
 using System.IO;
 using System.Linq;

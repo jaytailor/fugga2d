@@ -8,11 +8,12 @@ using UnityEngine.Advertisements;
 public class MainMenu : MonoBehaviour {
 
     // Use this for initialization
-    public GameObject iapListener = null;
+    public GameObject iapListener;
     //[SerializeField] private string appID = "ca-app-pub-4734320296886796~5938213117";
 
     void Awake()
     {
+        iapListener = GameObject.Find("IAP Listener");
         Manager.Ads = iapListener.GetComponent<UnityAds> ();
 
         if (Manager.PremiumGranted == false) {

@@ -6,7 +6,6 @@ using UnityEngine;
 using PlayServicesResolver.Utils.Editor;
 using Unity.Services.Mediation.Adapters.Editor;
 using UnityEditor;
-using UnityEditor.PackageManager;
 
 namespace Unity.Services.Mediation.EditorTests
 {
@@ -59,6 +58,12 @@ namespace Unity.Services.Mediation.EditorTests
         [TestCase("sdk")]
         public void PlayServicesResolverAdapterVersionDownloadTest(string testCase)
         {
+            // Check to see if Platform Module is installed before running test.
+            if (!IsBuildTargetInstalled(BuildTarget.Android))
+            {
+                Assert.Ignore("Platform not installed. Skipping Test");
+            }
+
             // Set to download files in editor
             PlayServicesResolverUtils.MainTemplateEnabled = false;
 
@@ -101,6 +106,15 @@ namespace Unity.Services.Mediation.EditorTests
             // Ensure all downloaded libraries are within proper range.
             Assert.That(downloadedLibrariesVersions.All(version => version >= legalVersionRange[0] && version < legalVersionRange[1])
                 , "Some libraries are not within their proper version ranges.");
+        }
+
+        private bool IsBuildTargetInstalled(BuildTarget target)
+        {
+            var moduleManager = System.Type.GetType("UnityEditor.Modules.ModuleManager,UnityEditor.dll");
+            var isPlatformSupportLoaded = moduleManager.GetMethod("IsPlatformSupportLoaded", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+            var getTargetStringFromBuildTarget = moduleManager.GetMethod("GetTargetStringFromBuildTarget", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+
+            return (bool)isPlatformSupportLoaded.Invoke(null,new object[] {(string)getTargetStringFromBuildTarget.Invoke(null, new object[] {target})});
         }
     }
 }

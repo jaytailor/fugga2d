@@ -58,15 +58,15 @@ class MockRewarded : MonoBehaviour, IRewardedAd
 
     private void InitializeConsoleCallbacks()
     {
-        OnLoaded += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Rewarded Loaded</color>");
-        OnFailedLoad += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=red>Rewarded Fail to Load:</color> {args.Message}");
+        OnLoaded += (sender, args) => Debug.unityLogger.Log("Mediation","Rewarded Loaded");
+        OnFailedLoad += (sender, args) => Debug.unityLogger.LogError("Mediation","Rewarded Fail to Load: {args.Message}");
 
-        OnUserRewarded += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>User Rewarded:</color> (type: {args.Type}, amount: {args.Amount})");
-        OnClicked += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Rewarded Clicked</color>");
-        OnClosed += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Rewarded Closed</color>");
+        OnUserRewarded += (sender, args) => Debug.unityLogger.Log("Mediation","User Rewarded: (type: {args.Type}, amount: {args.Amount})");
+        OnClicked += (sender, args) => Debug.unityLogger.Log("Mediation","Rewarded Clicked");
+        OnClosed += (sender, args) => Debug.unityLogger.Log("Mediation","Rewarded Closed");
 
-        OnShowed += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Rewarded Showed</color>");
-        OnFailedShow += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=red>Rewarded Fail to Show:</color> {args.Message}");
+        OnShowed += (sender, args) => Debug.unityLogger.Log("Mediation","Rewarded Showed");
+        OnFailedShow += (sender, args) => Debug.unityLogger.LogError("Mediation","Rewarded Fail to Show: {args.Message}");
     }
 
     public void Load()

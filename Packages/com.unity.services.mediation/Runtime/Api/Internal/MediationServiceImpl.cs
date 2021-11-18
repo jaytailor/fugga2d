@@ -95,6 +95,8 @@ namespace Unity.Services.Mediation
             return new RewardedAd(adUnitId);
         }
 
+        public string SdkVersion => platformMediationService.SdkVersion;
+
         public IDataPrivacy DataPrivacy => dataPrivacyImpl;
 
         public IImpressionEventPublisher ImpressionEventPublisher => impressionEventPublisherImpl;

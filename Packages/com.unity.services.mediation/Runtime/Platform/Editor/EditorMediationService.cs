@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Unity.Services.Mediation.Platform
@@ -13,15 +14,23 @@ namespace Unity.Services.Mediation.Platform
 #pragma warning restore 67
 
         public InitializationState InitializationState { get; private set; } = InitializationState.Uninitialized;
+        public string SdkVersion => "0.0.0";
 
         public EditorMediationService()
         {
-            OnInitializationComplete += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Mediation Initialized</color>");
-            OnInitializationFailed += (sender, args) => Debug.LogError($"<b>Unity Mediation:</b> <color=red>Mediation Initialization Failed:</color> {args.Message}");
+            OnInitializationComplete += (sender, args) => Debug.unityLogger.Log("Mediation","Mediation Initialized");
+            OnInitializationFailed += (sender, args) => Debug.unityLogger.LogError("Mediation","Mediation Initialization Failed: {args.Message}");
         }
 
         public void Initialize(string gameId, string installId)
         {
+            BuildTarget activeBuildTarget = EditorUserBuildSettings.activeBuildTarget;
+            if (activeBuildTarget != BuildTarget.Android && activeBuildTarget != BuildTarget.iOS)
+            {
+                Debug.LogWarning($"The selected build platform is not supported by Mediation. Build Target: {activeBuildTarget.ToString()}. Using Temporary GameId.");
+                gameId = "EDITOR";
+            }
+
             if (!string.IsNullOrEmpty(gameId))
             {
                 InitializationState = InitializationState.Initialized;

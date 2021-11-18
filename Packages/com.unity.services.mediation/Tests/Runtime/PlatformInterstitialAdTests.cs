@@ -48,19 +48,7 @@ namespace Unity.Services.Mediation.Tests
         [Timeout(TestConstants.Timeout)]
         public IEnumerator LoadSuccessStateTest()
         {
-            bool isSuccessState = false;
-            m_InterstitialAd.OnLoaded += (sender, args) =>
-            {
-                Assert.AreEqual(AdState.Loaded, m_InterstitialAd.AdState, "Expected loaded state for loaded ad");
-                isSuccessState = true;
-            };
-            m_InterstitialAd.OnFailedLoad += (sender, args) =>
-            {
-                Assert.Fail(args.Message);
-            };
-
-            m_InterstitialAd.Load();
-            yield return new WaitUntil(() => isSuccessState);
+            yield return RuntimeTestUtils.LoadSuccessStateTest(m_InterstitialAd, TestConstants.LoadRetryCount, TestConstants.LoadRetryDelay);
         }
     }
 }

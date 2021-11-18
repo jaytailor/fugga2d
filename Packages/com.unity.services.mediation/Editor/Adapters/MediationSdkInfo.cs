@@ -287,9 +287,9 @@ namespace Unity.Services.Mediation.Adapters.Editor
         /// Get a list of adapters currently in use with Mediation SDK
         /// </summary>
         /// <returns>Returns a List of AdapterInfo</returns>
-        public static List<AdapterInfo> GetInstalledAdapters()
+        public static List<AdapterInfo> GetInstalledAdapters(bool generateXml = true)
         {
-            return s_Generator.GetInstalledAdapters();
+            return s_Generator.GetInstalledAdapters(generateXml);
         }
 
         /// <summary>

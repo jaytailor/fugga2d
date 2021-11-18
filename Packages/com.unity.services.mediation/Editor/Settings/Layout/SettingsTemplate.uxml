@@ -26,7 +26,7 @@
 
         <VisualElement class="project-settings-service-specific-container">
             <VisualElement class="project-settings-title-container">
-                <Label class="project-settings-title" text="Game ID" />
+                <Label class="project-settings-title" text="Game IDs" />
             </VisualElement>
             <VisualElement class="game-id-row">
                 <Label class="label-container" text="Android:"/>

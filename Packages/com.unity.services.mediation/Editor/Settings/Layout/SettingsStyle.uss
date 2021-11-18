@@ -133,6 +133,7 @@
 .centered-row {
     flex-direction:row;
     align-items:center;
+    -unity-text-align: middle-center;
 }
 
 .centered-column {

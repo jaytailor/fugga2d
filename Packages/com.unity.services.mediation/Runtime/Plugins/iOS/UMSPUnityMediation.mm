@@ -34,6 +34,10 @@ int UMSPUnityMediationGetInitializationState() {
     return (int)[UMSUnityMediation getInitializationState];
 }
 
+const char *UMSPUnityMediationGetSdkVersion() {
+    return strdup([kUMSVersionString UTF8String]);
+}
+
 void UMSPUnityMediationInitialize(const char *gameId, InitSuccessCallback successCallback, InitFailureCallback failCallback, const char *installId) {
     s_InitializationSuccess = successCallback;
     s_InitializationFailed = failCallback;

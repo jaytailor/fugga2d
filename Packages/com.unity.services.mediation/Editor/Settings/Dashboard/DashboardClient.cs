@@ -11,7 +11,7 @@ namespace Unity.Services.Mediation.Dashboard.Editor
         const string k_ErrorProjectNotConfigured        = "The Project has not been configured yet, please validate your information.";
         const string k_ErrorFailedToRetrieveOrgId       = "Failed to retrieve the organization ID from the Dashboard; ";
         const string k_ErrorFailedToRetrieveAdUnits     = "Failed to retrieve Ad Units from the Dashboard; ";
-        const string k_ErrorFailedToRetrieveGameId      = "Failed to retrieve Game ID from the Dashboard; ";
+        const string k_ErrorFailedToRetrieveGameId      = "Failed to retrieve Game IDs from the Dashboard; ";
         const string k_ErrorFailedToRetrieveAdNetworks  = "Failed to retrieve Configured ad Networks from the Dashboard; ";
         const string k_GetOrgIdUrl       = "https://api.unity.com/v1/core/api/projects/{0}";
         const string k_AdUnitsListUrl    = "https://services.unity.com/api/monetize/mediation/v1/organizations/{0}/projects/{1}/ad-units";

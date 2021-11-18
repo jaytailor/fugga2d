@@ -5,16 +5,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
-## [0.2.1-preview.1] - 2021-09-17
+## [Unreleased]
+
+## [0.2.1-preview.2] - 2021-10-12
 
 ### Added
 - Test validating gradle version to display a more meaningful error message.
+- `InitializationOptions` extension `SetGameId` to manually specify a game id when initializing mediation.
 
 ### Changed
-- Overhauled the Ad Network adapters list UI
+- Overhauled the Mediation Settings UI.
+    - Uninstalled indicators
+    - Alternating backgrounds
+    - Game id display for game ids retrieved from the Dashboard
+- In-Editor Test Ads: Color removed from console logs
 
 ### Fixed
 - Archived Ad Units will no longer be displayed in the ad units list.
+- In-Editor Test Ads would not initialize if the build target was not supported by mediation.
+- Removed error when importing play services resolver for the first time.
 
 ## [0.2.0-preview.5] - 2021-08-25
 

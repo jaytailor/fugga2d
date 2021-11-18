@@ -69,7 +69,7 @@
       <e p="Fugga.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive">
-        <e p="com.unity.mediation" t="Include">
+        <e p="com.unity.services.mediation" t="Include">
           <e p="Editor" t="Include">
             <e p="Adapters" t="Include">
               <e p="AdaptersDependencyGenerator.cs" t="Include" />
@@ -79,14 +79,22 @@
               <e p="Unity.Mediation.Adapters.Editor.asmdef" t="Include" />
             </e>
             <e p="Build" t="Include">
-              <e p="AndroidManifestPostGenerateGradleProject.cs" t="Include" />
-              <e p="AndroidNativeDependenciesPreBuildCheck.cs" t="Include" />
-              <e p="AndroidProguardPostGenerateGradleProject.cs" t="Include" />
               <e p="AssemblyInfo.cs" t="Include" />
-              <e p="IosPlistPostBuild.cs" t="Include" />
               <e p="MediationConfigurationProvider.cs" t="Include" />
-              <e p="NoAdapterPreBuildCheck.cs" t="Include" />
-              <e p="PreprocessBuild.cs" t="Include" />
+              <e p="PostBuild" t="Include">
+                <e p="IosDependencyUpdatePostBuild.cs" t="Include" />
+                <e p="IosPlistPostBuild.cs" t="Include" />
+              </e>
+              <e p="PostGradle" t="Include">
+                <e p="AndroidManifestPostGenerateGradleProject.cs" t="Include" />
+                <e p="AndroidProguardPostGenerateGradleProject.cs" t="Include" />
+              </e>
+              <e p="PreBuild" t="Include">
+                <e p="AdMobAppIdEmptyPreBuildCheck.cs" t="Include" />
+                <e p="AdMobGradleVersionPreBuildCheck.cs" t="Include" />
+                <e p="AndroidNativeDependenciesPreBuildCheck.cs" t="Include" />
+                <e p="NoAdapterPreBuildCheck.cs" t="Include" />
+              </e>
               <e p="Unity.Mediation.Build.Editor.asmdef" t="Include" />
             </e>
             <e p="PlayServicesResolver" t="Include">
@@ -170,6 +178,7 @@
                 <e p="IMediationService.cs" t="Include" />
                 <e p="ImpressionData.cs" t="Include" />
                 <e p="ImpressionEventArgs.cs" t="Include" />
+                <e p="InitializationOptionsExtensions.cs" t="Include" />
                 <e p="InitializationState.cs" t="Include" />
                 <e p="InitializeFailedException.cs" t="Include" />
                 <e p="InterstitialAd.cs" t="Include" />
@@ -260,27 +269,39 @@
                 <e p="AndroidNativeDependenciesPreBuildCheckTests.cs" t="Include" />
                 <e p="IosPlistPostBuildTests.cs" t="Include" />
               </e>
+              <e p="DashboardTests.cs" t="Include" />
               <e p="DummyAndroidManifest.xml" t="Include" />
               <e p="EditorTests.cs" t="Include" />
               <e p="EditorTestUtils.cs" t="Include" />
               <e p="MediationDepsAll.xml" t="Include" />
               <e p="MediationDepsNone.xml" t="Include" />
               <e p="PlayServicesResolverInstallerTests.cs" t="Include" />
+              <e p="PlayServicesResolverResolutionTests.cs" t="Include" />
               <e p="SettingsTests.cs" t="Include" />
               <e p="Unity.Mediation.Editor.Tests.asmdef" t="Include" />
             </e>
             <e p="Runtime" t="Include">
+              <e p="Adapters" t="Include">
+                <e p="AdapterAdColonyTests.cs" t="Include" />
+                <e p="AdapterAdMobTests.cs" t="Include" />
+                <e p="AdapterAppLovinTests.cs" t="Include" />
+                <e p="AdapterFacebookTests.cs" t="Include" />
+                <e p="AdapterIronSourceTests.cs" t="Include" />
+                <e p="AdapterUnityAdsTests.cs" t="Include" />
+                <e p="AdapterVungleTests.cs" t="Include" />
+              </e>
               <e p="DataPrivacyTests.cs" t="Include" />
               <e p="EventArgsTests.cs" t="Include" />
               <e p="ImpressionEventPublisherTests.cs" t="Include" />
+              <e p="InitializationOptionsExtensionsTests.cs" t="Include" />
               <e p="InterstitialAdTests.cs" t="Include" />
               <e p="MediationServiceTests.cs" t="Include" />
               <e p="MockedEvent.cs" t="Include" />
               <e p="MockedStaticEvent.cs" t="Include" />
-              <e p="PlatformInitializationTests.cs" t="Include" />
               <e p="PlatformInterstitialAdTests.cs" t="Include" />
               <e p="PlatformRewardedAdTests.cs" t="Include" />
               <e p="RewardedAdTests.cs" t="Include" />
+              <e p="RuntimeTestUtils.cs" t="Include" />
               <e p="TestConstants.cs" t="Include" />
               <e p="ThreadUtilTests.cs" t="Include" />
               <e p="Unity.Mediation.Tests.asmdef" t="Include" />
@@ -294,7 +315,7 @@
       <e p="Unity.Mediation.Adapters.Editor.csproj" t="IncludeRecursive" />
       <e p="Unity.Mediation.Build.Editor.csproj" t="IncludeRecursive" />
       <e p="Unity.Mediation.csproj" t="IncludeRecursive" />
-      <e p="Unity.Mediation.EditorTests.csproj" t="IncludeRecursive" />
+      <e p="Unity.Mediation.Editor.Tests.csproj" t="IncludeRecursive" />
       <e p="Unity.Mediation.Settings.Editor.csproj" t="IncludeRecursive" />
       <e p="Unity.Mediation.Tests.csproj" t="IncludeRecursive" />
     </e>

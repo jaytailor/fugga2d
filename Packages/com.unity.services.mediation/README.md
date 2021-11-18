@@ -11,10 +11,10 @@ This package provides:
 * A sample project with mediation set up as an onboarding example
 
 # Requirements
-Unity Mediation is compatible with Unity Editor versions 2019.1 and later.
+Unity Mediation is compatible with Unity Editor versions 2019.4 and later.
 
 # Installing Unity Mediation
-Open your Unity Editor and navigate to the Package Manager. Find the Mediation preview package and install the Mediation SDK. Alternatively, add the package via a tgz file or from your disk if a Unity representative provided you with a download file for the SDK.
+Open your Unity Editor and navigate to the Package Manager. Find the Mediation preview package and install the Mediation SDK. Alternatively, add the package via a tgz file or from your disk if you downloaded it from the Unity Dashboard.
 
 # Using Unity Mediation
 After installing the Mediation SDK, follow these steps to start using Unity Mediation in the Beta product phase:
@@ -26,7 +26,6 @@ After installing the Mediation SDK, follow these steps to start using Unity Medi
 5. In your Unity project, go to **Project Settings** > **Services** > **Mediation** to open the Mediation Configuration page and install the ad network adapters for each ad source you configured in the Unity Dashboard. Then, open the Code Generator to select a platform and an ad unit to generate a sample code snippet. Copy the snippet and add it to your scene in the game object’s `monobehaviour` to load and show an ad.  
 
 For more information, refer to the following docs: 
-* [Wiki](https://github.cds.internal.unity3d.com/unity/com.unity.mediation/wiki)
 * [Unity Mediation Dashboard guide](http://documentation.cloud.unity3d.com/en/articles/5046463-unity-mediation-dashboard-guide)
 * [Ad Source Configuration guide](http://documentation.cloud.unity3d.com/en/articles/5046485-unity-mediation-ad-source-configuration)
 * [Made with Unity Integration guide](http://documentation.cloud.unity3d.com/en/articles/5046495-made-with-unity-mediation-integration-guide)

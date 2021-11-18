@@ -1,10 +1,11 @@
 {
     "name": "Unity.Mediation.Tests",
     "references": [
-        "Unity.Mediation"
-    ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
+        "Unity.Mediation",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Unity.Services.Core",
+        "Unity.Services.Core.Internal"
     ],
     "includePlatforms": [
         "Android",
@@ -15,15 +16,19 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "Moq.dll"
+        "Moq.dll",
+        "nunit.framework.dll"
     ],
     "autoReferenced": false,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
     "versionDefines": [
         {
             "name": "nuget.moq",
             "expression": "1.0.0",
             "define": "NUGET_MOQ_AVAILABLE"
         }
-    ]
+    ],
+    "noEngineReferences": false
 }

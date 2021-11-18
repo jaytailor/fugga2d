@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SettingsManagement;
 using Unity.Services.Core.Editor;
+using Unity.Services.Mediation.Adapters.Editor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -31,6 +32,7 @@ namespace Unity.Services.Mediation.Settings.Editor
             : base(path, scopes, keywords)
         {
             MediationEditorService.RefreshGameId();
+            MediationSdkInfo.GetInstalledAdapters();
         }
 
         protected override IEditorGameService EditorGameService => EditorGameServiceRegistry.Instance.GetEditorGameService<MediationServiceIdentifier>();

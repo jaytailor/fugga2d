@@ -88,6 +88,24 @@ namespace Unity.Services.Mediation.Platform
             }
         }
 
+        public string SdkVersion
+        {
+            get
+            {
+                if (CheckDisposedAndLogError("Cannot retrieve Sdk Version")) return String.Empty;
+                try
+                {
+                    return m_UnityMediationClass
+                        .CallStatic<string>("getSdkVersion");
+                }
+                catch (Exception e)
+                {
+                    Debug.LogException(e);
+                    return String.Empty;
+                }
+            }
+        }
+
         public void Initialize(string gameId, string installId)
         {
             if (CheckDisposedAndLogError("Cannot call Initialize()")) return;

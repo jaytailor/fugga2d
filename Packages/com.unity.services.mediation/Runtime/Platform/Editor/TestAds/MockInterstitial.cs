@@ -56,14 +56,14 @@ class MockInterstitial : MonoBehaviour, IInterstitialAd
 
     private void InitializeConsoleCallbacks()
     {
-        OnLoaded += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Interstitial Loaded</color>");
-        OnFailedLoad += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=red>Interstitial Fail to Load:</color> {args.Message}");
+        OnLoaded += (sender, args) => Debug.unityLogger.Log("Mediation","Interstitial Loaded");
+        OnFailedLoad += (sender, args) => Debug.unityLogger.LogError("Mediation","Interstitial Fail to Load: {args.Message}");
 
-        OnShowed += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Interstitial Showed</color>");
-        OnFailedShow += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=red>Interstitial Fail to Show:</color> {args.Message}");
+        OnShowed += (sender, args) => Debug.unityLogger.Log("Mediation","Interstitial Showed");
+        OnFailedShow += (sender, args) => Debug.unityLogger.LogError("Mediation","Interstitial Fail to Show: {args.Message}");
 
-        OnClicked += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Interstitial Clicked</color>");
-        OnClosed += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Interstitial Closed</color>");
+        OnClicked += (sender, args) => Debug.unityLogger.Log("Mediation","Interstitial Clicked");
+        OnClosed += (sender, args) => Debug.unityLogger.Log("Mediation","Interstitial Closed");
     }
 
     public void Load()

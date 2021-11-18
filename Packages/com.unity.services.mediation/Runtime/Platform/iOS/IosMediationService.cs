@@ -17,11 +17,16 @@ namespace Unity.Services.Mediation.Platform
 
         public InitializationState InitializationState => UnityMediationGetInitializationState();
 
+        public string SdkVersion => UnityMediationGetSdkVersion();
+
         public void Initialize(string gameId, string installId)
         {
             instance = this;
             UnityMediationInitialize(gameId, InitializationSuccess, InitializationFailed, installId);
         }
+
+        [DllImport("__Internal", EntryPoint = "UMSPUnityMediationGetSdkVersion")]
+        static extern string UnityMediationGetSdkVersion();
 
         [DllImport("__Internal", EntryPoint = "UMSPUnityMediationGetInitializationState")]
         static extern InitializationState UnityMediationGetInitializationState();

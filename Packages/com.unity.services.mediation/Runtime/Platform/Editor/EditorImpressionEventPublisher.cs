@@ -12,7 +12,7 @@ namespace Unity.Services.Mediation.Platform
 
         public EditorImpressionEventPublisher()
         {
-            OnImpression += (sender, args) => Debug.Log($"<b>Unity Mediation:</b> <color=green>Impression Event Fired:</color> {args.AdUnitId}");
+            OnImpression += (sender, args) => Debug.unityLogger.Log("Mediation","Impression Event Fired: {args.AdUnitId}");
         }
 
         public void InvokeOnImpressionEvent(object sender, ImpressionEventArgs args)
