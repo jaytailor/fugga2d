@@ -7,7 +7,8 @@
     "com.unity.ide.rider": "3.0.7",
     "com.unity.ide.visualstudio": "2.0.11",
     "com.unity.ide.vscode": "1.2.3",
-    "com.unity.services.mediation": "file:com.unity.services.mediation",
+    "com.unity.services.analytics": "2.0.7-pre.6",
+    "com.unity.services.mediation": "file:3ae23dae5bc314c99229c99c8f809dcbc7962e38.tgz",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.6.2",
     "com.unity.ugui": "1.0.0",
@@ -41,8 +42,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.unity.services.analytics": "2.0.7-pre.6"
+    "com.unity.modules.xr": "1.0.0"
   },
   "scopedRegistries": [
     {

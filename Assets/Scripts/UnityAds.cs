@@ -17,7 +17,9 @@ public class UnityAds : MonoBehaviour
 		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
 		private string interstitialAdunitIdNew = "Android_Interstitial";
 	#else
-		private string gameId = "0123456"; // Prevents Editor Errors
+		private string gameId = "1737342"; // Prevents Editor Errors
+		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
+		private string interstitialAdunitIdNew = "Android_Interstitial";
 	#endif
 
 	public GameObject adBtn;
