@@ -1,7 +1,3 @@
-using System;
-using Unity.Services.Mediation.Platform;
-using UnityEngine;
-
 namespace Unity.Services.Mediation
 {
     /// <summary>

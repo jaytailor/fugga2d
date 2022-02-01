@@ -1,5 +1,4 @@
 #if UNITY_ANDROID
-using System;
 using NUnit.Framework;
 using Unity.Services.Mediation.Build.Editor;
 

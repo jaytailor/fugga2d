@@ -39,6 +39,21 @@ namespace Unity.Services.Mediation.Samples
                 m_RewardedAd.Show();
             }
         }
+        
+        public void ShowRewardedWithOptions()
+        {
+            if (m_RewardedAd.AdState == AdState.Loaded)
+            {
+                //Here we provide a user id and custom data for server to server validation.
+                RewardedAdShowOptions showOptions = new RewardedAdShowOptions();
+                S2SRedeemData s2SData;
+                s2SData.UserId = "my cool user id";
+                s2SData.CustomData = "{\"reward\":\"Gems\",\"amount\":20}";
+                showOptions.S2SData = s2SData;
+                
+                m_RewardedAd.Show(showOptions);
+            }
+        }
 
         void LoadAd()
         {

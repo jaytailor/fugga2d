@@ -41,23 +41,31 @@
     border-bottom-width: 10px;
     border-left-width: 16px;
     border-right-width: 16px;
-    margin: 0;
-    background-color: #353535;
 }
 
-.adapter-container-alt {
-    flex-direction: column;
-    border-top-width: 10px;
-    border-bottom-width: 10px;
-    border-left-width: 16px;
-    border-right-width: 16px;
-    background-color: #303030;
+.light-even-background
+{
+    background-color: #C8C8C8;
+}
+
+.light-odd-background
+{
+    background-color: #CACACA;
+}
+
+.dark-even-background
+{
+    background-color: #383838;
+}
+
+.dark-odd-background
+{
+    background-color: #3F3F3F;
 }
 
 .adapter-title {
     font-size: 11px;
     -unity-font-style: bold;
-    color: #d2d2d2;
 }
 
 .adapter-header {

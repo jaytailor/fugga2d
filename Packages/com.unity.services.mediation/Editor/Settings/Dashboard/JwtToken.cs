@@ -3,7 +3,6 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections.Generic;
 
 namespace Unity.Services.Mediation.Dashboard.Editor
 {

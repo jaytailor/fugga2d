@@ -1,7 +1,4 @@
-using System;
 using System.Threading.Tasks;
-using Unity.Services.Mediation.Platform;
-using UnityEngine;
 
 namespace Unity.Services.Mediation
 {

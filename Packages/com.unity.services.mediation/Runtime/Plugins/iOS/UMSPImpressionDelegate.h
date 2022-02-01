@@ -8,8 +8,8 @@ typedef struct {
     const char *ImpressionId;
     const char *Currency;
     const char *RevenueAccuracy;
-    const char *publisherRevenuePerImpression;
-    const char *publisherRevenuePerImpressionInMicros;
+    double     publisherRevenuePerImpression;
+    int64_t    publisherRevenuePerImpressionInMicros;
     const char *AdSourceName;
     const char *AdSourceInstance;
     const char *AppVersion;

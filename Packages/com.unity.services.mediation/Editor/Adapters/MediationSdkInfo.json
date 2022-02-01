@@ -4,8 +4,8 @@
     "DisplayName": "Mediation SDK",
     "AndroidArtifact": "com.unity3d.mediation:mediation-sdk",
     "IosPod": "UnityMediationSdk",
-    "PackageVersion": "0.3.0-preview.1",
-    "SdkVersion": "0.3"
+    "PackageVersion": "0.4.0-preview.1",
+    "SdkVersion": "0.4"
   },
   "Adapters": [
     {
@@ -34,7 +34,7 @@
     },
     {
       "Identifier": "facebook-adapter",
-      "DisplayName": "Facebook Adapter",
+      "DisplayName": "Meta Audience Network Adapter",
       "AndroidArtifact": "com.unity3d.mediation:facebook-adapter",
       "IosPod": "UnityMediationFacebookAdapter",
       "Versions": [
@@ -58,7 +58,7 @@
     },
     {
       "Identifier": "ironsource-adapter",
-      "DisplayName": "Iron Source Adapter",
+      "DisplayName": "ironSource Adapter",
       "AndroidArtifact": "com.unity3d.mediation:ironsource-adapter",
       "IosPod": "UnityMediationIronSourceAdapter",
       "Versions": [

@@ -1,5 +1,4 @@
 #if UNITY_IOS
-using System;
 using System.Runtime.InteropServices;
 
 namespace Unity.Services.Mediation.Platform

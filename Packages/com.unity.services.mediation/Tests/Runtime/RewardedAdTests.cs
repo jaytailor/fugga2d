@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
-using Unity.Services.Mediation.Platform;
 
 namespace Unity.Services.Mediation.Tests
 {
@@ -22,9 +21,9 @@ namespace Unity.Services.Mediation.Tests
         [Test]
         public void ShowTest()
         {
-            m_RewardedAdMock.Setup(ad => ad.Show());
+            m_RewardedAdMock.Setup(ad => ad.Show(null));
             m_RewardedAd.Show();
-            m_RewardedAdMock.Verify(ad => ad.Show());
+            m_RewardedAdMock.Verify(ad => ad.Show(null));
         }
 
         [Test]

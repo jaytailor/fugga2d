@@ -98,7 +98,7 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// Method to tell the Mediation SDK to show the loaded Ad.
         /// </summary>
-        public void Show() => m_RewardedAdImpl.Show();
+        public void Show(RewardedAdShowOptions showOptions = null) => m_RewardedAdImpl.Show(showOptions);
 
         /// <summary>
         /// Dispose and release internal resources.

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
-using Unity.Services.Mediation.Platform;
 
 namespace Unity.Services.Mediation.Tests
 {

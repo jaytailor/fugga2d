@@ -1,6 +1,5 @@
 #if NUGET_MOQ_AVAILABLE && UNITY_EDITOR
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;

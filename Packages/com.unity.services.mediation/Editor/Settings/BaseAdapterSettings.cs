@@ -1,6 +1,3 @@
-using UnityEditor.SettingsManagement;
-using UnityEngine;
-using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace Unity.Services.Mediation.Settings.Editor

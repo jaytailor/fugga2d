@@ -8,7 +8,6 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
 namespace Unity.Services.Mediation.Settings.Editor
 {
     /// <summary>
@@ -118,13 +117,13 @@ namespace Unity.Example
 
         void AdShown(object sender, EventArgs args)
         {
-            //pre-load the next ad
-            ad.Load();
             Debug.Log(""Ad shown!"");
         }
 
         void AdClosed(object sender, EventArgs e)
         {
+            // Pre-load the next ad
+            ad.Load();
             Debug.Log(""Ad has closed"");
             // Execute logic after an ad has been closed.
         }
@@ -180,6 +179,7 @@ namespace Unity.Example
         PopupField<(string, string)> m_GameIdsDropdownContent;
         PopupField<(string, string)> m_AdUnitsDropdownContent;
         TextField     m_CodeGenField;
+        private Label m_CodeGenLineNumbers;
 
         [MenuItem("Services/Mediation/Code Generator", priority = 112)]
         public static void ShowWindow()
@@ -224,6 +224,9 @@ namespace Unity.Example
                 rootVisualElement.styleSheets.Add(sheet);
             }
 
+            m_CodeGenLineNumbers = rootVisualElement.Q<Label>("codeGenLineNumbers");
+            m_CodeGenLineNumbers.text = string.Empty;
+
             m_CodeGenField = rootVisualElement.Q<TextField>("codeGenField");
             m_CodeGenField.isReadOnly = true;
             m_CodeGenField.value = k_LoadingText;
@@ -249,6 +252,7 @@ namespace Unity.Example
         {
             DashboardClient.GetAdUnitsAsync(adUnits =>
             {
+                m_CodeGenLineNumbers.text = string.Empty;
                 if (adUnits == null)
                 {
                     // Project is not linked, no internet connexion or other issue; we could not retrieve the ad units
@@ -353,8 +357,6 @@ namespace Unity.Example
 
             m_CodeGenField.value = codeString;
 
-            var codeGenLineNumbers = rootVisualElement.Q<Label>("codeGenLineNumbers");
-
             var lineCount = codeString.Count(x => x == '\n') + 1;
             StringBuilder lineNumbersTextBuilder = new StringBuilder("1");
             for (int i = 2; i <= lineCount; i++)
@@ -362,7 +364,7 @@ namespace Unity.Example
                 lineNumbersTextBuilder.Append($"\n {i}");
             }
 
-            codeGenLineNumbers.text = lineNumbersTextBuilder.ToString();
+            m_CodeGenLineNumbers.text = lineNumbersTextBuilder.ToString();
         }
     }
 }

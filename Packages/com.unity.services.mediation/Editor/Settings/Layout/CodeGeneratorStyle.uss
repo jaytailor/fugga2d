@@ -3,7 +3,6 @@
     -unity-font-style: bold;
     border-bottom-width:7px;
     border-top-width: 20px;
-    color: #d2d2d2;
 }
 
 .code-info-row {
@@ -25,7 +24,7 @@
 
 .code-get-field-line-numbers {
     min-width: 22px;
-    font-size: 12px;
+    font-size: 13px;
     padding: 2px;
     color: #646464;
     -unity-text-align: upper-right;
@@ -36,15 +35,10 @@
     align-content: stretch;
     align-items: flex-start;
     flex-grow: 1;
-    font-size: 12px;
-}
-
-.code-field-font {
-    -unity-font: resource("System Normal.ttf");
+    font-size: 13px;
 }
 
 .code-field  > * {
-    color: #FFC66D;
     min-height: 100px;
 }
 
@@ -53,7 +47,6 @@
     position: absolute;
     right:10px;
     top:10px;
-    color: #d2d2d2;
 }
 
 .window-border {

@@ -1,6 +1,5 @@
 #if UNITY_ANDROID
 using System;
-using Unity.Services.Mediation.Platform;
 using UnityEngine;
 
 namespace Unity.Services.Mediation.Platform
@@ -105,7 +104,7 @@ namespace Unity.Services.Mediation.Platform
             });
         }
 
-        public void Show()
+        public void Show(RewardedAdShowOptions showOptions = null)
         {
             if (CheckDisposedAndLogError("Cannot call Show()")) return;
             ThreadUtil.Post(state =>
@@ -116,7 +115,18 @@ namespace Unity.Services.Mediation.Platform
                     {
                         m_RewardedAdShowListener = new AndroidRewardedAdShowListener(this);
                     }
-                    m_RewardedAd.Call("show", m_RewardedAdShowListener);
+
+                    AndroidJavaObject showOptionsJava = null;
+                    if (showOptions != null)
+                    {
+                        showOptionsJava = new AndroidJavaObject("com.unity3d.mediation.RewardedAdShowOptions");
+                        AndroidJavaObject s2sData = new AndroidJavaObject("com.unity3d.mediation.RewardedAdShowOptions$S2SRedeemData");
+                        s2sData.Set("userId", showOptions.S2SData.UserId);
+                        s2sData.Set("customData", showOptions.S2SData.CustomData);
+                        showOptionsJava.Call("setS2SRedeemData", s2sData);
+                    }
+
+                    m_RewardedAd.Call("show", m_RewardedAdShowListener, showOptionsJava);
                 }
                 catch (Exception e)
                 {

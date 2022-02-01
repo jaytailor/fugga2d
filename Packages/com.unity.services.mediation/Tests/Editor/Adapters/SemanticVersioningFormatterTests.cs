@@ -1,11 +1,6 @@
 #if NUGET_MOQ_AVAILABLE
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Moq;
 using NUnit.Framework;
 using Unity.Services.Mediation.Adapters.Editor;
-using UnityEditor;
 
 namespace Unity.Services.Mediation.EditorTests
 {

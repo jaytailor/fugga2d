@@ -3,26 +3,25 @@
     flex-direction: row;
 }
 
-.normal-even-background
+.light-even-background
 {
-    background-color: #C2C2C2
+    background-color: #C8C8C8;
 }
 
-.normal-odd-background
+.light-odd-background
 {
-    background-color: #CACACA
+    background-color: #CACACA;
 }
 
-.pro-even-background
+.dark-even-background
 {
-    background-color: #303030;
+    background-color: #383838;
 }
 
-.pro-odd-background
+.dark-odd-background
 {
-    background-color: #353535;
+    background-color: #3F3F3F;
 }
-
 
 .list-item-label-adunit
 {

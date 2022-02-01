@@ -1,5 +1,4 @@
 #if UNITY_IOS
-using System;
 using System.IO;
 using Unity.Services.Mediation.Settings.Editor;
 using UnityEditor;

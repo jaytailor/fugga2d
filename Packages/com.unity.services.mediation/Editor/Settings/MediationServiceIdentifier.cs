@@ -1,4 +1,3 @@
-using UnityEngine;
 using Unity.Services.Core.Editor;
 
 namespace Unity.Services.Mediation.Settings.Editor

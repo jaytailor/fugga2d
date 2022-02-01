@@ -7,7 +7,6 @@ using UnityEditor.Advertisements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
 namespace Unity.Services.Mediation.Settings.Editor
 {
     class MediationAdapterSettings : EditorWindow
@@ -188,12 +187,14 @@ namespace Unity.Services.Mediation.Settings.Editor
                 var adapter = new VisualElement();
 
                 adapterTemplate.CloneTree(adapter);
-                if (i % 2 == 0)
-                {
-                    var adapterContainer = adapter.Q<VisualElement>("Adapter");
-                    adapterContainer.RemoveFromClassList("adapter-container");
-                    adapterContainer.AddToClassList("adapter-container-alt");
-                }
+
+                var adapterContainer = adapter.Q<VisualElement>("Adapter");
+
+                string backgroundUssPrefix = EditorGUIUtility.isProSkin ? "dark" : "light";
+                string rowUssPrefix = i % 2 == 0 ? "even" : "odd";
+
+                adapterContainer.AddToClassList($"{backgroundUssPrefix}-{rowUssPrefix}-background");
+
                 adapter.Q<TextElement>("AdapterName").text = adapterInfo.DisplayName;
 
                 adapter.Q<Button>("InstallButton").clickable.clickedWithEventInfo += evt => AdapterInstallClicked(s_AdapterInstallButton.FirstOrDefault(pair => pair.Value == evt.target).Key);

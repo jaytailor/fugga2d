@@ -60,9 +60,9 @@ namespace Unity.Services.Mediation.Platform
             m_MockRewarded.Load();
         }
 
-        public void Show()
+        public void Show(RewardedAdShowOptions showOptions = null)
         {
-            m_MockRewarded.Show();
+            m_MockRewarded.Show(showOptions);
         }
 
         public void Dispose()

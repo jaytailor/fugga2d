@@ -23,7 +23,9 @@
         "Moq.dll"
     ],
     "autoReferenced": false,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
     "versionDefines": [
         {
             "name": "nuget.moq",

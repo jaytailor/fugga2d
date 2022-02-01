@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.SettingsManagement;
 using Unity.Services.Core.Editor;
 using Unity.Services.Mediation.Adapters.Editor;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Unity.Services.Mediation.Settings.Editor

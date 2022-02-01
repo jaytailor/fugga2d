@@ -77,8 +77,8 @@ namespace Unity.Services.Mediation
         public string LineItemId;
         public string LineItemName;
         public string LineItemPriority;
-        public string PublisherRevenuePerImpression;
-        public string PublisherRevenuePerImpressionInMicros;
+        public double PublisherRevenuePerImpression;
+        public long PublisherRevenuePerImpressionInMicros;
         public string RevenueAccuracy;
         public string Timestamp;
         public ImpressionData() {}
@@ -137,7 +137,7 @@ namespace Unity.Services.Mediation
         public abstract Unity.Services.Mediation.AdState AdState { get; }
         public abstract string AdUnitId { get; }
         public abstract void Load();
-        public abstract void Show();
+        public abstract void Show(Unity.Services.Mediation.RewardedAdShowOptions showOptions = default(Unity.Services.Mediation.RewardedAdShowOptions));
     }
 
     public enum LoadError
@@ -176,7 +176,13 @@ namespace Unity.Services.Mediation
         public RewardedAd(string adUnitId) {}
         public virtual void Dispose();
         public virtual void Load();
-        public virtual void Show();
+        public virtual void Show(Unity.Services.Mediation.RewardedAdShowOptions showOptions = default(Unity.Services.Mediation.RewardedAdShowOptions));
+    }
+
+    public class RewardedAdShowOptions
+    {
+        public Unity.Services.Mediation.S2SRedeemData S2SData { get; set; }
+        public RewardedAdShowOptions() {}
     }
 
     public class RewardEventArgs : System.EventArgs
@@ -184,6 +190,12 @@ namespace Unity.Services.Mediation
         public string Amount { get; }
         public string Type { get; }
         public RewardEventArgs(string type, string amount) {}
+    }
+
+    public struct S2SRedeemData
+    {
+        public string CustomData;
+        public string UserId;
     }
 
     public enum SdkInitializationError

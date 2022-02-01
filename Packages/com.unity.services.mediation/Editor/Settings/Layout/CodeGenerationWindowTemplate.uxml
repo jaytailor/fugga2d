@@ -18,8 +18,8 @@
             </VisualElement>
 
             <VisualElement class="code-field-layout">
-                <Label name="codeGenLineNumbers" class="code-get-field-line-numbers code-field-font" multiline="true"/>
-                <TextField name="codeGenField" class="code-field code-field-font" multiline="true">
+                <Label name="codeGenLineNumbers" class="code-get-field-line-numbers" multiline="true"/>
+                <TextField name="codeGenField" class="code-field" multiline="true">
                     <Button name="copyToClipboard" text="Copy snippet" class="copy-button"/>
                 </TextField>
             </VisualElement>

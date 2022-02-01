@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
-using UnityEngine;
 
 namespace Unity.Services.Mediation.Adapters.Editor
 {

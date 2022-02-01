@@ -1,5 +1,3 @@
-using System;
-
 namespace Unity.Services.Mediation
 {
     /// <summary>

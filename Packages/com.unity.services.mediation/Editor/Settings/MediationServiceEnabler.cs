@@ -1,5 +1,4 @@
 using Unity.Services.Core.Editor;
-using UnityEngine;
 
 namespace Unity.Services.Mediation.Settings.Editor
 {

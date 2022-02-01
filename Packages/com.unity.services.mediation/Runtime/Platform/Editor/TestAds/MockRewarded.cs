@@ -5,7 +5,6 @@ using Unity.Services.Mediation;
 using Unity.Services.Mediation.Platform;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -58,15 +57,15 @@ class MockRewarded : MonoBehaviour, IRewardedAd
 
     private void InitializeConsoleCallbacks()
     {
-        OnLoaded += (sender, args) => Debug.unityLogger.Log("Mediation","Rewarded Loaded");
-        OnFailedLoad += (sender, args) => Debug.unityLogger.LogError("Mediation","Rewarded Fail to Load: {args.Message}");
+        OnLoaded += (sender, args) => Debug.unityLogger.Log("Mediation", "Rewarded Loaded");
+        OnFailedLoad += (sender, args) => Debug.unityLogger.LogError("Mediation", "Rewarded Fail to Load: {args.Message}");
 
-        OnUserRewarded += (sender, args) => Debug.unityLogger.Log("Mediation","User Rewarded: (type: {args.Type}, amount: {args.Amount})");
-        OnClicked += (sender, args) => Debug.unityLogger.Log("Mediation","Rewarded Clicked");
-        OnClosed += (sender, args) => Debug.unityLogger.Log("Mediation","Rewarded Closed");
+        OnUserRewarded += (sender, args) => Debug.unityLogger.Log("Mediation", "User Rewarded: (type: {args.Type}, amount: {args.Amount})");
+        OnClicked += (sender, args) => Debug.unityLogger.Log("Mediation", "Rewarded Clicked");
+        OnClosed += (sender, args) => Debug.unityLogger.Log("Mediation", "Rewarded Closed");
 
-        OnShowed += (sender, args) => Debug.unityLogger.Log("Mediation","Rewarded Showed");
-        OnFailedShow += (sender, args) => Debug.unityLogger.LogError("Mediation","Rewarded Fail to Show: {args.Message}");
+        OnShowed += (sender, args) => Debug.unityLogger.Log("Mediation", "Rewarded Showed");
+        OnFailedShow += (sender, args) => Debug.unityLogger.LogError("Mediation", "Rewarded Fail to Show: {args.Message}");
     }
 
     public void Load()
@@ -100,7 +99,7 @@ class MockRewarded : MonoBehaviour, IRewardedAd
         }
     }
 
-    public void Show()
+    public void Show(RewardedAdShowOptions showOptions = null)
     {
         if (AdState == AdState.Loaded)
         {
@@ -117,7 +116,7 @@ class MockRewarded : MonoBehaviour, IRewardedAd
         }
     }
 
-    private void ShowAd()
+    void ShowAd()
     {
         Canvas.enabled = true;
         m_AdCoroutine = StartCoroutine(StartAd());

@@ -1,5 +1,4 @@
 #if UNITY_ANDROID || UNITY_IOS
-using System;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;

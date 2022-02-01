@@ -54,7 +54,7 @@ namespace Unity.Services.Mediation.Tests
         public void RaiseMockedEvent()
         {
             var evName = eventName;
-            mockedObject.Raise(o => typeof(T).GetEvent(evName).AddEventHandler(o, null), eventArgs);
+            mockedObject.Raise(o => typeof(T).GetEvent(evName).AddEventHandler(o, m_Handler), eventArgs);
         }
 
         void onEventFired(object sender, EventArgs eventArgs)

@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace Unity.Services.Mediation
 {
@@ -60,6 +61,34 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// Method to tell the Mediation SDK to show the loaded Ad.
         /// </summary>
-        void Show();
+        /// <param name="showOptions">Optional, allows setting optional parameters for showing a rewarded ad.</param>
+        void Show(RewardedAdShowOptions showOptions = null);
+    }
+
+    /// <summary>
+    /// Contains optional parameters for showing a rewarded ad.
+    /// </summary>
+    public class RewardedAdShowOptions
+    {
+        public S2SRedeemData S2SData { get; set; }
+    }
+
+    /// <summary>
+    /// Contains the Server to Server redeem callback data.
+    /// Make sure the rewarded ad is properly configured for server to server redeem callback authentication and a server URL is set in the dashboard.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public struct S2SRedeemData
+    {
+        /// <summary>
+        /// Unique identifier of the user being rewarded
+        /// </summary>
+        public string UserId;
+
+        /// <summary>
+        /// Optional custom data provided to the server
+        /// For example in a json format: "{\"reward\":\"Gems\",\"amount\":20}"
+        /// </summary>
+        public string CustomData;
     }
 }

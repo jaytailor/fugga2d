@@ -27,8 +27,8 @@
         unityImpressionData.ImpressionId = [impressionData.impressionId UTF8String];
         unityImpressionData.Currency = [impressionData.currency UTF8String];
         unityImpressionData.RevenueAccuracy = [impressionData.revenueAccuracy UTF8String];
-        unityImpressionData.publisherRevenuePerImpression = [impressionData.publisherRevenuePerImpression UTF8String];
-        unityImpressionData.publisherRevenuePerImpressionInMicros = [impressionData.publisherRevenuePerImpressionInMicros UTF8String];
+        unityImpressionData.publisherRevenuePerImpression = [impressionData.publisherRevenuePerImpression doubleValue];
+        unityImpressionData.publisherRevenuePerImpressionInMicros = impressionData.publisherRevenuePerImpressionInMicros;
         unityImpressionData.AdSourceName = [impressionData.adSourceName UTF8String];
         unityImpressionData.AdSourceInstance = [impressionData.adSourceInstance UTF8String];
         unityImpressionData.AppVersion = [impressionData.appVersion UTF8String];

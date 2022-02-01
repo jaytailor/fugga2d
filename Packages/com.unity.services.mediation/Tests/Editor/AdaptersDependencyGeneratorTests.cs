@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,26 +9,37 @@ namespace Unity.Services.Mediation.EditorTests
 {
     public class AdaptersDependencyGeneratorTests
     {
-        string xmlTestDirectoryPath = Application.temporaryCachePath + @"/com.unity.services.mediation/Tests/Editor/";
-        string xmlTestPath = Application.temporaryCachePath + @"/com.unity.services.mediation/Tests/Editor/MediationDepsTest.xml";
-        const string xmlTemplatePathNone = "Packages/com.unity.services.mediation/Tests/Editor/MediationDepsNone.xml";
-        const string xmlTemplatePathAll = "Packages/com.unity.services.mediation/Tests/Editor/MediationDepsAll.xml";
+        string m_XMLTestDirectoryPath = Application.temporaryCachePath + @"/com.unity.services.mediation/Tests/Editor/";
+        string m_XMLTestPath = Application.temporaryCachePath + @"/com.unity.services.mediation/Tests/Editor/MediationDepsTest.xml";
+        const string k_XMLTemplateFileNone = "MediationDepsNone.xml";
+        const string k_XMLTemplateFileAll = "MediationDepsAll.xml";
+        string m_XMLTemplateBasePath;
 
-        private AdaptersDependencyGenerator generator;
+        private AdaptersDependencyGenerator m_Generator;
 
         [SetUp]
         public void SetUp()
         {
-            generator = new AdaptersDependencyGenerator();
+            // The path will vary if the tests are in a separate package
+            if (Directory.Exists("Packages/com.unity.services.mediation.tests/Tests"))
+            {
+                m_XMLTemplateBasePath = @"Packages/com.unity.services.mediation.tests/Tests/Editor/";
+            }
+            else
+            {
+                m_XMLTemplateBasePath = @"Packages/com.unity.services.mediation/Tests/Editor/";
+            }
+
+            m_Generator = new AdaptersDependencyGenerator();
         }
 
         [TearDown]
         public void TearDown()
         {
-            if (File.Exists(xmlTestPath))
+            if (File.Exists(m_XMLTestPath))
             {
-                File.Delete(xmlTestPath);
-                File.Delete(xmlTestPath + ".meta");
+                File.Delete(m_XMLTestPath);
+                File.Delete(m_XMLTestPath + ".meta");
             }
         }
 
@@ -41,7 +51,7 @@ namespace Unity.Services.Mediation.EditorTests
             {
                 adapter.InstalledVersion = adapter.Versions.First();
             }
-            GenerateTest(adapters, xmlTemplatePathAll);
+            GenerateTest(adapters, m_XMLTemplateBasePath + k_XMLTemplateFileAll);
         }
 
         [Test]
@@ -52,17 +62,17 @@ namespace Unity.Services.Mediation.EditorTests
             {
                 unityAdsAdapterInfo.InstalledVersion = unityAdsAdapterInfo.Versions.First();
             }
-            GenerateTest(new List<AdapterInfo>(){unityAdsAdapterInfo}, xmlTemplatePathNone);
+            GenerateTest(new List<AdapterInfo>(){unityAdsAdapterInfo}, m_XMLTemplateBasePath + k_XMLTemplateFileNone);
         }
 
         [Test]
         [TestCase("MediationDepsNone.xml", new[] {"Unity Ads Adapter"})]
-        [TestCase("MediationDepsAll.xml", new[] {"AdMob Adapter", "Facebook Adapter", "Unity Ads Adapter", "AdColony Adapter", "Iron Source Adapter", "Applovin Adapter", "Vungle Adapter"})]
+        [TestCase("MediationDepsAll.xml", new[] {"AdMob Adapter", "Meta Audience Network Adapter", "Unity Ads Adapter", "AdColony Adapter", "ironSource Adapter", "Applovin Adapter", "Vungle Adapter"})]
         public void GetInstalledAdaptersTest(string xmlFile, string[] expectedAdapters)
         {
-            string xmlPath = $"Packages/com.unity.services.mediation/Tests/Editor/{xmlFile}";
+            string xmlPath = m_XMLTemplateBasePath + xmlFile;
 
-            var installedAdapters = generator.GetInstalledAdapters(xmlPath);
+            var installedAdapters = m_Generator.GetInstalledAdapters(xmlPath);
             var displayNames = installedAdapters.Select(info => info.DisplayName);
             CollectionAssert.AreEquivalent(expectedAdapters, displayNames, "Incorrect Adapters Installed");
         }
@@ -70,15 +80,15 @@ namespace Unity.Services.Mediation.EditorTests
         [Test]
         public void InstallAdaptersTest()
         {
-            Directory.CreateDirectory(xmlTestDirectoryPath);
-            File.Copy(xmlTemplatePathNone, xmlTestPath);
+            Directory.CreateDirectory(m_XMLTestDirectoryPath);
+            File.Copy(m_XMLTemplateBasePath + k_XMLTemplateFileNone, m_XMLTestPath);
             foreach (var adapter in MediationSdkInfo.GetAllAdapters())
             {
-                generator.InstallAdapter(adapter.Identifier, adapter.InstalledVersion, xmlTestPath);
+                m_Generator.InstallAdapter(adapter.Identifier, adapter.InstalledVersion, m_XMLTestPath);
             }
 
-            List<AdapterInfo> expectedAdapterList = MediationSdkInfo.s_Generator.GetInstalledAdapters(xmlTemplatePathAll);
-            List<AdapterInfo> actualAdapterList = MediationSdkInfo.s_Generator.GetInstalledAdapters(xmlTestPath);
+            List<AdapterInfo> expectedAdapterList = MediationSdkInfo.s_Generator.GetInstalledAdapters(m_XMLTemplateBasePath + k_XMLTemplateFileAll);
+            List<AdapterInfo> actualAdapterList = MediationSdkInfo.s_Generator.GetInstalledAdapters(m_XMLTestPath);
 
             CollectionAssert.AreEquivalent(expectedAdapterList, actualAdapterList, "Expected Adapters weren't installed into XML file.");
         }
@@ -86,18 +96,18 @@ namespace Unity.Services.Mediation.EditorTests
         [Test]
         public void UninstallAdaptersTest()
         {
-            Directory.CreateDirectory(xmlTestDirectoryPath);
-            File.Copy(xmlTemplatePathAll, xmlTestPath);
+            Directory.CreateDirectory(m_XMLTestDirectoryPath);
+            File.Copy(m_XMLTemplateBasePath + k_XMLTemplateFileAll, m_XMLTestPath);
             foreach (var adapter in MediationSdkInfo.GetAllAdapters())
             {
                 if (adapter.Identifier != "unityads-adapter")
                 {
-                    generator.UninstallAdapter(adapter.Identifier, xmlTestPath);
+                    m_Generator.UninstallAdapter(adapter.Identifier, m_XMLTestPath);
                 }
             }
 
-            List<AdapterInfo> expectedAdapterList = MediationSdkInfo.s_Generator.GetInstalledAdapters(xmlTemplatePathNone);
-            List<AdapterInfo> actualAdapterList = MediationSdkInfo.s_Generator.GetInstalledAdapters(xmlTestPath);
+            List<AdapterInfo> expectedAdapterList = MediationSdkInfo.s_Generator.GetInstalledAdapters(m_XMLTemplateBasePath + k_XMLTemplateFileNone);
+            List<AdapterInfo> actualAdapterList = MediationSdkInfo.s_Generator.GetInstalledAdapters(m_XMLTestPath);
 
             CollectionAssert.AreEquivalent(expectedAdapterList, actualAdapterList, "Expected Adapters weren't uninstalled from XML file.");
         }
@@ -109,7 +119,7 @@ namespace Unity.Services.Mediation.EditorTests
         [TestCase("Something/Editor/Maven~/com/unity3d/mediation/mediation-sdkX", false)]
         public void LocalMavenRegexTest(string path, bool matches)
         {
-            Assert.AreEqual(matches, generator.IsPathLikeLocalMavenPath(path), "Bad regex match result");
+            Assert.AreEqual(matches, m_Generator.IsPathLikeLocalMavenPath(path), "Bad regex match result");
         }
 
         static void GenerateTest(List<AdapterInfo> adapterInfos, string xmlPath)

@@ -45,7 +45,7 @@ namespace Unity.Services.Mediation.Settings.Editor.Layout
 
         public static void BindListItem(VisualElement element, int index)
         {
-            string backgroundUssPrefix = EditorGUIUtility.isProSkin ? "pro" : "normal";
+            string backgroundUssPrefix = EditorGUIUtility.isProSkin ? "dark" : "light";
             string rowUssPrefix = index % 2 == 0 ? "even" : "odd";
             string rowUssPrefixNot = index % 2 == 1 ? "even" : "odd";
             element.AddToClassList($"{backgroundUssPrefix}-{rowUssPrefix}-background");

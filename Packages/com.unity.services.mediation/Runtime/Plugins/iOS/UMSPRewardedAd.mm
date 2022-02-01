@@ -1,5 +1,6 @@
 #import "UnityAppController.h"
 #import <UnityMediationSdk/UnityMediationSdk.h>
+#import <UnityMediationSdk/UMSRewardedAdShowOptions.h>
 #import "UMSPRewardedAdLoadDelegate.h"
 #import "UMSPRewardedAdShowDelegate.h"
 #include <string.h>
@@ -7,6 +8,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+struct S2SRedeemData {
+    const char* userId;
+    const char* customData;
+};
 
 void * UMSPRewardedAdCreate(const char *adUnitId) {
     NSString *adUnitIdString = [NSString stringWithUTF8String:adUnitId];
@@ -25,16 +31,28 @@ void UMSPRewardedAdLoad(void *ptr, void *delegatePtr) {
     [rewardedAd loadWithDelegate:delegate];
 }
 
-void UMSPRewardedAdShow(void *ptr, void *delegatePtr) {
+void UMSPRewardedAdShow(void *ptr, void *delegatePtr, S2SRedeemData s2sRedeemData) {
     if (!ptr) return;
 
     UMSRewardedAd *rewardedAd = (__bridge UMSRewardedAd *)ptr;
     UMSPRewardedAdShowDelegate *delegate = delegatePtr ? (__bridge UMSPRewardedAdShowDelegate *)delegatePtr : nil;
 
+    UMSRewardedAdShowOptions *showOptions = [[UMSRewardedAdShowOptions alloc] init];
+    if(s2sRedeemData.userId != NULL)
+    {
+        showOptions.publisherData.userId = [NSString stringWithUTF8String:s2sRedeemData.userId];
+    }
+
+    if(s2sRedeemData.customData != NULL)
+    {
+        showOptions.publisherData.customData = [NSString stringWithUTF8String:s2sRedeemData.customData];
+    }
+
     UIViewController *viewController = [GetAppController() rootViewController];
 
     [rewardedAd showWithViewController:viewController
-                              delegate:delegate];
+                              delegate:delegate
+                           showOptions:showOptions];
 }
 
 const char * UMSPRewardedAdGetAdUnitId(void *ptr) {

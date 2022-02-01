@@ -1,8 +1,6 @@
 #if UNITY_ANDROID
-using System;
 using System.IO;
 using UnityEditor.Android;
-using UnityEngine;
 
 namespace Unity.Mediation.Build.Editor
 {

@@ -1,7 +1,6 @@
 using System.IO;
 using NUnit.Framework;
 using PlayServicesResolver.Installer.Editor;
-using UnityEngine;
 
 namespace Unity.Services.Mediation.EditorTests
 {

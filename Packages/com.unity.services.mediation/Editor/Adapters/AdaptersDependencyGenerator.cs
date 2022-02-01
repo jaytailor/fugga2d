@@ -19,13 +19,13 @@ namespace Unity.Services.Mediation.Adapters.Editor
         const string k_IdentifierKey = "mediation-identifier";
         const string k_VersionKey = "mediation-version";
 
-        const string k_AndroidStagingArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-stg-local/";
-        const string k_AndroidProductionArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-prod-local/";
-        const string k_AndroidArtifactoryURL = k_AndroidStagingArtifactoryURL;
-
-        const string k_IOSStagingArtifactoryURL = @"'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'";
-        const string k_IOSProductionArtifactoryURL = @"'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'";
-        const string k_IOSArtifactoryURL = k_IOSStagingArtifactoryURL;
+#if UNITY_MEDIATION_STAGING
+        const string k_AndroidArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-stg-local/";
+        const string k_IOSArtifactoryURL = @"'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'";
+#else // Prod
+        const string k_AndroidArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-prod-local/";
+        const string k_IOSArtifactoryURL = @"'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'";
+#endif
 
         string m_DependenciesPath;
         Regex m_MavenRegex;

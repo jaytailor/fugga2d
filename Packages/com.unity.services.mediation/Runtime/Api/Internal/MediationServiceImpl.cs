@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using Unity.Services.Core;
 using Unity.Services.Mediation.Platform;
-using UnityEngine;
 
 namespace Unity.Services.Mediation
 {

@@ -98,10 +98,14 @@ namespace Unity.Services.Mediation.Build.Editor
         bool IsSdkCompatibleWithPackage()
         {
             var sdkPrefix = "com.unity3d.mediation.mediation-sdk-";
+            var metaExtension = "meta";
             Path.Combine();
             var sdkInfo = MediationSdkInfo.GetSdkInfo();
-            var sdkFileName = Directory.GetFiles(m_PluginFolder)
-                .Select(Path.GetFileNameWithoutExtension).First(x => x.StartsWith(sdkPrefix));
+            var pluginFiles = Directory.GetFiles(m_PluginFolder);
+            var sdkFullFileName = pluginFiles.FirstOrDefault(x => Path.GetFileName(x).StartsWith(sdkPrefix) && !x.EndsWith(metaExtension));
+            if (sdkFullFileName == null) return false;
+            
+            var sdkFileName = Path.GetFileNameWithoutExtension(sdkFullFileName);
             var sdkVersionString = sdkFileName.Replace(sdkPrefix, "");
             var sdkVersion = Version.Parse(sdkVersionString);
             var packageVersion = Version.Parse(sdkInfo.SdkVersion);

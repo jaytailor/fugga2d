@@ -1,10 +1,8 @@
 #if NUGET_MOQ_AVAILABLE && UNITY_EDITOR
-using System;
 using System.Threading;
 using Moq;
 using NUnit.Framework;
 using Unity.Services.Mediation.Platform;
-using UnityEngine;
 
 namespace Unity.Services.Mediation.Tests
 {

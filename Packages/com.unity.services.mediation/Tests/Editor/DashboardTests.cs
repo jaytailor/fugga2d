@@ -1,8 +1,6 @@
-using System;
 using NUnit.Framework;
 using Unity.Services.Mediation.Dashboard.Editor;
 using UnityEditor;
-using UnityEngine;
 
 namespace Unity.Services.Mediation.EditorTests
 {

@@ -1,5 +1,4 @@
 #if UNITY_ANDROID
-using System;
 using System.Xml;
 using Unity.Services.Mediation.Settings.Editor;
 using UnityEditor.Android;

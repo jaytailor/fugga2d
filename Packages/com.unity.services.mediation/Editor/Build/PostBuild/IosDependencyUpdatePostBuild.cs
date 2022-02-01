@@ -1,6 +1,5 @@
 #if UNITY_IOS
 
-using System;
 using System.Reflection;
 using Google;
 using GooglePlayServices;

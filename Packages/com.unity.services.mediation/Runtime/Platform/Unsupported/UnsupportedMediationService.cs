@@ -11,6 +11,8 @@ namespace Unity.Services.Mediation.Platform
 
         public InitializationState InitializationState => InitializationState.Uninitialized;
 
+        public string SdkVersion => "0.0.0";
+
         public void Initialize(string gameId, string installId) {}
     }
 }

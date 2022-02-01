@@ -49,14 +49,20 @@ namespace Unity.Services.Mediation.Platform
             RewardedAdLoad(NativePtr, m_RewardedLoadListener.NativePtr);
         }
 
-        public void Show()
+        public void Show(RewardedAdShowOptions showOptions = null)
         {
             if (CheckDisposedAndLogError("Cannot call Show()")) return;
             if (m_RewardedShowListener == null)
             {
                 m_RewardedShowListener = new IosRewardedShowListener();
             }
-            RewardedAdShow(NativePtr, m_RewardedShowListener.NativePtr);
+
+            if (showOptions == null)
+            {
+                showOptions = new RewardedAdShowOptions();
+            }
+
+            RewardedAdShow(NativePtr, m_RewardedShowListener.NativePtr, showOptions.S2SData);
         }
 
         public override void Dispose()
@@ -115,7 +121,7 @@ namespace Unity.Services.Mediation.Platform
         static extern void RewardedAdLoad(IntPtr nativePtr, IntPtr listener);
 
         [DllImport("__Internal", EntryPoint = "UMSPRewardedAdShow")]
-        static extern void RewardedAdShow(IntPtr nativePtr, IntPtr listener);
+        static extern void RewardedAdShow(IntPtr nativePtr, IntPtr listener, S2SRedeemData showOptions);
 
         [DllImport("__Internal", EntryPoint = "UMSPRewardedAdGetAdUnitId")]
         static extern string RewardedAdGetAdUnitId(IntPtr nativePtr);
