@@ -7,9 +7,9 @@ using UnityEngine;
 
 namespace Unity.Services.Mediation.Build.Editor
 {
-    class PreprocessBuild : IPreprocessBuildWithReport
+    class AdMobAppIdEmptyPreBuildCheck : IPreprocessBuildWithReport
     {
-        const string kAdMobWarning = "Unity Mediation: AdMob adapter is enabled, but AdMob application identifier is not set. " +
+        const string k_AdMobWarning = "Unity Mediation: AdMob adapter is enabled, but AdMob application identifier is not set. " +
             "You can configure it under 'Project Settings/Mediation'.";
 
         public int callbackOrder { get; }
@@ -22,7 +22,7 @@ namespace Unity.Services.Mediation.Build.Editor
             if (report.summary.platform == BuildTarget.Android && string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdAndroid) ||
                 report.summary.platform == BuildTarget.iOS && string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdIos))
             {
-                Debug.LogWarning(kAdMobWarning);
+                Debug.LogWarning(k_AdMobWarning);
             }
         }
     }

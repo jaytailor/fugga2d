@@ -32,5 +32,10 @@ namespace Unity.Services.Mediation
         /// Access the Impression Event Publisher API, to receive events when impression events are fired from ad objects.
         /// </summary>
         IImpressionEventPublisher ImpressionEventPublisher { get; }
+
+        /// <summary>
+        /// Native Mediation SDK version this mediation service is operating upon.
+        /// </summary>
+        string SdkVersion { get; }
     }
 }

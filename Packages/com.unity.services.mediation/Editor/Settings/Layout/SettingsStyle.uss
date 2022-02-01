@@ -8,6 +8,7 @@
     height:60px;
     background-color: #181818;
 }
+
 .ToggleService{
     position:absolute;
     right:0px;
@@ -132,6 +133,7 @@
 .centered-row {
     flex-direction:row;
     align-items:center;
+    -unity-text-align: middle-center;
 }
 
 .centered-column {
@@ -208,6 +210,13 @@
 
 .subtext {
     font-size:10px;
+}
+
+.game-id-row {
+    width:150px;
+    left:10px;
+    flex-direction:row;
+    justify-content: space-between;
 }
 
 .table-box

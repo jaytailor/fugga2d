@@ -9,6 +9,8 @@ namespace Unity.Services.Mediation.Platform
 
         InitializationState InitializationState { get; }
 
+        string SdkVersion { get; }
+
         void Initialize(string gameId, string installId);
     }
 }

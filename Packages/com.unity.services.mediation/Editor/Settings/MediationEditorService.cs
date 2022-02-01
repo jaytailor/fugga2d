@@ -41,7 +41,7 @@ namespace Unity.Services.Mediation.Settings.Editor
             if (!s_RefreshingGameId)
             {
                 s_RefreshingGameId = true;
-                DashboardClient.GetGameIdAsyncOrWait(OnGameIdRetrieved, "UNITY");
+                DashboardClient.GetGameIdAsyncOrWait(OnGameIdRetrieved);
             }
         }
 

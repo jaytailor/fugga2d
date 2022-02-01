@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using Unity.Services.Core;
-using Unity.Services.Core.Configuration;
 using Unity.Services.Core.Configuration.Internal;
-using Unity.Services.Core.Device;
 using Unity.Services.Core.Device.Internal;
 using Unity.Services.Core.Internal;
 
@@ -28,10 +23,15 @@ namespace Unity.Services.Mediation
             IInstallationId       installationId = registry.GetServiceComponent<IInstallationId>();
             IProjectConfiguration projectConfig  = registry.GetServiceComponent<IProjectConfiguration>();
 
-            string installId = installationId.GetOrCreateIdentifier();
-            string gameId    = projectConfig.GetString(keyGameId);
+            await Initialize(installationId, projectConfig);
+        }
 
-            if (string.IsNullOrEmpty(gameId))
+        internal async Task Initialize(IInstallationId installationId, IProjectConfiguration projectConfiguration)
+        {
+            string installId = installationId.GetOrCreateIdentifier();
+            string gameId    = projectConfiguration.GetString(keyGameId);
+
+            if (!Application.isEditor && string.IsNullOrEmpty(gameId))
             {
                 Debug.LogError("No gameId was set for the mediation service. Please make sure your project is linked to the dashboard when you build your application.");
             }

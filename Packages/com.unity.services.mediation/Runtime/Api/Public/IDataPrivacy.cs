@@ -37,7 +37,17 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// California Consumer Privacy Act, applicable to users residing in California.
         /// </summary>
-        CCPA = 1
+        CCPA = 1,
+
+        /// <summary>
+        /// Personal Information Protection Law, regarding ad personalization, applicable to users residing in China.
+        /// </summary>
+        PIPLAdPersonalization = 2,
+
+        /// <summary>
+        /// Personal Information Protection Law, regarding moving data out of China, applicable to users residing in China.
+        /// </summary>
+        PIPLDataTransport = 3
     }
 
     /// <summary>

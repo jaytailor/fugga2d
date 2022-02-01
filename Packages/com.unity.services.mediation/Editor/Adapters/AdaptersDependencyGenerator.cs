@@ -21,18 +21,18 @@ namespace Unity.Services.Mediation.Adapters.Editor
 
         const string k_AndroidStagingArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-stg-local/";
         const string k_AndroidProductionArtifactoryURL = @"https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-prod-local/";
-        const string k_AndroidArtifactoryURL = k_AndroidProductionArtifactoryURL;
+        const string k_AndroidArtifactoryURL = k_AndroidStagingArtifactoryURL;
 
         const string k_IOSStagingArtifactoryURL = @"'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'";
         const string k_IOSProductionArtifactoryURL = @"'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'";
-        const string k_IOSArtifactoryURL = k_IOSProductionArtifactoryURL;
+        const string k_IOSArtifactoryURL = k_IOSStagingArtifactoryURL;
 
         string m_DependenciesPath;
         Regex m_MavenRegex;
 
         public virtual event Action AdaptersChanged;
 
-        string GetDependenciesPath()
+        string GetDependenciesPath(bool createPath = true)
         {
             if (m_DependenciesPath != null)
             {
@@ -55,6 +55,16 @@ namespace Unity.Services.Mediation.Adapters.Editor
                 m_DependenciesPath = file;
                 return m_DependenciesPath;
             }
+
+            if (createPath)
+            {
+                m_DependenciesPath = CreateDependencyPath();
+            }
+            return m_DependenciesPath;
+        }
+
+        string CreateDependencyPath()
+        {
             Directory.CreateDirectory(k_DefaultFolder);
 
             AdapterInfo unityAdsAdapterInfo = MediationSdkInfo.GetAllAdapters().Find((x) => x.Identifier == "unityads-adapter");
@@ -62,40 +72,8 @@ namespace Unity.Services.Mediation.Adapters.Editor
             {
                 unityAdsAdapterInfo.InstalledVersion = unityAdsAdapterInfo.Versions.First();
             }
-            InstallOverrideAdapters(k_DefaultPath, new List<AdapterInfo>(){unityAdsAdapterInfo});
-            m_DependenciesPath = k_DefaultPath;
+            InstallOverrideAdapters(k_DefaultPath, new List<AdapterInfo>() {unityAdsAdapterInfo});
             return m_DependenciesPath;
-        }
-
-        string GenerateXmlContent(List<AdapterInfo> adapters)
-        {
-            return (new XComment(" auto-generated. do not modify by hand. ") + Environment.NewLine +
-                new XElement("dependencies",
-                    new XElement("androidPackages",
-                        new XElement("repositories",
-                            new XElement("repository", k_AndroidArtifactoryURL)
-                        ),
-                        new XComment(" Mediation SDK Android Adapters "),
-                        adapters.OrderBy(info => info.Identifier)
-                            .Select(info => new XElement("androidPackage",
-                                new XAttribute("spec", $"{info.AndroidArtifact}:{info.InstalledVersion.Version(SemanticVersioningType.Maven)}"),
-                                new XAttribute(k_IdentifierKey, info.Identifier),
-                                new XAttribute(k_VersionKey, info.InstalledVersion.Identifier)
-                            ))
-                    ),
-                    new XElement("iosPods",
-                        new XComment(" Mediation SDK iOS Adapters "),
-                        adapters.OrderBy(info => info.Identifier)
-                            .Select(info => new XElement("iosPod",
-                                new XAttribute("name", info.IosPod),
-                                new XAttribute("version", info.InstalledVersion.Version(SemanticVersioningType.CocoaPods)),
-                                new XAttribute("source", k_IOSArtifactoryURL),
-                                new XAttribute(k_IdentifierKey, info.Identifier),
-                                new XAttribute(k_VersionKey, info.InstalledVersion.Identifier)
-                            ))
-                    )
-                )
-            ).Replace("&gt;", ">");
         }
 
         internal string GenerateXmlContentWithAllDependencies(List<AdapterInfo> adapters)
@@ -226,13 +204,13 @@ namespace Unity.Services.Mediation.Adapters.Editor
         /// Get a list of adapters currently in use with Mediation SDK
         /// </summary>
         /// <returns>Returns a List of AdapterInfo</returns>
-        public virtual List<AdapterInfo> GetInstalledAdapters()
+        public virtual List<AdapterInfo> GetInstalledAdapters(bool generateXml = true)
         {
             var xmlPath = GetDependenciesPath();
-            return GetInstalledAdapters(xmlPath);
+            return GetInstalledAdapters(xmlPath, generateXml);
         }
 
-        internal List<AdapterInfo> GetInstalledAdapters(string xmlPath)
+        internal List<AdapterInfo> GetInstalledAdapters(string xmlPath, bool generateXml = true)
         {
             var needRegeneration = false;
             var sdkInfo = MediationSdkInfo.GetSdkInfo();
@@ -281,7 +259,7 @@ namespace Unity.Services.Mediation.Adapters.Editor
                 installedAdapters.Add(adapter);
             }
 
-            if (needRegeneration)
+            if (needRegeneration && generateXml)
             {
                 InstallOverrideAdapters(xmlPath, installedAdapters);
             }
@@ -366,11 +344,6 @@ namespace Unity.Services.Mediation.Adapters.Editor
         {
             File.WriteAllText(xmlPath, GenerateXmlContentWithAllDependencies(adapters));
             AdaptersChanged?.Invoke();
-        }
-
-        public void InstallOverrideAdapters(List<AdapterInfo> adapters)
-        {
-            InstallOverrideAdapters(GetDependenciesPath(), adapters);
         }
 
         public void Apply(bool resolve = false)

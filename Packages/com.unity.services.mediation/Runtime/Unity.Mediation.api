@@ -24,6 +24,8 @@ namespace Unity.Services.Mediation
     {
         public const Unity.Services.Mediation.DataPrivacyLaw CCPA = 1;
         public const Unity.Services.Mediation.DataPrivacyLaw GDPR = 0;
+        public const Unity.Services.Mediation.DataPrivacyLaw PIPLAdPersonalization = 2;
+        public const Unity.Services.Mediation.DataPrivacyLaw PIPLDataTransport = 3;
         public int value__;
     }
 
@@ -56,6 +58,7 @@ namespace Unity.Services.Mediation
     {
         public abstract Unity.Services.Mediation.IDataPrivacy DataPrivacy { get; }
         public abstract Unity.Services.Mediation.IImpressionEventPublisher ImpressionEventPublisher { get; }
+        public abstract string SdkVersion { get; }
         public abstract Unity.Services.Mediation.IInterstitialAd CreateInterstitialAd(string adUnitId);
         public abstract Unity.Services.Mediation.IRewardedAd CreateRewardedAd(string adUnitId);
     }
@@ -86,6 +89,11 @@ namespace Unity.Services.Mediation
         public string AdUnitId { get; }
         public Unity.Services.Mediation.ImpressionData ImpressionData { get; }
         public ImpressionEventArgs(string adUnitId, Unity.Services.Mediation.ImpressionData impressionData) {}
+    }
+
+    [System.Runtime.CompilerServices.Extension] public static class InitializationOptionsExtensions
+    {
+        [System.Runtime.CompilerServices.Extension] public static Unity.Services.Core.InitializationOptions SetGameId(Unity.Services.Core.InitializationOptions self, string gameId);
     }
 
     public enum InitializationState

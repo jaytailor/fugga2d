@@ -20,6 +20,12 @@ namespace Unity.Services.Mediation.Tests
         [TestCase(DataPrivacyLaw.GDPR, ConsentStatus.Denied)]
         [TestCase(DataPrivacyLaw.GDPR, ConsentStatus.Given)]
         [TestCase(DataPrivacyLaw.GDPR, ConsentStatus.NotDetermined)]
+        [TestCase(DataPrivacyLaw.PIPLAdPersonalization, ConsentStatus.Denied)]
+        [TestCase(DataPrivacyLaw.PIPLAdPersonalization, ConsentStatus.Given)]
+        [TestCase(DataPrivacyLaw.PIPLAdPersonalization, ConsentStatus.NotDetermined)]
+        [TestCase(DataPrivacyLaw.PIPLDataTransport, ConsentStatus.Denied)]
+        [TestCase(DataPrivacyLaw.PIPLDataTransport, ConsentStatus.Given)]
+        [TestCase(DataPrivacyLaw.PIPLDataTransport, ConsentStatus.NotDetermined)]
         [UnityPlatform(RuntimePlatform.Android, RuntimePlatform.IPhonePlayer)]
         public void PrivacyTest(DataPrivacyLaw law, ConsentStatus consent)
         {

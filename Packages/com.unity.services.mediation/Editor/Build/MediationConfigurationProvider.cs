@@ -30,7 +30,9 @@ namespace Unity.Services.Mediation.Build.Editor
 
             if (string.IsNullOrEmpty(gameId))
             {
-                Debug.LogWarning("Could not retrieve gameId from Dashboard. Please make sure your project is linked to your Services project id before building.");
+                Debug.LogWarning("Could not retrieve gameId from Dashboard. " +
+                                 $"Please make sure that you linked the project in the Project Settings (Window > General > Services) " +
+                                 $"or provided it manually via {nameof(InitializationOptionsExtensions.SetGameId)}.");
             }
             else
             {

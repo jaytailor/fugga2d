@@ -6,12 +6,19 @@
       <Path>Library/PackageCache/com.unity.analytics@3.3.5</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.4</Path>
+      <Path>Library/PackageCache/com.unity.ide.rider@1.2.1</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.2.3</Path>
+      <Path>Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0</Path>
+      <Path>Library/PackageCache/com.unity.services.core@1.1.0-pre.11</Path>
       <Path>Library/PackageCache/com.unity.services.core@1.1.0-pre.4</Path>
       <Path>Library/PackageCache/com.unity.settings-manager@1.0.3</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.0.1</Path>
+      <Path>Library/PackageCache/com.unity.textmeshpro@2.1.4</Path>
+      <Path>Library/PackageCache/com.unity.timeline@1.2.18</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.2.6</Path>
       <Path>ProjectSettings</Path>
+      <Path>../../../Library/Unity/cache/packages/packages.unity.com/com.unity.ext.nunit@1.0.0</Path>
+      <Path>../../../Library/Unity/cache/packages/packages.unity.com/com.unity.test-framework@1.1.1</Path>
     </explicitIncludes>
     <explicitExcludes>
       <Path>.git</Path>

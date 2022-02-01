@@ -1,13 +1,12 @@
 <dependencies>
   <packages>
-    <package>com.unity3d.mediation:adcolony-adapter:[0.2,0.3[</package>
-    <package>com.unity3d.mediation:admob-adapter:[0.2,0.3[</package>
-    <package>com.unity3d.mediation:applovin-adapter:[0.2,0.3[</package>
-    <package>com.unity3d.mediation:facebook-adapter:[0.2,0.3[</package>
-    <package>com.unity3d.mediation:ironsource-adapter:[0.2,0.3[</package>
-    <package>com.unity3d.mediation:mediation-sdk:[0.2,0.3[</package>
-    <package>com.unity3d.mediation:unityads-adapter:[0.2,0.3[</package>
-    <package>com.unity3d.mediation:vungle-adapter:[0.2,0.3[</package>
+    <package>com.unity3d.mediation:adcolony-adapter:[0.3,0.4[</package>
+    <package>com.unity3d.mediation:applovin-adapter:[0.3,0.4[</package>
+    <package>com.unity3d.mediation:facebook-adapter:[0.3,0.4[</package>
+    <package>com.unity3d.mediation:ironsource-adapter:[0.3,0.4[</package>
+    <package>com.unity3d.mediation:mediation-sdk:[0.3,0.4[</package>
+    <package>com.unity3d.mediation:unityads-adapter:[0.3,0.4[</package>
+    <package>com.unity3d.mediation:vungle-adapter:[0.3,0.4[</package>
   </packages>
   <files>
     <file>Assets/Plugins/Android/androidx.annotation.annotation-1.2.0.jar</file>
@@ -46,13 +45,13 @@
     <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.work.work-runtime-2.1.0.aar</file>
-    <file>Assets/Plugins/Android/com.adcolony.sdk-4.6.3.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.applovin-sdk-10.3.3.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.audience-network-sdk-6.5.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-20.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-20.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.adcolony.sdk-4.6.5.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.applovin-sdk-10.3.5.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.audience-network-sdk-6.6.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-20.3.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-20.3.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-20.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-20.3.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.6.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-18.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-18.0.0.aar</file>
@@ -71,14 +70,14 @@
     <file>Assets/Plugins/Android/com.squareup.okhttp3.okhttp-4.6.0.jar</file>
     <file>Assets/Plugins/Android/com.squareup.okio.okio-2.6.0.jar</file>
     <file>Assets/Plugins/Android/com.unity3d.ads.unity-ads-3.7.5.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.mediation.adcolony-adapter-0.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.mediation.admob-adapter-0.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.mediation.applovin-adapter-0.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.mediation.facebook-adapter-0.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.mediation.ironsource-adapter-0.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.mediation.mediation-sdk-0.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.mediation.unityads-adapter-0.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.mediation.vungle-adapter-0.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.mediation.adcolony-adapter-0.2.1.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.mediation.admob-adapter-0.2.1.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.mediation.applovin-adapter-0.2.1.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.mediation.facebook-adapter-0.2.1.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.mediation.ironsource-adapter-0.2.1.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.mediation.mediation-sdk-0.2.1.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.mediation.unityads-adapter-0.2.1.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.mediation.vungle-adapter-0.2.1.aar</file>
     <file>Assets/Plugins/Android/com.vungle.publisher-sdk-android-6.9.1.aar</file>
     <file>Assets/Plugins/Android/org.checkerframework.checker-compat-qual-2.5.5.jar</file>
     <file>Assets/Plugins/Android/org.codehaus.mojo.animal-sniffer-annotations-1.18.jar</file>
@@ -92,7 +91,7 @@
     <setting name="bundleId" value="com.jayt.fugga" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
-    <setting name="gradleTemplateEnabled" value="False" />
+    <setting name="gradleTemplateEnabled" value="True" />
     <setting name="installAndroidPackages" value="True" />
     <setting name="packageDir" value="Assets/Plugins/Android" />
     <setting name="patchAndroidManifest" value="True" />

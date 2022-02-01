@@ -29,7 +29,7 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// The initialization state of the mediation sdk.
         /// </summary>
-        public static InitializationState InitializationState => s_Instance.InitializationState;
+        public static InitializationState InitializationState => s_Instance?.InitializationState ?? InitializationState.Uninitialized;
 
         internal static Task Initialize(string gameId, string installId)
         {

@@ -49,7 +49,7 @@ namespace Unity.Services.Mediation.EditorTests
         public void GetInstalledAdaptersTest()
         {
             var expectedAdapters = new List<AdapterInfo>();
-            m_GeneratorMock.Setup(generator => generator.GetInstalledAdapters())
+            m_GeneratorMock.Setup(generator => generator.GetInstalledAdapters(true))
                 .Returns(() => expectedAdapters);
             var installedAdapters = MediationSdkInfo.GetInstalledAdapters();
             Assert.AreEqual(expectedAdapters, installedAdapters, "Installed adapters mismatch");

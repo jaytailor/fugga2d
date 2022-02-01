@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Unity.Services.Mediation.Dashboard.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -27,6 +28,16 @@ namespace Unity.Services.Mediation.Settings.Editor
         const string k_SettingsStyle               = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/SettingsStyle.uss";
         const string k_CodeGeneratorStyle          = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/CodeGeneratorStyle.uss";
 #endif
+        const string k_AdFormatBanner = "BANNER";
+        const string k_AdFormatInterstitial = "INTERSTITIAL";
+        const string k_AdFormatRewarded = "REWARDED";
+
+        string[] m_SupportedAdFormats = new string[]
+        {
+            k_AdFormatInterstitial,
+            k_AdFormatRewarded
+        };
+
         const string k_GeneratedCodeTemplate  =
 @"using System;
 using Unity.Services.Core;
@@ -35,16 +46,20 @@ using UnityEngine;
 
 namespace Unity.Example
 {
-    public class MyAdExampleClass
+    public class {adType}Example
     {
         I{adType} ad;
         string adUnitId = ""{adUnitId}"";
+        string gameId = ""{gameId}"";
 
         public async void InitServices()
         {
             try
             {
-                await UnityServices.InitializeAsync();
+                InitializationOptions initializationOptions = new InitializationOptions();
+                initializationOptions.SetGameId(gameId);
+                await UnityServices.InitializeAsync(initializationOptions);
+
                 InitializationComplete();
             }
             catch (Exception e)
@@ -64,9 +79,9 @@ namespace Unity.Example
 
             ad.OnShowed += AdShown;
             ad.OnFailedShow += AdFailedShow;
-
+            ad.OnClosed += AdClosed;
+            ad.OnClicked += AdClicked;
             {rewardedCallback}
-
             // Impression Event
             MediationService.Instance.ImpressionEventPublisher.OnImpression += ImpressionEvent;
         }
@@ -90,7 +105,7 @@ namespace Unity.Example
             Debug.Log(""Initialization Failed: "" + e.Message);
         }
 
-        void AdLoaded(object sender, EventArgs sargs)
+        void AdLoaded(object sender, EventArgs args)
         {
             Debug.Log(""Ad loaded"");
         }
@@ -108,6 +123,18 @@ namespace Unity.Example
             Debug.Log(""Ad shown!"");
         }
 
+        void AdClosed(object sender, EventArgs e)
+        {
+            Debug.Log(""Ad has closed"");
+            // Execute logic after an ad has been closed.
+        }
+
+        void AdClicked(object sender, EventArgs e)
+        {
+            Debug.Log(""Ad has been clicked"");
+            // Execute logic after an ad has been clicked.
+        }
+
         void AdFailedShow(object sender, ShowErrorEventArgs args)
         {
             Debug.Log(args.Message);
@@ -118,17 +145,15 @@ namespace Unity.Example
             var impressionData = args.ImpressionData != null ? JsonUtility.ToJson(args.ImpressionData, true) : ""null"";
             Debug.Log(""Impression event from ad unit id "" + args.AdUnitId + "" "" + impressionData);
         }
-
         {rewardedFunction}
     }
-}
-";
+}";
         const string k_OnRewardedTemplate =
 @"
-void OnUserRewarded(object sender, RewardEventArgs e)
-{
-    Debug.Log($""Received reward: type:{e.Type}; amount:{e.Amount}"");
-}
+        void UserRewarded(object sender, RewardEventArgs e)
+        {
+            Debug.Log($""Received reward: type:{e.Type}; amount:{e.Amount}"");
+        }
 ";
 
         const string k_LoadingText = "Loading...";
@@ -244,6 +269,8 @@ void OnUserRewarded(object sender, RewardEventArgs e)
                     //Do not consider archived ad units
                     if (adUnit.IsArchived) continue;
 
+                    if (!m_SupportedAdFormats.Contains(adUnit.adFormat)) continue;
+
                     if (!m_AdUnitsPerGameId.ContainsKey((adUnit.Platform, adUnit.AppId)))
                     {
                         m_AdUnitsPerGameId.Add((adUnit.Platform, adUnit.AppId), new List<(string, string)>());
@@ -313,16 +340,29 @@ void OnUserRewarded(object sender, RewardEventArgs e)
             var rewardedFunction = "";
             if (formattedAdType == "RewardedAd")
             {
-                rewardedCallback = "ad.OnUserRewarded += OnUserRewarded;";
+                rewardedCallback = "ad.OnUserRewarded += UserRewarded;\n";
                 rewardedFunction = k_OnRewardedTemplate;
             }
 
             var codeString = k_GeneratedCodeTemplate
+                .Replace("{gameId}", gameId)
                 .Replace("{adUnitId}", adUnitId)
                 .Replace("{adType}", formattedAdType)
                 .Replace("{rewardedCallback}", rewardedCallback)
                 .Replace("{rewardedFunction}", rewardedFunction);
+
             m_CodeGenField.value = codeString;
+
+            var codeGenLineNumbers = rootVisualElement.Q<Label>("codeGenLineNumbers");
+
+            var lineCount = codeString.Count(x => x == '\n') + 1;
+            StringBuilder lineNumbersTextBuilder = new StringBuilder("1");
+            for (int i = 2; i <= lineCount; i++)
+            {
+                lineNumbersTextBuilder.Append($"\n {i}");
+            }
+
+            codeGenLineNumbers.text = lineNumbersTextBuilder.ToString();
         }
     }
 }

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Services.Mediation.Adapters.Editor;
 using UnityEditor;
-using UnityEditor.SettingsManagement;
+using UnityEditor.Advertisements;
 using UnityEngine;
-using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 
@@ -76,7 +75,6 @@ namespace Unity.Services.Mediation.Settings.Editor
         /// </summary>
         static void Refresh()
         {
-            Initialize();
             var installedAdapters = MediationSdkInfo.GetInstalledAdapters();
             var changed = false;
 
@@ -156,14 +154,6 @@ namespace Unity.Services.Mediation.Settings.Editor
         {
             VisualElement rootElement = new VisualElement();
 
-#if !ENABLE_EDITOR_GAME_SERVICES && UNITY_2020_1_OR_NEWER
-            if (string.IsNullOrEmpty(CloudProjectSettings.projectId))
-            {
-                SettingsService.OpenProjectSettings("Project/Services");
-                return rootElement;
-            }
-#endif
-
             VisualTreeAsset settingsTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_SettingsTemplate);
             VisualTreeAsset adapterTemplate  = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(k_AdapterTemplate);
 
@@ -225,6 +215,8 @@ namespace Unity.Services.Mediation.Settings.Editor
 #if !ENABLE_EDITOR_GAME_SERVICES
             MediationEditorService.RefreshGameId();
 #endif
+            rootElement.Q<TextElement>("android-game-id").text = AdvertisementSettings.GetGameId(RuntimePlatform.Android);
+            rootElement.Q<TextElement>("ios-game-id").text     = AdvertisementSettings.GetGameId(RuntimePlatform.IPhonePlayer);
 
             return rootElement;
         }
@@ -272,9 +264,7 @@ namespace Unity.Services.Mediation.Settings.Editor
         /// </summary>
         static void RefreshInstallButton(string adapterIdentifier)
         {
-            bool isInstalled = !string.IsNullOrEmpty(s_AdapterSettings.
-                FirstOrDefault(adapterSettings => adapterSettings.AdapterId == adapterIdentifier)?.
-                InstalledVersion.value);
+            bool isInstalled = IsAdapterInstalled(adapterIdentifier);
 
             s_AdapterInstallButton[adapterIdentifier].text = isInstalled ? k_Uninstall : k_Install;
         }
@@ -286,9 +276,7 @@ namespace Unity.Services.Mediation.Settings.Editor
         {
             if (adapterIdentifier != default)
             {
-                bool isInstalled = !string.IsNullOrEmpty(s_AdapterSettings.
-                    FirstOrDefault(adapterSettings => adapterSettings.AdapterId == adapterIdentifier)?.
-                    InstalledVersion.value);
+                bool isInstalled = IsAdapterInstalled(adapterIdentifier);
 
                 if (!isInstalled)
                 {
@@ -301,6 +289,13 @@ namespace Unity.Services.Mediation.Settings.Editor
 
                 RefreshInstallButton(adapterIdentifier);
             }
+        }
+
+        static bool IsAdapterInstalled(string adapterIdentifier)
+        {
+            return !string.IsNullOrEmpty(s_AdapterSettings.
+                FirstOrDefault(adapterSettings => adapterSettings.AdapterId == adapterIdentifier)?.
+                InstalledVersion.value);
         }
     }
 }
