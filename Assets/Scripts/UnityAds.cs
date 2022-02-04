@@ -5,14 +5,17 @@ using UnityEngine;
 using Unity.Services.Mediation;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
-
+#if UNITY_IOS
+using Unity.Advertisement.IosSupport;
+#endif
 public class UnityAds : MonoBehaviour
 {
 	#if UNITY_IOS
 		private string gameId = "1737343"; // Your iOS game ID here
 		private string rewardedVideoAdunitIdNew = "rv_ios_medi_adunit";
 		private string interstitialAdunitIdNew = "interstitial_ios_medi_adunit";
-	#elif UNITY_ANDROID
+		
+    #elif UNITY_ANDROID
 		private string gameId = "1737342"; // Your Android game ID here
 		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
 		private string interstitialAdunitIdNew = "Android_Interstitial";
@@ -32,6 +35,15 @@ public class UnityAds : MonoBehaviour
 
 		try
 		{
+			#if UNITY_IOS
+				// Check the user’s consent status. If it returns undetermined, display the permission dialogue:
+				if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() == ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
+				{
+					Debug.Log("Preparing popup...");
+					ATTrackingStatusBinding.RequestAuthorizationTracking();
+				}
+			#endif
+			
 			print("Initializing Mediation...");
 			await UnityServices.InitializeAsync();
 			Debug.Log("Mediation Initialized!");

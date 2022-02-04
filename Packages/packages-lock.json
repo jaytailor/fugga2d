@@ -12,6 +12,12 @@
       "source": "builtin",
       "dependencies": {}
     },
+    "com.unity.ads.ios-support": {
+      "version": "file:/Users/jayt/github/unity/com.unity.ads.ios-support/com.unity.ads.ios-support",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.analytics": {
       "version": "3.6.11",
       "depth": 0,

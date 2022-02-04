@@ -6,6 +6,7 @@
     <content url="file://$USER_HOME$/Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.6" />
     <content url="file://$USER_HOME$/Library/Unity/cache/packages/packages.unity.com/com.unity.textmeshpro@2.0.1" />
     <content url="file://$MODULE_DIR$/../.." />
+    <content url="file://$MODULE_DIR$/../../../../unity/com.unity.ads.ios-support/com.unity.ads.ios-support" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

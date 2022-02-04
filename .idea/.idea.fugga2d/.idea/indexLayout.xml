@@ -33,6 +33,7 @@
       <Path>Library/PackageCache/com.unity.timeline@1.6.2</Path>
       <Path>Packages</Path>
       <Path>ProjectSettings</Path>
+      <Path>../../unity/com.unity.ads.ios-support/com.unity.ads.ios-support</Path>
     </explicitIncludes>
     <explicitExcludes>
       <Path>.git</Path>

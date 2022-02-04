@@ -85,6 +85,45 @@
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="Unity.Advertisement.IosSupport.csproj" t="IncludeRecursive" />
+      <e p="Unity.Advertisement.IosSupport.Editor.csproj" t="IncludeRecursive" />
+      <e p="Unity.Advertisement.IosSupport.Editor.Tests.csproj" t="IncludeRecursive" />
+      <e p="Unity.Advertisement.IosSupport.Tests.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="$PROJECT_DIR$/../../Unity/com.unity.ads.ios-support/com.unity.ads.ios-support/Editor" t="Include">
+      <e p="AssemblyInfo.cs" t="Include" />
+      <e p="Parser" t="Include">
+        <e p="ISkAdNetworkParser.cs" t="Include" />
+        <e p="SkAdNetworkFileExtension.cs" t="Include" />
+        <e p="SkAdNetworkJsonParser.cs" t="Include" />
+        <e p="SkAdNetworkParser.cs" t="Include" />
+        <e p="SkAdNetworkUrlParser.cs" t="Include" />
+        <e p="SkAdNetworkXmlParser.cs" t="Include" />
+      </e>
+      <e p="PostProcessBuildPlist.cs" t="Include" />
+      <e p="Source" t="Include">
+        <e p="ISkAdNetworkSource.cs" t="Include" />
+        <e p="SkAdNetworkLocalSource.cs" t="Include" />
+        <e p="SkAdNetworkLocalSourceProvider.cs" t="Include" />
+        <e p="SkAdNetworkRemoteSource.cs" t="Include" />
+      </e>
+      <e p="Unity.Advertisement.IosSupport.Editor.asmdef" t="Include" />
+    </e>
+    <e p="$PROJECT_DIR$/../../Unity/com.unity.ads.ios-support/com.unity.ads.ios-support/Runtime" t="Include">
+      <e p="AssemblyInfo.cs" t="Include" />
+      <e p="iOSTransparency" t="Include">
+        <e p="ATTrackingStatusBinding.cs" t="Include" />
+      </e>
+      <e p="SkAdNetwork" t="Include">
+        <e p="SkAdNetworkBinding.cs" t="Include" />
+      </e>
+      <e p="Unity.Advertisement.IosSupport.asmdef" t="Include" />
+    </e>
+    <e p="$PROJECT_DIR$/../../Unity/com.unity.ads.ios-support/com.unity.ads.ios-support/Tests/Editor" t="Include">
+      <e p="Unity.Advertisement.IosSupport.Editor.Tests.asmdef" t="Include" />
+    </e>
+    <e p="$PROJECT_DIR$/../../Unity/com.unity.ads.ios-support/com.unity.ads.ios-support/Tests/Runtime" t="Include">
+      <e p="Unity.Advertisement.IosSupport.Tests.asmdef" t="Include" />
     </e>
     <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_fugga2d.-506805260.00" t="ExcludeRecursive" />
