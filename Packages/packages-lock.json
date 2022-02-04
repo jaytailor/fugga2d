@@ -103,13 +103,15 @@
       "url": "https://artifactory.prd.it.unity3d.com/artifactory/api/npm/upm-candidates"
     },
     "com.unity.services.mediation": {
-      "version": "file:3ae23dae5bc314c99229c99c8f809dcbc7962e38.tgz",
+      "version": "0.4.0-preview.1",
       "depth": 0,
-      "source": "local-tarball",
+      "source": "registry",
       "dependencies": {
         "com.unity.settings-manager": "1.0.3",
+        "com.unity.modules.ui": "1.0.0",
         "com.unity.services.core": "1.1.0-pre.11"
-      }
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.settings-manager": {
       "version": "1.0.3",

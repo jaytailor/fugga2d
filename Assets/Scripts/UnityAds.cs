@@ -111,8 +111,15 @@ public class UnityAds : MonoBehaviour
     public void ShowRewardedNew()
     {
 	    if (rewardedVideoAdNew.AdState == AdState.Loaded)
-	    {
-		    rewardedVideoAdNew.Show();
+	    {	
+		    RewardedAdShowOptions showOptions = new RewardedAdShowOptions();
+		    
+		    // s2s callback option
+		    S2SRedeemData s2SData;
+		    s2SData.UserId = "my user id";
+		    s2SData.CustomData = "{\"reward\":\"Premium\",\"amount\":200}";
+		    showOptions.S2SData = s2SData;
+		    rewardedVideoAdNew.Show(showOptions);
 	    }
     }
 
