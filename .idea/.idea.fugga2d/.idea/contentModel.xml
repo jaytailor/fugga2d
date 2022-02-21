@@ -7,6 +7,17 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="AdjustImei" t="Include">
+          <e p="Android" t="Include">
+            <e p="AdjustImeiAndroid.cs" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="AdjustImeiEditor.cs" t="Include" />
+          </e>
+          <e p="Unity" t="Include">
+            <e p="AdjustImei.cs" t="Include" />
+          </e>
+        </e>
         <e p="Editor" t="Include">
           <e p="MediationAdapterDependencies.xml" t="Include" />
         </e>

@@ -6,6 +6,7 @@
       <Path>../../../Library/Unity/cache/packages/packages.unity.com/com.unity.collab-proxy@1.2.16</Path>
       <Path>../../../Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.6</Path>
       <Path>../../../Library/Unity/cache/packages/packages.unity.com/com.unity.textmeshpro@2.0.1</Path>
+      <Path>../../unity/com.unity.ads.ios-support/com.unity.ads.ios-support</Path>
     </attachedFolders>
     <explicitIncludes>
       <Path>Library/PackageCache/com.unity.analytics@3.2.2</Path>
