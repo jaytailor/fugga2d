@@ -35,6 +35,14 @@ public class UnityAds : MonoBehaviour
 
 		try
 		{
+			#if UNITY_IOS
+				// Check the user’s consent status. If it returns undetermined, display the permission dialogue:
+				if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() == ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
+				{
+					Debug.Log("Preparing popup...");
+					ATTrackingStatusBinding.RequestAuthorizationTracking();
+				}
+			#endif
 			print("Initializing Mediation...");
 			await UnityServices.InitializeAsync();
 			Debug.Log("Mediation Initialized!");
@@ -55,14 +63,7 @@ public class UnityAds : MonoBehaviour
 
 	public void Start()
 	{
-		#if UNITY_IOS
-				// Check the user’s consent status. If it returns undetermined, display the permission dialogue:
-				if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() == ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
-				{
-					Debug.Log("Preparing popup...");
-					ATTrackingStatusBinding.RequestAuthorizationTracking();
-				}
-		#endif
+		
 	}
 
 	public void LoadInterstitialNew()
