@@ -7,15 +7,43 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="AdjustImei" t="Include">
+        <e p="Adjust" t="Include">
+          <e p="3rd Party" t="Include">
+            <e p="SimpleJSON.cs" t="Include" />
+          </e>
           <e p="Android" t="Include">
-            <e p="AdjustImeiAndroid.cs" t="Include" />
+            <e p="AdjustAndroid.cs" t="Include" />
+            <e p="AdjustAndroidManifest.xml" t="Include" />
           </e>
           <e p="Editor" t="Include">
-            <e p="AdjustImeiEditor.cs" t="Include" />
+            <e p="AdjustEditor.cs" t="Include" />
+            <e p="AdjustSettings.cs" t="Include" />
+          </e>
+          <e p="ExampleGUI" t="Include">
+            <e p="ExampleGUI.cs" t="Include" />
+          </e>
+          <e p="iOS" t="Include">
+            <e p="AdjustiOS.cs" t="Include" />
           </e>
           <e p="Unity" t="Include">
-            <e p="AdjustImei.cs" t="Include" />
+            <e p="Adjust.cs" t="Include" />
+            <e p="AdjustAdRevenue.cs" t="Include" />
+            <e p="AdjustAppStoreSubscription.cs" t="Include" />
+            <e p="AdjustAttribution.cs" t="Include" />
+            <e p="AdjustConfig.cs" t="Include" />
+            <e p="AdjustEnvironment.cs" t="Include" />
+            <e p="AdjustEvent.cs" t="Include" />
+            <e p="AdjustEventFailure.cs" t="Include" />
+            <e p="AdjustEventSuccess.cs" t="Include" />
+            <e p="AdjustLogLevel.cs" t="Include" />
+            <e p="AdjustPlayStoreSubscription.cs" t="Include" />
+            <e p="AdjustSessionFailure.cs" t="Include" />
+            <e p="AdjustSessionSuccess.cs" t="Include" />
+            <e p="AdjustThirdPartySharing.cs" t="Include" />
+            <e p="AdjustUtils.cs" t="Include" />
+          </e>
+          <e p="Windows" t="Include">
+            <e p="AdjustWindows.cs" t="Include" />
           </e>
         </e>
         <e p="Editor" t="Include">
@@ -89,6 +117,9 @@
           <e p="SpanIfEmpty.cs" t="Include" />
           <e p="spawnGoodies.cs" t="Include" />
           <e p="UnityAds.cs" t="Include" />
+        </e>
+        <e p="StreamingAssets" t="Include">
+          <e p="UnityServicesProjectConfiguration.json" t="Include" />
         </e>
         <e p="Upgrade200.cs" t="Include" />
       </e>

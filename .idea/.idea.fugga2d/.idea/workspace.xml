@@ -26,8 +26,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +66,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.mediation@0.4.0-preview.1/Runtime/Platform/Editor/EditorMediationService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTime.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AdjustImei/Unity/AdjustImei.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreSettingsEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/Utils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.mediation@0.4.0-preview.1/Runtime/Api/Public/ImpressionEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -174,7 +177,7 @@
       <workItem from="1638568956886" duration="76000" />
       <workItem from="1638807416589" duration="2205000" />
       <workItem from="1643995615824" duration="6541000" />
-      <workItem from="1645477451485" duration="1316000" />
+      <workItem from="1645477451485" duration="5555000" />
     </task>
     <servers />
   </component>
@@ -199,15 +202,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="100" y="135" width="1592" height="890" key="VCS.FileHistoryDialog" timestamp="1629937351011">
-      <screen x="0" y="25" width="1792" height="1095" />
-    </state>
-    <state x="100" y="135" width="1592" height="890" key="VCS.FileHistoryDialog/1792.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1629937351011" />
-    <state x="2105" y="157" width="1225" height="801" key="find.popup" timestamp="1631557798140">
+    <state x="1892" y="125" width="1592" height="855" key="VCS.FileHistoryDialog" timestamp="1645482750919">
       <screen x="1792" y="25" width="1920" height="1055" />
     </state>
-    <state x="2105" y="155" width="1225" height="802" key="find.popup/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1623192861185" />
-    <state x="2105" y="157" width="1225" height="801" key="find.popup/1792.25.1920.1055/0.25.1792.1095@1792.25.1920.1055" timestamp="1631557798140" />
+    <state x="1892" y="125" width="1592" height="855" key="VCS.FileHistoryDialog/1792.25.1920.1055/0.25.1792.1095@1792.25.1920.1055" timestamp="1645482750919" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

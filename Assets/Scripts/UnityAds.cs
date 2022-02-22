@@ -5,6 +5,7 @@ using UnityEngine;
 using Unity.Services.Mediation;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
+using com.adjust.sdk;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
 #endif
@@ -43,6 +44,7 @@ public class UnityAds : MonoBehaviour
 					ATTrackingStatusBinding.RequestAuthorizationTracking();
 				}
 			#endif
+
 			print("Initializing Mediation...");
 			await UnityServices.InitializeAsync();
 			Debug.Log("Mediation Initialized!");
@@ -205,8 +207,22 @@ public class UnityAds : MonoBehaviour
     
     static void OnImpression(object sender, ImpressionEventArgs e)
     {
-        var impressionData = e.ImpressionData != null ? JsonUtility.ToJson(e.ImpressionData, true) : "null";
+	    var impressionData = e.ImpressionData != null ? JsonUtility.ToJson(e.ImpressionData, true) : "null";
         Debug.Log($"Impression event from ad unit id {e.AdUnitId} : {impressionData}");
+
+        // Send impression data to adjust 
+        if (e.ImpressionData != null)
+        {
+	        AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceUnity);
+	        adjustAdRevenue.setRevenue(e.ImpressionData.PublisherRevenuePerImpression, e.ImpressionData.Currency);
+	        // optional fields
+	        adjustAdRevenue.setAdRevenueNetwork(e.ImpressionData.AdSourceName);
+	        adjustAdRevenue.setAdRevenueUnit(e.ImpressionData.AdUnitId);
+	        adjustAdRevenue.setAdRevenuePlacement(e.ImpressionData.AdSourceInstance);
+	        // track Adjust ad revenue
+	        Adjust.trackAdRevenue(adjustAdRevenue);
+        }
+        
     }
 
 	 public void ShowVideo()
