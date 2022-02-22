@@ -56,6 +56,7 @@
         </e>
         <e p="Plugins" t="Include">
           <e p="Android" t="Include">
+            <e p="AndroidManifest.xml" t="Include" />
             <e p="LauncherManifest.xml" t="Include" />
             <e p="network_security_config.xml" t="Include" />
           </e>
@@ -117,9 +118,6 @@
           <e p="SpanIfEmpty.cs" t="Include" />
           <e p="spawnGoodies.cs" t="Include" />
           <e p="UnityAds.cs" t="Include" />
-        </e>
-        <e p="StreamingAssets" t="Include">
-          <e p="UnityServicesProjectConfiguration.json" t="Include" />
         </e>
         <e p="Upgrade200.cs" t="Include" />
       </e>
