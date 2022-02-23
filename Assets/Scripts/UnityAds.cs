@@ -221,6 +221,7 @@ public class UnityAds : MonoBehaviour
 	        adjustAdRevenue.setAdRevenuePlacement(e.ImpressionData.AdSourceInstance);
 	        // track Adjust ad revenue
 	        Adjust.trackAdRevenue(adjustAdRevenue);
+	        Debug.Log("Sending impression events to Adjust " + adjustAdRevenue);
         }
         
     }

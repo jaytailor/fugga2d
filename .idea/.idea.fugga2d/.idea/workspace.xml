@@ -27,10 +27,12 @@
   <component name="ChangeListManager">
     <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/iOS/DDNAUnityNotificationsPlugin.m.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/iOS/DDNAUnityNotificationsPlugin.m.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +103,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" />
         <option value="$PROJECT_DIR$/Packages/manifest.json" />
         <option value="$PROJECT_DIR$/Assets/Plugins/Android/gradleTemplate.properties" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" />
       </list>
     </option>
@@ -177,7 +180,7 @@
       <workItem from="1638568956886" duration="76000" />
       <workItem from="1638807416589" duration="2205000" />
       <workItem from="1643995615824" duration="6541000" />
-      <workItem from="1645477451485" duration="5845000" />
+      <workItem from="1645477451485" duration="7984000" />
     </task>
     <servers />
   </component>
@@ -206,6 +209,10 @@
       <screen x="1792" y="25" width="1920" height="1055" />
     </state>
     <state x="1892" y="125" width="1592" height="855" key="VCS.FileHistoryDialog/1792.25.1920.1055/0.25.1792.1095@1792.25.1920.1055" timestamp="1645482750919" />
+    <state x="2270" y="307" width="836" height="490" key="find.popup" timestamp="1645643434970">
+      <screen x="1792" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2270" y="307" width="836" height="490" key="find.popup/1792.25.1920.1055/0.25.1792.1095@1792.25.1920.1055" timestamp="1645643434970" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

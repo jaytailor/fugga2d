@@ -119,6 +119,9 @@
           <e p="spawnGoodies.cs" t="Include" />
           <e p="UnityAds.cs" t="Include" />
         </e>
+        <e p="StreamingAssets" t="Include">
+          <e p="UnityServicesProjectConfiguration.json" t="Include" />
+        </e>
         <e p="Upgrade200.cs" t="Include" />
       </e>
       <e p="fugga2d.sln" t="IncludeFlat" />
