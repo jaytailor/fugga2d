@@ -70,7 +70,10 @@ public class UnityAds : MonoBehaviour
 
 	public void LoadInterstitialNew()
     {
-	    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;
+	    if (interstitialAdNew == null)
+	    {
+		    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;   
+	    }
 
 	    if (interstitialAdNew != null)
 	    {
@@ -96,10 +99,13 @@ public class UnityAds : MonoBehaviour
     }
     
     public void LoadRewardedNew()
-    { 
-        rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew) as RewardedAd;
+    {
+	    if (rewardedVideoAdNew == null)
+	    {
+		    rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew) as RewardedAd;
+	    }
 
-        if (rewardedVideoAdNew != null)
+	    if (rewardedVideoAdNew != null)
         {
 	        rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
 	        rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;

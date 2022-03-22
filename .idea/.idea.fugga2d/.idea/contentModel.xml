@@ -48,6 +48,8 @@
         </e>
         <e p="Editor" t="Include">
           <e p="MediationAdapterDependencies.xml" t="Include" />
+          <e p="PostBuildPrivacy.cs" t="Include" />
+          <e p="PostBuildUnityAdsTSI.cs" t="Include" />
         </e>
         <e p="PlayServicesResolver" t="Include">
           <e p="Editor" t="Include">
