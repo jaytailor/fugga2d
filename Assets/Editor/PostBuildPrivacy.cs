@@ -1,10 +1,9 @@
 using UnityEditor;
 using UnityEditor.Callbacks;
-#if UNITY_IOS
-using UnityEditor.iOS.Xcode;
-#endif
 using System.IO;
  
+#if UNITY_IOS
+using UnityEditor.iOS.Xcode;
 public class PostBuildStep {
     // Set the IDFA request description:
     const string k_TrackingDescription = "Your data will be used to provide you a better and personalized ad experience.";
@@ -36,3 +35,4 @@ public class PostBuildStep {
         File.WriteAllText(plistPath, plistObj.WriteToString());
     }
 }
+#endif
