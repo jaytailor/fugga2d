@@ -7,7 +7,7 @@ public static class Manager {
 	private static int diffLevel, premium;
 	private static string theme = "sky" ;
 	public static bool PremiumGranted = false;
-    private static UnityAds ads = null; 
+    private static UnityAds s_Ads = null; 
 
 
 	public static int DifficultyLevel
@@ -50,11 +50,12 @@ public static class Manager {
     {
         get
         {
-            return ads;
-        }
-        set
-        {
-            ads = value;
+	        if (s_Ads == null)
+	        {
+		        s_Ads = new UnityAds();
+	        }
+
+	        return s_Ads;
         }
     }
 }

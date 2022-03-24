@@ -12,8 +12,7 @@ public class MainMenu : MonoBehaviour {
 
     void Awake()
     {
-        Manager.Ads = iapListener.GetComponent<UnityAds> ();
-
+        Manager.Ads.Initialize();
         if (Manager.PremiumGranted == false) {
             Manager.PremiumScore = 100; 
             Manager.PremiumGranted = true;
