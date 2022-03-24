@@ -9,7 +9,7 @@ using com.adjust.sdk;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
 #endif
-public class UnityAds : MonoBehaviour
+public class UnityAds
 {
 	#if UNITY_IOS
 		private string gameId = "1737343"; // Your iOS game ID here
@@ -28,66 +28,61 @@ public class UnityAds : MonoBehaviour
 
 	public GameObject adBtn;
 	
-    InterstitialAd interstitialAdNew;
-    RewardedAd rewardedVideoAdNew;
+    IInterstitialAd interstitialAdNew;
+    IRewardedAd rewardedVideoAdNew;
 
-	public async void Awake()
+	public async void Initialize()
 	{
-
-		try
+		Debug.Log("Awake Mediation State: " + MediationService.InitializationState);
+		if (MediationService.InitializationState == InitializationState.Uninitialized)
 		{
-			#if UNITY_IOS
+
+			try
+			{
+#if UNITY_IOS
+
 				// Check the user’s consent status. If it returns undetermined, display the permission dialogue:
 				if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() == ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
 				{
 					Debug.Log("Preparing popup...");
 					ATTrackingStatusBinding.RequestAuthorizationTracking();
 				}
-			#endif
+#endif
 
-			print("Initializing Mediation...");
-			await UnityServices.InitializeAsync();
-			Debug.Log("Mediation Initialized!");
+				Debug.Log("Initializing Mediation...");
+				await UnityServices.InitializeAsync();
+				Debug.Log("Mediation Initialized!");
+			}
+			catch (InitializeFailedException e)
+			{
+				OnInitializationFailed(e);
+				throw;
+			}
+
+			// load interstitial ads
+			LoadInterstitialNew();
+
+			// load rewarded ads
+			LoadRewardedNew();
+			MediationService.Instance.ImpressionEventPublisher.OnImpression += OnImpression;
 		}
-		catch (InitializeFailedException e)
-		{
-			OnInitializationFailed(e);
-			throw;
-		}
-
-		// load interstitial ads
-		LoadInterstitialNew();
-        
-		// load rewarded ads
-		LoadRewardedNew();
-		MediationService.Instance.ImpressionEventPublisher.OnImpression += OnImpression;
-	}
-
-	public void Start()
-	{
-		
 	}
 
 	public void LoadInterstitialNew()
     {
 	    if (interstitialAdNew == null)
 	    {
-		    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew) as InterstitialAd;   
-	    }
-
-	    if (interstitialAdNew != null)
-	    {
+		    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew);
 		    interstitialAdNew.OnLoaded += OnLoadedInterstitial;
 		    interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
-		    Debug.Log("Loading Interstitial adunit...");
         
 		    // Show events callback registration
 		    interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
 		    interstitialAdNew.OnClosed += OnClosedInterstitial;
 		    interstitialAdNew.OnShowed += InterstitialAdShown;
-        
-		    interstitialAdNew.Load();   
 	    }
+	    Debug.Log("Loading Interstitial adunit...");
+	    interstitialAdNew.Load(); 
     }
     
     public void ShowInterstitialNew()
@@ -100,13 +95,9 @@ public class UnityAds : MonoBehaviour
     
     public void LoadRewardedNew()
     {
-	    if (rewardedVideoAdNew == null)
-	    {
-		    rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew) as RewardedAd;
-	    }
-
-	    if (rewardedVideoAdNew != null)
+        if (rewardedVideoAdNew == null)
         {
+	        rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew);
 	        rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
 	        rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
         
@@ -116,8 +107,9 @@ public class UnityAds : MonoBehaviour
 	        rewardedVideoAdNew.OnClosed += OnClosedRewarded;
 	        rewardedVideoAdNew.OnUserRewarded += UserRewarded;
         
-	        rewardedVideoAdNew.Load();
         }
+        Debug.Log("Loading Rewarded adunit...");
+        rewardedVideoAdNew.Load();
     }
     
     public void ShowRewardedNew()
