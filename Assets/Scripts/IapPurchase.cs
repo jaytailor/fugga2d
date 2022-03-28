@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using AppsFlyerSDK;
 
 public class IapPurchase : MonoBehaviour {
 
     public void PurchaseBeach(){
         // Check the premium amount 
         if (Manager.PremiumScore >= 1000) {
+            Dictionary<string, string> eventValues = new Dictionary<string, string>();
+            eventValues.Add("Purchase_Level", "Beach");
+            AppsFlyer.sendEvent(AFInAppEvents.PURCHASE,eventValues);
             Manager.Theme = "Beach";
             Debug.Log ("bought beach..");
 
@@ -21,6 +25,9 @@ public class IapPurchase : MonoBehaviour {
     public void PurchaseDream(){
         // Check the premium amount 
         if (Manager.PremiumScore >= 2000){
+            Dictionary<string, string> eventValues = new Dictionary<string, string>();
+            eventValues.Add("Purchase_Level", "Dream");
+            AppsFlyer.sendEvent(AFInAppEvents.PURCHASE,eventValues);
             Manager.Theme = "Dream";
             Debug.Log ("bought dream..");
 
@@ -34,6 +41,9 @@ public class IapPurchase : MonoBehaviour {
     public void PurchaseCloud(){
         // Check the premium amount 
         if (Manager.PremiumScore >= 3000){
+            Dictionary<string, string> eventValues = new Dictionary<string, string>();
+            eventValues.Add("Purchase_Level", "Cloud");
+            AppsFlyer.sendEvent(AFInAppEvents.PURCHASE,eventValues);
             Manager.Theme = "Cloud";
             Debug.Log ("bought cloud..");
 

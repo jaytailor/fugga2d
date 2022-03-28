@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AppsFlyerSDK;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,7 +15,7 @@ public class MainMenu : MonoBehaviour {
     {
         Manager.Ads.Initialize();
         if (Manager.PremiumGranted == false) {
-            Manager.PremiumScore = 100; 
+            Manager.PremiumScore = 5000; 
             Manager.PremiumGranted = true;
         }
     }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ContentModelUserStore">
+  <component name="UserContentModel">
     <attachedFolders>
+      <Path>../../unity/com.unity.ads.ios-support/com.unity.ads.ios-support</Path>
       <Path>../../../Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@3.3.2</Path>
       <Path>../../../Library/Unity/cache/packages/packages.unity.com/com.unity.collab-proxy@1.2.16</Path>
       <Path>../../../Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.6</Path>
@@ -34,7 +35,6 @@
       <Path>Library/PackageCache/com.unity.timeline@1.6.2</Path>
       <Path>Packages</Path>
       <Path>ProjectSettings</Path>
-      <Path>../../unity/com.unity.ads.ios-support/com.unity.ads.ios-support</Path>
     </explicitIncludes>
     <explicitExcludes>
       <Path>.git</Path>
