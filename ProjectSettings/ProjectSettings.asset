@@ -175,7 +175,7 @@ PlayerSettings:
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 0
   VertexChannelCompressionMask: 214
-  iPhoneSdkVersion: 988
+  iPhoneSdkVersion: 989
   iOSTargetOSVersionString: 11.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
@@ -880,6 +880,7 @@ PlayerSettings:
     ErrorHub: 0
     Hub: 0
     UNet: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -893,11 +894,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 2af4a5e2-eecd-4bb0-85f7-47a6dbabf670
+  cloudProjectId: 7b690a55-dd0b-444f-8751-c6ebd744a140
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: fugga2d
-  organizationId: tailorjay
+  projectName: Fugga (3)
+  organizationId: purujetly
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   playerDataPath: 
