@@ -5,6 +5,7 @@ using UnityEngine;
 using Unity.Services.Mediation;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
+using AppsFlyerSDK;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
 #endif
@@ -210,6 +211,13 @@ public class UnityAds
         // Send impression data to adjust 
         if (e.ImpressionData != null)
         {
+	        AppsFlyerAdRevenue.start(AppsFlyerAdRevenueType.Generic);
+	        System.Collections.Generic.Dictionary<string, string> dic = new System.Collections.Generic.Dictionary<string, string>();
+	        dic.Add("custom", "foo");
+	        dic.Add("custom_2", "bar");
+	        dic.Add("af_quantity", "1");
+	        AppsFlyerAdRevenue.logAdRevenue(e.ImpressionData.AdSourceName, AppsFlyerAdRevenueMediationNetworkType.AppsFlyerAdRevenueMediationNetworkTypeIronSource, e.ImpressionData.PublisherRevenuePerImpression, e.ImpressionData.Currency, dic);
+
 	        // AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceUnity);
 	        // adjustAdRevenue.setRevenue(e.ImpressionData.PublisherRevenuePerImpression, e.ImpressionData.Currency);
 	        // // optional fields
