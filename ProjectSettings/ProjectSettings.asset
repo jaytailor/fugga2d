@@ -256,7 +256,7 @@ PlayerSettings:
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 1
+  androidUseCustomKeystore: 0
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -797,6 +797,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     : MOBILE_INPUT
     Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;DDNA_IOS_PUSH_NOTIFICATIONS_REMOVED
+    Server: 
     Standalone: CROSS_PLATFORM_INPUT
     Windows Store Apps: MOBILE_INPUT
     iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT
@@ -875,10 +876,14 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Analytics: 1
     Build: 0
     Collab: 0
     ErrorHub: 0
+    Game Performance: 0
     Hub: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
     Unity Ads: 1
   luminIcon:
@@ -894,11 +899,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 7b690a55-dd0b-444f-8751-c6ebd744a140
+  cloudProjectId: 2af4a5e2-eecd-4bb0-85f7-47a6dbabf670
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Fugga (3)
-  organizationId: purujetly
+  projectName: fugga2d
+  organizationId: tailorjay
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   playerDataPath: 

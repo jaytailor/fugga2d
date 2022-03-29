@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour {
 
     void Awake()
     {
+        AppsFlyerAdRevenue.start(AppsFlyerAdRevenueType.Generic);
         Manager.Ads.Initialize();
         if (Manager.PremiumGranted == false) {
             Manager.PremiumScore = 5000; 
@@ -34,6 +35,11 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void ShowVideo(){
+        Dictionary<string, string> dic = new Dictionary<string, string>();
+        dic.Add("custom", "foo");
+        dic.Add("custom_2", "bar");
+        dic.Add("af_quantity", "1");
+        AppsFlyerAdRevenue.logAdRevenue("facebook", AppsFlyerAdRevenueMediationNetworkType.AppsFlyerAdRevenueMediationNetworkTypeGoogleAdMob, 0.026, "USD", dic);
         Manager.Ads.ShowVideo();
     }
 
