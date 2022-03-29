@@ -5,7 +5,6 @@ using UnityEngine;
 using Unity.Services.Mediation;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
-using com.adjust.sdk;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
 #endif
@@ -211,15 +210,15 @@ public class UnityAds
         // Send impression data to adjust 
         if (e.ImpressionData != null)
         {
-	        AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceUnity);
-	        adjustAdRevenue.setRevenue(e.ImpressionData.PublisherRevenuePerImpression, e.ImpressionData.Currency);
-	        // optional fields
-	        adjustAdRevenue.setAdRevenueNetwork(e.ImpressionData.AdSourceName);
-	        adjustAdRevenue.setAdRevenueUnit(e.ImpressionData.AdUnitId);
-	        adjustAdRevenue.setAdRevenuePlacement(e.ImpressionData.AdSourceInstance);
-	        // track Adjust ad revenue
-	        Adjust.trackAdRevenue(adjustAdRevenue);
-	        Debug.Log("Sending impression events to Adjust " + adjustAdRevenue);
+	        // AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceUnity);
+	        // adjustAdRevenue.setRevenue(e.ImpressionData.PublisherRevenuePerImpression, e.ImpressionData.Currency);
+	        // // optional fields
+	        // adjustAdRevenue.setAdRevenueNetwork(e.ImpressionData.AdSourceName);
+	        // adjustAdRevenue.setAdRevenueUnit(e.ImpressionData.AdUnitId);
+	        // adjustAdRevenue.setAdRevenuePlacement(e.ImpressionData.AdSourceInstance);
+	        // // track Adjust ad revenue
+	        // Adjust.trackAdRevenue(adjustAdRevenue);
+	        // Debug.Log("Sending impression events to Adjust " + adjustAdRevenue);
         }
         
     }
