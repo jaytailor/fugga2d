@@ -894,11 +894,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 7b690a55-dd0b-444f-8751-c6ebd744a140
+  cloudProjectId: 2af4a5e2-eecd-4bb0-85f7-47a6dbabf670
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Fugga (3)
-  organizationId: purujetly
+  projectName: fugga2d
+  organizationId: tailorjay
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   playerDataPath: 
