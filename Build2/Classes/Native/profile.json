@@ -1,0 +1,85 @@
+{
+"instructions_readme": "1) Open Chrome, 2) go to chrome://tracing, 3) click Load, 4) navigate to this file.",
+
+"traceEvents":[
+{ "pid": "il2cpp_outer", "ph":"M", "name": "process_name", "args": {"name": "il2cpp_outer"} },
+{ "pid": "il2cpp_outer", "ph":"M", "name": "process_sort_index", "args": {"sort_index": -1} },
+{ "pid": "il2cpp_outer", "tid": 1, "ph":"M", "name": "thread_name", "args": {"name": "Main thread"} },
+{ "pid": "il2cpp_outer", "tid": 1,"ts": 1648657067443000,"dur": 192000, "ph":"X", "name": "il2cpp.exe"},
+{ "pid": "il2cpp_outer", "tid": 1,"ts": 1648657067454000,"dur": 176000, "ph":"X", "name": "BeeDriverRunner.Execute"},
+{ "pid": "BeeDriver", "ph":"M", "name": "process_name", "args": {"name": "BeeDriver"} },
+{ "pid": "BeeDriver", "ph":"M", "name": "process_sort_index", "args": {"sort_index": -2} },
+{ "pid": "BeeDriver", "tid": 1, "ph":"M", "name": "thread_name", "args": {"name": "Main thread"} },
+{ "pid": "BeeDriver", "tid": 1,"ts": 1648657067507000,"dur": 0, "ph":"X", "name": "Build FinalProgram"},
+{ "pid": "BeeDriver", "tid": 1,"ts": 1648657067508000,"dur": 11000, "ph":"X", "name": "WriteBuildProgramData"},
+{ "pid": "BeeDriver", "tid": 1,"ts": 1648657067519000,"dur": 102000, "ph":"X", "name": "Run Backend"},
+{ "pid": "BeeDriver", "tid": 1,"ts": 1648657067621000,"dur": 0, "ph":"X", "name": "Finish"},
+{ "cat":"", "pid":"bee_backend", "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067543293, "dur":42040, "ph":"X", "name": "DriverCheckDagSignatures",  "args": { "durationMS":42, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067585333, "dur":2105, "ph":"X", "name": "DriverInitData",  "args": { "durationMS":2, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067587588, "dur":866, "ph":"X", "name": "Tundra",  "args": { "durationMS":1, "detail":"RemoveStaleOutputs" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067588461, "dur":1, "ph":"X", "name": "Tundra",  "args": { "durationMS":0, "detail":"PrepareNodes" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067588462, "dur":494, "ph":"X", "name": "Tundra",  "args": { "durationMS":0, "detail":"BuildQueueInit" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067605009, "dur":98, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067605276, "dur":23, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067605395, "dur":6, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067605501, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067605636, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067605736, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067605840, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067605933, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606030, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606140, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606234, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606332, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606435, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606540, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606643, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606742, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606844, "dur":0, "ph":"X", "name": "SharedResourceDestroy",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":1648657067606856, "dur":1149, "ph":"X", "name": "Tundra",  "args": { "durationMS":1, "detail":"Write AllBuiltNodes" }}
+,{ "pid":"bee_backend", "tid":1, "ts":1648657067588841, "dur":16179, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":1, "ts":1648657067605026, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":2, "ts":1648657067588850, "dur":16220, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":2, "ts":1648657067605105, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":3, "ts":1648657067588928, "dur":16155, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":3, "ts":1648657067605087, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":4, "ts":1648657067588887, "dur":110, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":4, "ts":1648657067591317, "dur":7265, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":7, "detail":"IL2CPP_CodeGen /Users/purujetly/Documents/GitHub/fugga2d/Library/Il2cppBuildCache/iOS/buildstate/artifacts/il2cpp_conv_fh4f.traceevents" }}
+,{ "pid":"bee_backend", "tid":4, "ts":1648657067604972, "dur":0, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"FinalProgram" }}
+,{ "pid":"bee_backend", "tid":4, "ts":1648657067604978, "dur":39, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":4, "ts":1648657067605022, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":5, "ts":1648657067588909, "dur":16137, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":5, "ts":1648657067605052, "dur":2, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":6, "ts":1648657067588908, "dur":16123, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":6, "ts":1648657067605039, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":7, "ts":1648657067588891, "dur":16124, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":7, "ts":1648657067605018, "dur":2, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":8, "ts":1648657067588895, "dur":16134, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":8, "ts":1648657067605034, "dur":3, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":9, "ts":1648657067588901, "dur":16205, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":9, "ts":1648657067605106, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":10, "ts":1648657067588847, "dur":16221, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":10, "ts":1648657067605072, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":11, "ts":1648657067588920, "dur":16099, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":11, "ts":1648657067605027, "dur":2, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":12, "ts":1648657067588924, "dur":16084, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":12, "ts":1648657067605014, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":13, "ts":1648657067588915, "dur":16121, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":13, "ts":1648657067605043, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":14, "ts":1648657067588933, "dur":16112, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":14, "ts":1648657067605048, "dur":2, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":15, "ts":1648657067588936, "dur":16164, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":15, "ts":1648657067605100, "dur":1, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":16, "ts":1648657067589014, "dur":16046, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":16, "detail":"" }}
+,{ "pid":"bee_backend", "tid":16, "ts":1648657067605064, "dur":2, "ph":"X", "name": "Exiting",  "args": { "durationMS":0, "detail":"BuildLoop" }}
+,{}
+
+],
+"meta_datetime": "03/30/2022 12:17:47",
+"meta_command_line": "/Applications/Unity/Hub/Editor/2021.2.0b11/Unity.app/Contents/il2cpp/build/deploy/net5.0/il2cpp.dll --convert-to-cpp --emit-null-checks --enable-array-bounds-check --dotnetprofile=unityaot-macos --cachedirectory=/Users/purujetly/Documents/GitHub/fugga2d/Library/Il2cppBuildCache/iOS --additional-cpp=/Users/purujetly/Documents/GitHub/fugga2d/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityClassRegistration.cpp --avoid-dynamic-library-copy --dont-deploy-baselib --profiler-report --directory=/Users/purujetly/Documents/GitHub/fugga2d/Temp/StagingArea/Data/Managed --generatedcppdir=/Users/purujetly/Documents/GitHub/fugga2d/Library/Il2cppBuildCache/iOS/il2cppOutput --convert-in-graph",
+"meta_command_line_args": "/Applications/Unity/Hub/Editor/2021.2.0b11/Unity.app/Contents/il2cpp/build/deploy/net5.0/il2cpp.dll --convert-to-cpp --emit-null-checks --enable-array-bounds-check --dotnetprofile=unityaot-macos --cachedirectory=/Users/purujetly/Documents/GitHub/fugga2d/Library/Il2cppBuildCache/iOS --additional-cpp=/Users/purujetly/Documents/GitHub/fugga2d/Library/Il2cppBuildCache/iOS/additionalCppFiles/UnityClassRegistration.cpp --avoid-dynamic-library-copy --dont-deploy-baselib --profiler-report --directory=/Users/purujetly/Documents/GitHub/fugga2d/Temp/StagingArea/Data/Managed --generatedcppdir=/Users/purujetly/Documents/GitHub/fugga2d/Library/Il2cppBuildCache/iOS/il2cppOutput --convert-in-graph",
+"meta_user_name": "purujetly",
+"meta_os_version": "Unix 11.0.0",
+"meta_cpu_count": "16"
+}

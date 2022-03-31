@@ -1,0 +1,6 @@
+framework module UnityMediationIronSourceAdapter {
+  umbrella header "UnityMediationIronSourceAdapter.h"
+
+  export *
+  module * { export * }
+}

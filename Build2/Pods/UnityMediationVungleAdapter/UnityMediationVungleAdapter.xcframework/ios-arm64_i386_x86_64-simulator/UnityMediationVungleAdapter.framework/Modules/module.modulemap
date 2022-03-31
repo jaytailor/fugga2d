@@ -1,0 +1,6 @@
+framework module UnityMediationVungleAdapter {
+  umbrella header "UnityMediationVungleAdapter.h"
+
+  export *
+  module * { export * }
+}

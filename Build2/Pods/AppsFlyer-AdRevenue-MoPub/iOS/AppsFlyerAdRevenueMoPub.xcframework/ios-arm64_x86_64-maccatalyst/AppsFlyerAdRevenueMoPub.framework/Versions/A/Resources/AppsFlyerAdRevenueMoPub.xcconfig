@@ -1,0 +1,11 @@
+#include "Shared/Platform/iOS.xcconfig"
+#include "Shared/Target/StaticFramework.xcconfig"
+#include "Shared/Version.xcconfig"
+
+PRODUCT_NAME = AppsFlyerAdRevenueMoPub
+PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.adrevenue.lib.mopub
+
+CURRENT_PROJECT_VERSION = $(AFSDK_PROJECT_VERSION)
+
+INFOPLIST_FILE = $(SRCROOT)/AppsFlyerAdRevenueMoPub/Info.plist
+MODULEMAP_FILE = $(SRCROOT)/AppsFlyerAdRevenueMoPub/AppsFlyerAdRevenueMoPub.modulemap
