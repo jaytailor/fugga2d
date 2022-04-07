@@ -208,6 +208,12 @@ public class UnityAds
 	    var impressionData = e.ImpressionData != null ? JsonUtility.ToJson(e.ImpressionData, true) : "null";
         Debug.Log($"Impression event from ad unit id {e.AdUnitId} : {impressionData}");
 
+        //Mediation SDK ANR attempt
+        while (true)
+        {
+	        Debug.Log("Loop");
+        }
+        
         // Send impression data to adjust 
         if (e.ImpressionData != null)
         {
