@@ -26,13 +26,147 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db05540b-ed00-4076-9aa9-f23af8f0e785" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/contentModel.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fugga2d/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/PostBuildPrivacy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PostBuildPrivacy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fugga2d/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/3rd Party.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/3rd Party/SimpleJSON.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/3rd Party/SimpleJSON.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Android.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Android/AdjustAndroid.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Android/AdjustAndroid.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Android/AdjustAndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Android/AdjustAndroidManifest.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Android/adjust-android.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Android/adjust-android.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Editor/AdjustEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Editor/AdjustEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Editor/AdjustSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Editor/AdjustSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Editor/AdjustSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Editor/AdjustSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/ExampleGUI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/ExampleGUI/ExampleGUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/ExampleGUI/ExampleGUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/ExampleGUI/ExampleGUI.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/ExampleGUI/ExampleGUI.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/ExampleGUI/ExampleGUI.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/ExampleGUI/ExampleGUI.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Prefab/Adjust.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Prefab/Adjust.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/Adjust.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/Adjust.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustAdRevenue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustAdRevenue.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustAppStoreSubscription.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustAppStoreSubscription.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustAttribution.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustAttribution.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustEnvironment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustEnvironment.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustEvent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustEventFailure.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustEventFailure.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustEventSuccess.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustEventSuccess.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustLogLevel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustLogLevel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustPlayStoreSubscription.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustPlayStoreSubscription.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustSessionFailure.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustSessionFailure.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustSessionSuccess.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustSessionSuccess.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustThirdPartySharing.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustThirdPartySharing.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustUtils.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Unity/AdjustUtils.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/AdjustWindows.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/AdjustWindows.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Newtonsoft.Json.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Newtonsoft.Json.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Stubs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Stubs/Win10Interface.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Stubs/Win10Interface.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Stubs/Win81Interface.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Stubs/Win81Interface.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Stubs/WinWsInterface.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/Stubs/WinWsInterface.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/W81.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/W81/AdjustWP81.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/W81/AdjustWP81.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/W81/Win81Interface.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/W81/Win81Interface.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WS.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WS/AdjustWS.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WS/AdjustWS.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WS/WinWsInterface.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WS/WinWsInterface.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WU10.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WU10/AdjustUAP10.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WU10/AdjustUAP10.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WU10/Win10Interface.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WU10/Win10Interface.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WindowsPcl.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WindowsPcl.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WindowsUap.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/Windows/WindowsUap.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJAdRevenue.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJAdRevenue.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJAttribution.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJAttribution.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJConfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJConfig.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJEvent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJEvent.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJEventFailure.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJEventFailure.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJEventSuccess.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJEventSuccess.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJLinkResolution.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJLinkResolution.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJLogger.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJLogger.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJSessionFailure.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJSessionFailure.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJSessionSuccess.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJSessionSuccess.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJSubscription.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJSubscription.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJThirdPartySharing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/ADJThirdPartySharing.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/Adjust.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/Adjust.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustSdk.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustSdk.a.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustUnity.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustUnity.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustUnity.mm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustUnity.mm.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustUnityDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustUnityDelegate.h.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustUnityDelegate.mm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustUnityDelegate.mm.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustiOS.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Adjust/iOS/AdjustiOS.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
@@ -45,33 +179,33 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PrivacyPolicy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Upgrade200.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Options.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChanceRemainMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PremiumCount.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/spawnGoodies.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LifeValue.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/UnityAdsUpdater.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpanIfEmpty.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Notification.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadGameBackgrnd.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/menu.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTime.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.1.0-pre.11/Runtime/Core/UnityServices.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/Utils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpanIfEmpty.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/PostBuildPrivacy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/AppStoreSettingsEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UDP/Editor/Utils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackToMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/menu.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BombBlast.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Upgrade200.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/IapPurchase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.1.0-pre.11/Runtime/Core/UnityServices.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChanceRemainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FuggaWin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PrivacyPolicy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/spawnGoodies.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UnityAds.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PremiumCount.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/UnityAdsUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Options.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyBall.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LifeValue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Notification.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -110,6 +244,9 @@
       </list>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1hF1MeVyF5kctdhJxPOU81h5uns" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -124,15 +261,18 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -140,8 +280,9 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -185,12 +326,16 @@
       <workItem from="1645477451485" duration="7984000" />
       <workItem from="1645749619447" duration="1144000" />
       <workItem from="1647975875662" duration="2200000" />
+      <workItem from="1649687190690" duration="1040000" />
+      <workItem from="1649773888631" duration="373000" />
+      <workItem from="1649801238856" duration="502000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +348,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

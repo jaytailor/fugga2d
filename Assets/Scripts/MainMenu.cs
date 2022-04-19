@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour {
     {
         Manager.Ads.Initialize();
         if (Manager.PremiumGranted == false) {
-            Manager.PremiumScore = 100; 
+            Manager.PremiumScore = 100;  
             Manager.PremiumGranted = true;
         }
     }
