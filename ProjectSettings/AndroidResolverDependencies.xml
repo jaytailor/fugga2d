@@ -1,5 +1,10 @@
 <dependencies>
   <packages>
+    <package>com.android.installreferrer:installreferrer:2.1</package>
+    <package>com.appsflyer:adrevenue:6.5.4</package>
+    <package>com.appsflyer:af-android-sdk:6.5.4</package>
+    <package>com.appsflyer:unity-adrevenue-generic-wrapper:6.5.4</package>
+    <package>com.appsflyer:unity-wrapper:6.5.4</package>
     <package>com.unity3d.mediation:adcolony-adapter:[0.4,0.5[</package>
     <package>com.unity3d.mediation:admob-adapter:[0.4,0.5[</package>
     <package>com.unity3d.mediation:applovin-adapter:[0.4,0.5[</package>

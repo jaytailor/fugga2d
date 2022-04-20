@@ -5,7 +5,7 @@ using UnityEngine;
 using Unity.Services.Mediation;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
-using com.adjust.sdk;
+using AppsFlyerSDK;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
 #endif
@@ -33,6 +33,9 @@ public class UnityAds
 
 	public async void Initialize()
 	{
+		AppsFlyerAdRevenue.start();
+		AppsFlyerAdRevenue.setIsDebug(true);
+		AppsFlyer.setIsDebug(true);
 		Debug.Log("Awake Mediation State: " + MediationService.InitializationState);
 		if (MediationService.InitializationState == InitializationState.Uninitialized)
 		{
@@ -211,15 +214,18 @@ public class UnityAds
         // Send impression data to adjust 
         if (e.ImpressionData != null)
         {
-	        AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceUnity);
-	        adjustAdRevenue.setRevenue(e.ImpressionData.PublisherRevenuePerImpression, e.ImpressionData.Currency);
-	        // optional fields
-	        adjustAdRevenue.setAdRevenueNetwork(e.ImpressionData.AdSourceName);
-	        adjustAdRevenue.setAdRevenueUnit(e.ImpressionData.AdUnitId);
-	        adjustAdRevenue.setAdRevenuePlacement(e.ImpressionData.AdSourceInstance);
-	        // track Adjust ad revenue
-	        Adjust.trackAdRevenue(adjustAdRevenue);
-	        Debug.Log("Sending impression events to Adjust " + adjustAdRevenue);
+	        System.Collections.Generic.Dictionary<string, string> dic = new System.Collections.Generic.Dictionary<string, string>();
+	        dic.Add("AdUnitID", e.ImpressionData.AdUnitId);
+	        AppsFlyerAdRevenue.logAdRevenue(e.ImpressionData.AdSourceName, AppsFlyerAdRevenueMediationNetworkType.AppsFlyerAdRevenueMediationNetworkTypeUnity, 0.5, e.ImpressionData.Currency, dic);
+	        // AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceUnity);
+	        // adjustAdRevenue.setRevenue(e.ImpressionData.PublisherRevenuePerImpression, e.ImpressionData.Currency);
+	        // // optional fields
+	        // adjustAdRevenue.setAdRevenueNetwork(e.ImpressionData.AdSourceName);
+	        // adjustAdRevenue.setAdRevenueUnit(e.ImpressionData.AdUnitId);
+	        // adjustAdRevenue.setAdRevenuePlacement(e.ImpressionData.AdSourceInstance);
+	        // // track Adjust ad revenue
+	        // Adjust.trackAdRevenue(adjustAdRevenue);
+	        // Debug.Log("Sending impression events to Adjust " + adjustAdRevenue);
         }
         
     }
