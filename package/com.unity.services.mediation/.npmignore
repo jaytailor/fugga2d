@@ -1,0 +1,14 @@
+Documentation/ApiDocs/**
+Documentation~/ApiDocs/**
+.DS_Store
+.npmrc
+.npmignore
+.gitignore
+CONTRIBUTING.md
+CONTRIBUTING.md.meta
+QAReport.md
+QAReport.md.meta 
+DOCUMENTING-APIS.md
+DOCUMENTING-APIS.md.meta
+CHANGELOG-INTERNAL.md
+CHANGELOG-INTERNAL.md.meta

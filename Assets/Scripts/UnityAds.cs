@@ -15,6 +15,7 @@ public class UnityAds
 		private string gameId = "1737343"; // Your iOS game ID here
 		private string rewardedVideoAdunitIdNew = "rv_ios_medi_adunit";
 		private string interstitialAdunitIdNew = "interstitial_ios_medi_adunit";
+		private string bannerAdUnitId = "banner_ios";
 		
     #elif UNITY_ANDROID
 		private string gameId = "1737342"; // Your Android game ID here
@@ -24,12 +25,14 @@ public class UnityAds
 		private string gameId = "1737342"; // Prevents Editor Errors
 		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
 		private string interstitialAdunitIdNew = "Android_Interstitial";
+		private string bannerAdUnitId = "banner_android";
 	#endif
 
 	public GameObject adBtn;
 	
     IInterstitialAd interstitialAdNew;
     IRewardedAd rewardedVideoAdNew;
+    IBannerAd bannerAd;
 
 	public async void Initialize()
 	{
@@ -64,8 +67,26 @@ public class UnityAds
 
 			// load rewarded ads
 			LoadRewardedNew();
+			
+			//load banner ad
+			LoadBanner();
+			
 			MediationService.Instance.ImpressionEventPublisher.OnImpression += OnImpression;
 		}
+	}
+	
+	public void LoadBanner()
+	{
+		if (bannerAd == null)
+		{
+			bannerAd = MediationService.Instance.CreateBannerAd(bannerAdUnitId, BannerAdSize.Banner);
+			bannerAd.OnLoaded += OnLoadedBanner;
+			bannerAd.OnFailedLoad += OnFailedLoadBanner;
+			bannerAd.OnRefreshed += OnRefreshedBanner;
+			bannerAd.OnClicked += OnClickedBanner;
+		}
+		Debug.Log("Loading Banner adunit...");
+		bannerAd.LoadAsync(); 
 	}
 
 	public void LoadInterstitialNew()
@@ -232,5 +253,23 @@ public class UnityAds
      public void ShowRewardedVideo()
      {
         ShowRewardedNew();
+     }
+     void OnLoadedBanner(object sender, EventArgs e)
+     {
+	     Debug.Log("Banner Ad loaded from mediation");
+     }
+     void OnFailedLoadBanner(object sender, LoadErrorEventArgs e)
+     {
+	     Debug.LogError($"{e.Error}:{e.Message}");
+     }
+     
+     void OnRefreshedBanner(object sender, LoadErrorEventArgs e)
+     {
+	     Debug.LogError($"Refreshed: {e.Error}:{e.Message}");
+     }
+     
+     void OnClickedBanner(object sender, EventArgs e)
+     {
+	     Debug.LogError($"Banner Clicked");
      }
 }

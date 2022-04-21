@@ -799,7 +799,7 @@ PlayerSettings:
     Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;DDNA_IOS_PUSH_NOTIFICATIONS_REMOVED
     Standalone: CROSS_PLATFORM_INPUT
     Windows Store Apps: MOBILE_INPUT
-    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT;UNITY_MEDIATION_STAGING
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -903,4 +903,3 @@ PlayerSettings:
   playerDataPath: 
   forceSRGBBlit: 1
   virtualTexturingSupportEnabled: 0
-  uploadClearedTextureDataAfterCreationFromScript: 1
