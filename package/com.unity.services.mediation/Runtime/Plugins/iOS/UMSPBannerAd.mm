@@ -157,6 +157,13 @@ void UMSPBannerAdLoad(void *bannerAdViewPtr, void *delegatePtr) {
     [bannerAd loadWithViewController:viewController];
 }
 
+void UMSPBannerAdDestroy(void *bannerAdViewPtr) {
+    if (!bannerAdViewPtr) return;
+
+    UMSBannerAdView *bannerAd = (__bridge UMSBannerAdView *)bannerAdViewPtr;
+    [bannerAd removeFromSuperview];
+}
+
 void UMSPBannerAdSetPosition(void *bannerAdViewPtr, int anchor, int offsetX, int offsetY) {
     if (!bannerAdViewPtr) return;
 

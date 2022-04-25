@@ -16,16 +16,20 @@ public class UnityAds
 		private string rewardedVideoAdunitIdNew = "rv_ios_medi_adunit";
 		private string interstitialAdunitIdNew = "interstitial_ios_medi_adunit";
 		private string bannerAdUnitId = "banner_ios";
+		private string MRECAdUnitId = "banner_mrec_ios";
 		
     #elif UNITY_ANDROID
 		private string gameId = "1737342"; // Your Android game ID here
 		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
 		private string interstitialAdunitIdNew = "Android_Interstitial";
+		private string bannerAdUnitId = "banner_android";
+		private string MRECAdUnitId = "banner_mrec_android";
 	#else
 		private string gameId = "1737342"; // Prevents Editor Errors
 		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
 		private string interstitialAdunitIdNew = "Android_Interstitial";
 		private string bannerAdUnitId = "banner_android";
+		private string MRECAdUnitId = "banner_mrec_android";
 	#endif
 
 	public GameObject adBtn;
@@ -33,6 +37,7 @@ public class UnityAds
     IInterstitialAd interstitialAdNew;
     IRewardedAd rewardedVideoAdNew;
     IBannerAd bannerAd;
+    IBannerAd MRECAd;
 
 	public async void Initialize()
 	{
@@ -87,6 +92,34 @@ public class UnityAds
 		}
 		Debug.Log("Loading Banner adunit...");
 		bannerAd.LoadAsync(); 
+	}
+	
+	public void LoadMREC()
+	{
+		if (MRECAd == null)
+		{
+			MRECAd = MediationService.Instance.CreateBannerAd(MRECAdUnitId, BannerAdSize.MediumRectangle, BannerAdAnchor.BottomCenter);
+			MRECAd.OnLoaded += OnLoadedBanner;
+			MRECAd.OnFailedLoad += OnFailedLoadBanner;
+			MRECAd.OnRefreshed += OnRefreshedBanner;
+			MRECAd.OnClicked += OnClickedBanner;
+		}
+		Debug.Log("Loading MREC adunit...");
+		MRECAd.LoadAsync(); 
+	}
+
+	public void RemoveMREC()
+	{
+		if (MRECAd != null)
+		{
+			Debug.Log("Removing MREC adunit...");
+			MRECAd.OnLoaded -= OnLoadedBanner;
+			MRECAd.OnFailedLoad -= OnFailedLoadBanner;
+			MRECAd.OnRefreshed -= OnRefreshedBanner;
+			MRECAd.OnClicked -= OnClickedBanner;
+			MRECAd.Dispose();
+			MRECAd = null;
+		}
 	}
 
 	public void LoadInterstitialNew()

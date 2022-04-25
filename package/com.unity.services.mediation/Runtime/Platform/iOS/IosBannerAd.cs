@@ -57,6 +57,7 @@ namespace Unity.Services.Mediation.Platform
 
         public override void Dispose()
         {
+            BannerAdDestroy(NativePtr);
             m_BannerLoadListener?.Dispose();
             m_BannerLoadListener = null;
             base.Dispose();
@@ -93,6 +94,9 @@ namespace Unity.Services.Mediation.Platform
         [DllImport("__Internal", EntryPoint = "UMSPBannerAdLoad")]
         static extern void BannerAdLoad(IntPtr bannerAdView, IntPtr bannerAdListener);
 
+        [DllImport("__Internal", EntryPoint = "UMSPBannerAdDestroy")]
+        static extern void BannerAdDestroy(IntPtr bannerAdView);
+        
         [DllImport("__Internal", EntryPoint = "UMSPBannerAdSetPosition")]
         static extern void BannerAdSetPosition(IntPtr bannerAdView, int bannerAdAnchor, int offsetX, int offsetY);
 
