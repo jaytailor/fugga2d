@@ -298,7 +298,7 @@ public class UnityAds
      
      void OnRefreshedBanner(object sender, LoadErrorEventArgs e)
      {
-	     Debug.LogError($"Refreshed: {e.Error}:{e.Message}");
+	     Debug.LogError($"Refreshed: {e?.Error ?? 0}:{e?.Message ?? "No error"}");
      }
      
      void OnClickedBanner(object sender, EventArgs e)
