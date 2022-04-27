@@ -29,7 +29,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "1.15.1",
+      "version": "1.15.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -55,7 +55,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.11",
+      "version": "2.0.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -108,9 +108,9 @@
       "url": "https://artifactory.prd.it.unity3d.com/artifactory/api/npm/upm-candidates"
     },
     "com.unity.services.mediation": {
-      "version": "file:../package/com.unity.services.mediation",
+      "version": "file:com.unity.services.mediation",
       "depth": 0,
-      "source": "local",
+      "source": "embedded",
       "dependencies": {
         "com.unity.settings-manager": "1.0.3",
         "com.unity.modules.ui": "1.0.0",
@@ -125,7 +125,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.29",
+      "version": "1.1.27",
       "depth": 1,
       "source": "registry",
       "dependencies": {

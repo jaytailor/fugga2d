@@ -1,0 +1,8 @@
+// This file is generated. Do not modify by hand.
+// XML documentation file not found. To check if public methods have XML comments,
+// make sure the XML doc file is present and located next to the scraped dll
+public class PostBuildUnityAdsTsi
+{
+    public PostBuildUnityAdsTsi() {}
+    [UnityEditor.Callbacks.PostProcessBuild(0)] public static void OnPostProcessBuild(UnityEditor.BuildTarget buildTarget, string pathToXcode);
+}
