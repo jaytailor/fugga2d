@@ -67,7 +67,7 @@ namespace Unity.Services.Mediation.EditorTests
 
         [Test]
         [TestCase("MediationDepsNone.xml", new[] {"Unity Ads Adapter"})]
-        [TestCase("MediationDepsAll.xml", new[] {"AdMob Adapter", "Meta Audience Network Adapter", "Unity Ads Adapter", "AdColony Adapter", "ironSource Adapter", "Applovin Adapter", "Vungle Adapter"})]
+        [TestCase("MediationDepsAll.xml", new[] {"AdMob Adapter", "Meta Audience Network Adapter", "Unity Ads Adapter", "AdColony Adapter", "ironSource Adapter", "Mintegral Adapter", "Snap Adapter", "Applovin Adapter", "Vungle Adapter"})]
         public void GetInstalledAdaptersTest(string xmlFile, string[] expectedAdapters)
         {
             string xmlPath = m_XMLTemplateBasePath + xmlFile;

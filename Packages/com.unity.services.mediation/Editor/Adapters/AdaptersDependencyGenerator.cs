@@ -79,12 +79,24 @@ namespace Unity.Services.Mediation.Adapters.Editor
         internal string GenerateXmlContentWithAllDependencies(List<AdapterInfo> adapters)
         {
             var sdkInfo = MediationSdkInfo.GetSdkInfo();
+            var repoList = new List<string>();
+
+            foreach (var adapterInfo in adapters)
+            {
+                foreach (var repository in adapterInfo.Repositories)
+                {
+                    repoList.Add(repository);
+                }
+            }
+
+            repoList = repoList.Distinct().ToList();
 
             return (new XComment(" auto-generated. do not modify by hand. ") + Environment.NewLine +
                 new XElement("dependencies",
                     new XElement("androidPackages",
                         new XElement("repositories",
-                            new XElement("repository", k_AndroidArtifactoryURL)
+                            new XElement("repository", k_AndroidArtifactoryURL),
+                            repoList.Select(repo => new XElement("repository", repo))
                         ),
                         new XComment(" Mediation Android SDK "),
                         new XElement("androidPackage",

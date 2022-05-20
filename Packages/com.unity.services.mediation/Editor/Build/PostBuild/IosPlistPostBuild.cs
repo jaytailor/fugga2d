@@ -1,10 +1,12 @@
 #if UNITY_IOS
+using System;
 using System.IO;
 using Unity.Services.Mediation.Settings.Editor;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEditor.iOS.Xcode;
+using UnityEngine;
 
 namespace Unity.Services.Mediation.Build.Editor
 {
@@ -16,6 +18,9 @@ namespace Unity.Services.Mediation.Build.Editor
 
         const string k_GmsApplicationIdKey = "GADApplicationIdentifier";
         const string k_GmsIsAdManagerAppKey = "GADIsAdManagerApp";
+
+        const string k_SnapApplicationIdKey = "SCAppStoreAppID";
+
 
         /*
          * https://developers.google.com/ad-manager/mobile-ads-sdk/ios/app-transport-security
@@ -43,16 +48,29 @@ namespace Unity.Services.Mediation.Build.Editor
         internal void OnPostprocessBuild(string outputPath)
         {
             var adMobSettings = new AdMobSettings();
-            //If we're not including AdMob, no need to modify Info.plist
-            if (string.IsNullOrEmpty(adMobSettings.InstalledVersion.value) || string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdIos))
+            var snapSetting = new SnapSettings();
+
+            var adMobIncluded = !(string.IsNullOrEmpty(adMobSettings.InstalledVersion.value) || string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdIos));
+            var snapIncluded = !(string.IsNullOrEmpty(snapSetting.InstalledVersion.value) || string.IsNullOrWhiteSpace(snapSetting.SnapAppIdIos.ToString()));
+
+            //If we're not including AdMob and Snap, no need to modify Info.plist
+            if (!adMobIncluded && !snapIncluded)
                 return;
 
             string plistPath = outputPath + "/Info.plist";
             PlistDocument plist = new PlistDocument();
             plist.ReadFromString(File.ReadAllText(plistPath));
 
-            SetAdmobApplicationIdentifier(plist, adMobSettings.AdMobAppIdIos);
-            SetAppTransportSecurity(plist);
+            if (adMobIncluded)
+            {
+                SetAdmobApplicationIdentifier(plist, adMobSettings.AdMobAppIdIos);
+                SetAppTransportSecurity(plist);
+            }
+
+            if (snapIncluded)
+            {
+                SetSnapApplicationIdentifier(plist, snapSetting.SnapAppIdIos.ToString());
+            }
 
             File.WriteAllText(plistPath, plist.WriteToString());
         }
@@ -61,6 +79,20 @@ namespace Unity.Services.Mediation.Build.Editor
         {
             plist.root.SetString(k_GmsApplicationIdKey, adMobAppId);
             plist.root.SetBoolean(k_GmsIsAdManagerAppKey, true);
+        }
+
+        static void SetSnapApplicationIdentifier(PlistDocument plist, string snapAppId)
+        {
+            var id = 0;
+            var parsed = int.TryParse(snapAppId, out id);
+            if (parsed)
+            {
+                plist.root.SetInteger(k_SnapApplicationIdKey, id);
+            }
+            else
+            {
+                Debug.LogWarning("Couldn't parse SCAppStoreAppID, check to see if it's valid.");
+            }
         }
 
         static void SetAppTransportSecurity(PlistDocument plist)

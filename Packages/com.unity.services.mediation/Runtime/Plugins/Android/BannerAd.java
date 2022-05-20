@@ -78,7 +78,12 @@ public class BannerAd {
                     });
                 }
                 else {
-                    setPositionInternal(anchor, offsetX, offsetY);
+                    bannerAdView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            setPositionInternal(anchor, offsetX, offsetY);
+                        }
+                    });
                 }
             }
         });
@@ -94,24 +99,21 @@ public class BannerAd {
         adLayoutParams.gravity = gravity;
 
         if(bannerAnchor.isTopRow()) {
-            adLayoutParams.topMargin  = (int)convertDpToPx(activity, -offsetY);
+            adLayoutParams.topMargin = -offsetY;
         }
         else{
-            adLayoutParams.bottomMargin  = (int)convertDpToPx(activity, offsetY);
+            adLayoutParams.bottomMargin = offsetY;
         }
 
         if(bannerAnchor.isRightColumn()){
-            adLayoutParams.rightMargin = (int)convertDpToPx(activity, -offsetX);
+            adLayoutParams.rightMargin = -offsetX;
         }
         else{
-            adLayoutParams.leftMargin = (int)convertDpToPx(activity, offsetX);
+            adLayoutParams.leftMargin = offsetX;
         }
 
         bannerAdView.setLayoutParams(adLayoutParams);
     }
 
-    private float convertDpToPx(Context context, float dp) {
-        return dp * context.getResources().getDisplayMetrics().density;
-    }
 }
 

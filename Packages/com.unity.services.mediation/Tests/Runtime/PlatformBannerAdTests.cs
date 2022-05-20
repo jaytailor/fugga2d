@@ -19,7 +19,7 @@ namespace Unity.Services.Mediation.Tests
             }
 
             yield return new WaitUntil(() => MediationService.InitializationState == InitializationState.Initialized);
-            m_BannerAd = new BannerAd(TestConstants.AdUnitBannerId, BannerAdSize.Banner);
+            m_BannerAd = new BannerAd(TestConstants.AdUnitBannerId, BannerAdPredefinedSize.Banner.ToBannerAdSize());
         }
 
         [Test]

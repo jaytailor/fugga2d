@@ -15,30 +15,22 @@ namespace Unity.Services.Mediation.Settings.Editor
     {
         public static List<AdUnitData> AdUnitData => FilteredAdUnitData ?? AdUnitDataSource;
 
-        private static List<AdUnitData> AdUnitDataSource = new List<AdUnitData>();
-        private static List<AdUnitData> FilteredAdUnitData;
+        static List<AdUnitData> AdUnitDataSource = new List<AdUnitData>();
+        static List<AdUnitData> FilteredAdUnitData;
 
-        private static SortMode[] SortModes = {SortMode.Ascending, SortMode.Ascending, SortMode.Ascending, SortMode.Ascending};
+        static SortMode[] SortModes = {SortMode.Ascending, SortMode.Ascending, SortMode.Ascending, SortMode.Ascending};
 
-#if GAMEGROWTH_UNITY_MONETIZATION
-        const string k_AdUnitsTemplate = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsTemplate.uxml";
-        const string k_AdUnitsStyle    = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsStyle.uss";
-
-        const string k_AdUnitsWarningTemplate = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsWarningTemplate.uxml";
-        const string k_AdUnitsErrorTemplate   = @"Assets/UnityMonetization/Editor/Settings/Layout/AdUnitsErrorTemplate.uxml";
-#else
         const string k_AdUnitsTemplate = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/AdUnitsTemplate.uxml";
         const string k_AdUnitsStyle    = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/AdUnitsStyle.uss";
 
         const string k_AdUnitsWarningTemplate = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/AdUnitsWarningTemplate.uxml";
         const string k_AdUnitsErrorTemplate   = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/AdUnitsErrorTemplate.uxml";
-#endif
 
-        [MenuItem("Services/Mediation/Ad Units", priority = 111)]
+        [MenuItem("Services/" + MediationServiceIdentifier.k_PackageDisplayName + "/Ad Units", priority = 111)]
         public static void ShowWindow()
         {
             EditorGameServiceAnalyticsSender.SendTopMenuAdUnitsEvent();
-            GetWindow<MediationAdUnitsWindow>("Mediation - Ad Units", new Type[] { typeof(MediationCodeGeneratorWindow), typeof(SceneView), typeof(EditorWindow)});
+            GetWindow<MediationAdUnitsWindow>($"{MediationServiceIdentifier.k_PackageDisplayName} - Ad Units", new Type[] { typeof(MediationCodeGeneratorWindow), typeof(SceneView), typeof(EditorWindow)});
         }
 
         void OnFocus()
@@ -53,7 +45,7 @@ namespace Unity.Services.Mediation.Settings.Editor
             }
         }
 
-        private void RefreshWindow()
+        void RefreshWindow()
         {
             rootVisualElement.Clear();
 
@@ -68,7 +60,7 @@ namespace Unity.Services.Mediation.Settings.Editor
             RetrieveAdUnitInfo(root);
         }
 
-        private void RetrieveAdUnitInfo(VisualElement root)
+        void RetrieveAdUnitInfo(VisualElement root)
         {
             DashboardClient.GetAdUnitsAsync(adUnits =>
             {
@@ -112,7 +104,7 @@ namespace Unity.Services.Mediation.Settings.Editor
             return (SortMode)(((int)sortMode + 1) % 2);
         }
 
-        private static EventCallback<ChangeEvent<string>> FilterListBySearchField(ListView listView)
+        static EventCallback<ChangeEvent<string>> FilterListBySearchField(ListView listView)
         {
             return evt =>
             {
@@ -130,7 +122,7 @@ namespace Unity.Services.Mediation.Settings.Editor
             };
         }
 
-        private static void SortColumn(ListView listView, int columnIndex, Comparison<AdUnitData> comparisonFunction)
+        static void SortColumn(ListView listView, int columnIndex, Comparison<AdUnitData> comparisonFunction)
         {
             EditorGameServiceAnalyticsSender.SendAdUnitsSortEvent();
 
@@ -150,16 +142,17 @@ namespace Unity.Services.Mediation.Settings.Editor
             }
         }
 
-        private static void ConstructListFromAdUnits(VisualElement root)
+        static void ConstructListFromAdUnits(VisualElement root)
         {
             ListView listView = root.Q<ListView>(className: "list-view");
+
+            ToolbarSearchField searchField = root.Q<ToolbarSearchField>(className: "search-field");
+            searchField.value = String.Empty;
+            searchField.RegisterValueChangedCallback(FilterListBySearchField(listView));
 
             listView.makeItem = AdUnitVisualElement.CreateListItem;
             listView.bindItem = AdUnitVisualElement.BindListItem;
             listView.itemsSource = AdUnitDataSource;
-
-            ToolbarSearchField searchField = root.Q<ToolbarSearchField>(className: "search-field");
-            searchField.RegisterValueChangedCallback(FilterListBySearchField(listView));
 
             root.Q<Label>("list-header-adunit").RegisterCallback<MouseDownEvent>(evt =>
             {
@@ -182,17 +175,15 @@ namespace Unity.Services.Mediation.Settings.Editor
             });
         }
 
-        private void AddStyleSheets(VisualElement root)
+        void AddStyleSheets(VisualElement root)
         {
             StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>(k_AdUnitsStyle);
             root.styleSheets.Add(styleSheet);
-#if GAMEGROWTH_UNITY_MONETIZATION
-            string k_SkinStyle = $@"Assets/UnityMonetization/Editor/Settings/Layout/2019/SkinStyle{(EditorGUIUtility.isProSkin ? "Dark" : "Light")}.uss";
-#else
+
             string k_SkinStyle = $@"Packages/com.unity.services.mediation/Editor/Settings/Layout/2019/SkinStyle{(EditorGUIUtility.isProSkin ? "Dark" : "Light")}.uss";
-#endif
             styleSheet = EditorGUIUtility.Load(k_SkinStyle) as StyleSheet;
             root.styleSheets.Add(styleSheet);
         }
     }
 }
+

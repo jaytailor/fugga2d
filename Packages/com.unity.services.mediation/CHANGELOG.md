@@ -4,10 +4,11 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2021-02-16
+## [Unreleased] - 2022-02-16
 
 ### Added
 - The adapter settings window will now identify adapters that are configured on the dashboard, and warn the user if it is configured and not installed or vice-versa
+- Banner support
 
 ### Changed
 - Reduced the amount of logging in editor, only calls on unsupported platforms will generate warnings

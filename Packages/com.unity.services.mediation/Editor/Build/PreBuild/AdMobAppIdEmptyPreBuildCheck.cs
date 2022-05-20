@@ -10,7 +10,7 @@ namespace Unity.Services.Mediation.Build.Editor
     class AdMobAppIdEmptyPreBuildCheck : IPreprocessBuildWithReport
     {
         const string k_AdMobWarning = "Unity Mediation: AdMob adapter is enabled, but AdMob application identifier is not set. " +
-            "You can configure it under 'Project Settings/Mediation'.";
+            "You can configure it under 'Project Settings/" + MediationServiceIdentifier.k_PackageDisplayName + "'.";
 
         public int callbackOrder { get; }
         public void OnPreprocessBuild(BuildReport report)

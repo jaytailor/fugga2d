@@ -16,23 +16,18 @@ namespace Unity.Services.Mediation.Settings.Editor
     /// </summary>
     class MediationCodeGeneratorWindow : EditorWindow
     {
-#if GAMEGROWTH_UNITY_MONETIZATION
-        const string k_CodeGeneratorWindowTemplate = @"Assets/UnityMonetization/Editor/Settings/Layout/CodeGenerationWindowTemplate.uxml";
-
-        const string k_SettingsStyle               = @"Assets/UnityMonetization/Editor/Settings/Layout/SettingsStyle.uss";
-        const string k_CodeGeneratorStyle          = @"Assets/UnityMonetization/Editor/Settings/Layout/CodeGeneratorStyle.uss";
-#else
         const string k_CodeGeneratorWindowTemplate = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/CodeGenerationWindowTemplate.uxml";
 
         const string k_SettingsStyle               = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/SettingsStyle.uss";
         const string k_CodeGeneratorStyle          = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/CodeGeneratorStyle.uss";
-#endif
+
         const string k_AdFormatBanner = "BANNER";
         const string k_AdFormatInterstitial = "INTERSTITIAL";
         const string k_AdFormatRewarded = "REWARDED";
 
         string[] m_SupportedAdFormats = new string[]
         {
+            k_AdFormatBanner,
             k_AdFormatInterstitial,
             k_AdFormatRewarded
         };
@@ -69,37 +64,12 @@ namespace Unity.Example
 
         public void SetupAd()
         {
-            //Create
-            ad = MediationService.Instance.Create{adType}(adUnitId);
-
-            //Subscribe to events
-            ad.OnClosed += AdClosed;
-            ad.OnClicked += AdClicked;
-            ad.OnLoaded += AdLoaded;
-            ad.OnFailedLoad += AdFailedLoad;
+            {setupCreateAndEvents}
             {rewardedCallback}
             // Impression Event
             MediationService.Instance.ImpressionEventPublisher.OnImpression += ImpressionEvent;
         }
-
-        public async void ShowAd()
-        {
-            if (ad.AdState == AdState.Loaded)
-            {
-                try
-                {
-                    {adType}ShowOptions showOptions = new {adType}ShowOptions();
-                    showOptions.AutoReload = true;
-                    await ad.ShowAsync(showOptions);
-                    AdShown();
-                }
-                catch (ShowFailedException e)
-                {
-                    AdFailedShow(e);
-                }
-            }
-        }
-
+        {showAdFunction}
         void InitializationComplete()
         {
             SetupAd();
@@ -133,29 +103,15 @@ namespace Unity.Example
             Debug.Log(""Failed to load ad"");
             Debug.Log(e.Message);
         }
-
-        void AdShown()
-        {
-            Debug.Log(""Ad shown!"");
-        }
-
-        void AdClosed(object sender, EventArgs e)
-        {
-            Debug.Log(""Ad has closed"");
-            // Execute logic after an ad has been closed.
-        }
-
+        {adShownFunction}
+        {adRefreshedFunction}
+        {adClosedFunction}
         void AdClicked(object sender, EventArgs e)
         {
             Debug.Log(""Ad has been clicked"");
             // Execute logic after an ad has been clicked.
         }
-
-        void AdFailedShow(ShowFailedException e)
-        {
-            Debug.Log(e.Message);
-        }
-
+        {adFailedShowFunction}
         void ImpressionEvent(object sender, ImpressionEventArgs args)
         {
             var impressionData = args.ImpressionData != null ? JsonUtility.ToJson(args.ImpressionData, true) : ""null"";
@@ -164,6 +120,78 @@ namespace Unity.Example
         {rewardedFunction}
     }
 }";
+
+        const string k_SetupAdBannerEventsTemplate =
+@"
+            //Create
+            ad = MediationService.Instance.Create{adType}(adUnitId,  BannerAdPredefinedSize.Banner.ToBannerAdSize(), BannerAdAnchor.TopCenter, Vector2.zero);
+
+            //Subscribe to events
+            ad.OnRefreshed += AdRefreshed;
+            ad.OnClicked += AdClicked;
+            ad.OnLoaded += AdLoaded;
+            ad.OnFailedLoad += AdFailedLoad;
+";
+
+        const string k_AdRefreshedTemplate =
+@"void AdRefreshed(object sender, LoadErrorEventArgs e)
+        {
+            Debug.Log(""Refreshed ad"");
+            Debug.Log(e.Message);
+        }";
+        const string k_SetupAdTraditionalEventsTemplate =
+@"
+            //Create
+            ad = MediationService.Instance.Create{adType}(adUnitId);
+
+            //Subscribe to events
+            ad.OnClosed += AdClosed;
+            ad.OnClicked += AdClicked;
+            ad.OnLoaded += AdLoaded;
+            ad.OnFailedLoad += AdFailedLoad;";
+
+        const string k_AdClosedTemplate =
+@"void AdClosed(object sender, EventArgs e)
+        {
+            Debug.Log(""Ad has closed"");
+            // Execute logic after an ad has been closed.
+        }
+";
+
+        const string k_ShowAdTemplate =
+@"
+        public async void ShowAd()
+        {
+            if (ad.AdState == AdState.Loaded)
+            {
+                try
+                {
+                    {adType}ShowOptions showOptions = new {adType}ShowOptions();
+                    showOptions.AutoReload = true;
+                    await ad.ShowAsync(showOptions);
+                    AdShown();
+                }
+                catch (ShowFailedException e)
+                {
+                    AdFailedShow(e);
+                }
+            }
+        }
+";
+        const string k_AdShownTemplate =
+@"
+        void AdShown()
+        {
+            Debug.Log(""Ad shown!"");
+        }";
+
+        const string k_AdFailedShowTemplate =
+@"
+        void AdFailedShow(ShowFailedException e)
+        {
+            Debug.Log(e.Message);
+        }
+";
         const string k_OnRewardedTemplate =
 @"
         void UserRewarded(object sender, RewardEventArgs e)
@@ -181,13 +209,8 @@ namespace Unity.Example
         const string k_ServiceBaseStyle    = @"StyleSheets/ServicesWindow/ServicesProjectSettingsCommon.uss";
         static readonly string k_SkinStyle = @"StyleSheets/ServicesWindow/ServicesProjectSettings{0}.uss";
 #else
-    #if GAMEGROWTH_UNITY_MONETIZATION
-        const string k_ServiceBaseStyle    = @"Assets/UnityMonetization/Editor/Settings/Layout/2019/BaseStyle.uss";
-        static readonly string k_SkinStyle = @"Assets/UnityMonetization/Editor/Settings/Layout/2019/SkinStyle{0}.uss";
-    #else
         const string k_ServiceBaseStyle    = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/2019/BaseStyle.uss";
         static readonly string k_SkinStyle = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/2019/SkinStyle{0}.uss";
-    #endif
 #endif
 
         Dictionary<(string, string), List<(string, string)>> m_AdUnitsPerGameId;
@@ -198,11 +221,11 @@ namespace Unity.Example
         TextField     m_CodeGenField;
         private Label m_CodeGenLineNumbers;
 
-        [MenuItem("Services/Mediation/Code Generator", priority = 112)]
+        [MenuItem("Services/" + MediationServiceIdentifier.k_PackageDisplayName + "/Code Generator", priority = 112)]
         public static void ShowWindow()
         {
             EditorGameServiceAnalyticsSender.SendTopMenuCodeGeneratorEvent();
-            GetWindow<MediationCodeGeneratorWindow>("Mediation - Code Generator", new Type[] { typeof(MediationAdUnitsWindow), typeof(SceneView), typeof(EditorWindow)});
+            GetWindow<MediationCodeGeneratorWindow>($"{MediationServiceIdentifier.k_PackageDisplayName} - Code Generator", new Type[] { typeof(MediationAdUnitsWindow), typeof(SceneView), typeof(EditorWindow)});
         }
 
         void OnFocus()
@@ -359,20 +382,48 @@ namespace Unity.Example
                 m_AdUnitsDropdownContent.value.Item1.Substring(1).ToLower()
                 + "Ad";
 
+            var setupCreateAndEvents = "";
+            var adRefreshedFunction = "";
+            var adClosedFunction = "";
+            var showAdFunction = "";
+            var adShownFunction = "";
+            var adFailedShowFunction = "";
             var rewardedCallback = "";
             var rewardedFunction = "";
-            if (formattedAdType == "RewardedAd")
+
+            if (formattedAdType == "BannerAd")
             {
-                rewardedCallback = "ad.OnUserRewarded += UserRewarded;\n";
-                rewardedFunction = k_OnRewardedTemplate;
+                setupCreateAndEvents = k_SetupAdBannerEventsTemplate;
+                adRefreshedFunction = k_AdRefreshedTemplate;
             }
+            else
+            {
+                if (formattedAdType == "RewardedAd")
+                {
+                    rewardedCallback = "ad.OnUserRewarded += UserRewarded;\n";
+                    rewardedFunction = k_OnRewardedTemplate;
+                }
+
+                setupCreateAndEvents = k_SetupAdTraditionalEventsTemplate;
+                adClosedFunction = k_AdClosedTemplate;
+                showAdFunction = k_ShowAdTemplate;
+                adShownFunction = k_AdShownTemplate;
+                adFailedShowFunction = k_AdFailedShowTemplate;
+            }
+
 
             var codeString = k_GeneratedCodeTemplate
                 .Replace("{gameId}", gameId)
                 .Replace("{adUnitId}", adUnitId)
-                .Replace("{adType}", formattedAdType)
+                .Replace("{setupCreateAndEvents}", setupCreateAndEvents)
+                .Replace("{showAdFunction}", showAdFunction)
+                .Replace("{adShownFunction}", adShownFunction)
+                .Replace("{adRefreshedFunction}", adRefreshedFunction)
+                .Replace("{adClosedFunction}", adClosedFunction)
+                .Replace("{adFailedShowFunction}", adFailedShowFunction)
                 .Replace("{rewardedCallback}", rewardedCallback)
-                .Replace("{rewardedFunction}", rewardedFunction);
+                .Replace("{rewardedFunction}", rewardedFunction)
+                .Replace("{adType}", formattedAdType);
 
             m_CodeGenField.value = codeString;
 

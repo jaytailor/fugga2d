@@ -34,7 +34,7 @@ namespace Unity.Services.Mediation.Platform
 
         public IosBannerAd(string adUnitId, BannerAdSize size, BannerAdAnchor anchor = BannerAdAnchor.Default, Vector2 positionOffset = new Vector2()) : base(true)
         {
-            NativePtr = BannerAdCreate(adUnitId, size.Width, size.Height);
+            NativePtr = BannerAdCreate(adUnitId, size.DpWidth, size.DpHeight);
             Size = size;
             SetPosition(anchor, positionOffset);
         }
@@ -51,6 +51,7 @@ namespace Unity.Services.Mediation.Platform
 
         public void SetPosition(BannerAdAnchor anchor, Vector2 positionOffset = new Vector2())
         {
+            positionOffset /= BannerAdSize.k_DpToPixelRatio;
             if (CheckDisposedAndLogError("Cannot set Banner Position")) return;
             BannerAdSetPosition(NativePtr, (int)anchor, (int)positionOffset.x, (int)positionOffset.y);
         }

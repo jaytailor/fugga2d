@@ -104,6 +104,11 @@ namespace Unity.Services.Mediation.Adapters.Editor
         public VersionInfo[] Versions;
 
         /// <summary>
+        /// Repositories required for this Adapter
+        /// </summary>
+        public string[] Repositories;
+
+        /// <summary>
         /// Returns Adapter Info
         /// </summary>
         /// <returns>string with adapter info</returns>
@@ -126,7 +131,8 @@ namespace Unity.Services.Mediation.Adapters.Editor
                 AndroidArtifact == other.AndroidArtifact &&
                 IosPod == other.IosPod &&
                 Equals(InstalledVersion, other.InstalledVersion) &&
-                ArrayUtility.ArrayEquals(Versions, other.Versions);
+                ArrayUtility.ArrayEquals(Versions, other.Versions) &&
+                ArrayUtility.ArrayEquals(Repositories, other.Repositories);
         }
 
         public override int GetHashCode()
@@ -140,6 +146,7 @@ namespace Unity.Services.Mediation.Adapters.Editor
                 hashCode = (hashCode * 397) ^ (IosPod != null ? IosPod.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (InstalledVersion != null ? InstalledVersion.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (Versions != null ? Versions.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Repositories != null ? Repositories.GetHashCode() : 0);
                 return hashCode;
             }
         }

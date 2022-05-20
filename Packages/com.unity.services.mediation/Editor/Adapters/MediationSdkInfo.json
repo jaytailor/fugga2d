@@ -19,6 +19,8 @@
           "Identifier": "latest",
           "DisplayName": "Latest Supported"
         }
+      ],
+      "Repositories": [
       ]
     },
     {
@@ -32,6 +34,8 @@
           "Identifier": "latest",
           "DisplayName": "Latest Supported"
         }
+      ],
+      "Repositories": [
       ]
     },
     {
@@ -45,6 +49,8 @@
           "Identifier": "latest",
           "DisplayName": "Latest Supported"
         }
+      ],
+      "Repositories": [
       ]
     },
     {
@@ -58,6 +64,8 @@
           "Identifier": "latest",
           "DisplayName": "Latest Supported"
         }
+      ],
+      "Repositories": [
       ]
     },
     {
@@ -71,6 +79,9 @@
           "Identifier": "latest",
           "DisplayName": "Latest Supported"
         }
+      ],
+      "Repositories": [
+        "https://android-sdk.is.com"
       ]
     },
     {
@@ -84,6 +95,8 @@
           "Identifier": "latest",
           "DisplayName": "Latest Supported"
         }
+      ],
+      "Repositories": [
       ]
     },
     {
@@ -97,8 +110,40 @@
           "Identifier": "latest",
           "DisplayName": "Latest Supported"
         }
+      ],
+      "Repositories": [
+      ]
+    },
+    {
+      "Identifier": "mintegral-adapter",
+      "DashboardId": "MINTEGRAL",
+      "DisplayName": "Mintegral Adapter",
+      "AndroidArtifact": "com.unity3d.mediation:mintegral-adapter",
+      "IosPod": "UnityMediationMintegralAdapter",
+      "Versions": [
+        {
+          "Identifier": "latest",
+          "DisplayName": "Latest Supported"
+        }
+      ],
+      "Repositories": [
+        "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
+      ]
+    },
+    {
+      "Identifier": "snap-adapter",
+      "DashboardId": "SNAPCHAT",
+      "DisplayName": "Snap Adapter",
+      "AndroidArtifact": "com.unity3d.mediation:snap-adapter",
+      "IosPod": "UnityMediationSnapchatAdapter",
+      "Versions": [
+        {
+          "Identifier": "latest",
+          "DisplayName": "Latest Supported"
+        }
+      ],
+      "Repositories": [
       ]
     }
   ]
 }
-

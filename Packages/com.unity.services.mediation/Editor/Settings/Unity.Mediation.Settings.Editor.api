@@ -16,6 +16,7 @@ namespace Unity.Services.Mediation.Settings.Editor
 
     public struct MediationServiceIdentifier : Unity.Services.Core.Editor.IEditorGameServiceIdentifier
     {
+        public const string k_PackageDisplayName = Mediation;
         public virtual string GetKey();
     }
 }

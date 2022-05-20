@@ -7,54 +7,80 @@ namespace Unity.Services.Mediation
     /// </summary>
     public class BannerAdSize
     {
-        /// <summary>
-        /// Preset for Ordinary Banner (320x50).
-        /// </summary>
-        public static BannerAdSize Banner = new BannerAdSize(320, 50);
+        const float k_DpiPerDp = 160f;
+#if UNITY_EDITOR
+        //This value is approximative, for use in mock banners only
+        internal static readonly float k_DpToPixelRatio = 2.5f * Screen.width / 1080f;
+#else
+        internal static readonly float k_DpToPixelRatio = Screen.dpi / k_DpiPerDp;
+#endif
 
         /// <summary>
-        /// Preset for Large Banner (320x100).
-        /// </summary>
-        public static BannerAdSize LargeBanner = new BannerAdSize(320, 100);
-
-        /// <summary>
-        /// Preset for Medium Rectangle (320x250).
-        /// </summary>
-        public static BannerAdSize MediumRectangle = new BannerAdSize(300, 250);
-
-        /// <summary>
-        /// Preset for Leaderboard (728x90).
-        /// </summary>
-        public static BannerAdSize Leaderboard = new BannerAdSize(728, 90);
-
-        /// <summary>
-        /// Retrieves the Width of this Banner Size.
+        /// Retrieves the Width of this Banner Size in pixels.
         /// </summary>
         public int Width => m_Value.x;
 
         /// <summary>
-        /// Retrieves the Height of this Banner Size.
+        /// Retrieves the Height of this Banner Size in pixels.
         /// </summary>
         public int Height => m_Value.y;
+
+        /// <summary>
+        /// Retrieves the Width of this Banner Size in dp.
+        /// </summary>
+        public int DpWidth => (int)(m_Value.x / k_DpToPixelRatio);
+
+        /// <summary>
+        /// Retrieves the Height of this Banner Size in dp.
+        /// </summary>
+        public int DpHeight => (int)(m_Value.y / k_DpToPixelRatio);
 
         readonly Vector2Int m_Value;
 
         /// <summary>
-        /// Constructs a Banner Size
+        /// Constructs a Banner Size in pixel format
         /// </summary>
-        /// <param name="width">Width of Banner</param>
-        /// <param name="height">Height of Banner</param>
+        /// <param name="width">Width of Banner in pixels</param>
+        /// <param name="height">Height of Banner in pixels</param>
         public BannerAdSize(int width, int height) : this(new Vector2Int(width, height))
         {
         }
 
         /// <summary>
-        /// Constructs a Banner Size
+        /// Constructs a Banner Size from a Vector2Int in pixel format
         /// </summary>
-        /// <param name="size">size in a <see cref="Vector2Int"/> form</param>
+        /// <param name="size">size in a <see cref="Vector2Int"/> pixels form</param>
         public BannerAdSize(Vector2Int size)
         {
             m_Value = size;
+        }
+
+        /// <summary>
+        /// Constructs a Banner Size from a Vector2 in pixel format
+        /// </summary>
+        /// <param name="size">size in a <see cref="Vector2"/> pixels form</param>
+        public BannerAdSize(Vector2 size)
+        {
+            m_Value = new Vector2Int((int)size.x, (int)size.y);
+        }
+
+        /// <summary>
+        /// Constructs a Banner Size from a predefined size
+        /// </summary>
+        /// <param name="size">size in a <see cref="BannerAdPredefinedSize"/> form</param>
+        public BannerAdSize(BannerAdPredefinedSize size)
+        {
+            m_Value = size.ToBannerAdSize();
+        }
+
+        /// <summary>
+        /// Constructs a Banner Size from dp units
+        /// </summary>
+        /// <param name="dpWidth">Width of Banner in dp</param>
+        /// <param name="dpHeight">Height of Banner in dp</param>
+        public static BannerAdSize FromDpUnits(int dpWidth, int dpHeight)
+        {
+            return new BannerAdSize((int)(dpWidth * k_DpToPixelRatio), (int)(dpHeight * k_DpToPixelRatio));
         }
 
         /// <summary>

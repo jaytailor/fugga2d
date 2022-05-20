@@ -6,7 +6,22 @@ namespace Unity.Services.Mediation.Platform
 {
     class AndroidBannerAd : IPlatformBannerAd, IAndroidBannerAdListener
     {
-        const string k_AndroidSizeClassName = "com.unity3d.mediation.BannerAdViewSize";
+        const string k_BannerSizeClassName = "com.unity3d.mediation.BannerAdViewSize";
+        const string k_BannerAdClassName   = "com.unity3d.mediation.BannerAd";
+
+        const string k_FuncAdState     = "getAdState";
+        const string k_FuncAdUnitId    = "getAdUnitId";
+        const string k_FuncSetPosition = "setPosition";
+        const string k_FuncLoad        = "load";
+        const string k_FuncDestroy     = "destroy";
+
+        const string k_ErrorCallingAdState     = "Cannot call AdState";
+        const string k_ErrorCallingAdUnitId    = "Cannot call AdUnitId";
+        const string k_ErrorCallingSetPosition = "Cannot call SetPosition()";
+        const string k_ErrorCallingLoad        = "Cannot call Load()";
+        const string k_ErrorFailedToLoad       = "Failed to load - ";
+        const string k_ErrorCreatingBanner     = "Error while creating Banner Ad. Banner Ad will not load. Please check your build settings, and make sure Mediation SDK is integrated properly.";
+        const string k_ErrorDisposed           = "Unity Mediation SDK: {0}: Instance of type {1} is disposed. Please create a new instance in order to call any method.";
 
         public event EventHandler OnLoaded;
         public event EventHandler<LoadErrorEventArgs> OnFailedLoad;
@@ -17,19 +32,23 @@ namespace Unity.Services.Mediation.Platform
         {
             get
             {
-                if (CheckDisposedAndLogError("Cannot call AdState")) return AdState.Unloaded;
-                try
+                var stateVal = AdState.Unloaded;
+                if (!CheckDisposedAndLogError(k_ErrorCallingAdState))
                 {
-                    using (var state = m_BannerAd.Call<AndroidJavaObject>("getAdState"))
+                    try
                     {
-                        return state.ToEnum<AdState>();
+                        using (var state = m_BannerAd.Call<AndroidJavaObject>(k_FuncAdState))
+                        {
+                            stateVal =  state.ToEnum<AdState>();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogException(e);
                     }
                 }
-                catch (Exception e)
-                {
-                    Debug.LogException(e);
-                    return AdState.Unloaded;
-                }
+
+                return stateVal;
             }
         }
 
@@ -37,16 +56,20 @@ namespace Unity.Services.Mediation.Platform
         {
             get
             {
-                if (CheckDisposedAndLogError("Cannot call AdUnitId")) return null;
-                try
+                string adUnitId = null;
+                if (!CheckDisposedAndLogError(k_ErrorCallingAdUnitId))
                 {
-                    return m_BannerAd.Call<string>("getAdUnitId");
+                    try
+                    {
+                        adUnitId = m_BannerAd.Call<string>(k_FuncAdUnitId);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogException(e);
+                    }
                 }
-                catch (Exception e)
-                {
-                    Debug.LogException(e);
-                    return null;
-                }
+
+                return adUnitId;
             }
         }
 
@@ -73,16 +96,15 @@ namespace Unity.Services.Mediation.Platform
 
                     using (var activity = ActivityUtil.GetUnityActivity())
                     {
-                        AndroidJavaObject androidSize = new AndroidJavaObject(k_AndroidSizeClassName, size.Width, size.Height);
+                        AndroidJavaObject androidSize = new AndroidJavaObject(k_BannerSizeClassName, size.DpWidth, size.DpHeight);
 
-                        m_BannerAd = new AndroidJavaObject("com.unity3d.mediation.BannerAd",
+                        m_BannerAd = new AndroidJavaObject(k_BannerAdClassName,
                             activity, adUnitId, androidSize, m_BannerAdListener);
                     }
                 }
                 catch (Exception e)
                 {
-                    Debug.LogError("Error while creating Banner Ad. Banner Ad will not load. " +
-                        "Please check your build settings, and make sure Mediation SDK is integrated properly.");
+                    Debug.LogError(k_ErrorCreatingBanner);
                     Debug.LogException(e);
                 }
 
@@ -92,12 +114,39 @@ namespace Unity.Services.Mediation.Platform
 
         public void SetPosition(BannerAdAnchor anchor, Vector2 positionOffset = new Vector2())
         {
-            m_BannerAd.Call("setPosition", Convert.ToInt32(anchor), (int)positionOffset.x, (int)positionOffset.y);
+            if (!CheckDisposedAndLogError(k_ErrorCallingSetPosition))
+            {
+                ThreadUtil.Post(state =>
+                {
+                    try
+                    {
+                        m_BannerAd.Call(k_FuncSetPosition, Convert.ToInt32(anchor), (int)positionOffset.x, (int)positionOffset.y);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogException(e);
+                    }
+                });
+            }
         }
 
         public void Load()
         {
-            m_BannerAd.Call("load");
+            if (!CheckDisposedAndLogError(k_ErrorCallingLoad))
+            {
+                ThreadUtil.Post(state =>
+                {
+                    try
+                    {
+                        m_BannerAd.Call(k_FuncLoad);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogException(e);
+                        OnFailedLoad?.Invoke(this, new LoadErrorEventArgs(LoadError.Unknown, k_ErrorFailedToLoad + e.Message));
+                    }
+                });
+            }
         }
 
         public void Dispose()
@@ -138,27 +187,31 @@ namespace Unity.Services.Mediation.Platform
 
         void Dispose(bool disposing)
         {
-            if (m_Disposed) return;
-            m_Disposed = true;
-            if (disposing)
+            if (!m_Disposed)
             {
-                //AndroidJavaObjects are created and destroyed with JNI's NewGlobalRef and DeleteGlobalRef,
-                //Therefore must be used on the same attached thread. In this case, it's Unity thread.
-                ThreadUtil.Post(state =>
+                m_Disposed = true;
+                if (disposing)
                 {
-                    m_BannerAd?.Call("destroy");
-                    m_BannerAd?.Dispose();
-                    m_BannerAdListener = null;
-                    m_BannerAd = null;
-                });
+                    //AndroidJavaObjects are created and destroyed with JNI's NewGlobalRef and DeleteGlobalRef,
+                    //Therefore must be used on the same attached thread. In this case, it's Unity thread.
+                    ThreadUtil.Post(state =>
+                    {
+                        m_BannerAd?.Call(k_FuncDestroy);
+                        m_BannerAd?.Dispose();
+                        m_BannerAdListener = null;
+                        m_BannerAd = null;
+                    });
+                }
             }
         }
 
         bool CheckDisposedAndLogError(string message)
         {
-            if (!m_Disposed) return false;
-            Debug.LogErrorFormat("Unity Mediation SDK: {0}: Instance of type {1} is disposed. Please create a new instance in order to call any method.", message, GetType().FullName);
-            return true;
+            if (m_Disposed)
+            {
+                Debug.LogErrorFormat(k_ErrorDisposed, message, GetType().FullName);
+            }
+            return m_Disposed;
         }
     }
 }

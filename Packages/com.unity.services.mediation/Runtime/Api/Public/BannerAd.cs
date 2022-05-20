@@ -47,6 +47,7 @@ namespace Unity.Services.Mediation
 
         IPlatformBannerAd m_BannerAdImpl;
         TaskCompletionSource<object> m_LoadCompletionSource;
+        bool m_IsLoading;
 
         /// <summary>
         /// Constructor for managing a specific Banner Ad.
@@ -57,7 +58,7 @@ namespace Unity.Services.Mediation
         /// <param name="positionOffset">The X, Y coordinates offsets, relative to the anchor point</param>
         public BannerAd(string adUnitId, BannerAdSize size, BannerAdAnchor anchor = BannerAdAnchor.Default, Vector2 positionOffset = new Vector2())
         {
-#if UNITY_EDITOR
+#if UNITY_EDITOR && (UNITY_ANDROID || UNITY_IOS)
             m_BannerAdImpl = new EditorBannerAd(adUnitId, size, anchor, positionOffset);
 #elif UNITY_ANDROID
             m_BannerAdImpl = new AndroidBannerAd(adUnitId, size, anchor, positionOffset);
@@ -96,7 +97,7 @@ namespace Unity.Services.Mediation
         /// <exception cref="Unity.Services.Mediation.LoadFailedException">Thrown when the ad failed to load</exception>
         public Task LoadAsync()
         {
-            if (!IsLoading)
+            if (!m_IsLoading)
             {
                 SetupAsyncLoad();
                 m_BannerAdImpl.Load();
@@ -105,13 +106,12 @@ namespace Unity.Services.Mediation
             return m_LoadCompletionSource?.Task ?? Task.CompletedTask;
         }
 
-        bool IsLoading => m_LoadCompletionSource != null;
-
         void SetupAsyncLoad()
         {
             m_LoadCompletionSource = new TaskCompletionSource<object>();
             m_BannerAdImpl.OnLoaded += OnLoadCompleted;
             m_BannerAdImpl.OnFailedLoad += OnLoadFailed;
+            m_IsLoading = true;
         }
 
         void OnLoadCompleted(object sender, EventArgs e)
@@ -130,7 +130,7 @@ namespace Unity.Services.Mediation
         {
             m_BannerAdImpl.OnFailedLoad -= OnLoadFailed;
             m_BannerAdImpl.OnLoaded -= OnLoadCompleted;
-            m_LoadCompletionSource = null;
+            m_IsLoading = false;
         }
 
         /// <summary>

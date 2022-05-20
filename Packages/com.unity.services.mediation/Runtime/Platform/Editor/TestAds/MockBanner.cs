@@ -41,11 +41,7 @@ class MockBanner : MonoBehaviour, IPlatformBannerAd, IPointerClickHandler
         internal set
         {
             m_Size = value;
-
-            // 160 is the accepted conversion unit from dp to px
-            const float dpiPerDp = 160f;
-            float pixelToDpRatio = Screen.dpi / dpiPerDp;
-            CanvasPanel.sizeDelta = new Vector2(value.Width / pixelToDpRatio, value.Height / pixelToDpRatio);
+            CanvasPanel.sizeDelta = new Vector2(value.Width, value.Height);
         }
     }
 

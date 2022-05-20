@@ -122,11 +122,11 @@ namespace Unity.Services.Mediation.Settings.Editor
             RefreshAllInstallButton();
         }
 
-        [MenuItem("Services/Mediation/Configure", priority = 100)]
+        [MenuItem("Services/" + MediationServiceIdentifier.k_PackageDisplayName + "/Configure", priority = 100)]
         public static void ShowWindow()
         {
             EditorGameServiceAnalyticsSender.SendTopMenuConfigureEvent();
-            SettingsService.OpenProjectSettings("Project/Services/Mediation");
+            SettingsService.OpenProjectSettings($"Project/Services/{MediationServiceIdentifier.k_PackageDisplayName}");
         }
 
         public static List<IAdapterSettings> FindAdapterSettings(List<AdapterInfo> adapters)

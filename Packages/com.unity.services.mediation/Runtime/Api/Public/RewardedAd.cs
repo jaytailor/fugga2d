@@ -61,6 +61,8 @@ namespace Unity.Services.Mediation
         IPlatformRewardedAd m_RewardedAdImpl;
         TaskCompletionSource<object> m_LoadCompletionSource;
         TaskCompletionSource<object> m_ShowCompletionSource;
+        bool m_IsLoading;
+        bool m_IsShowing;
 
         /// <summary>
         /// Constructor for managing a specific Rewarded Ad.
@@ -109,7 +111,7 @@ namespace Unity.Services.Mediation
         /// <exception cref="Unity.Services.Mediation.LoadFailedException">Thrown when the ad failed to load</exception>
         public Task LoadAsync()
         {
-            if (!IsLoading)
+            if (!m_IsLoading)
             {
                 SetupAsyncLoad();
                 m_RewardedAdImpl.Load();
@@ -118,13 +120,12 @@ namespace Unity.Services.Mediation
             return m_LoadCompletionSource?.Task ?? Task.CompletedTask;
         }
 
-        bool IsLoading => m_LoadCompletionSource != null;
-
         void SetupAsyncLoad()
         {
             m_LoadCompletionSource = new TaskCompletionSource<object>();
             m_RewardedAdImpl.OnLoaded += OnLoadCompleted;
             m_RewardedAdImpl.OnFailedLoad += OnLoadFailed;
+            m_IsLoading = true;
         }
 
         void OnLoadCompleted(object sender, EventArgs e)
@@ -143,7 +144,7 @@ namespace Unity.Services.Mediation
         {
             m_RewardedAdImpl.OnFailedLoad -= OnLoadFailed;
             m_RewardedAdImpl.OnLoaded -= OnLoadCompleted;
-            m_LoadCompletionSource = null;
+            m_IsLoading = false;
         }
 
         /// <summary>
@@ -167,7 +168,7 @@ namespace Unity.Services.Mediation
         /// <exception cref="Unity.Services.Mediation.ShowFailedException">Thrown when the ad failed to show</exception>
         public Task ShowAsync(RewardedAdShowOptions showOptions = null)
         {
-            if (!IsShowing)
+            if (!m_IsShowing)
             {
                 SetupAsyncShow();
 
@@ -183,13 +184,12 @@ namespace Unity.Services.Mediation
             return m_ShowCompletionSource?.Task ?? Task.CompletedTask;
         }
 
-        bool IsShowing => m_ShowCompletionSource != null;
-
         void SetupAsyncShow()
         {
             m_ShowCompletionSource = new TaskCompletionSource<object>();
             m_RewardedAdImpl.OnClosed += OnShowCompleted;
             m_RewardedAdImpl.OnFailedShow += OnShowFailed;
+            m_IsShowing = true;
         }
 
         void OnShowCompleted(object sender, EventArgs e)
@@ -208,7 +208,7 @@ namespace Unity.Services.Mediation
         {
             m_RewardedAdImpl.OnFailedShow -= OnShowFailed;
             m_RewardedAdImpl.OnClosed -= OnShowCompleted;
-            m_ShowCompletionSource = null;
+            m_IsShowing = false;
         }
 
         void ReloadAd(object sender, EventArgs e)

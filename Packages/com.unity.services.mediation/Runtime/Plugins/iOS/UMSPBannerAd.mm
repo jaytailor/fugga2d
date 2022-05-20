@@ -95,7 +95,7 @@ void DisplayBannerAd(UMSBannerAdView *bannerAd, UIViewController *viewController
                                                           toItem:constrainToItem
                                                        attribute:attributeY
                                                       multiplier:1.0
-                                                        constant:offsetY];
+                                                        constant:-offsetY];
 
     NSLayoutConstraint *horizontalConstraint = [NSLayoutConstraint
                                                 constraintWithItem:bannerAd

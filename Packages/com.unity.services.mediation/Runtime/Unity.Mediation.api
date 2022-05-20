@@ -42,18 +42,33 @@ namespace Unity.Services.Mediation
         public int value__;
     }
 
+    public enum BannerAdPredefinedSize
+    {
+        public const Unity.Services.Mediation.BannerAdPredefinedSize Banner = 0;
+        public const Unity.Services.Mediation.BannerAdPredefinedSize LargeBanner = 1;
+        public const Unity.Services.Mediation.BannerAdPredefinedSize Leaderboard = 3;
+        public const Unity.Services.Mediation.BannerAdPredefinedSize MediumRectangle = 2;
+        public int value__;
+    }
+
+    [System.Runtime.CompilerServices.Extension] public static class BannerAdPredefinedSizeExtension
+    {
+        [System.Runtime.CompilerServices.Extension] public static Unity.Services.Mediation.BannerAdSize ToBannerAdSize(Unity.Services.Mediation.BannerAdPredefinedSize bannerAdPredefinedSize);
+    }
+
     public class BannerAdSize
     {
-        public static Unity.Services.Mediation.BannerAdSize Banner;
-        public static Unity.Services.Mediation.BannerAdSize LargeBanner;
-        public static Unity.Services.Mediation.BannerAdSize Leaderboard;
-        public static Unity.Services.Mediation.BannerAdSize MediumRectangle;
+        public int DpHeight { get; }
+        public int DpWidth { get; }
         public int Height { get; }
         public int Width { get; }
+        public BannerAdSize(Unity.Services.Mediation.BannerAdPredefinedSize size) {}
+        public BannerAdSize(UnityEngine.Vector2 size) {}
         public BannerAdSize(UnityEngine.Vector2Int size) {}
         public BannerAdSize(int width, int height) {}
         public virtual bool Equals(object obj);
         protected bool Equals(Unity.Services.Mediation.BannerAdSize other);
+        public static Unity.Services.Mediation.BannerAdSize FromDpUnits(int dpWidth, int dpHeight);
         public virtual int GetHashCode();
         public static Unity.Services.Mediation.BannerAdSize op_Implicit(UnityEngine.Vector2Int size);
         public static UnityEngine.Vector2Int op_Implicit(Unity.Services.Mediation.BannerAdSize size);
@@ -308,5 +323,21 @@ namespace Unity.Services.Mediation
     public class ShowFailedException : System.Exception
     {
         public Unity.Services.Mediation.ShowError ShowError;
+    }
+}
+
+namespace Unity.Services.Mediation.UI
+{
+    [UnityEngine.RequireComponent(typeof(UnityEngine.RectTransform))] public class UIBannerAd : UnityEngine.EventSystems.UIBehaviour
+    {
+        [UnityEngine.Tooltip(@"The banner ad's Ad Unit ID for Android builds")] public string androidAdUnitId;
+        [UnityEngine.Tooltip(@"The Unity services will automatically be initialized using the linked project's game ID if they have not been initialized when this component Awakens. Turn this off if you want to initialize your services with a special configuration.")] public bool autoInitServices;
+        [UnityEngine.Tooltip(@"Draw a preview of the banner placement in the scene window")] public bool drawEditorPreview;
+        [UnityEngine.Tooltip(@"Follow the UI component's movement to the best of the Banner Ad's ability. Turn this off if you want your banner to be stationary, or for better performances.")] public bool followComponentMovement;
+        [UnityEngine.Tooltip(@"The banner ad's Ad Unit ID for iOS builds")] public string iosAdUnitId;
+        public string AdUnitId { get; }
+        public UIBannerAd() {}
+        protected virtual void Awake();
+        protected virtual void OnDisable();
     }
 }
