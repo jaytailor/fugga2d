@@ -1,0 +1,17 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '11.0'
+
+use_frameworks!
+target 'UnityFramework' do
+  pod 'Protobuf'
+  pod 'UnityMediationAdColonyAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationAdmobAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationAppLovinAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationFacebookAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationIronSourceAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationMintegralAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationSdk', '~> 0.5.0', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationSnapchatAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationUnityAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationVungleAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+end

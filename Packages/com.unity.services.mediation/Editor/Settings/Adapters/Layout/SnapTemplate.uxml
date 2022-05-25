@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xmlns="UnityEngine.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="EarlyAccessSnapContainer" class="centered-row">
+    <ui:VisualElement name="EarlyAccessSnapContainer" class="link-row">
         <ui:TextElement text="Early Access" class="link-button" />
         <ui:VisualElement class="external-link-icon" style="-unity-background-image-tint-color: rgb(84, 129, 247);" />
     </ui:VisualElement>

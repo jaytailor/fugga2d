@@ -59,6 +59,8 @@ namespace Unity.Services.Mediation.Settings.Editor
         static List<string> s_configuredAdNetworks;
         static bool s_Initialized;
         static bool s_SettingsChanged;
+        static ReloadableUserSetting<bool> s_ForceDynamicLinkingSetting = new ReloadableUserSetting<bool>(MediationSettingsProvider.instance,
+            MediationUserSettingsKeys.forceDynamicLinkingKey, true);
 
         [InitializeOnLoadMethod]
         static void Initialize()
@@ -184,6 +186,9 @@ namespace Unity.Services.Mediation.Settings.Editor
 
             rootElement.Q<Button>("GoToAdUnits").clickable.clicked += MediationAdUnitsWindow.ShowWindow;
             rootElement.Q<Button>("GoToCodeGenerator").clickable.clicked += MediationCodeGeneratorWindow.ShowWindow;
+            var forceDynamicLinkingToggle = rootElement.Q<Toggle>("ForceDynamicLinking");
+            forceDynamicLinkingToggle.RegisterValueChangedCallback(ForceDynamicLinkingToggleValueChanged);
+            forceDynamicLinkingToggle.value = s_ForceDynamicLinkingSetting.value;
 
             //Clear references to graphic elements as they will be generated here.
             s_AdapterSelectToggle.Clear();
@@ -354,6 +359,11 @@ namespace Unity.Services.Mediation.Settings.Editor
             return !string.IsNullOrEmpty(s_AdapterSettings.
                 FirstOrDefault(adapterSettings => adapterSettings.AdapterId == adapterIdentifier)?.
                 InstalledVersion.value);
+        }
+
+        static void ForceDynamicLinkingToggleValueChanged(ChangeEvent<bool> evt)
+        {
+            s_ForceDynamicLinkingSetting.value = evt.newValue;
         }
     }
 }

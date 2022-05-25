@@ -78,6 +78,7 @@ namespace Unity.Services.Mediation.UI
                 m_RectTransform.GetWorldCorners(s_Corners);
                 var offset = s_Corners[0];
                 m_BannerAd.SetPosition(k_OffsetBaseAnchor, offset);
+                transform.hasChanged = false;
             }
         }
 

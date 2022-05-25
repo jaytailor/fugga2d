@@ -33,7 +33,8 @@ extern "C" {
 
 void * UMSPInterstitialAdLoadDelegateCreate(LoadSuccessCallback loadSuccessCallback, LoadFailCallback loadFailCallback) {
     UMSPInterstitialAdLoadDelegate *delegate = [[UMSPInterstitialAdLoadDelegate alloc]
-                                                initWithSuccessCallback:loadSuccessCallback failCallback:loadFailCallback];
+                                                initWithSuccessCallback:loadSuccessCallback
+                                                           failCallback:loadFailCallback];
 
     return (__bridge_retained void *)delegate;
 }

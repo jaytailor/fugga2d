@@ -20,14 +20,38 @@ typedef enum {
     Default      = 0
 } UMSPBannerAdAnchor;
 
-UMSPBannerAdAnchor m_Anchor;
+
+@interface UIView (RemoveConstraints)
+
+- (void)removeAllConstraints;
+
+@end
+
+
+@implementation UIView (RemoveConstraints)
+
+- (void)removeAllConstraints {
+    UIView *superview = self.superview;
+
+    for (NSLayoutConstraint *constraint in superview.constraints) {
+        if (constraint.firstItem == self || constraint.secondItem == self) {
+            [superview removeConstraint:constraint];
+        }
+    }
+}
+
+@end
 
 void DisplayBannerAd(UMSBannerAdView *bannerAd, UIViewController *viewController,
                      UMSPBannerAdAnchor anchor, int offsetX, int offsetY) {
-    bannerAd.translatesAutoresizingMaskIntoConstraints = NO;
+    if (bannerAd.superview) {
+        [bannerAd removeAllConstraints];
+    } else {
+        [bannerAd removeFromSuperview];
+        [viewController.view addSubview:bannerAd];
+    }
 
-    [bannerAd removeFromSuperview];
-    [viewController.view addSubview:bannerAd];
+    bannerAd.translatesAutoresizingMaskIntoConstraints = NO;
 
     NSLayoutAttribute attributeX = NSLayoutAttributeTop;
     NSLayoutAttribute attributeY = NSLayoutAttributeLeft;

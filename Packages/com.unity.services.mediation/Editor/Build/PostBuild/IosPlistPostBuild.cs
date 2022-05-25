@@ -84,7 +84,7 @@ namespace Unity.Services.Mediation.Build.Editor
         static void SetSnapApplicationIdentifier(PlistDocument plist, string snapAppId)
         {
             var id = 0;
-            var parsed = int.TryParse(snapAppId, out id);
+            var parsed =int.TryParse(snapAppId, out id);
             if (parsed)
             {
                 plist.root.SetInteger(k_SnapApplicationIdKey, id);

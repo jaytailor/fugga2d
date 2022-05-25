@@ -1,0 +1,78 @@
+source 'https://cdn.cocoapods.org/'
+platform :ios, '11.0'
+
+target 'UnityFramework' do
+  pod 'FBSDKCoreKit', '~> 11.0'
+  pod 'FBSDKCoreKit_Basics', '~> 11.0'
+  pod 'FBSDKGamingServicesKit', '~> 11.0'
+  pod 'FBSDKLoginKit', '~> 11.0'
+  pod 'FBSDKShareKit', '~> 11.0'
+  pod 'Firebase/Analytics', '8.15.0'
+  pod 'Firebase/Auth', '8.15.0'
+  pod 'Firebase/Core', '8.15.0'
+  pod 'Firebase/Storage', '8.15.0'
+  pod 'Protobuf'
+  pod 'UnityMediationAdColonyAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationAdmobAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationAppLovinAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationFacebookAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationIronSourceAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationMintegralAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationSdk', '~> 0.5.0', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationSnapchatAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationUnityAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+  pod 'UnityMediationVungleAdapter', :source => 'git@github.com:Unity-Technologies/mz-liveops-cocoapods.git'
+end
+target             'Unity-iPhone' do
+end
+
+
+
+
+use_frameworks!
+
+post_install do |installer|
+  applicationTargets = [
+    'Pods-Unity-iPhone',
+  ]
+  libraryTargets = [
+    'Pods-UnityFramework',
+  ]
+
+  embedded_targets = installer.aggregate_targets.select { |aggregate_target|
+    libraryTargets.include? aggregate_target.name
+  }
+  embedded_pod_targets = embedded_targets.flat_map { |embedded_target| embedded_target.pod_targets }
+  host_targets = installer.aggregate_targets.select { |aggregate_target|
+    applicationTargets.include? aggregate_target.name
+  }
+
+  # We only want to remove pods from Application targets, not libraries
+  host_targets.each do |host_target|
+    host_target.xcconfigs.each do |config_name, config_file|
+      host_target.pod_targets.each do |pod_target|
+        if embedded_pod_targets.include? pod_target
+          pod_target.specs.each do |spec|
+            if spec.attributes_hash['ios'] != nil
+              frameworkPaths = spec.attributes_hash['ios']['vendored_frameworks']
+            else
+              frameworkPaths = spec.attributes_hash['vendored_frameworks']
+            end
+            if frameworkPaths != nil
+              frameworkNames = Array(frameworkPaths).map(&:to_s).map do |filename|
+                extension = File.extname filename
+                File.basename filename, extension
+              end
+              frameworkNames.each do |name|
+                puts "Removing #{name} from OTHER_LDFLAGS of target #{host_target.name}"
+                config_file.frameworks.delete(name)
+              end
+            end
+          end
+        end
+      end
+      xcconfig_path = host_target.xcconfig_path(config_name)
+      config_file.save_as(xcconfig_path)
+    end
+  end
+end

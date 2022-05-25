@@ -16,6 +16,7 @@ namespace Unity.Services.Mediation.Settings.Editor
     /// </summary>
     class MediationCodeGeneratorWindow : EditorWindow
     {
+
         const string k_CodeGeneratorWindowTemplate = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/CodeGenerationWindowTemplate.uxml";
 
         const string k_SettingsStyle               = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/SettingsStyle.uss";
@@ -185,7 +186,7 @@ namespace Unity.Example
             Debug.Log(""Ad shown!"");
         }";
 
-        const string k_AdFailedShowTemplate =
+const string k_AdFailedShowTemplate =
 @"
         void AdFailedShow(ShowFailedException e)
         {

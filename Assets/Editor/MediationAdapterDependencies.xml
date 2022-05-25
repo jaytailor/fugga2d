@@ -3,6 +3,7 @@
   <androidPackages>
     <repositories>
       <repository>https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-stg-local/</repository>
+      <repository>https://android-sdk.is.com</repository>
     </repositories>
     <!-- Mediation Android SDK -->
     <androidPackage spec="com.unity3d.mediation:mediation-sdk:[0.5,0.6[" mediation-identifier="mediation-sdk" mediation-version="0.5" />

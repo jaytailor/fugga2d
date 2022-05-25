@@ -63,5 +63,16 @@
             </VisualElement>
             <Button name="GoToAdUnits" text="Ad Units" class="ad-units-button"/>
         </VisualElement>
+
+        <VisualElement class="separator" />
+
+        <VisualElement class="project-settings-service-specific-container">
+            <VisualElement class="project-settings-title-container">
+                <Label class="project-settings-title" text="Build Settings" />
+            </VisualElement>
+            <VisualElement class="project-settings-title-container description">
+                <Toggle class="settings-toggle" name="ForceDynamicLinking" text=" Force Dynamic Linking for Cocoapods"/>
+            </VisualElement>
+        </VisualElement>
     </ScrollView>
 </UXML>

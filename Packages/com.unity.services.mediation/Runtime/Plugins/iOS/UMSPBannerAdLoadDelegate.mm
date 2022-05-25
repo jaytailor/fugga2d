@@ -33,7 +33,7 @@
     }
 }
 
-- (void)onBannerAdViewRefreshed:(UMSBannerAdView * _Nullable)bannerAd error:(NSError *)error {
+- (void)onBannerAdViewRefreshed:(UMSBannerAdView *_Nullable)bannerAd error:(NSError *)error {
     if (self.refreshed) {
         if (error) {
             self.refreshed((__bridge void *)bannerAd, (int)error.code, [error.description UTF8String]);
@@ -53,7 +53,8 @@ void * UMSPBannerAdLoadDelegateCreate(LoadSuccessCallback loadSuccessCallback, L
     UMSPBannerAdLoadDelegate *delegate = [[UMSPBannerAdLoadDelegate alloc]
                                           initWithSuccessCallback:loadSuccessCallback
                                                      failCallback:loadFailCallback
-                                                  clickedCallback:clickedCallback refreshedCallback:refreshedCallback];
+                                                  clickedCallback:clickedCallback
+                                                refreshedCallback:refreshedCallback];
 
     return (__bridge_retained void *)delegate;
 }
