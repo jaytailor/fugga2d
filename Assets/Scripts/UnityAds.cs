@@ -84,7 +84,7 @@ public class UnityAds
 	{
 		if (bannerAd == null)
 		{
-			bannerAd = MediationService.Instance.CreateBannerAd(bannerAdUnitId, BannerAdSize.Banner);
+			bannerAd = MediationService.Instance.CreateBannerAd(bannerAdUnitId, BannerAdPredefinedSize.Banner.ToBannerAdSize());
 			bannerAd.OnLoaded += OnLoadedBanner;
 			bannerAd.OnFailedLoad += OnFailedLoadBanner;
 			bannerAd.OnRefreshed += OnRefreshedBanner;
@@ -98,7 +98,7 @@ public class UnityAds
 	{
 		if (MRECAd == null)
 		{
-			MRECAd = MediationService.Instance.CreateBannerAd(MRECAdUnitId, BannerAdSize.MediumRectangle, BannerAdAnchor.BottomCenter);
+			MRECAd = MediationService.Instance.CreateBannerAd(MRECAdUnitId, BannerAdPredefinedSize.MediumRectangle.ToBannerAdSize(), BannerAdAnchor.BottomCenter);
 			MRECAd.OnLoaded += OnLoadedBanner;
 			MRECAd.OnFailedLoad += OnFailedLoadBanner;
 			MRECAd.OnRefreshed += OnRefreshedBanner;
