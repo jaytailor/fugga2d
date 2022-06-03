@@ -51,6 +51,11 @@ namespace Unity.Services.Mediation
         BottomRight = 8,
 
         /// <summary>
+        /// Use offset as screen coordinates.
+        /// </summary>
+        None = 9,
+
+        /// <summary>
         /// Indicates the default anchor if none is provided.
         /// </summary>
         Default = TopCenter

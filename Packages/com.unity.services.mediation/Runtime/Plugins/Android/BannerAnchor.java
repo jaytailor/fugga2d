@@ -11,6 +11,7 @@ public enum BannerAnchor {
     BottomCenter(6),
     BottomLeft(7),
     BottomRight(8),
+    None(9),
     Default(0);
 
     final int value;
@@ -47,6 +48,7 @@ public enum BannerAnchor {
             case BottomCenter:
                 return Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
             case BottomLeft:
+            case None:
                 return Gravity.BOTTOM | Gravity.START;
             case BottomRight:
                 return Gravity.BOTTOM | Gravity.END;
@@ -56,7 +58,7 @@ public enum BannerAnchor {
     }
 
     public boolean isLeftColumn() {
-        return value == TopLeft.getValue() || value == MiddleLeft.getValue() || value == BottomLeft.getValue();
+        return value == TopLeft.getValue() || value == MiddleLeft.getValue() || value == BottomLeft.getValue() || value == None.getValue();
     }
 
     public boolean isCenterColumn() {
@@ -76,6 +78,6 @@ public enum BannerAnchor {
     }
 
     public boolean isBottomRow() {
-        return value == BottomLeft.getValue() || value == BottomCenter.getValue() || value == BottomRight.getValue();
+        return value == BottomLeft.getValue() || value == BottomCenter.getValue() || value == BottomRight.getValue() || value == None.getValue();
     }
 }

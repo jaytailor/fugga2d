@@ -18,41 +18,32 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// Retrieves the Width of this Banner Size in pixels.
         /// </summary>
-        public int Width => m_Value.x;
+        public int Width => (int)m_Value.x;
 
         /// <summary>
         /// Retrieves the Height of this Banner Size in pixels.
         /// </summary>
-        public int Height => m_Value.y;
+        public int Height => (int)m_Value.y;
 
         /// <summary>
         /// Retrieves the Width of this Banner Size in dp.
         /// </summary>
-        public int DpWidth => (int)(m_Value.x / k_DpToPixelRatio);
+        public int DpWidth => (int)Mathf.Ceil(m_Value.x / k_DpToPixelRatio);
 
         /// <summary>
         /// Retrieves the Height of this Banner Size in dp.
         /// </summary>
-        public int DpHeight => (int)(m_Value.y / k_DpToPixelRatio);
+        public int DpHeight => (int)Mathf.Ceil(m_Value.y / k_DpToPixelRatio);
 
-        readonly Vector2Int m_Value;
+        readonly Vector2 m_Value;
 
         /// <summary>
         /// Constructs a Banner Size in pixel format
         /// </summary>
         /// <param name="width">Width of Banner in pixels</param>
         /// <param name="height">Height of Banner in pixels</param>
-        public BannerAdSize(int width, int height) : this(new Vector2Int(width, height))
+        public BannerAdSize(int width, int height) : this(new Vector2(width, height))
         {
-        }
-
-        /// <summary>
-        /// Constructs a Banner Size from a Vector2Int in pixel format
-        /// </summary>
-        /// <param name="size">size in a <see cref="Vector2Int"/> pixels form</param>
-        public BannerAdSize(Vector2Int size)
-        {
-            m_Value = size;
         }
 
         /// <summary>
@@ -61,7 +52,7 @@ namespace Unity.Services.Mediation
         /// <param name="size">size in a <see cref="Vector2"/> pixels form</param>
         public BannerAdSize(Vector2 size)
         {
-            m_Value = new Vector2Int((int)size.x, (int)size.y);
+            m_Value = size;
         }
 
         /// <summary>
@@ -70,7 +61,7 @@ namespace Unity.Services.Mediation
         /// <param name="size">size in a <see cref="BannerAdPredefinedSize"/> form</param>
         public BannerAdSize(BannerAdPredefinedSize size)
         {
-            m_Value = size.ToBannerAdSize();
+            m_Value = size.ToBannerAdSize().m_Value;
         }
 
         /// <summary>
@@ -80,25 +71,25 @@ namespace Unity.Services.Mediation
         /// <param name="dpHeight">Height of Banner in dp</param>
         public static BannerAdSize FromDpUnits(int dpWidth, int dpHeight)
         {
-            return new BannerAdSize((int)(dpWidth * k_DpToPixelRatio), (int)(dpHeight * k_DpToPixelRatio));
+            return new BannerAdSize(new Vector2(dpWidth * k_DpToPixelRatio, dpHeight * k_DpToPixelRatio));
         }
 
         /// <summary>
-        /// Cast to <see cref="Vector2Int"/>
+        /// Cast to <see cref="Vector2"/>
         /// </summary>
         /// <param name="size">Banner Ad Size</param>
-        /// <returns><see cref="Vector2Int"/> version of size</returns>
-        public static implicit operator Vector2Int(BannerAdSize size)
+        /// <returns><see cref="Vector2"/> version of size</returns>
+        public static implicit operator Vector2(BannerAdSize size)
         {
-            return size?.m_Value ?? Vector2Int.zero;
+            return size?.m_Value ?? Vector2.zero;
         }
 
         /// <summary>
-        /// Cast <see cref="Vector2Int"/> to banner ad size.
+        /// Cast <see cref="Vector2"/> to banner ad size.
         /// </summary>
         /// <param name="size">Banner ad size.</param>
         /// <returns>Banner ad size object.</returns>
-        public static implicit operator BannerAdSize(Vector2Int size)
+        public static implicit operator BannerAdSize(Vector2 size)
         {
             return new BannerAdSize(size);
         }

@@ -4,15 +4,26 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2022-02-16
+## [0.5.0-preview.2] - 2022-06-02
 
 ### Added
 - The adapter settings window will now identify adapters that are configured on the dashboard, and warn the user if it is configured and not installed or vice-versa
-- Banner support
+- Banner support for Unity, AdColony, Admob, AppLovin and Vungle
+- Banner UI component to facilitate banner integration in Unity UI.
+- Support for Snapchat Ad Network, interstitial and rewarded Header Bidding ads. 
+- Support for Mintegral Ad Network, interstitial and rewarded Header Bidding ads. 
+- Added build settings option to toggle support for dynamic linking on ios.
 
 ### Changed
 - Reduced the amount of logging in editor, only calls on unsupported platforms will generate warnings
 - Mock ads will only show in editor when targeting a supported platform. IE: trying to load an ad while targeting standalone will log a warning.
+- Added Async/Await API and deprecated the former API
+
+### Fixed
+- Fixed bug with ad unit list search not refreshing the list in Unity 2022.
+- Fixed potential issues when attempting to build for iOS with various EDM4U versions for dynamic linking.
+- The no Game Id error log will only appear if the platform is supported.
+- Fixed issue where the switching of PSR versions would cause a compile issue that would stop the editor from importing a newer version of PSR without removing UMediation.
 
 ## [0.4.1-preview.1] - 2022-03-29
 

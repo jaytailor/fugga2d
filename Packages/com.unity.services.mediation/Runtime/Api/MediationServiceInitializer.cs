@@ -31,10 +31,12 @@ namespace Unity.Services.Mediation
             string installId = installationId.GetOrCreateIdentifier();
             string gameId    = projectConfiguration.GetString(keyGameId);
 
+#if UNITY_ANDROID || UNITY_IOS
             if (!Application.isEditor && string.IsNullOrEmpty(gameId))
             {
                 Debug.LogError("No gameId was set for the mediation service. Please make sure your project is linked to the dashboard when you build your application.");
             }
+#endif
 
             await MediationService.Initialize(gameId, installId);
         }

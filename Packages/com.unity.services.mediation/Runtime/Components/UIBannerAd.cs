@@ -46,7 +46,7 @@ namespace Unity.Services.Mediation.UI
         public string AdUnitId => iosAdUnitId;
 #endif
 
-        const BannerAdAnchor k_OffsetBaseAnchor = BannerAdAnchor.BottomLeft;
+        const BannerAdAnchor k_OffsetBaseAnchor = BannerAdAnchor.None;
 
         RectTransform m_RectTransform;
         IBannerAd m_BannerAd;
@@ -73,7 +73,7 @@ namespace Unity.Services.Mediation.UI
             {
                 StartCoroutine(LoadBannerAd());
             }
-            else if (transform.hasChanged && followComponentMovement)
+            else if (m_BannerAd != null && transform.hasChanged && followComponentMovement)
             {
                 m_RectTransform.GetWorldCorners(s_Corners);
                 var offset = s_Corners[0];

@@ -168,6 +168,7 @@ class MockBanner : MonoBehaviour, IPlatformBannerAd, IPointerClickHandler
                 break;
 
             case BannerAdAnchor.BottomLeft:
+            case BannerAdAnchor.None:
                 CanvasPanel.pivot = new Vector2(0f, 0f);
                 CanvasPanel.anchorMin = new Vector2(0f, 0f);
                 CanvasPanel.anchorMax = new Vector2(0f, 0f);

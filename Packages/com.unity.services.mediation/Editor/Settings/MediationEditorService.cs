@@ -66,6 +66,6 @@ namespace Unity.Services.Mediation.Settings.Editor
             }
         }
 
-        public IEditorGameServiceEnabler Enabler { get; } = new MediationServiceEnabler();
+        public IEditorGameServiceEnabler Enabler { get; } = null;
     }
 }

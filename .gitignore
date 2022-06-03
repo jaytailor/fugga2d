@@ -5,6 +5,7 @@
 *.cache
 .DS_Store
 .vs/
+[Bb]uild-android*
 
 # =============== #
 # Unity generated #
@@ -28,6 +29,7 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
+.idea/
 
 # ============ #
 # OS generated #

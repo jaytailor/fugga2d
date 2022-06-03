@@ -119,6 +119,12 @@ namespace Unity.Services.Mediation.Settings.Editor
                     FilteredAdUnitData = null;
                     listView.itemsSource = AdUnitDataSource;
                 }
+
+#if UNITY_2022_1_OR_NEWER
+                    //Prior to 2022, refresh was automatic.
+                    listView.RefreshItems();
+#endif
+
             };
         }
 
@@ -140,6 +146,12 @@ namespace Unity.Services.Mediation.Settings.Editor
                     listView.itemsSource = FilteredAdUnitData;
                     break;
             }
+
+#if UNITY_2022_1_OR_NEWER
+                    //Prior to 2022, refresh was automatic.
+                    listView.RefreshItems();
+#endif
+
         }
 
         static void ConstructListFromAdUnits(VisualElement root)

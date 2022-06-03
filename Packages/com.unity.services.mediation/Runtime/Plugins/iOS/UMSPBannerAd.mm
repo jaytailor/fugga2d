@@ -17,6 +17,7 @@ typedef enum {
     BottomCenter = 6,
     BottomLeft   = 7,
     BottomRight  = 8,
+    None         = 9,
     Default      = 0
 } UMSPBannerAdAnchor;
 
@@ -43,7 +44,7 @@ typedef enum {
 @end
 
 void DisplayBannerAd(UMSBannerAdView *bannerAd, UIViewController *viewController,
-                     UMSPBannerAdAnchor anchor, int offsetX, int offsetY) {
+                     UMSPBannerAdAnchor anchor, float offsetRatioX, float offsetRatioY) {
     if (bannerAd.superview) {
         [bannerAd removeAllConstraints];
     } else {
@@ -93,6 +94,7 @@ void DisplayBannerAd(UMSBannerAdView *bannerAd, UIViewController *viewController
             break;
 
         case BottomLeft:
+        case None:
             attributeX = NSLayoutAttributeLeft;
             attributeY = NSLayoutAttributeBottom;
             break;
@@ -108,7 +110,10 @@ void DisplayBannerAd(UMSBannerAdView *bannerAd, UIViewController *viewController
 
     id constrainToItem = viewController.view;
 
-    if (@available(iOS 11.0, *)) {
+    float offsetX = offsetRatioX * viewController.view.frame.size.width;
+    float offsetY = offsetRatioY * viewController.view.frame.size.height;
+
+    if (@available(iOS 11.0, *) && anchor != None) {
         constrainToItem = viewController.view.safeAreaLayoutGuide;
     }
 
@@ -184,12 +189,12 @@ void UMSPBannerAdLoad(void *bannerAdViewPtr, void *delegatePtr) {
 void UMSPBannerAdDestroy(void *bannerAdViewPtr) {
     if (!bannerAdViewPtr) return;
 
-    UMSBannerAdView *bannerAd = (__bridge UMSBannerAdView *)bannerAdViewPtr;
-
+    UMSBannerAdView *bannerAd = (__bridge_transfer UMSBannerAdView *)bannerAdViewPtr;
+    bannerAd.delegate = nil;
     [bannerAd removeFromSuperview];
 }
 
-void UMSPBannerAdSetPosition(void *bannerAdViewPtr, int anchor, int offsetX, int offsetY) {
+void UMSPBannerAdSetPosition(void *bannerAdViewPtr, int anchor, float offsetRatioX, float offsetRatioY) {
     if (!bannerAdViewPtr) return;
 
     UMSBannerAdView *bannerAd = (__bridge UMSBannerAdView *)bannerAdViewPtr;
@@ -197,7 +202,7 @@ void UMSPBannerAdSetPosition(void *bannerAdViewPtr, int anchor, int offsetX, int
     UIViewController *viewController = [GetAppController() rootViewController];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        DisplayBannerAd(bannerAd, viewController, static_cast<UMSPBannerAdAnchor>(anchor), offsetX, offsetY);
+        DisplayBannerAd(bannerAd, viewController, static_cast<UMSPBannerAdAnchor>(anchor), offsetRatioX, offsetRatioY);
     });
 }
 

@@ -36,6 +36,7 @@ namespace Unity.Services.Mediation
         public const Unity.Services.Mediation.BannerAdAnchor Default = 0;
         public const Unity.Services.Mediation.BannerAdAnchor MiddleLeft = 4;
         public const Unity.Services.Mediation.BannerAdAnchor MiddleRight = 5;
+        public const Unity.Services.Mediation.BannerAdAnchor None = 9;
         public const Unity.Services.Mediation.BannerAdAnchor TopCenter = 0;
         public const Unity.Services.Mediation.BannerAdAnchor TopLeft = 1;
         public const Unity.Services.Mediation.BannerAdAnchor TopRight = 2;
@@ -64,14 +65,13 @@ namespace Unity.Services.Mediation
         public int Width { get; }
         public BannerAdSize(Unity.Services.Mediation.BannerAdPredefinedSize size) {}
         public BannerAdSize(UnityEngine.Vector2 size) {}
-        public BannerAdSize(UnityEngine.Vector2Int size) {}
         public BannerAdSize(int width, int height) {}
         public virtual bool Equals(object obj);
         protected bool Equals(Unity.Services.Mediation.BannerAdSize other);
         public static Unity.Services.Mediation.BannerAdSize FromDpUnits(int dpWidth, int dpHeight);
         public virtual int GetHashCode();
-        public static Unity.Services.Mediation.BannerAdSize op_Implicit(UnityEngine.Vector2Int size);
-        public static UnityEngine.Vector2Int op_Implicit(Unity.Services.Mediation.BannerAdSize size);
+        public static Unity.Services.Mediation.BannerAdSize op_Implicit(UnityEngine.Vector2 size);
+        public static UnityEngine.Vector2 op_Implicit(Unity.Services.Mediation.BannerAdSize size);
     }
 
     public enum ConsentStatus

@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Unity.Services.Mediation
 {
@@ -38,5 +39,13 @@ namespace Unity.Services.Mediation
             }
             return s_Instance.Initialize(gameId, installId);
         }
+        
+#if UNITY_EDITOR
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+        internal static void EditorReset()
+        {
+            s_Instance = null;
+        }
+#endif
     }
 }

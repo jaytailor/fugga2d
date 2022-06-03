@@ -51,9 +51,13 @@ namespace Unity.Services.Mediation.Platform
 
         public void SetPosition(BannerAdAnchor anchor, Vector2 positionOffset = new Vector2())
         {
-            positionOffset /= BannerAdSize.k_DpToPixelRatio;
             if (CheckDisposedAndLogError("Cannot set Banner Position")) return;
-            BannerAdSetPosition(NativePtr, (int)anchor, (int)positionOffset.x, (int)positionOffset.y);
+
+            // Using the dp ratio won't match the exact position, therefore we pass a screen ratio
+            positionOffset.x /= Screen.width;
+            positionOffset.y /= Screen.height;
+
+            BannerAdSetPosition(NativePtr, (int)anchor, positionOffset.x, positionOffset.y);
         }
 
         public override void Dispose()
@@ -103,7 +107,7 @@ namespace Unity.Services.Mediation.Platform
         static extern void BannerAdDestroy(IntPtr bannerAdView);
 
         [DllImport("__Internal", EntryPoint = "UMSPBannerAdSetPosition")]
-        static extern void BannerAdSetPosition(IntPtr bannerAdView, int bannerAdAnchor, int offsetX, int offsetY);
+        static extern void BannerAdSetPosition(IntPtr bannerAdView, int bannerAdAnchor, float offsetRatioX, float offsetRatioY);
 
         [DllImport("__Internal", EntryPoint = "UMSPBannerAdGetAdUnitId")]
         static extern string BannerAdGetAdUnitId(IntPtr bannerAdView);

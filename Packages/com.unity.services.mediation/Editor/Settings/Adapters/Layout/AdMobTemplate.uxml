@@ -9,6 +9,6 @@
         <TextField name="IosAdmobID" class="adapter-center-data ad-mob-id"/>
     </VisualElement>
     <VisualElement class="adapter-row-data">
-        <TextElement class="adapter-center-data ad-mob-id subtext" text=" e.g. ca-app-pub-xxxxxxxxxxxxxxxxx/xxxxx"/>
+        <TextElement class="adapter-center-data ad-mob-id subtext" text=" e.g. ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy"/>
     </VisualElement>
 </UXML>
