@@ -799,7 +799,7 @@ PlayerSettings:
     Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;DDNA_IOS_PUSH_NOTIFICATIONS_REMOVED;UNITY_MEDIATION_STAGING
     Standalone: CROSS_PLATFORM_INPUT
     Windows Store Apps: MOBILE_INPUT
-    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT;UNITY_MEDIATION_STAGING
+    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
