@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
+using System.Threading.Tasks;
 using Unity.Services.Core;
 using UnityEngine;
 using Unity.Services.Mediation;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
 using com.adjust.sdk;
+using Unity.Services.AdRules;
+using Unity.Services.Authentication;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
 #endif
@@ -52,6 +55,7 @@ public class UnityAds
 				Debug.Log("Initializing Mediation...");
 				await UnityServices.InitializeAsync();
 				Debug.Log("Mediation Initialized!");
+				await SignInAnonymouslyAsync();
 			}
 			catch (InitializeFailedException e)
 			{
@@ -65,6 +69,30 @@ public class UnityAds
 			// load rewarded ads
 			LoadRewardedNew();
 			MediationService.Instance.ImpressionEventPublisher.OnImpression += OnImpression;
+		}
+	}
+
+	async Task SignInAnonymouslyAsync()
+	{
+		try
+		{
+			await AuthenticationService.Instance.SignInAnonymouslyAsync();
+			Debug.Log("Sign in anonymously succeeded!");
+
+			// Shows how to get the playerID
+			Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}");
+		}
+		catch (AuthenticationException ex)
+		{
+			// Compare error code to AuthenticationErrorCodes
+			// Notify the player with the proper error message
+			Debug.LogException(ex);
+		}
+		catch (RequestFailedException ex)
+		{
+			// Compare error code to CommonErrorCodes
+			// Notify the player with the proper error message
+			Debug.LogException(ex);
 		}
 	}
 
@@ -85,15 +113,27 @@ public class UnityAds
 	    interstitialAdNew.Load(); 
     }
     
-    public void ShowInterstitialNew()
+	public async void ShowInterstitialNew()
     {
-        if(interstitialAdNew.AdState == AdState.Loaded)
+        // if(interstitialAdNew.AdState == AdState.Loaded)
+        // {
+	       //  interstitialAdNew.Show();
+        // }
+        //
+        if (interstitialAdNew.AdState != AdState.Loaded)
         {
-	        interstitialAdNew.Show();
+	        return;
         }
+
+        if (!await AdRulesService.Instance.ShouldShowAdAsync(interstitialAdunitIdNew))
+        {
+	        return;
+        }
+
+        interstitialAdNew.Show();
     }
-    
-    public void LoadRewardedNew()
+
+	public void LoadRewardedNew()
     {
         if (rewardedVideoAdNew == null)
         {
@@ -112,19 +152,39 @@ public class UnityAds
         rewardedVideoAdNew.Load();
     }
     
-    public void ShowRewardedNew()
+    public async void ShowRewardedNew()
     {
-	    if (rewardedVideoAdNew.AdState == AdState.Loaded)
-	    {	
-		    RewardedAdShowOptions showOptions = new RewardedAdShowOptions();
-		    
-		    // s2s callback option
-		    S2SRedeemData s2SData;
-		    s2SData.UserId = "my user id";
-		    s2SData.CustomData = "{\"reward\":\"Premium\",\"amount\":200}";
-		    showOptions.S2SData = s2SData;
-		    rewardedVideoAdNew.Show(showOptions);
+	    // if (rewardedVideoAdNew.AdState == AdState.Loaded)
+	    // {	
+		   //  RewardedAdShowOptions showOptions = new RewardedAdShowOptions();
+		   //  
+		   //  // s2s callback option
+		   //  S2SRedeemData s2SData;
+		   //  s2SData.UserId = "my user id";
+		   //  s2SData.CustomData = "{\"reward\":\"Premium\",\"amount\":200}";
+		   //  showOptions.S2SData = s2SData;
+		   //  rewardedVideoAdNew.Show(showOptions);
+	    // }
+	    
+	    if (rewardedVideoAdNew.AdState != AdState.Loaded)
+	    {
+		    return;
 	    }
+
+	    if (!await AdRulesService.Instance.ShouldShowAdAsync(rewardedVideoAdunitIdNew))
+	    {
+		    return;
+	    }
+
+	    RewardedAdShowOptions showOptions = new RewardedAdShowOptions();
+		    
+	    // s2s callback option
+	    S2SRedeemData s2SData;
+	    s2SData.UserId = "my user id";
+	    s2SData.CustomData = "{\"reward\":\"Premium\",\"amount\":200}";
+	    showOptions.S2SData = s2SData;
+	    rewardedVideoAdNew.Show(showOptions);
+	    
     }
 
     void OnInitializationFailed(InitializeFailedException e)
@@ -150,10 +210,11 @@ public class UnityAds
         Debug.Log("Rewarded Ad loaded from mediation partner");
     }
     
-    void UserRewarded(object sender, RewardEventArgs args)
+    async void  UserRewarded(object sender, RewardEventArgs args)
     {
 	    Debug.Log("Ad has rewarded user.");
-	    Manager.PremiumScore += 1000;
+	    var reward = await AdRulesService.Instance.GetRewardAsync(rewardedVideoAdunitIdNew, 1000);
+	    Manager.PremiumScore += reward;
 		// Execute logic for rewarding the user.
     }
 
