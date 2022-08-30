@@ -17,6 +17,12 @@ namespace Unity.Services.Mediation.Tests
             MediationService.s_Instance = m_MediationServiceMock.Object;
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            MediationService.s_Instance = null;
+        }
+
         [Test]
         public void InitializationSuccessTest()
         {

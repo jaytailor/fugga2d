@@ -39,6 +39,11 @@ namespace Unity.Services.Mediation.Samples
             }
         }
 
+        void OnDestroy()
+        {
+            m_BannerAd.Dispose();
+        }
+
         InitializationOptions GetGameId()
         {
             var initializationOptions = new InitializationOptions();

@@ -32,6 +32,11 @@ namespace Unity.Services.Mediation.Samples
             }
         }
 
+        void OnDestroy()
+        {
+            m_InterstitialAd?.Dispose();
+        }
+
         public async void ShowInterstitial()
         {
             if (m_InterstitialAd?.AdState == AdState.Loaded)
@@ -89,7 +94,7 @@ namespace Unity.Services.Mediation.Samples
             // Load Events
             m_InterstitialAd.OnLoaded += AdLoaded;
             m_InterstitialAd.OnFailedLoad += AdFailedLoad;
-            
+
             // Show Events
             m_InterstitialAd.OnClosed += AdClosed;
 
@@ -111,7 +116,7 @@ namespace Unity.Services.Mediation.Samples
         {
             Debug.Log("Interstitial Closed! Loading Ad...");
         }
-        
+
         void AdLoaded(object sender, EventArgs e)
         {
             Debug.Log("Ad loaded");

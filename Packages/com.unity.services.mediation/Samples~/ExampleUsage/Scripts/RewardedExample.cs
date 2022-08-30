@@ -32,6 +32,11 @@ namespace Unity.Services.Mediation.Samples
             }
         }
 
+        void OnDestroy()
+        {
+            m_RewardedAd?.Dispose();
+        }
+
         public async void ShowRewarded()
         {
             if (m_RewardedAd?.AdState == AdState.Loaded)
@@ -49,7 +54,7 @@ namespace Unity.Services.Mediation.Samples
                 }
             }
         }
-        
+
         public async void ShowRewardedWithOptions()
         {
             if (m_RewardedAd?.AdState == AdState.Loaded)
@@ -142,7 +147,7 @@ namespace Unity.Services.Mediation.Samples
         {
             Debug.Log("Rewarded Closed! Loading Ad...");
         }
-        
+
         void AdLoaded(object sender, EventArgs e)
         {
             Debug.Log("Ad loaded");

@@ -1,9 +1,12 @@
 #if NUGET_MOQ_AVAILABLE && UNITY_EDITOR
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
+using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace Unity.Services.Mediation.Tests
 {
@@ -19,16 +22,20 @@ namespace Unity.Services.Mediation.Tests
             m_BannerAd = new BannerAd(m_BannerAdMock.Object);
         }
 
-        [Test]
-        public void LoadAsyncTest()
+        [UnityTest]
+        public IEnumerator LoadAsyncTest()
         {
             m_BannerAdMock.Setup(ad => ad.Load()).Raises(e => e.OnLoaded += null, EventArgs.Empty);
-            var task = Task.Run(async() =>
-            {
-                await m_BannerAd.LoadAsync();
-            });
-            task.GetAwaiter().GetResult();
+
+            var task = LoadAsync(m_BannerAd);
+            yield return new WaitUntil(() => task.IsCompleted);
+
             m_BannerAdMock.Verify(ad => ad.Load());
+        }
+
+        static async Task LoadAsync(BannerAd bannerAd)
+        {
+            await bannerAd.LoadAsync();
         }
 
         [Test]

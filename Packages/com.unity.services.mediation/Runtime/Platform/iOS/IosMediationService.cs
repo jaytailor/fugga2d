@@ -12,6 +12,9 @@ namespace Unity.Services.Mediation.Platform
         delegate void InitializeSuccessCallback();
         delegate void InitializeFailCallback(int error, string message);
 
+        static readonly InitializeSuccessCallback k_InitializeSuccessCallback = InitializationSuccess;
+        static readonly InitializeFailCallback    k_InitializeFailCallback    = InitializationFailed;
+
         public event EventHandler OnInitializationComplete;
         public event EventHandler<InitializationErrorEventArgs> OnInitializationFailed;
 
@@ -22,7 +25,7 @@ namespace Unity.Services.Mediation.Platform
         public void Initialize(string gameId, string installId)
         {
             instance = this;
-            UnityMediationInitialize(gameId, InitializationSuccess, InitializationFailed, installId);
+            UnityMediationInitialize(gameId, k_InitializeSuccessCallback, k_InitializeFailCallback, installId);
         }
 
         [DllImport("__Internal", EntryPoint = "UMSPUnityMediationGetSdkVersion")]

@@ -94,6 +94,7 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// Method to tell the Mediation SDK to load an Ad.
         /// </summary>
+        /// <returns>Async Load task</returns>
         /// <exception cref="Unity.Services.Mediation.LoadFailedException">Thrown when the ad failed to load</exception>
         public Task LoadAsync()
         {

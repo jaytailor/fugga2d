@@ -125,9 +125,7 @@ namespace Unity.Services.Mediation
         public event System.EventHandler OnShowed;
         public abstract Unity.Services.Mediation.AdState AdState { get; }
         public abstract string AdUnitId { get; }
-        [System.Obsolete(@"Deprecated: this method will be removed in a future version. Please use LoadAsync in a try catch block to handle both successful and failed loads. See the mediation sample for more details.")] public abstract void Load();
         public abstract System.Threading.Tasks.Task LoadAsync();
-        [System.Obsolete(@"Deprecated: this method will be removed in a future version. Please use ShowAsync in a try catch block to handle both successful and failed shows. See the mediation sample for more details.")] public abstract void Show();
         public abstract System.Threading.Tasks.Task ShowAsync(Unity.Services.Mediation.InterstitialAdShowOptions showOptions = default(Unity.Services.Mediation.InterstitialAdShowOptions));
     }
 
@@ -199,9 +197,7 @@ namespace Unity.Services.Mediation
         public virtual string AdUnitId { get; }
         public InterstitialAd(string adUnitId) {}
         public virtual void Dispose();
-        [System.Obsolete(@"Deprecated: this method will be removed in a future version. Please use LoadAsync in a try catch block to handle both successful and failed loads. See the mediation sample for more details.")] public virtual void Load();
         public virtual System.Threading.Tasks.Task LoadAsync();
-        [System.Obsolete(@"Deprecated: this method will be removed in a future version. Please use ShowAsync in a try catch block to handle both successful and failed shows. See the mediation sample for more details.")] public virtual void Show();
         public virtual System.Threading.Tasks.Task ShowAsync(Unity.Services.Mediation.InterstitialAdShowOptions showOptions = default(Unity.Services.Mediation.InterstitialAdShowOptions));
     }
 
@@ -222,9 +218,7 @@ namespace Unity.Services.Mediation
         public event System.EventHandler<Unity.Services.Mediation.RewardEventArgs> OnUserRewarded;
         public abstract Unity.Services.Mediation.AdState AdState { get; }
         public abstract string AdUnitId { get; }
-        [System.Obsolete(@"Deprecated: this method will be removed in a future version. Please use LoadAsync in a try catch block to handle both successful and failed loads. See the mediation sample for more details.")] public abstract void Load();
         public abstract System.Threading.Tasks.Task LoadAsync();
-        [System.Obsolete(@"Deprecated: this method will be removed in a future version. Please use ShowAsync in a try catch block to handle both successful and failed shows. See the mediation sample for more details.")] public abstract void Show(Unity.Services.Mediation.RewardedAdShowOptions showOptions = default(Unity.Services.Mediation.RewardedAdShowOptions));
         public abstract System.Threading.Tasks.Task ShowAsync(Unity.Services.Mediation.RewardedAdShowOptions showOptions = default(Unity.Services.Mediation.RewardedAdShowOptions));
     }
 
@@ -236,6 +230,7 @@ namespace Unity.Services.Mediation
         public const Unity.Services.Mediation.LoadError NetworkError = 2;
         public const Unity.Services.Mediation.LoadError NoFill = 1;
         public const Unity.Services.Mediation.LoadError SdkNotInitialized = 3;
+        public const Unity.Services.Mediation.LoadError TooManyLoadRequests = 7;
         public const Unity.Services.Mediation.LoadError Unknown = 0;
         public int value__;
     }
@@ -271,9 +266,7 @@ namespace Unity.Services.Mediation
         public virtual string AdUnitId { get; }
         public RewardedAd(string adUnitId) {}
         public virtual void Dispose();
-        [System.Obsolete(@"Deprecated: this method will be removed in a future version. Please use LoadAsync in a try catch block to handle both successful and failed loads. See the mediation sample for more details.")] public virtual void Load();
         public virtual System.Threading.Tasks.Task LoadAsync();
-        [System.Obsolete(@"Deprecated: this method will be removed in a future version. Please use ShowAsync in a try catch block to handle both successful and failed shows. See the mediation sample for more details.")] public virtual void Show(Unity.Services.Mediation.RewardedAdShowOptions showOptions = default(Unity.Services.Mediation.RewardedAdShowOptions));
         public virtual System.Threading.Tasks.Task ShowAsync(Unity.Services.Mediation.RewardedAdShowOptions showOptions = default(Unity.Services.Mediation.RewardedAdShowOptions));
     }
 
@@ -330,11 +323,7 @@ namespace Unity.Services.Mediation.UI
 {
     [UnityEngine.RequireComponent(typeof(UnityEngine.RectTransform))] public class UIBannerAd : UnityEngine.EventSystems.UIBehaviour
     {
-        [UnityEngine.Tooltip(@"The banner ad's Ad Unit ID for Android builds")] public string androidAdUnitId;
-        [UnityEngine.Tooltip(@"The Unity services will automatically be initialized using the linked project's game ID if they have not been initialized when this component Awakens. Turn this off if you want to initialize your services with a special configuration.")] public bool autoInitServices;
-        [UnityEngine.Tooltip(@"Draw a preview of the banner placement in the scene window")] public bool drawEditorPreview;
         [UnityEngine.Tooltip(@"Follow the UI component's movement to the best of the Banner Ad's ability. Turn this off if you want your banner to be stationary, or for better performances.")] public bool followComponentMovement;
-        [UnityEngine.Tooltip(@"The banner ad's Ad Unit ID for iOS builds")] public string iosAdUnitId;
         public string AdUnitId { get; }
         public UIBannerAd() {}
         protected virtual void Awake();

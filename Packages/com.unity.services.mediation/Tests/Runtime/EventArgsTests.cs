@@ -11,20 +11,33 @@ namespace Unity.Services.Mediation.Tests
         [TestCase(nameof(LoadErrorEventArgs))]
         [TestCase(nameof(ShowErrorEventArgs))]
         [TestCase(nameof(InitializationErrorEventArgs))]
-        public void ErrorEventArgsPropertyTest(string eventName)
+        public void ErrorEventArgsPropertyTest(string eventType)
         {
             string message = "test string";
 
-            Dictionary<string, EventArgs> eventArgs = new Dictionary<string, EventArgs>()
+            switch (eventType)
             {
-                { nameof(LoadErrorEventArgs), new LoadErrorEventArgs(LoadError.Unknown, message) },
-                { nameof(ShowErrorEventArgs), new ShowErrorEventArgs(ShowError.Unknown, message) },
-                { nameof(InitializationErrorEventArgs), new InitializationErrorEventArgs(SdkInitializationError.Unknown, message) }
-            };
+                case nameof(LoadErrorEventArgs):
+                {
+                    var evtArg = new LoadErrorEventArgs(LoadError.Unknown, message);
+                    Assert.AreEqual("Unknown", evtArg.Error.ToString(), "Event Enum Mismatch");
+                    Assert.AreEqual(message, evtArg.Message, "Event Error Message Mismatch");
+                } break;
 
-            Type type = eventArgs[eventName].GetType();
-            Assert.AreEqual("Unknown", type.GetProperty("Error", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(eventArgs[eventName]).ToString(), "Event Enum Mismatch");
-            Assert.AreEqual(message, type.GetProperty("Message", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(eventArgs[eventName]), "Event Error Message Mismatch");
+                case nameof(ShowErrorEventArgs):
+                {
+                    var evtArg = new ShowErrorEventArgs(ShowError.Unknown, message);
+                    Assert.AreEqual("Unknown", evtArg.Error.ToString(), "Event Enum Mismatch");
+                    Assert.AreEqual(message, evtArg.Message, "Event Error Message Mismatch");
+                } break;
+
+                case nameof(InitializationErrorEventArgs):
+                {
+                    var evtArg = new InitializationErrorEventArgs(SdkInitializationError.Unknown, message);
+                    Assert.AreEqual("Unknown", evtArg.Error.ToString(), "Event Enum Mismatch");
+                    Assert.AreEqual(message, evtArg.Message, "Event Error Message Mismatch");
+                } break;
+            }
         }
 
         [Test]

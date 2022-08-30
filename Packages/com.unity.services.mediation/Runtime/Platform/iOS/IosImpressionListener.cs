@@ -9,7 +9,7 @@ namespace Unity.Services.Mediation.Platform
     {
         public IosImpressionListener() : base(false)
         {
-            NativePtr = ImpressionDelegateCreate(Impression);
+            NativePtr = ImpressionDelegateCreate(k_ImpressionCallback);
         }
 
         public override void Dispose()
@@ -25,6 +25,8 @@ namespace Unity.Services.Mediation.Platform
         }
 
         delegate void ImpressionCallback(string adUnitId, IntPtr iosImpressionDataPtr);
+
+        static readonly ImpressionCallback k_ImpressionCallback = Impression;
 
         [DllImport("__Internal", EntryPoint = "UMSPImpressionDelegateCreate")]
         static extern IntPtr ImpressionDelegateCreate(ImpressionCallback impressionCallback);

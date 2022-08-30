@@ -10,9 +10,12 @@ namespace Unity.Services.Mediation.Platform
         delegate void LoadSuccessCallback(IntPtr rewardedAd);
         delegate void LoadFailCallback(IntPtr rewardedAd, int error, string message);
 
+        static readonly LoadSuccessCallback k_LoadSuccessCallback = LoadSuccess;
+        static readonly LoadFailCallback    k_LoadFailCallback    = LoadFail;
+
         public IosRewardedLoadListener() : base(false)
         {
-            NativePtr = RewardedAdLoadDelegateCreate(LoadSuccess, LoadFail);
+            NativePtr = RewardedAdLoadDelegateCreate(k_LoadSuccessCallback, k_LoadFailCallback);
         }
 
         public override void Dispose()

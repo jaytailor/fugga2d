@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace Unity.Services.Mediation.Settings.Editor
 {
-    public class EditorGameServiceAnalyticsSender
+    class EditorGameServiceAnalyticsSender
     {
         static class AnalyticsComponent
         {
@@ -92,7 +92,7 @@ namespace Unity.Services.Mediation.Settings.Editor
 
         /// <remarks>Lowercase is used here for compatibility with analytics.</remarks>
         [Serializable]
-        public struct EditorGameServiceEvent
+        internal struct EditorGameServiceEvent
         {
             public string action;
             public string component;

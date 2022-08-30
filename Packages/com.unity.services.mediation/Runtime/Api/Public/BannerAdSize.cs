@@ -69,6 +69,7 @@ namespace Unity.Services.Mediation
         /// </summary>
         /// <param name="dpWidth">Width of Banner in dp</param>
         /// <param name="dpHeight">Height of Banner in dp</param>
+        /// <returns>A Banner Ad Size based on dp units received</returns>
         public static BannerAdSize FromDpUnits(int dpWidth, int dpHeight)
         {
             return new BannerAdSize(new Vector2(dpWidth * k_DpToPixelRatio, dpHeight * k_DpToPixelRatio));
@@ -94,6 +95,11 @@ namespace Unity.Services.Mediation
             return new BannerAdSize(size);
         }
 
+        /// <summary>
+        /// Determines object equivalency.
+        /// </summary>
+        /// <param name="other">Other object</param>
+        /// <returns>whether objects are equal</returns>
         protected bool Equals(BannerAdSize other)
         {
             return m_Value.Equals(other.m_Value);

@@ -1,7 +1,7 @@
 namespace Unity.Services.Mediation.Settings.Editor
 {
-    public struct MediationUserSettingsKeys
+    struct MediationUserSettingsKeys
     {
-        public const string forceDynamicLinkingKey = "mediation.build.settings.force-dynamic-linking";
+        internal const string forceDynamicLinkingKey = "mediation.build.settings.force-dynamic-linking";
     }
 }

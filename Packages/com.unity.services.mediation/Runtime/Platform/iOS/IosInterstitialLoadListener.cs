@@ -10,9 +10,12 @@ namespace Unity.Services.Mediation.Platform
         delegate void LoadSuccessCallback(IntPtr interstitialAd);
         delegate void LoadFailCallback(IntPtr interstitialAd, int error, string message);
 
+        static readonly LoadSuccessCallback k_LoadSuccessCallback = LoadSuccess;
+        static readonly LoadFailCallback    k_LoadFailCallback    = LoadFail;
+
         public IosInterstitialLoadListener() : base(false)
         {
-            NativePtr = InterstitialAdLoadDelegateCreate(LoadSuccess, LoadFail);
+            NativePtr = InterstitialAdLoadDelegateCreate(k_LoadSuccessCallback, k_LoadFailCallback);
         }
 
         public override void Dispose()

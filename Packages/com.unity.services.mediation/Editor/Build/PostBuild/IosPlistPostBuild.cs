@@ -19,9 +19,6 @@ namespace Unity.Services.Mediation.Build.Editor
         const string k_GmsApplicationIdKey = "GADApplicationIdentifier";
         const string k_GmsIsAdManagerAppKey = "GADIsAdManagerApp";
 
-        const string k_SnapApplicationIdKey = "SCAppStoreAppID";
-
-
         /*
          * https://developers.google.com/ad-manager/mobile-ads-sdk/ios/app-transport-security
          */
@@ -48,13 +45,11 @@ namespace Unity.Services.Mediation.Build.Editor
         internal void OnPostprocessBuild(string outputPath)
         {
             var adMobSettings = new AdMobSettings();
-            var snapSetting = new SnapSettings();
 
             var adMobIncluded = !(string.IsNullOrEmpty(adMobSettings.InstalledVersion.value) || string.IsNullOrWhiteSpace(adMobSettings.AdMobAppIdIos));
-            var snapIncluded = !(string.IsNullOrEmpty(snapSetting.InstalledVersion.value) || string.IsNullOrWhiteSpace(snapSetting.SnapAppIdIos.ToString()));
 
-            //If we're not including AdMob and Snap, no need to modify Info.plist
-            if (!adMobIncluded && !snapIncluded)
+            //If we're not including AdMob, no need to modify Info.plist
+            if (!adMobIncluded)
                 return;
 
             string plistPath = outputPath + "/Info.plist";
@@ -67,11 +62,6 @@ namespace Unity.Services.Mediation.Build.Editor
                 SetAppTransportSecurity(plist);
             }
 
-            if (snapIncluded)
-            {
-                SetSnapApplicationIdentifier(plist, snapSetting.SnapAppIdIos.ToString());
-            }
-
             File.WriteAllText(plistPath, plist.WriteToString());
         }
 
@@ -79,20 +69,6 @@ namespace Unity.Services.Mediation.Build.Editor
         {
             plist.root.SetString(k_GmsApplicationIdKey, adMobAppId);
             plist.root.SetBoolean(k_GmsIsAdManagerAppKey, true);
-        }
-
-        static void SetSnapApplicationIdentifier(PlistDocument plist, string snapAppId)
-        {
-            var id = 0;
-            var parsed =int.TryParse(snapAppId, out id);
-            if (parsed)
-            {
-                plist.root.SetInteger(k_SnapApplicationIdKey, id);
-            }
-            else
-            {
-                Debug.LogWarning("Couldn't parse SCAppStoreAppID, check to see if it's valid.");
-            }
         }
 
         static void SetAppTransportSecurity(PlistDocument plist)

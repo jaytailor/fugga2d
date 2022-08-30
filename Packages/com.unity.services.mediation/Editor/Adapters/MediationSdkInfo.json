@@ -4,8 +4,8 @@
     "DisplayName": "Mediation SDK",
     "AndroidArtifact": "com.unity3d.mediation:mediation-sdk",
     "IosPod": "UnityMediationSdk",
-    "PackageVersion": "0.5.0-preview.2",
-    "SdkVersion": "0.5"
+    "PackageVersion": "1.0.1",
+    "SdkVersion": "1.0"
   },
   "Adapters": [
     {
@@ -128,21 +128,6 @@
       ],
       "Repositories": [
         "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
-      ]
-    },
-    {
-      "Identifier": "snap-adapter",
-      "DashboardId": "SNAPCHAT",
-      "DisplayName": "Snap Adapter",
-      "AndroidArtifact": "com.unity3d.mediation:snap-adapter",
-      "IosPod": "UnityMediationSnapchatAdapter",
-      "Versions": [
-        {
-          "Identifier": "latest",
-          "DisplayName": "Latest Supported"
-        }
-      ],
-      "Repositories": [
       ]
     }
   ]

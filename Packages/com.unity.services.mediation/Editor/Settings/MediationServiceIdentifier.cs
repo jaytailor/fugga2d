@@ -8,7 +8,7 @@ namespace Unity.Services.Mediation.Settings.Editor
     /// <remarks>This identifier MUST be a public struct.</remarks>
     public struct MediationServiceIdentifier : IEditorGameServiceIdentifier
     {
-        public const string k_PackageDisplayName = "Mediation";
+        internal const string k_PackageDisplayName = "Unity Mediation";
 
         /// <summary>
         /// Key for the Mediation package

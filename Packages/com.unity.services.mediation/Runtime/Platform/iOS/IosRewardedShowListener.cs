@@ -13,9 +13,20 @@ namespace Unity.Services.Mediation.Platform
         delegate void FailedShowCallback(IntPtr rewardedAd, int error, string message);
         delegate void UserRewardedCallback(IntPtr rewardedAd, string type, string amount);
 
+        static readonly ShownCallback        k_ShownCallback        = Shown;
+        static readonly ClickedCallback      k_ClickedCallback      = Clicked;
+        static readonly ClosedCallback       k_ClosedCallback       = Closed;
+        static readonly FailedShowCallback   k_FailedShowCallback   = FailedShow;
+        static readonly UserRewardedCallback k_UserRewardedCallback = UserRewarded;
+
         public IosRewardedShowListener() : base(false)
         {
-            NativePtr = RewardedAdShowDelegateCreate(Shown, Clicked, Closed, FailedShow, UserRewarded);
+            NativePtr = RewardedAdShowDelegateCreate(
+                k_ShownCallback,
+                k_ClickedCallback,
+                k_ClosedCallback,
+                k_FailedShowCallback,
+                k_UserRewardedCallback);
         }
 
         public override void Dispose()

@@ -23,14 +23,6 @@ namespace Unity.Services.Mediation.Tests
 
         [Test]
         [UnityPlatform(RuntimePlatform.Android, RuntimePlatform.IPhonePlayer)]
-        public void LoadTest()
-        {
-            // Check to see if underlying bridge connection is valid
-            Assert.DoesNotThrow(() => m_RewardedAd.Load());
-        }
-
-        [Test]
-        [UnityPlatform(RuntimePlatform.Android, RuntimePlatform.IPhonePlayer)]
         public void UnloadedLoadStateTest()
         {
             Assert.AreEqual(AdState.Unloaded, m_RewardedAd.AdState, "Expected unloaded state for ad not loaded");

@@ -7,9 +7,24 @@ namespace Unity.Services.Mediation
     /// </summary>
     public enum BannerAdPredefinedSize
     {
+        /// <summary>
+        /// Standard banner size, 320x50 dp
+        /// </summary>
         Banner,
+
+        /// <summary>
+        /// Large banner size, 320x100 dp
+        /// </summary>
         LargeBanner,
+
+        /// <summary>
+        /// Medium Rectangle banner size, 300x250 dp
+        /// </summary>
         MediumRectangle,
+
+        /// <summary>
+        /// Leaderboard banner size, 728x90 dp
+        /// </summary>
         Leaderboard
     }
 

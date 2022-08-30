@@ -62,6 +62,10 @@ public class BannerAd {
         return bannerAdView.getAdUnitId();
     }
 
+    public AdState getAdState() {
+        return bannerAdView.getAdState();
+    } 
+
     public void setPosition(int anchor, int offsetX, int offsetY) {
         activity.runOnUiThread(new Runnable() {
             @Override

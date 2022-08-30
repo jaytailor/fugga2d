@@ -12,9 +12,19 @@ namespace Unity.Services.Mediation.Platform
         delegate void ClickedCallback(IntPtr bannerAd);
         delegate void RefreshedCallback(IntPtr bannerAd, int error, string message);
 
+        static readonly LoadSuccessCallback k_LoadSuccessCallback = LoadSuccess;
+        static readonly LoadFailCallback    k_LoadFailCallback    = LoadFail;
+        static readonly ClickedCallback     k_ClickedCallback     = Clicked;
+        static readonly RefreshedCallback   k_RefreshedCallback   = Refreshed;
+
+
         public IosBannerLoadListener() : base(true)
         {
-            NativePtr = BannerAdLoadDelegateCreate(LoadSuccess, LoadFail, Clicked, Refreshed);
+            NativePtr = BannerAdLoadDelegateCreate(
+                k_LoadSuccessCallback,
+                k_LoadFailCallback,
+                k_ClickedCallback,
+                k_RefreshedCallback);
         }
 
         public override void Dispose()

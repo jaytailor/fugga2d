@@ -46,7 +46,7 @@ namespace Unity.Services.Mediation.Adapters.Editor
 
         public string OptimisticVersion(string version)
         {
-            return "~> " + version + ".0";
+            return "~> " + version;
         }
 
         public string LatestVersionIdentifier()
@@ -62,7 +62,7 @@ namespace Unity.Services.Mediation.Adapters.Editor
         public string OptimisticVersion(string version)
         {
             var semanticVersion = Version.Parse(version);
-            return $"[{semanticVersion.Major}.{semanticVersion.Minor},{semanticVersion.Major}.{semanticVersion.Minor+1}[";
+            return $"[{semanticVersion.Major}.{semanticVersion.Minor},{semanticVersion.Major+1}.0[";
         }
 
         public string LatestVersionIdentifier()

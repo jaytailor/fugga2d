@@ -1,6 +1,7 @@
 #if UNITY_ANDROID
 using System.IO;
 using UnityEditor.Android;
+using UnityEngine;
 
 namespace Unity.Mediation.Build.Editor
 {
@@ -13,6 +14,7 @@ namespace Unity.Mediation.Build.Editor
 
         public void OnPostGenerateGradleAndroidProject(string path)
         {
+            Debug.Log(path);
             string proguardPath = Path.Combine(path, k_ProguardFile);
 
             File.AppendAllText(proguardPath, k_ProguardMediationOption);

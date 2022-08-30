@@ -102,12 +102,7 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// Method to tell the Mediation SDK to load an Ad.
         /// </summary>
-        [Obsolete("Deprecated: this method will be removed in a future version. Please use LoadAsync in a try catch block to handle both successful and failed loads. See the mediation sample for more details.")]
-        public void Load() => m_RewardedAdImpl.Load();
-
-        /// <summary>
-        /// Method to tell the Mediation SDK to load an Ad.
-        /// </summary>
+        /// <returns>LoadAsync Task</returns>
         /// <exception cref="Unity.Services.Mediation.LoadFailedException">Thrown when the ad failed to load</exception>
         public Task LoadAsync()
         {
@@ -150,21 +145,8 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// Method to tell the Mediation SDK to show the loaded Ad.
         /// </summary>
-        [Obsolete("Deprecated: this method will be removed in a future version. Please use ShowAsync in a try catch block to handle both successful and failed shows. See the mediation sample for more details.")]
-        public void Show(RewardedAdShowOptions showOptions = null)
-        {
-            m_RewardedAdImpl.Show(showOptions);
-
-            if (showOptions != null && showOptions.AutoReload)
-            {
-                m_RewardedAdImpl.OnFailedShow += ReloadAd;
-                m_RewardedAdImpl.OnClosed += ReloadAd;
-            }
-        }
-
-        /// <summary>
-        /// Method to tell the Mediation SDK to show the loaded Ad.
-        /// </summary>
+        /// <param name="showOptions">Optional, allows setting optional parameters for showing a rewarded ad.</param>
+        /// <returns>ShowAsync Task</returns>
         /// <exception cref="Unity.Services.Mediation.ShowFailedException">Thrown when the ad failed to show</exception>
         public Task ShowAsync(RewardedAdShowOptions showOptions = null)
         {

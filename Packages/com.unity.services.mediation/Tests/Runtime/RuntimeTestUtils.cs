@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -8,82 +10,72 @@ namespace Unity.Services.Mediation.Tests
     {
         public static IEnumerator LoadSuccessStateTest(InterstitialAd ad, int retryCount, float retryDelay)
         {
-            bool? isSuccessState;
-
-            ad.OnLoaded += (sender, args) =>
-            {
-                Assert.AreEqual(AdState.Loaded, ad.AdState, "Expected loaded state for loaded ad");
-                isSuccessState = true;
-            };
-
-            ad.OnFailedLoad += (sender, args) =>
-            {
-                isSuccessState = false;
-            };
-
+            bool isSuccessState;
             do
             {
-                isSuccessState = null;
+                isSuccessState = false;
 
-                if (retryCount <= 0)
-                {
-                    ad.OnFailedLoad += (sender, args) =>
-                    {
-                        Assert.Fail(args.Message);
-                    };
-                }
+                var task = LoadInterstitial(ad);
 
-                ad.Load();
-                yield return new WaitUntil(() => isSuccessState != null);
+                yield return new WaitUntil(() => task.IsCompleted);
 
-                if (retryCount > 0 && !isSuccessState.Value)
+                if (task.IsFaulted)
                 {
                     yield return new WaitForSeconds(retryDelay);
+                    if (retryCount <= 0)
+                    {
+                        Assert.Fail(task.Exception.Message);
+                    }
+                }
+                else
+                {
+                    Assert.AreEqual(AdState.Loaded, ad.AdState, "Expected loaded state for loaded ad");
+                    isSuccessState = true;
                 }
 
                 retryCount--;
             }
-            while (!isSuccessState.Value && retryCount >= 0);
+            while (!isSuccessState && retryCount >= 0);
+        }
+
+        static async Task LoadInterstitial(InterstitialAd interstitialAd)
+        {
+            await interstitialAd.LoadAsync();
         }
 
         public static IEnumerator LoadSuccessStateTest(RewardedAd ad, int retryCount, float retryDelay)
         {
-            bool? isSuccessState;
-
-            ad.OnLoaded += (sender, args) =>
-            {
-                Assert.AreEqual(AdState.Loaded, ad.AdState, "Expected loaded state for loaded ad");
-                isSuccessState = true;
-            };
-
-            ad.OnFailedLoad += (sender, args) =>
-            {
-                isSuccessState = false;
-            };
-
+            bool isSuccessState;
             do
             {
-                isSuccessState = null;
+                isSuccessState = false;
 
-                if (retryCount <= 0)
-                {
-                    ad.OnFailedLoad += (sender, args) =>
-                    {
-                        Assert.Fail(args.Message);
-                    };
-                }
+                var task = LoadRewarded(ad);
 
-                ad.Load();
-                yield return new WaitUntil(() => isSuccessState != null);
+                yield return new WaitUntil(() => task.IsCompleted);
 
-                if (retryCount > 0 && !isSuccessState.Value)
+                if (task.IsFaulted)
                 {
                     yield return new WaitForSeconds(retryDelay);
+                    if (retryCount <= 0)
+                    {
+                        Assert.Fail(task.Exception.Message);
+                    }
+                }
+                else
+                {
+                    Assert.AreEqual(AdState.Loaded, ad.AdState, "Expected loaded state for loaded ad");
+                    isSuccessState = true;
                 }
 
                 retryCount--;
             }
-            while (!isSuccessState.Value && retryCount >= 0);
+            while (!isSuccessState && retryCount >= 0);
+        }
+        
+        static async Task LoadRewarded(RewardedAd rewardedAd)
+        {
+            await rewardedAd.LoadAsync();
         }
     }
 }

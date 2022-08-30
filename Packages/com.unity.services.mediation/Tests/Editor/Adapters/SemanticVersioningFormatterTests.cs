@@ -21,10 +21,10 @@ namespace Unity.Services.Mediation.EditorTests
         }
 
         [Test]
-        [TestCase("0.1", "[0.1,0.2[")]
-        [TestCase("1.0.0", "[1.0,1.1[")]
-        [TestCase("5.6", "[5.6,5.7[")]
-        [TestCase("7.0.0", "[7.0,7.1[")]
+        [TestCase("0.1", "[0.1,1.0[")]
+        [TestCase("1.0.0", "[1.0,2.0[")]
+        [TestCase("5.6", "[5.6,6.0[")]
+        [TestCase("7.0.0", "[7.0,8.0[")]
         public void MavenOptimisticVersionTest(string version, string expectedOptimisticVersion)
         {
             var optimisticVersion = SemanticVersioningFactory.Formatter(SemanticVersioningType.Maven).OptimisticVersion(version);
@@ -32,10 +32,10 @@ namespace Unity.Services.Mediation.EditorTests
         }
 
         [Test]
-        [TestCase("0.1", "~> 0.1.0")]
-        [TestCase("1", "~> 1.0")]
-        [TestCase("5.6", "~> 5.6.0")]
-        [TestCase("7.0.0", "~> 7.0.0.0")]
+        [TestCase("0.1", "~> 0.1")]
+        [TestCase("1", "~> 1")]
+        [TestCase("5.6", "~> 5.6")]
+        [TestCase("7.0.0", "~> 7.0.0")]
         public void CocoapodsOptimisticVersionTest(string version, string expectedOptimisticVersion)
         {
             var optimisticVersion = SemanticVersioningFactory.Formatter(SemanticVersioningType.CocoaPods).OptimisticVersion(version);

@@ -3,17 +3,13 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace PlayServicesResolver.Installer.Editor
+namespace MobileDependencyResolver.Installer.Editor
 {
-    static class PlayServicesResolverInstaller
+    static class MobileDependencyResolverInstaller
     {
-#if GAMEGROWTH_UNITY_MONETIZATION
-        const string k_PackagePath = "Assets/PlayServicesResolver/Editor/play-services-resolver-1.2.135.1.unitypackage";
-#else
-        const string k_PackagePath = "Packages/com.unity.services.mediation/PlayServicesResolver/Editor/play-services-resolver-1.2.135.1.unitypackage";
-#endif
+        const string k_PackagePath = "Packages/com.unity.services.mediation/MobileDependencyResolver/Editor/mobile-dependency-resolver.unitypackage";
 
-        const string k_DoNotAskAgain = "Unity.Mediation.PlayServicesResolver.DoNotAskAgain";
+        const string k_DoNotAskAgain = "Unity.Mediation.MobileDependencyResolver.DoNotAskAgain";
 
         [InitializeOnLoadMethod]
         static void InstallPlayServicesResolverIfNeeded()
@@ -24,7 +20,7 @@ namespace PlayServicesResolver.Installer.Editor
                 return;
 
             // The user will have a choice to ignore this dialog for the entire session.
-            if (AskUserToInstallPackage())
+            if ((Application.isBatchMode && Environment.GetEnvironmentVariable("UNITY_THISISABUILDMACHINE") != null) || AskUserToInstallPackage())
             {
                 InstallPackage();
             }
@@ -39,8 +35,8 @@ namespace PlayServicesResolver.Installer.Editor
         {
             if (EditorPrefs.GetBool(k_DoNotAskAgain)) return false;
 
-            var response = EditorUtility.DisplayDialogComplex("Play Services Resolver required",
-                "Mediation requires Play Services Resolver to resolve native dependencies.\n" +
+            var response = EditorUtility.DisplayDialogComplex("Mobile Dependency Resolver required",
+                "Mediation requires Mobile Dependency Resolver to resolve native dependencies.\n" +
                 " Would you like to import the package?",
                 "Import", "Cancel", "Ignore - Do not ask again during this session");
 

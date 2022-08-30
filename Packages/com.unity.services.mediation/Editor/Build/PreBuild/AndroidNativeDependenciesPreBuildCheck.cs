@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using PlayServicesResolver.Utils.Editor;
+using MobileDependencyResolver.Utils.Editor;
 using Unity.Services.Mediation.Adapters.Editor;
 using UnityEditor;
 using UnityEditor.Build;
@@ -22,9 +22,9 @@ namespace Unity.Services.Mediation.Build.Editor
         const string k_InvalidSpecs = "It looks like some dependencies are outdated or missing. This might lead to a broken build. To solve this, double check the Mediation settings under Project Settings.";
         const string k_ResolveQuestion = "You can fix this issue by resolving dependencies again. Would you like to do that now?";
         const string k_InvalidTemplate = "It looks like 'mainTemplate.gradle' was not patched correctly. " + k_ResolveQuestion;
-        const string k_PlayServicesResolverNotFound = "Play Services Resolver not detected in this project.\nThis might cause dependencies to be missing in your build.";
+        const string k_MobileDependencyResolverNotFound = "Mobile Dependency Resolver not detected in this project.\nThis might cause dependencies to be missing in your build.";
         const string k_IncompatibleSDKPackageVersions = "The SDK has resolved to an incompatible version with the Package. This may result in unexpected behaviour. To avoid this, include the " + k_GradleFile + " file by checking the checkbox 'Custom Main Gradle Template' in Edit > Project Settings > Player > Publishing Settings.";
-        const string k_GradleTemplateWarningDescription = "This project's Play Services Resolver settings indicate that libraries will be downloaded in the editor. This resolution method might cause the editor to hang until resolution is complete.\n To change this go to Assets > Android Resolver > Settings and look for \"Patch mainTemplate.gradle\".";
+        const string k_GradleTemplateWarningDescription = "This project's Mobile Dependency Resolver settings indicate that libraries will be downloaded in the editor. This resolution method might cause the editor to hang until resolution is complete.\n To change this go to Assets > Android Resolver > Settings and look for \"Patch mainTemplate.gradle\".";
 
         enum UserAction
         {
@@ -51,16 +51,16 @@ namespace Unity.Services.Mediation.Build.Editor
 
         public void ValidateDependencies(bool noDialog)
         {
-            if (!PlayServicesResolverUtils.IsPresent)
+            if (!MobileDependencyResolverUtils.IsPresent)
             {
-                Debug.LogWarning(k_PlayServicesResolverNotFound);
+                Debug.LogWarning(k_MobileDependencyResolverNotFound);
                 return;
             }
 
             var sdkInfo = MediationSdkInfo.GetSdkInfo();
             // Calling GetInstalledAdapters() should refresh the xml dependency file if needed.
             var installedAdapters = MediationSdkInfo.GetInstalledAdapters();
-            var specs = PlayServicesResolverUtils.GetPackageSpecs();
+            var specs = MobileDependencyResolverUtils.GetPackageSpecs();
 
             //Check xml generation
             if (!ValidateSpecs(sdkInfo, installedAdapters, specs))
@@ -71,7 +71,7 @@ namespace Unity.Services.Mediation.Build.Editor
             }
 
             //Check resolved artifacts
-            if (PlayServicesResolverUtils.GradleTemplateEnabled)
+            if (MobileDependencyResolverUtils.GradleTemplateEnabled)
             {
                 if (!ValidateTemplateFile(sdkInfo, installedAdapters, m_GradleTemplatePath))
                 {
@@ -104,7 +104,7 @@ namespace Unity.Services.Mediation.Build.Editor
             var pluginFiles = Directory.GetFiles(m_PluginFolder);
             var sdkFullFileName = pluginFiles.FirstOrDefault(x => Path.GetFileName(x).StartsWith(sdkPrefix) && !x.EndsWith(metaExtension));
             if (sdkFullFileName == null) return false;
-            
+
             var sdkFileName = Path.GetFileNameWithoutExtension(sdkFullFileName);
             var sdkVersionString = sdkFileName.Replace(sdkPrefix, "");
             var sdkVersion = Version.Parse(sdkVersionString);
@@ -130,13 +130,13 @@ namespace Unity.Services.Mediation.Build.Editor
                         "Issue with Android dependencies detected:\n" + issue +
                         "\nWould you like to resolve dependencies before building?", "Resolve", "Ignore"))
                     {
-                        if (!PlayServicesResolverUtils.MainTemplateEnabled)
+                        if (!MobileDependencyResolverUtils.MainTemplateEnabled)
                         {
                             EditorUtility.DisplayProgressBar("", "Resolving...", 0.20f);
                             Debug.LogWarning(k_GradleTemplateWarningDescription);
                         }
 
-                        PlayServicesResolverUtils.ResolveSync(true);
+                        MobileDependencyResolverUtils.ResolveSync(true);
                         return true;
                     }
                     return false;

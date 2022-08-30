@@ -16,7 +16,6 @@ namespace Unity.Services.Mediation.Settings.Editor
     /// </summary>
     class MediationCodeGeneratorWindow : EditorWindow
     {
-
         const string k_CodeGeneratorWindowTemplate = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/CodeGenerationWindowTemplate.uxml";
 
         const string k_SettingsStyle               = @"Packages/com.unity.services.mediation/Editor/Settings/Layout/SettingsStyle.uss";
@@ -35,19 +34,20 @@ namespace Unity.Services.Mediation.Settings.Editor
 
         const string k_GeneratedCodeTemplate  =
 @"using System;
+using System.Threading.Tasks;
 using Unity.Services.Core;
 using Unity.Services.Mediation;
 using UnityEngine;
 
 namespace Unity.Example
 {
-    public class {adType}Example
+    public class {adType}Example : IDisposable
     {
         I{adType} ad;
         string adUnitId = ""{adUnitId}"";
         string gameId = ""{gameId}"";
 
-        public async void InitServices()
+        public async Task InitServices()
         {
             try
             {
@@ -70,6 +70,9 @@ namespace Unity.Example
             // Impression Event
             MediationService.Instance.ImpressionEventPublisher.OnImpression += ImpressionEvent;
         }
+
+        public void Dispose() => ad?.Dispose();
+
         {showAdFunction}
         void InitializationComplete()
         {
@@ -77,7 +80,7 @@ namespace Unity.Example
             LoadAd();
         }
 
-        async void LoadAd()
+        async Task LoadAd()
         {
             try
             {
@@ -123,16 +126,18 @@ namespace Unity.Example
 }";
 
         const string k_SetupAdBannerEventsTemplate =
-@"
-            //Create
-            ad = MediationService.Instance.Create{adType}(adUnitId,  BannerAdPredefinedSize.Banner.ToBannerAdSize(), BannerAdAnchor.TopCenter, Vector2.zero);
+@"//Create
+            ad = MediationService.Instance.Create{adType}(
+                adUnitId,
+                BannerAdPredefinedSize.Banner.ToBannerAdSize(),
+                BannerAdAnchor.TopCenter,
+                Vector2.zero);
 
             //Subscribe to events
             ad.OnRefreshed += AdRefreshed;
             ad.OnClicked += AdClicked;
             ad.OnLoaded += AdLoaded;
-            ad.OnFailedLoad += AdFailedLoad;
-";
+            ad.OnFailedLoad += AdFailedLoad;";
 
         const string k_AdRefreshedTemplate =
 @"void AdRefreshed(object sender, LoadErrorEventArgs e)
@@ -141,8 +146,7 @@ namespace Unity.Example
             Debug.Log(e.Message);
         }";
         const string k_SetupAdTraditionalEventsTemplate =
-@"
-            //Create
+@"//Create
             ad = MediationService.Instance.Create{adType}(adUnitId);
 
             //Subscribe to events
@@ -186,7 +190,7 @@ namespace Unity.Example
             Debug.Log(""Ad shown!"");
         }";
 
-const string k_AdFailedShowTemplate =
+        const string k_AdFailedShowTemplate =
 @"
         void AdFailedShow(ShowFailedException e)
         {

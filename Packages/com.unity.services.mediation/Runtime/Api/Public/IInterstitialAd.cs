@@ -51,25 +51,15 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// Method to tell the Mediation SDK to load an Ad.
         /// </summary>
-        [Obsolete("Deprecated: this method will be removed in a future version. Please use LoadAsync in a try catch block to handle both successful and failed loads. See the mediation sample for more details.")]
-        void Load();
-
-        /// <summary>
-        /// Method to tell the Mediation SDK to load an Ad.
-        /// </summary>
+        /// <returns>LoadAsync Task</returns>
         /// <exception cref="Unity.Services.Mediation.LoadFailedException">Thrown when the ad failed to load</exception>
         Task LoadAsync();
 
         /// <summary>
         /// Method to tell the Mediation SDK to show the loaded Ad.
         /// </summary>
-        [Obsolete("Deprecated: this method will be removed in a future version. Please use ShowAsync in a try catch block to handle both successful and failed shows. See the mediation sample for more details.")]
-        void Show();
-
-        /// <summary>
-        /// Method to tell the Mediation SDK to show the loaded Ad.
-        /// </summary>
         /// <param name="showOptions">Optional, allows setting optional parameters for showing an interstitial ad.</param>
+        /// <returns>ShowAsync Task</returns>
         /// <exception cref="Unity.Services.Mediation.ShowFailedException">Thrown when the ad failed to show</exception>
         Task ShowAsync(InterstitialAdShowOptions showOptions = null);
     }

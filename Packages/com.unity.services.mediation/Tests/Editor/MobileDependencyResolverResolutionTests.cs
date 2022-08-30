@@ -3,19 +3,20 @@ using System.IO;
 using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
-using PlayServicesResolver.Utils.Editor;
+using MobileDependencyResolver.Utils.Editor;
 using Unity.Services.Mediation.Adapters.Editor;
 using UnityEditor;
 
 namespace Unity.Services.Mediation.EditorTests
 {
-    public class PlayServicesResolverResolutionTests
+    public class MobileDependencyResolverResolutionTests
     {
-        private bool previousMainTemplateGradleSetting = false;
-        private BuildTarget previousBuildTarget;
-        private BuildTargetGroup previousBuildTargetGroup;
+        bool previousMainTemplateGradleSetting = false;
+        BuildTarget previousBuildTarget;
+        BuildTargetGroup previousBuildTargetGroup;
 
-        const string k_AndroidPluginPath = "/Plugins/Android/";
+        const string k_PluginFolder = "Plugins";
+        const string k_AndroidFolder = "Android";
 
         public static string[] s_AdapterLibraryPrefixes =
         {
@@ -36,7 +37,7 @@ namespace Unity.Services.Mediation.EditorTests
         [SetUp]
         public void Setup()
         {
-            previousMainTemplateGradleSetting = PlayServicesResolverUtils.MainTemplateEnabled;
+            previousMainTemplateGradleSetting = MobileDependencyResolverUtils.MainTemplateEnabled;
             previousBuildTarget = EditorUserBuildSettings.activeBuildTarget;
             previousBuildTargetGroup = EditorUserBuildSettings.selectedBuildTargetGroup;
         }
@@ -44,10 +45,10 @@ namespace Unity.Services.Mediation.EditorTests
         [TearDown]
         public void TearDown()
         {
-            PlayServicesResolverUtils.MainTemplateEnabled = previousMainTemplateGradleSetting;
-            if (!PlayServicesResolverUtils.MainTemplateEnabled)
+            MobileDependencyResolverUtils.MainTemplateEnabled = previousMainTemplateGradleSetting;
+            if (!MobileDependencyResolverUtils.MainTemplateEnabled)
             {
-                PlayServicesResolverUtils.DeleteResolvedLibraries();
+                MobileDependencyResolverUtils.DeleteResolvedLibraries();
             }
 
             EditorUserBuildSettings.SwitchActiveBuildTarget(previousBuildTargetGroup, previousBuildTarget);
@@ -56,7 +57,7 @@ namespace Unity.Services.Mediation.EditorTests
         [Test]
         [TestCase("adapter")]
         [TestCase("sdk")]
-        public void PlayServicesResolverAdapterVersionDownloadTest(string testCase)
+        public void MobileDependencyResolverAdapterVersionDownloadTest(string testCase)
         {
             // Check to see if Platform Module is installed before running test.
             if (!IsBuildTargetInstalled(BuildTarget.Android))
@@ -65,20 +66,22 @@ namespace Unity.Services.Mediation.EditorTests
             }
 
             // Set to download files in editor
-            PlayServicesResolverUtils.MainTemplateEnabled = false;
+            MobileDependencyResolverUtils.MainTemplateEnabled = false;
 
             // Set build target to Android
             EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
 
             // Resolve: May freeze up editor for a bit.
-            PlayServicesResolverUtils.ResolveSync(true);
+            MobileDependencyResolverUtils.ResolveSync(true);
 
             // Choose a filter for library names based on the test performed.
             string[] prefixSource = testCase == "adapter" ? s_AdapterLibraryPrefixes : s_SdkLibraryPrefix;
 
             // Search Android Plugin Path and filter based on prefix source and ignore .meta files.
-            string[] downloadedLibraries = Directory.GetFiles(Application.dataPath + k_AndroidPluginPath)
-                .Select(file => file.Substring(Application.dataPath.Length + k_AndroidPluginPath.Length))
+            var androidPluginPath = Path.Combine(Application.dataPath, k_PluginFolder, k_AndroidFolder);
+            var androidPluginDirectory = new DirectoryInfo(androidPluginPath);
+            string[] downloadedLibraries = androidPluginDirectory.GetFiles()
+                .Select(file => file.Name)
                 .Where(file => s_AdapterLibraryPrefixes.Any(file.StartsWith) && !file.EndsWith(".meta"))
                 .ToArray();
 

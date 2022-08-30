@@ -21,6 +21,7 @@ namespace Unity.Services.Mediation.Tests
         [UnitySetUp]
         public IEnumerator SetUp()
         {
+#if TEMP_REMOVED
             var done = false;
             UnityServices.InitializeAsync().ContinueWith(x =>
             {
@@ -36,15 +37,17 @@ namespace Unity.Services.Mediation.Tests
             Assert.NotNull(actionScheduler);
 
             yield return new WaitUntil(() => MediationService.InitializationState == InitializationState.Initialized);
+#endif
+            yield return null;
             m_RewardedAdMock = new Mock<IPlatformRewardedAd>(MockBehavior.Strict);
             m_RewardedAd = new RewardedAd(m_RewardedAdMock.Object);
         }
 
+#if TEMP_REMOVED
         [UnityTest]
         public IEnumerator AutoReloadTest()
         {
             RewardedAdShowOptions showOptions = new RewardedAdShowOptions();
-
 
             m_RewardedAdMock.Setup(ad => ad.Show(showOptions)).Raises(e => e.OnClosed += null, EventArgs.Empty);
             m_RewardedAdMock.Setup(ad => ad.Load()).Raises(e => e.OnLoaded += null, EventArgs.Empty);
@@ -70,44 +73,40 @@ namespace Unity.Services.Mediation.Tests
             m_RewardedAdMock.Verify(ad => ad.Load(), Times.Once());
         }
 
-        [Test]
-        public void ShowTest()
+#endif
+
+        async Task ShowAsync(RewardedAd rewardedAd, RewardedAdShowOptions showOptions = null)
         {
-            m_RewardedAdMock.Setup(ad => ad.Show(null));
-            m_RewardedAd.Show();
-            m_RewardedAdMock.Verify(ad => ad.Show(null));
+            await rewardedAd.ShowAsync(showOptions);
         }
 
-        [Test]
-        public void ShowAsyncTest()
+        [UnityTest]
+        [Timeout(TestConstants.Timeout)]
+        public IEnumerator ShowAsyncTest()
         {
             m_RewardedAdMock.Setup(ad => ad.Show(null)).Raises(e => e.OnClosed += null, EventArgs.Empty);
-            var task = Task.Run(async() =>
-            {
-                await m_RewardedAd.ShowAsync();
-            });
-            task.GetAwaiter().GetResult();
+
+            var task = ShowAsync(m_RewardedAd);
+            yield return new WaitUntil(() => task.IsCompleted);
+
             m_RewardedAdMock.Verify(ad => ad.Show(null));
         }
 
-        [Test]
-        public void LoadTest()
+        [UnityTest]
+        [Timeout(TestConstants.Timeout)]
+        public IEnumerator LoadAsyncTest()
         {
-            m_RewardedAdMock.Setup(ad => ad.Load());
-            m_RewardedAd.Load();
+            m_RewardedAdMock.Setup(ad => ad.Load()).Raises(e => e.OnLoaded += null, EventArgs.Empty);
+
+            var task = LoadAsync(m_RewardedAd);
+            yield return new WaitUntil(() => task.IsCompleted);
+
             m_RewardedAdMock.Verify(ad => ad.Load());
         }
 
-        [Test]
-        public void LoadAsyncTest()
+        static async Task LoadAsync(RewardedAd rewardedAd)
         {
-            m_RewardedAdMock.Setup(ad => ad.Load()).Raises(e => e.OnLoaded += null, EventArgs.Empty);
-            var task = Task.Run(async() =>
-            {
-                await m_RewardedAd.LoadAsync();
-            });
-            task.GetAwaiter().GetResult();
-            m_RewardedAdMock.Verify(ad => ad.Load());
+            await rewardedAd.LoadAsync();
         }
 
         [Test]

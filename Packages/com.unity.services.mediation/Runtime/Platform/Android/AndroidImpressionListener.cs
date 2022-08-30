@@ -11,6 +11,7 @@ namespace Unity.Services.Mediation.Platform
             m_Listener = listener;
         }
 
+        [UnityEngine.Scripting.Preserve]
         public void onImpression(string adUnitId, AndroidJavaObject impressionData)
         {
             ThreadUtil.Post(state => m_Listener.onImpression(adUnitId, impressionData));

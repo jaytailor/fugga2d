@@ -12,9 +12,18 @@ namespace Unity.Services.Mediation.Platform
         delegate void FinishedCallback(IntPtr interstitialAd);
         delegate void FailedShowCallback(IntPtr interstitialAd, int error, string message);
 
+        static readonly StartedCallback    k_StartedCallback    = Started;
+        static readonly ClickedCallback    k_ClickedCallback    = Clicked;
+        static readonly FinishedCallback   k_FinishedCallback   = Finished;
+        static readonly FailedShowCallback k_FailedShowCallback = FailedShow;
+
         public IosInterstitialShowListener() : base(false)
         {
-            NativePtr = InterstitialAdShowDelegateCreate(Started, Clicked, Finished, FailedShow);
+            NativePtr = InterstitialAdShowDelegateCreate(
+                k_StartedCallback,
+                k_ClickedCallback,
+                k_FinishedCallback,
+                k_FailedShowCallback);
         }
 
         public override void Dispose()

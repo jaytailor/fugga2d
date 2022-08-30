@@ -44,6 +44,11 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// The ad unit is missing mandatory member values
         /// </summary>
-        MissingMandatoryMemberValues
+        MissingMandatoryMemberValues,
+
+        /// <summary>
+        /// Error that occurs when there is too many load requests.
+        /// </summary>
+        TooManyLoadRequests
     }
 }

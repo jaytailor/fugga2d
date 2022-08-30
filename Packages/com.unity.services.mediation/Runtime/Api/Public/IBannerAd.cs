@@ -54,6 +54,7 @@ namespace Unity.Services.Mediation
         /// <summary>
         /// Loads the banner ad, and displays it when ready
         /// </summary>
+        /// <returns>LoadAsync Task</returns>
         Task LoadAsync();
     }
 }

@@ -1,12 +1,12 @@
 using System.IO;
 using NUnit.Framework;
-using PlayServicesResolver.Installer.Editor;
+using MobileDependencyResolver.Installer.Editor;
 
 namespace Unity.Services.Mediation.EditorTests
 {
-    public class PlayServicesResolverInstallerTests
+    public class MobileDependencyResolverInstallerTests
     {
-        static string[] s_PlayServicesResolverFiles =
+        static string[] s_MobileDependencyResolverFiles =
         {
             "Google.IOSResolver.dll",
             "Google.IOSResolver.dll.meta",
@@ -14,27 +14,27 @@ namespace Unity.Services.Mediation.EditorTests
             "Google.JarResolver.dll.meta",
             "Google.VersionHandler.dll",
             "Google.VersionHandler.dll.meta",
-            "Google.VersionHandlerImpl_v1.2.135.0.dll",
-            "Google.VersionHandlerImpl_v1.2.135.0.dll.meta",
-            "play-services-resolver_v1.2.135.0.txt",
-            "play-services-resolver_v1.2.135.0.txt.meta"
+            "Google.VersionHandlerImpl.dll",
+            "Google.VersionHandlerImpl.dll.meta",
+            "mobile-dependency-resolver.txt",
+            "mobile-dependency-resolver.txt.meta"
         };
 
         [Test]
-        public void PlayServicesResolverDetectionTest()
+        public void MobileDependencyResolverDetectionTest()
         {
             //Only relevant for test projects. It's possible to run package tests in isolation, inside a new project
-            //Where play services resolver is not installed
+            //Where MobileDependencyResolver is not installed
             EditorTestUtils.IgnoreIfNotInTestProject("Not running inside a test project");
 
             //Ensuring that the test project actually have PlayServicesResolver
-            foreach (var file in s_PlayServicesResolverFiles)
+            foreach (var file in s_MobileDependencyResolverFiles)
             {
-                var filePath = Path.Combine("Assets/PlayServicesResolver/Editor", file);
+                var filePath = Path.Combine("Assets/MobileDependencyResolver/Editor", file);
                 Assert.That(() => File.Exists(filePath), $"File missing: {filePath}");
             }
 
-            Assert.IsTrue(PlayServicesResolverInstaller.IsPlayServicesResolverInstalled(), "PlayServicesResolver is supposed to be installed.");
+            Assert.IsTrue(MobileDependencyResolverInstaller.IsPlayServicesResolverInstalled(), "MobileDependencyResolver is supposed to be installed.");
         }
     }
 }

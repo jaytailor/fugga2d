@@ -1,8 +1,11 @@
+using System.Diagnostics;
 using System.Threading.Tasks;
 using UnityEngine;
 using Unity.Services.Core.Configuration.Internal;
 using Unity.Services.Core.Device.Internal;
 using Unity.Services.Core.Internal;
+using Unity.Services.Core.Telemetry.Internal;
+using Debug = UnityEngine.Debug;
 
 namespace Unity.Services.Mediation
 {
@@ -15,15 +18,31 @@ namespace Unity.Services.Mediation
         {
             CoreRegistry.Instance.RegisterPackage(new MediationServiceInitializer())
                 .DependsOn<IInstallationId>()
-                .DependsOn<IProjectConfiguration>();
+                .DependsOn<IProjectConfiguration>()
+                .DependsOn<IMetricsFactory>();
         }
 
         public async Task Initialize(CoreRegistry registry)
         {
-            IInstallationId       installationId = registry.GetServiceComponent<IInstallationId>();
-            IProjectConfiguration projectConfig  = registry.GetServiceComponent<IProjectConfiguration>();
+            var stopwatch = new Stopwatch();
 
-            await Initialize(installationId, projectConfig);
+            var metricsFactory = registry.GetServiceComponent<IMetricsFactory>();
+            var metrics        = new MediationMetrics(metricsFactory);
+
+            try
+            {
+                stopwatch.Start();
+                var installationId = registry.GetServiceComponent<IInstallationId>();
+                var projectConfig  = registry.GetServiceComponent<IProjectConfiguration>();
+
+                await Initialize(installationId, projectConfig);
+            }
+            finally
+            {
+                stopwatch.Stop();
+            }
+
+            metrics.SendPackageInitTimeMetric(stopwatch.Elapsed.TotalSeconds);
         }
 
         internal async Task Initialize(IInstallationId installationId, IProjectConfiguration projectConfiguration)
@@ -37,7 +56,6 @@ namespace Unity.Services.Mediation
                 Debug.LogError("No gameId was set for the mediation service. Please make sure your project is linked to the dashboard when you build your application.");
             }
 #endif
-
             await MediationService.Initialize(gameId, installId);
         }
     }

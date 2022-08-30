@@ -117,7 +117,7 @@ namespace Unity.Services.Mediation.Platform
                     }
 
                     AndroidJavaObject showOptionsJava = null;
-                    if (showOptions != null)
+                    if (showOptions != null && !string.IsNullOrEmpty(showOptions.S2SData.UserId))
                     {
                         showOptionsJava = new AndroidJavaObject("com.unity3d.mediation.RewardedAdShowOptions");
                         AndroidJavaObject s2sData = new AndroidJavaObject("com.unity3d.mediation.RewardedAdShowOptions$S2SRedeemData", showOptions.S2SData.UserId, showOptions.S2SData.CustomData);

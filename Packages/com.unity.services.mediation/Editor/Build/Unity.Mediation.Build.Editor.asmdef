@@ -1,5 +1,6 @@
 {
     "name": "Unity.Mediation.Build.Editor",
+    "rootNamespace": "",
     "references": [
         "Unity.Mediation",
         "Unity.Mediation.Adapters.Editor",
@@ -19,6 +20,12 @@
     "precompiledReferences": [],
     "autoReferenced": false,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.ads.ios-support",
+            "expression": "",
+            "define": "HAVE_IOS_SUPPORT_PACKAGE"
+        }
+    ],
     "noEngineReferences": false
 }

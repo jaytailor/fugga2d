@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
-using PlayServicesResolver.Utils.Editor;
+using MobileDependencyResolver.Utils.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -364,7 +364,7 @@ namespace Unity.Services.Mediation.Adapters.Editor
 #if UNITY_ANDROID
             if (resolve)
             {
-                PlayServicesResolverUtils.ResolveIfNeeded();
+                MobileDependencyResolverUtils.ResolveIfNeeded();
             }
 #endif
         }

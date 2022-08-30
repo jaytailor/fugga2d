@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -19,14 +20,6 @@ namespace Unity.Services.Mediation.Tests
 
             yield return new WaitUntil(() => MediationService.InitializationState == InitializationState.Initialized);
             m_InterstitialAd = new InterstitialAd(TestConstants.AdUnitInterstitialId);
-        }
-
-        [Test]
-        [UnityPlatform(RuntimePlatform.Android, RuntimePlatform.IPhonePlayer)]
-        public void LoadTest()
-        {
-            // Check to see if underlying bridge connection is valid
-            Assert.DoesNotThrow(() => m_InterstitialAd.Load());
         }
 
         [Test]

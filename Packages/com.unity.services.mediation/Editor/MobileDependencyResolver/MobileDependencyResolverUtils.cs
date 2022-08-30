@@ -4,14 +4,14 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace PlayServicesResolver.Utils.Editor
+namespace MobileDependencyResolver.Utils.Editor
 {
-    static class PlayServicesResolverUtils
+    static class MobileDependencyResolverUtils
     {
-        static Type s_PlayServicesResolverType;
+        static Type s_MobileDependencyResolverType;
         static Type s_IosResolverType;
 
-        public static bool IsPresent => PlayServicesResolverType != null;
+        public static bool IsPresent => MobileDependencyResolverType != null;
 
         public static void ResolveIfNeeded()
         {
@@ -25,7 +25,7 @@ namespace PlayServicesResolver.Utils.Editor
         {
             get
             {
-                var psrType = PlayServicesResolverType;
+                var psrType = MobileDependencyResolverType;
                 if (psrType == null) return false;
                 var autoResolutionProperty = psrType.GetProperty("AutomaticResolutionEnabled");
                 if (autoResolutionProperty == null) return false;
@@ -37,7 +37,7 @@ namespace PlayServicesResolver.Utils.Editor
         {
             get
             {
-                var psrType = PlayServicesResolverType;
+                var psrType = MobileDependencyResolverType;
                 if (psrType == null) return false;
                 var autoResolutionProperty = psrType.GetProperty("GradleTemplateEnabled");
                 if (autoResolutionProperty == null) return false;
@@ -67,7 +67,7 @@ namespace PlayServicesResolver.Utils.Editor
 
         public static void Resolve()
         {
-            var psrType = PlayServicesResolverType;
+            var psrType = MobileDependencyResolverType;
             if (psrType == null) return;
             var resolveMethod = psrType.GetMethod("Resolve");
             if (resolveMethod == null) return;
@@ -76,7 +76,7 @@ namespace PlayServicesResolver.Utils.Editor
 
         public static void ResolveSync(bool forceResolution)
         {
-            var psrType = PlayServicesResolverType;
+            var psrType = MobileDependencyResolverType;
             if (psrType == null) return;
             var resolveMethod = psrType.GetMethod("ResolveSync");
             if (resolveMethod == null) return;
@@ -85,7 +85,7 @@ namespace PlayServicesResolver.Utils.Editor
 
         public static void DeleteResolvedLibraries()
         {
-            var psrType = PlayServicesResolverType;
+            var psrType = MobileDependencyResolverType;
             if (psrType == null) return;
             var resolveMethod = psrType.GetMethod("DeleteResolvedLibrariesSync");
             if (resolveMethod == null) return;
@@ -94,7 +94,7 @@ namespace PlayServicesResolver.Utils.Editor
 
         public static IList<KeyValuePair<string, string>> GetPackageSpecs()
         {
-            var psrType = PlayServicesResolverType;
+            var psrType = MobileDependencyResolverType;
             if (psrType == null) return new List<KeyValuePair<string, string>>();
             var getPackageSpecsMethod = psrType.GetMethod("GetPackageSpecs");
             if (getPackageSpecsMethod == null) return new List<KeyValuePair<string, string>>();
@@ -117,24 +117,24 @@ namespace PlayServicesResolver.Utils.Editor
             }
         }
 
-        static Type PlayServicesResolverType
+        static Type MobileDependencyResolverType
         {
             get
             {
-                if (s_PlayServicesResolverType != null)
+                if (s_MobileDependencyResolverType != null)
                 {
-                    return s_PlayServicesResolverType;
+                    return s_MobileDependencyResolverType;
                 }
 
                 try
                 {
-                    s_PlayServicesResolverType = Type.GetType("GooglePlayServices.PlayServicesResolver, Google.JarResolver");
+                    s_MobileDependencyResolverType = Type.GetType("GooglePlayServices.PlayServicesResolver, Google.JarResolver");
                 }
                 catch (Exception e)
                 {
                     Debug.LogException(e);
                 }
-                return s_PlayServicesResolverType;
+                return s_MobileDependencyResolverType;
             }
         }
 

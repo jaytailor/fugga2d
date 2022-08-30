@@ -36,7 +36,6 @@ post_install do |installer|
     applicationTargets.include? aggregate_target.name
   }
 
-  # We only want to remove pods from Application targets, not libraries
   host_targets.each do |host_target|
     host_target.xcconfigs.each do |config_name, config_file|
       host_target.pod_targets.each do |pod_target|

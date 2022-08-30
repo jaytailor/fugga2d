@@ -8,7 +8,7 @@ namespace Unity.Services.Mediation.Dashboard.Editor
 {
     static class DashboardClient
     {
-        const string k_ErrorProjectNotConfigured        = "The Project has not been configured yet, please validate your information.";
+        const string k_ErrorProjectNotConfigured        = "To access the full suite of Mediation Editor tools, please link your project to a Unity Dashboard project under Edit > Project Settings > Services";
         const string k_ErrorFailedToRetrieveAdUnits     = "Failed to retrieve Ad Units from the Dashboard; ";
         const string k_ErrorFailedToRetrieveGameId      = "Failed to retrieve Game IDs from the Dashboard; ";
         const string k_ErrorFailedToRetrieveAdNetworks  = "Failed to retrieve Configured ad Networks from the Dashboard; ";
@@ -16,8 +16,6 @@ namespace Unity.Services.Mediation.Dashboard.Editor
         const string k_GameIdUrl         = "https://services.unity.com/api/monetize/mediation/v1/organizations/{0}/projects/{1}/app-adnetwork-parameters/{2}";
         const string k_AdNetworksListUrl = "https://services.unity.com/api/monetize/mediation/v1/organizations/{0}/ad-networks";
         const string k_AdNetworkUnity = "UNITY";
-
-        static string s_CachedProjectId;
 
         static DashboardPoller s_ProjectSettingsPoller;
         static DashboardPoller s_NoTimeoutPoller;

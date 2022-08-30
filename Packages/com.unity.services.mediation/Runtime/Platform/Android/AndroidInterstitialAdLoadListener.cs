@@ -11,11 +11,13 @@ namespace Unity.Services.Mediation.Platform
             m_Listener = listener;
         }
 
+        [UnityEngine.Scripting.Preserve]
         public void onInterstitialLoaded(AndroidJavaObject interstitialAd)
         {
             ThreadUtil.Post(state => m_Listener.onInterstitialLoaded(interstitialAd));
         }
 
+        [UnityEngine.Scripting.Preserve]
         public void onInterstitialFailedLoad(AndroidJavaObject interstitialAd, AndroidJavaObject error, string msg)
         {
             ThreadUtil.Post(state => m_Listener.onInterstitialFailedLoad(interstitialAd, error, msg));

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using Unity.Services.Core;
 using UnityEditor;
 using UnityEngine;
@@ -21,18 +22,26 @@ namespace Unity.Services.Mediation.UI
     public class UIBannerAd : UIBehaviour
     {
         [Tooltip("The banner ad's Ad Unit ID for Android builds")]
-        public string androidAdUnitId;
+        [SerializeField]
+        string androidAdUnitId;
         [Tooltip("The banner ad's Ad Unit ID for iOS builds")]
-        public string iosAdUnitId;
+        [SerializeField]
+        string iosAdUnitId;
 
         [Tooltip("The Unity services will automatically be initialized using the linked project's game ID if they " +
             "have not been initialized when this component Awakens. " +
             "Turn this off if you want to initialize your services with a special configuration.")]
-        public bool autoInitServices = true;
+        [SerializeField]
+        bool autoInitServices = true;
 
         [Tooltip("Draw a preview of the banner placement in the scene window")]
-        public bool drawEditorPreview = true;
+        [SerializeField]
+        bool drawEditorPreview = true;
 
+        /// <summary>
+        /// Follow the UI component's movement to the best of the Banner Ad's ability.
+        /// Turn this off if you want your banner to be stationary, or for better performances.
+        /// </summary>
         [Tooltip("Follow the UI component's movement to the best of the Banner Ad's ability. " +
             "Turn this off if you want your banner to be stationary, or for better performances.")]
         public bool followComponentMovement = true;
@@ -54,6 +63,9 @@ namespace Unity.Services.Mediation.UI
 
         bool m_Loading;
 
+        /// <summary>
+        /// Called once on object initialization
+        /// </summary>
         protected override void Awake()
         {
             base.Awake();
@@ -62,7 +74,7 @@ namespace Unity.Services.Mediation.UI
             {
                 if (UnityServices.State == ServicesInitializationState.Uninitialized)
                 {
-                    InitializeServices();
+                    var task = InitializeServices();
                 }
             }
         }
@@ -90,7 +102,7 @@ namespace Unity.Services.Mediation.UI
             // Make sure we did not disable in the meantime.
             if (enabled)
             {
-                CreateAndLoadBanner();
+                var task = CreateAndLoadBanner();
             }
             else
             {
@@ -98,7 +110,7 @@ namespace Unity.Services.Mediation.UI
             }
         }
 
-        async void CreateAndLoadBanner()
+        async Task CreateAndLoadBanner()
         {
             m_RectTransform.GetWorldCorners(s_Corners);
 
@@ -124,6 +136,9 @@ namespace Unity.Services.Mediation.UI
             m_Loading = false;
         }
 
+        /// <summary>
+        /// Called when the ui banner ad is disabled
+        /// </summary>
         protected override void OnDisable()
         {
             base.OnDisable();
@@ -136,7 +151,7 @@ namespace Unity.Services.Mediation.UI
             m_BannerAd = null;
         }
 
-        async void InitializeServices()
+        async Task InitializeServices()
         {
             try
             {

@@ -1,5 +1,6 @@
 #if UNITY_ANDROID
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace Unity.Services.Mediation.Platform
 {
@@ -11,11 +12,13 @@ namespace Unity.Services.Mediation.Platform
             m_Listener = listener;
         }
 
+        [UnityEngine.Scripting.Preserve]
         public void onRewardedLoaded(AndroidJavaObject rewardedAd)
         {
             ThreadUtil.Post(state => m_Listener.onRewardedLoaded(rewardedAd));
         }
 
+        [UnityEngine.Scripting.Preserve]
         public void onRewardedFailedLoad(AndroidJavaObject rewardedAd, AndroidJavaObject error, string msg)
         {
             ThreadUtil.Post(state => m_Listener.onRewardedFailedLoad(rewardedAd, error, msg));

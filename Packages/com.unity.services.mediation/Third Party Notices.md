@@ -1,13 +1,8 @@
-This package contains third-party software components governed by the license(s) indicated below:
----------
-
 Component Name: unity-jar-resolver
 
 License Type: Apache 2.0
 
 Copyright © 2014 Google Inc.
-
-Modifications copyright © 2021 Unity Technologies SF
 
 https://github.com/googlesamples/unity-jar-resolver
 
@@ -40,7 +35,7 @@ the copyright owner that is granting the License.
 "Legal Entity" shall mean the union of the acting entity and all
 other entities that control, are controlled by, or are under common
 control with that entity. For the purposes of this definition,
-"control" means  the power, direct or indirect, to cause the
+"control" means the power, direct or indirect, to cause the
 direction or management of such entity, whether by contract or
 otherwise, or (ii) ownership of fifty percent (50%) or more of the
 outstanding shares, or (iii) beneficial ownership of such entity.
@@ -226,13 +221,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 ====================================================================================================
-Component Name: MiniJSON.cs
+This package uses MiniJSON
 
-License Type: MIT
-
-Copyright © 2013 Calvin Rien
-
-https://gist.github.com/darktable/1411710
+Copyright (c) 2013 Calvin Rien
 
 Based on the JSON parser by Patrick van Bergen
 http://techblog.procurios.nl/k/618/news/view/14605/14863/How-do-I-write-my-own-parser-for-JSON.html
@@ -258,3 +249,7 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+====================================================================================================
+
+Modifications to unity-jar-resolver copyright © 2022 Unity Technologies SF

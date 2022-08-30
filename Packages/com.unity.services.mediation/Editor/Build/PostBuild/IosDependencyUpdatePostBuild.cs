@@ -2,7 +2,7 @@
 
 using UnityEditor;
 using UnityEditor.Callbacks;
-using PlayServicesResolver.Utils.Editor;
+using MobileDependencyResolver.Utils.Editor;
 
 namespace Unity.Services.Mediation.Build.Editor
 {
@@ -13,7 +13,7 @@ namespace Unity.Services.Mediation.Build.Editor
         public static void OnPostProcessBuild(BuildTarget target, string pathToBuiltProject)
         {
             UnityEngine.Debug.Log("[Mediation] Calling pod update on Unity dependencies");
-            PlayServicesResolverUtils.PodUpdate(pathToBuiltProject);
+            MobileDependencyResolverUtils.PodUpdate(pathToBuiltProject);
             UnityEngine.Debug.Log("[Mediation] Finished pod update on Unity dependencies");
         }
     }
