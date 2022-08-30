@@ -122,7 +122,7 @@ public class UnityAds
 		}
 	}
 
-	public void LoadInterstitialNew()
+	public async void LoadInterstitialNew()
     {
 	    if (interstitialAdNew == null)
 	    {
@@ -136,18 +136,18 @@ public class UnityAds
 		    interstitialAdNew.OnShowed += InterstitialAdShown;
 	    }
 	    Debug.Log("Loading Interstitial adunit...");
-	    interstitialAdNew.Load(); 
+	    await interstitialAdNew.LoadAsync(); 
     }
     
-    public void ShowInterstitialNew()
+    public async void ShowInterstitialNew()
     {
         if(interstitialAdNew.AdState == AdState.Loaded)
         {
-	        interstitialAdNew.Show();
+	        await interstitialAdNew.ShowAsync();
         }
     }
     
-    public void LoadRewardedNew()
+    public async void LoadRewardedNew()
     {
         if (rewardedVideoAdNew == null)
         {
@@ -163,10 +163,10 @@ public class UnityAds
         
         }
         Debug.Log("Loading Rewarded adunit...");
-        rewardedVideoAdNew.Load();
+        rewardedVideoAdNew.LoadAsync();
     }
     
-    public void ShowRewardedNew()
+    public async void ShowRewardedNew()
     {
 	    if (rewardedVideoAdNew.AdState == AdState.Loaded)
 	    {	
@@ -177,7 +177,7 @@ public class UnityAds
 		    s2SData.UserId = "my user id";
 		    s2SData.CustomData = "{\"reward\":\"Premium\",\"amount\":200}";
 		    showOptions.S2SData = s2SData;
-		    rewardedVideoAdNew.Show(showOptions);
+		    await rewardedVideoAdNew.ShowAsync(showOptions);
 	    }
     }
 
