@@ -17,6 +17,11 @@ public class MainMenu : MonoBehaviour {
             Manager.PremiumScore = 100; 
             Manager.PremiumGranted = true;
         }
+        //Mono behaviour ANR attempt
+        // while (true)
+        // {
+        //     Debug.Log("Loop");
+        // }
     }
 
     void Start(){
