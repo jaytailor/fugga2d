@@ -10,7 +10,7 @@ public class DestroyBall : MonoBehaviour {
 	public BackToMenu bm;
 	public ChanceRemainMenu crm;
 	public FuggaWin fw;
-	public UnityAds ads;
+	// public UnityAds ads;
 	public Time tm;
 	private AudioSource ASource;
 	public AudioClip AClip;

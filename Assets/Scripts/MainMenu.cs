@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour {
 
     void Awake()
     {
-        Manager.Ads.Initialize();
+        // Manager.Ads.Initialize();
         if (Manager.PremiumGranted == false) {
             Manager.PremiumScore = 100; 
             Manager.PremiumGranted = true;
@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void ShowVideo(){
-        Manager.Ads.ShowVideo();
+        // Manager.Ads.ShowVideo();
     }
 
 }

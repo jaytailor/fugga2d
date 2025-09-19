@@ -15,14 +15,14 @@ public class BackToMenu : MonoBehaviour {
 	
     public void showBackMenu(){
         backMenuObj.SetActive (true);
-        Manager.Ads.LoadMREC();
+        //Manager.Ads.LoadMREC();
     }
 		
     public void takeToMainMenu(){
         int CurrPremium = Manager.PremiumScore;
 		
-        Manager.Ads.RemoveMREC();
-        Manager.Ads.ShowRewardedNew();
+        //Manager.Ads.RemoveMREC();
+        //Manager.Ads.ShowRewardedNew();
 			
         SceneManager.LoadScene (0);
         resetValues (CurrPremium);

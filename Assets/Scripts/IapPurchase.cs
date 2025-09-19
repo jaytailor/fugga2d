@@ -14,7 +14,7 @@ public class IapPurchase : MonoBehaviour {
 
             Manager.PremiumScore -= 1000;
         } else {
-            Manager.Ads.ShowRewardedNew();
+            //Manager.Ads.ShowRewardedNew();
         }
     }
 
@@ -27,7 +27,7 @@ public class IapPurchase : MonoBehaviour {
             Manager.PremiumScore -= 2000;
         }
         else {
-            Manager.Ads.ShowRewardedNew();
+            //Manager.Ads.ShowRewardedNew();
         }
     }
 
@@ -40,12 +40,12 @@ public class IapPurchase : MonoBehaviour {
             Manager.PremiumScore -= 3000;
         }
         else {
-            Manager.Ads.ShowRewardedNew();
+            //Manager.Ads.ShowRewardedNew();
         }
     }
 
     public void Upgrade200()
     {
-        Manager.Ads.ShowRewardedVideo();
+        //Manager.Ads.ShowRewardedVideo();
     }
 }
