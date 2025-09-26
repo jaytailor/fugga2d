@@ -1,4 +1,43 @@
-﻿// using System;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Unity.Services.LevelPlay;
+
+public class UnityAds
+{
+    public void Initialize()
+    {
+        Debug.Log("UnityAds Initialize");    
+        // Register OnInitFailed and OnInitSuccess listeners
+        LevelPlay.OnInitSuccess += SdkInitializationCompletedEvent;
+        LevelPlay.OnInitFailed += SdkInitializationFailedEvent;
+        LevelPlay.SetMetaData("is_test_suite", "enable");
+        // SDK init
+        LevelPlay.Init("23bb0c215");
+    }
+
+    void SdkInitializationCompletedEvent(LevelPlayConfiguration config)
+    {
+        Debug.Log($"[LevelPlaySample] Received SdkInitializationCompletedEvent with Config: {config}");
+        LevelPlay.LaunchTestSuite();
+    }
+
+    void SdkInitializationFailedEvent(LevelPlayInitError error)
+    {
+        Debug.Log($"[LevelPlaySample] Received SdkInitializationFailedEvent with Error: {error}");
+    }
+}
+
+
+
+
+
+
+
+
+// OLD CODE FOR UNITY ADS
+
+// using System;
 // using System.Collections;
 // using Unity.Services.Core;
 // using UnityEngine;

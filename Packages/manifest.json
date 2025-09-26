@@ -10,6 +10,7 @@
     "com.unity.multiplayer.center": "1.0.0",
     "com.unity.services.analytics": "6.1.1",
     "com.unity.services.core": "1.15.2",
+    "com.unity.services.levelplay": "9.0.0",
     "com.unity.timeline": "1.8.9",
     "com.unity.ugui": "2.0.0",
     "com.unity.modules.accessibility": "1.0.0",
@@ -47,4 +48,4 @@
   },
   "scopedRegistries": [],
   "testables": []
-} 
+}

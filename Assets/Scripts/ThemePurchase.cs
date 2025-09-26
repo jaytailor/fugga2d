@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IapPurchase : MonoBehaviour {
+public class ThemePurchase : MonoBehaviour {
 
     public void PurchaseBeach(){
         // Check the premium amount 

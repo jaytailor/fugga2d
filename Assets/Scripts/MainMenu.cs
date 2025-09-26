@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class MainMenu : MonoBehaviour {
 
     // Use this for initialization
@@ -12,14 +11,16 @@ public class MainMenu : MonoBehaviour {
 
     void Awake()
     {
-        // Manager.Ads.Initialize();
+        Debug.Log ("MainMenu is Awake");
+        Manager.Ads.Initialize();
         if (Manager.PremiumGranted == false) {
-            Manager.PremiumScore = 100; 
+            Manager.PremiumScore = 10000; 
             Manager.PremiumGranted = true;
         }
     }
 
     void Start(){
+        Debug.Log ("MainMenu is Started");
         //Manager.Ads.ShowBanner();
     }
 

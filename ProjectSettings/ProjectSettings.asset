@@ -250,7 +250,7 @@ PlayerSettings:
   VisionOSManualSigningProvisioningProfileType: 0
   appleEnableAutomaticSigning: 1
   iOSRequireARKit: 0
-  iOSAutomaticallyDetectAndAddCapabilities: 1
+  iOSAutomaticallyDetectAndAddCapabilities: 0
   appleEnableProMotion: 0
   shaderPrecisionModel: 0
   clonedFromGUID: 00000000000000000000000000000000
@@ -894,7 +894,7 @@ PlayerSettings:
     Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;DDNA_IOS_PUSH_NOTIFICATIONS_REMOVED
     Standalone: CROSS_PLATFORM_INPUT
     Windows Store Apps: MOBILE_INPUT
-    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT;LEVELPLAY_DEPENDENCIES_INSTALLED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
