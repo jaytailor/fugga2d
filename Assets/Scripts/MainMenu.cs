@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour {
 
     void Start(){
         Debug.Log ("MainMenu is Started");
-        //Manager.Ads.ShowBanner();
+        Manager.Ads.LoadBanner();
     }
 
     public void PlayGame(){
@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void ShowVideo(){
-        // Manager.Ads.ShowVideo();
+        Manager.Ads.LoadRewardedVideo(false);
     }
 
 }

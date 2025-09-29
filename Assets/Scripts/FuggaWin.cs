@@ -19,7 +19,7 @@ public class FuggaWin : MonoBehaviour {
     }
 
     public void takeToMainMenu(){
-        //Manager.Ads.ShowRewardedNew();
+        Manager.Ads.LoadRewardedVideo(true);
 
         SceneManager.LoadScene (0);
         resetValues ();

@@ -54,7 +54,6 @@ public static class Manager {
 	        {
 		        s_Ads = new UnityAds();
 	        }
-
 	        return s_Ads;
         }
     }

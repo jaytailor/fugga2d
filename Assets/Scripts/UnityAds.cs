@@ -5,343 +5,175 @@ using Unity.Services.LevelPlay;
 
 public class UnityAds
 {
+#if UNITY_IOS
+    private string levelPlayAppKey = "23bb0c215";
+    private string bannerAdUnitId = "zjvzv4s694behqme";
+    private string interstitialAdUnitId = "liu8jgw8tn5txxos";
+    private string rewardedAdUnitIdHome = "pr1c92hwibckvn3s";
+    private string rewardedAdUnitIdShop = "ft0izbk84to6h5yl";
+#else
+    private string levelPlayAppKey = "Unknown";
+    private string bannerAdUnitId = "Unknown";
+    private string interstitialAdUnitId = "Unknown";
+    private string rewardedAdUnitIdHome = "Unknown";
+    private string rewardedAdUnitIdShop = "Unknown";
+#endif
+    private LevelPlayBannerAd bannerAd;
+    private LevelPlayInterstitialAd interstitialAd;
+    private LevelPlayRewardedAd rewardedAd;
+
     public void Initialize()
     {
         Debug.Log("UnityAds Initialize");    
         // Register OnInitFailed and OnInitSuccess listeners
         LevelPlay.OnInitSuccess += SdkInitializationCompletedEvent;
         LevelPlay.OnInitFailed += SdkInitializationFailedEvent;
-        LevelPlay.SetMetaData("is_test_suite", "enable");
         // SDK init
-        LevelPlay.Init("23bb0c215");
+        LevelPlay.Init(levelPlayAppKey);
     }
 
     void SdkInitializationCompletedEvent(LevelPlayConfiguration config)
     {
         Debug.Log($"[LevelPlaySample] Received SdkInitializationCompletedEvent with Config: {config}");
-        LevelPlay.LaunchTestSuite();
+        // LevelPlay.LaunchTestSuite();
+        LevelPlay.ValidateIntegration();
     }
 
     void SdkInitializationFailedEvent(LevelPlayInitError error)
     {
         Debug.Log($"[LevelPlaySample] Received SdkInitializationFailedEvent with Error: {error}");
     }
+
+#region Banner
+    public void LoadBanner()
+    {
+        if (bannerAd != null) {
+            bannerAd.ShowAd();
+            return;
+        }
+        bannerAd = new LevelPlayBannerAd(bannerAdUnitId);   
+
+        // Register to the events 
+        bannerAd.OnAdLoaded += BannerOnAdLoadedEvent;
+        bannerAd.OnAdLoadFailed += BannerOnAdLoadFailedEvent;
+        bannerAd.OnAdDisplayed += BannerOnAdDisplayedEvent;
+        bannerAd.OnAdDisplayFailed += BannerOnAdDisplayFailedEvent;
+        bannerAd.OnAdClicked += BannerOnAdClickedEvent;
+        bannerAd.OnAdCollapsed += BannerOnAdCollapsedEvent;
+        bannerAd.OnAdLeftApplication += BannerOnAdLeftApplicationEvent;
+        bannerAd.OnAdExpanded += BannerOnAdExpandedEvent;
+        // Load the ad
+        bannerAd.LoadAd();
+    }
+
+    public void HideBanner()
+    {
+        if (bannerAd != null) {
+            bannerAd.HideAd();
+        }
+    }
+
+    public void ShowBanner()
+    {
+        if (bannerAd != null) {
+            bannerAd.ShowAd();
+        }
+    }
+
+    // Implement the events
+    void BannerOnAdLoadedEvent(LevelPlayAdInfo adInfo) {
+        ShowBanner();
+    }
+    void BannerOnAdLoadFailedEvent(LevelPlayAdError ironSourceError) {}
+    void BannerOnAdClickedEvent(LevelPlayAdInfo adInfo) {}
+    void BannerOnAdDisplayedEvent(LevelPlayAdInfo adInfo) {}
+    void BannerOnAdDisplayFailedEvent(LevelPlayAdInfo adInfo, LevelPlayAdError error){}
+    void BannerOnAdCollapsedEvent(LevelPlayAdInfo adInfo) {}
+    void BannerOnAdLeftApplicationEvent(LevelPlayAdInfo adInfo) {}
+    void BannerOnAdExpandedEvent(LevelPlayAdInfo adInfo) {}
+
+#endregion
+
+#region Interstitial
+    public void LoadInterstitial()    {
+        interstitialAd = new LevelPlayInterstitialAd(interstitialAdUnitId);
+        // Register to interstitial events
+        interstitialAd.OnAdLoaded += InterstitialOnAdLoadedEvent;
+        interstitialAd.OnAdLoadFailed += InterstitialOnAdLoadFailedEvent;
+        interstitialAd.OnAdDisplayed += InterstitialOnAdDisplayedEvent;
+        interstitialAd.OnAdDisplayFailed += InterstitialOnAdDisplayFailedEvent;
+        interstitialAd.OnAdClicked += InterstitialOnAdClickedEvent;
+        interstitialAd.OnAdClosed += InterstitialOnAdClosedEvent;
+        interstitialAd.OnAdInfoChanged += InterstitialOnAdInfoChangedEvent;
+        // Load the ad
+        interstitialAd.LoadAd();
+    }
+
+    public void ShowInterstitial()
+    {
+        if (interstitialAd != null && interstitialAd.IsAdReady())
+        {
+            interstitialAd.ShowAd();
+        }
+        else
+        {
+            Debug.Log("Interstitial ad is not ready to show");
+        }
+    }
+
+// Implement the events
+    void InterstitialOnAdLoadedEvent(LevelPlayAdInfo adInfo){
+        Debug.Log($"[LevelPlaySample] Received InterstitialOnAdLoadedEvent With AdInfo: {adInfo}");
+        ShowInterstitial();
+    }
+    
+    void InterstitialOnAdLoadFailedEvent(LevelPlayAdError error){}
+    void InterstitialOnAdDisplayedEvent(LevelPlayAdInfo adInfo){}
+    void InterstitialOnAdDisplayFailedEvent(LevelPlayAdInfo adInfo, LevelPlayAdError error){}
+    void InterstitialOnAdClickedEvent(LevelPlayAdInfo adInfo){}
+    void InterstitialOnAdClosedEvent(LevelPlayAdInfo adInfo){}
+    void InterstitialOnAdInfoChangedEvent(LevelPlayAdInfo adInfo){}
+#endregion
+
+#region Rewarded Video
+    public void LoadRewardedVideo(bool isHome)
+    {
+        rewardedAd = new LevelPlayRewardedAd(isHome ? rewardedAdUnitIdHome : rewardedAdUnitIdShop);
+        rewardedAd.OnAdLoaded += RewardedOnAdLoadedEvent;
+        rewardedAd.OnAdLoadFailed += RewardedOnAdLoadFailedEvent;
+        rewardedAd.OnAdDisplayed += RewardedOnAdDisplayedEvent;
+        rewardedAd.OnAdDisplayFailed += RewardedOnAdDisplayFailedEvent;
+        rewardedAd.OnAdRewarded += RewardedOnAdRewardedEvent; 
+        rewardedAd.OnAdClosed += RewardedOnAdClosedEvent;
+        // Optional 
+        rewardedAd.OnAdClicked += RewardedOnAdClickedEvent;
+        rewardedAd.OnAdInfoChanged += RewardedOnAdInfoChangedEvent;
+        // Load the ad
+        rewardedAd.LoadAd();
+    }
+
+    public void ShowRewardedVideo()
+    {
+        if (rewardedAd != null && rewardedAd.IsAdReady())
+        {
+            rewardedAd.ShowAd();
+        }
+        else
+        {
+            Debug.Log("Rewarded video ad is not ready to show");
+        }
+    }
+    
+    void RewardedOnAdLoadedEvent(LevelPlayAdInfo adInfo){
+        ShowRewardedVideo();
+    }
+    void RewardedOnAdLoadFailedEvent(LevelPlayAdError error){}
+    void RewardedOnAdDisplayedEvent(LevelPlayAdInfo adInfo){}
+    void RewardedOnAdDisplayFailedEvent(LevelPlayAdInfo adInfo, LevelPlayAdError error){}
+    void RewardedOnAdRewardedEvent(LevelPlayAdInfo adInfo, LevelPlayReward adReward){}
+    void RewardedOnAdClosedEvent(LevelPlayAdInfo adInfo){}
+    void RewardedOnAdClickedEvent(LevelPlayAdInfo adInfo){} 
+    void RewardedOnAdInfoChangedEvent(LevelPlayAdInfo adInfo){}
+#endregion
+
 }
-
-
-
-
-
-
-
-
-// OLD CODE FOR UNITY ADS
-
-// using System;
-// using System.Collections;
-// using Unity.Services.Core;
-// using UnityEngine;
-// using Unity.Services.Mediation;
-// using Unity.Services.Analytics;
-// using Unity.Services.Core;
-// using com.adjust.sdk;
-// #if UNITY_IOS
-// using Unity.Advertisement.IosSupport;
-// #endif
-// public class UnityAds
-// {
-// 	#if UNITY_IOS
-// 		private string gameId = "1737343"; // Your iOS game ID here
-// 		private string rewardedVideoAdunitIdNew = "rv_ios_medi_adunit";
-// 		private string interstitialAdunitIdNew = "interstitial_ios_medi_adunit";
-// 		private string bannerAdUnitId = "banner_ios";
-// 		private string MRECAdUnitId = "banner_mrec_ios";
-		
-//     #elif UNITY_ANDROID
-// 		private string gameId = "1737342"; // Your Android game ID here
-// 		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
-// 		private string interstitialAdunitIdNew = "Android_Interstitial";
-// 		private string bannerAdUnitId = "banner_android";
-// 		private string MRECAdUnitId = "banner_mrec_android";
-// 	#else
-// 		private string gameId = "1737342"; // Prevents Editor Errors
-// 		private string rewardedVideoAdunitIdNew = "rv_android_medi_adunit";
-// 		private string interstitialAdunitIdNew = "Android_Interstitial";
-// 		private string bannerAdUnitId = "banner_android";
-// 		private string MRECAdUnitId = "banner_mrec_android";
-// 	#endif
-
-// 	public GameObject adBtn;
-	
-//     IInterstitialAd interstitialAdNew;
-//     IRewardedAd rewardedVideoAdNew;
-//     IBannerAd bannerAd;
-//     IBannerAd MRECAd;
-
-// 	public async void Initialize()
-// 	{
-// 		Debug.Log("Awake Mediation State: " + MediationService.InitializationState);
-// 		if (MediationService.InitializationState == InitializationState.Uninitialized)
-// 		{
-
-// 			try
-// 			{
-// #if UNITY_IOS
-
-// 				// Check the user’s consent status. If it returns undetermined, display the permission dialogue:
-// 				if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() == ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
-// 				{
-// 					Debug.Log("Preparing popup...");
-// 					ATTrackingStatusBinding.RequestAuthorizationTracking();
-// 				}
-// #endif
-
-// 				Debug.Log("Initializing Mediation...");
-// 				await UnityServices.InitializeAsync();
-// 				Debug.Log("Mediation Initialized!");
-// 			}
-// 			catch (InitializeFailedException e)
-// 			{
-// 				OnInitializationFailed(e);
-// 				throw;
-// 			}
-
-// 			// load interstitial ads
-// 			LoadInterstitialNew();
-
-// 			// load rewarded ads
-// 			LoadRewardedNew();
-			
-// 			//load banner ad
-// 			LoadBanner();
-			
-// 			MediationService.Instance.ImpressionEventPublisher.OnImpression += OnImpression;
-// 		}
-// 	}
-	
-// 	public void LoadBanner()
-// 	{
-// 		if (bannerAd == null)
-// 		{
-// 			bannerAd = MediationService.Instance.CreateBannerAd(bannerAdUnitId, BannerAdPredefinedSize.Banner.ToBannerAdSize());
-// 			bannerAd.OnLoaded += OnLoadedBanner;
-// 			bannerAd.OnFailedLoad += OnFailedLoadBanner;
-// 			bannerAd.OnRefreshed += OnRefreshedBanner;
-// 			bannerAd.OnClicked += OnClickedBanner;
-// 		}
-// 		Debug.Log("Loading Banner adunit...");
-// 		bannerAd.LoadAsync(); 
-// 	}
-	
-// 	public void LoadMREC()
-// 	{
-// 		if (MRECAd == null)
-// 		{
-// 			MRECAd = MediationService.Instance.CreateBannerAd(MRECAdUnitId, BannerAdPredefinedSize.MediumRectangle.ToBannerAdSize(), BannerAdAnchor.BottomCenter);
-// 			MRECAd.OnLoaded += OnLoadedBanner;
-// 			MRECAd.OnFailedLoad += OnFailedLoadBanner;
-// 			MRECAd.OnRefreshed += OnRefreshedBanner;
-// 			MRECAd.OnClicked += OnClickedBanner;
-// 		}
-// 		Debug.Log("Loading MREC adunit...");
-// 		MRECAd.LoadAsync(); 
-// 	}
-
-// 	public void RemoveMREC()
-// 	{
-// 		if (MRECAd != null)
-// 		{
-// 			Debug.Log("Removing MREC adunit...");
-// 			MRECAd.OnLoaded -= OnLoadedBanner;
-// 			MRECAd.OnFailedLoad -= OnFailedLoadBanner;
-// 			MRECAd.OnRefreshed -= OnRefreshedBanner;
-// 			MRECAd.OnClicked -= OnClickedBanner;
-// 			MRECAd.Dispose();
-// 			MRECAd = null;
-// 		}
-// 	}
-
-// 	public async void LoadInterstitialNew()
-//     {
-// 	    if (interstitialAdNew == null)
-// 	    {
-// 		    interstitialAdNew = MediationService.Instance.CreateInterstitialAd(interstitialAdunitIdNew);
-// 		    interstitialAdNew.OnLoaded += OnLoadedInterstitial;
-// 		    interstitialAdNew.OnFailedLoad += OnFailedLoadInterstitial;
-        
-// 		    // Show events callback registration
-// 		    interstitialAdNew.OnFailedShow += OnFailedShowInterstitial;
-// 		    interstitialAdNew.OnClosed += OnClosedInterstitial;
-// 		    interstitialAdNew.OnShowed += InterstitialAdShown;
-// 	    }
-// 	    Debug.Log("Loading Interstitial adunit...");
-// 	    await interstitialAdNew.LoadAsync(); 
-//     }
-    
-//     public async void ShowInterstitialNew()
-//     {
-//         if(interstitialAdNew.AdState == AdState.Loaded)
-//         {
-// 	        await interstitialAdNew.ShowAsync();
-//         }
-//     }
-    
-//     public async void LoadRewardedNew()
-//     {
-//         if (rewardedVideoAdNew == null)
-//         {
-// 	        rewardedVideoAdNew = MediationService.Instance.CreateRewardedAd(rewardedVideoAdunitIdNew);
-// 	        rewardedVideoAdNew.OnLoaded += OnLoadedRewarded;
-// 	        rewardedVideoAdNew.OnFailedLoad += OnFailedLoadRewarded;
-        
-// 	        // Show events call back 
-// 	        rewardedVideoAdNew.OnFailedShow += OnFailedShowRewarded;
-// 	        rewardedVideoAdNew.OnShowed += RewardedAdShown;
-// 	        rewardedVideoAdNew.OnClosed += OnClosedRewarded;
-// 	        rewardedVideoAdNew.OnUserRewarded += UserRewarded;
-        
-//         }
-//         Debug.Log("Loading Rewarded adunit...");
-//         rewardedVideoAdNew.LoadAsync();
-//     }
-    
-//     public async void ShowRewardedNew()
-//     {
-// 	    if (rewardedVideoAdNew.AdState == AdState.Loaded)
-// 	    {	
-// 		    RewardedAdShowOptions showOptions = new RewardedAdShowOptions();
-		    
-// 		    // s2s callback option
-// 		    S2SRedeemData s2SData;
-// 		    s2SData.UserId = "my user id";
-// 		    s2SData.CustomData = "{\"reward\":\"Premium\",\"amount\":200}";
-// 		    showOptions.S2SData = s2SData;
-// 		    await rewardedVideoAdNew.ShowAsync(showOptions);
-// 	    }
-//     }
-
-//     void OnInitializationFailed(InitializeFailedException e)
-//     {
-//         Debug.LogError($"{e.initializationError}:{e.Message}");
-//     }
-
-//     void OnInitializationComplete(EventArgs e)
-//     {
-//         Debug.Log("Initialization of mediation complete");
-//     }
-
-//     void OnLoadedInterstitial(object sender, EventArgs e)
-//     {
-// 	    Debug.Log("Interstitial Ad loaded from mediation partner");
-// 	    if (adBtn != null)
-// 	    {
-// 		    adBtn.SetActive(true);   
-// 	    }
-//     }
-//     void OnLoadedRewarded(object sender, EventArgs e)
-//     {
-//         Debug.Log("Rewarded Ad loaded from mediation partner");
-//     }
-    
-//     void UserRewarded(object sender, RewardEventArgs args)
-//     {
-// 	    Debug.Log("Ad has rewarded user.");
-// 	    Manager.PremiumScore += 1000;
-// 		// Execute logic for rewarding the user.
-//     }
-
-//     void OnFailedLoadRewarded(object sender, LoadErrorEventArgs e)
-//     {
-// 	    Debug.LogError($"{e.Error}:{e.Message}");
-//     }
-    
-//     void RewardedAdShown(object sender, EventArgs args)
-//     {
-// 	    Debug.Log("Rewarded Ad shown successfully.");
-// 		// Execute logic for the ad showing successfully.
-//     }
-    
-//     void OnFailedLoadInterstitial(object sender, LoadErrorEventArgs e)
-//     {
-// 	    Debug.LogError($"{e.Error}:{e.Message}");
-//     }
-    
-//     void InterstitialAdShown(object sender, EventArgs args)
-//     {
-// 	    Debug.Log("Interstitial Ad shown successfully.");
-// 	    // Execute logic for the ad showing successfully.
-//     }
-    
-//     void OnFailedShowRewarded(object sender, ShowErrorEventArgs e)
-//     {
-// 	    Debug.LogError($"{e.Error}: {e.Message}");
-//     }
-    
-//     void OnClosedRewarded(object sender, EventArgs e)
-//     {
-// 	    // load again
-// 	    Debug.Log("loading again rewarded video ad");
-// 	    LoadRewardedNew();
-//     }
-    
-//     void OnFailedShowInterstitial(object sender, ShowErrorEventArgs e)
-//     {
-//         Debug.LogError($"{e.Error}: {e.Message}");
-//     }
-    
-//     void OnClosedInterstitial(object sender, EventArgs e)
-//     {
-// 	    // load again
-// 	    Debug.Log("loading again interstitial ad");
-// 	    LoadInterstitialNew();
-//     }
-    
-//     static void OnImpression(object sender, ImpressionEventArgs e)
-//     {
-// 	    var impressionData = e.ImpressionData != null ? JsonUtility.ToJson(e.ImpressionData, true) : "null";
-//         Debug.Log($"Impression event from ad unit id {e.AdUnitId} : {impressionData}");
-
-//         // Send impression data to adjust 
-//         if (e.ImpressionData != null)
-//         {
-// 	        AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceUnity);
-// 	        adjustAdRevenue.setRevenue(e.ImpressionData.PublisherRevenuePerImpression, e.ImpressionData.Currency);
-// 	        // optional fields
-// 	        adjustAdRevenue.setAdRevenueNetwork(e.ImpressionData.AdSourceName);
-// 	        adjustAdRevenue.setAdRevenueUnit(e.ImpressionData.AdUnitId);
-// 	        adjustAdRevenue.setAdRevenuePlacement(e.ImpressionData.AdSourceInstance);
-// 	        // track Adjust ad revenue
-// 	        Adjust.trackAdRevenue(adjustAdRevenue);
-// 	        Debug.Log("Sending impression events to Adjust " + adjustAdRevenue);
-//         }
-        
-//     }
-
-// 	 public void ShowVideo()
-// 	 {
-// 		 ShowInterstitialNew();
-// 	 }
-
-//      public void ShowRewardedVideo()
-//      {
-//         ShowRewardedNew();
-//      }
-//      void OnLoadedBanner(object sender, EventArgs e)
-//      {
-// 	     Debug.Log("Banner Ad loaded from mediation");
-//      }
-//      void OnFailedLoadBanner(object sender, LoadErrorEventArgs e)
-//      {
-// 	     Debug.LogError($"{e.Error}:{e.Message}");
-//      }
-     
-//      void OnRefreshedBanner(object sender, LoadErrorEventArgs e)
-//      {
-// 	     Debug.LogError($"Refreshed: {e?.Error ?? 0}:{e?.Message ?? "No error"}");
-//      }
-     
-//      void OnClickedBanner(object sender, EventArgs e)
-//      {
-// 	     Debug.LogError($"Banner Clicked");
-//      }
-// }

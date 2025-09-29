@@ -14,7 +14,7 @@ public class ThemePurchase : MonoBehaviour {
 
             Manager.PremiumScore -= 1000;
         } else {
-            //Manager.Ads.ShowRewardedNew();
+            Manager.Ads.LoadRewardedVideo(false);
         }
     }
 
@@ -27,7 +27,7 @@ public class ThemePurchase : MonoBehaviour {
             Manager.PremiumScore -= 2000;
         }
         else {
-            //Manager.Ads.ShowRewardedNew();
+            Manager.Ads.LoadRewardedVideo(false);
         }
     }
 
@@ -40,12 +40,12 @@ public class ThemePurchase : MonoBehaviour {
             Manager.PremiumScore -= 3000;
         }
         else {
-            //Manager.Ads.ShowRewardedNew();
+            Manager.Ads.LoadRewardedVideo(false);
         }
     }
 
     public void Upgrade200()
     {
-        //Manager.Ads.ShowRewardedVideo();
+        Manager.Ads.LoadRewardedVideo(false);
     }
 }
