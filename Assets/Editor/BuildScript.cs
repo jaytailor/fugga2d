@@ -66,12 +66,9 @@ public class BuildScript
             // Release build - use custom keystore for signing
             UnityEngine.Debug.Log("Building RELEASE version with custom keystore...");
 
-            PlayerSettings.Android.useCustomKeystore = true;
-            PlayerSettings.Android.keystoreName = "/Users/jayt/Downloads/fugga keys/newkey.keyStore";
-            PlayerSettings.Android.keystorePass = "Fugga@123";
-            PlayerSettings.Android.keyaliasName = "fugga-release";
-            PlayerSettings.Android.keyaliasPass = "Fugga@123";
-
+            // Keystore credentials should be set in Unity Editor:
+            // Edit -> Project Settings -> Player -> Android -> Publishing Settings
+            // This keeps credentials secure and out of version control
             UnityEngine.Debug.Log("Using keystore: " + PlayerSettings.Android.keystoreName);
             UnityEngine.Debug.Log("Key alias: " + PlayerSettings.Android.keyaliasName);
 
