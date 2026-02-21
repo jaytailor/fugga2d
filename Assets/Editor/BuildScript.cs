@@ -66,9 +66,38 @@ public class BuildScript
             // Release build - use custom keystore for signing
             UnityEngine.Debug.Log("Building RELEASE version with custom keystore...");
 
-            // Keystore credentials should be set in Unity Editor:
-            // Edit -> Project Settings -> Player -> Android -> Publishing Settings
-            // This keeps credentials secure and out of version control
+            // Always try to load passwords from environment variables for batch mode builds
+            // (Passwords aren't persisted in ProjectSettings for security reasons)
+            string keystorePass = System.Environment.GetEnvironmentVariable("ANDROID_KEYSTORE_PASS");
+            string keyaliasPass = System.Environment.GetEnvironmentVariable("ANDROID_KEYALIAS_PASS");
+
+            if (!string.IsNullOrEmpty(keystorePass) && !string.IsNullOrEmpty(keyaliasPass))
+            {
+                PlayerSettings.Android.keystorePass = keystorePass;
+                PlayerSettings.Android.keyaliasPass = keyaliasPass;
+                UnityEngine.Debug.Log("Keystore passwords loaded from environment variables");
+            }
+            else
+            {
+                UnityEngine.Debug.LogError("Keystore passwords not found in environment variables!");
+                UnityEngine.Debug.LogError("Set: ANDROID_KEYSTORE_PASS and ANDROID_KEYALIAS_PASS");
+            }
+
+            // If keystore path not set in Editor, try environment variables
+            if (string.IsNullOrEmpty(PlayerSettings.Android.keystoreName))
+            {
+                string keystorePath = System.Environment.GetEnvironmentVariable("ANDROID_KEYSTORE_PATH");
+                string keyaliasName = System.Environment.GetEnvironmentVariable("ANDROID_KEYALIAS_NAME");
+
+                if (!string.IsNullOrEmpty(keystorePath) && !string.IsNullOrEmpty(keyaliasName))
+                {
+                    PlayerSettings.Android.useCustomKeystore = true;
+                    PlayerSettings.Android.keystoreName = keystorePath;
+                    PlayerSettings.Android.keyaliasName = keyaliasName;
+                    UnityEngine.Debug.Log("Keystore path and alias loaded from environment variables");
+                }
+            }
+
             UnityEngine.Debug.Log("Using keystore: " + PlayerSettings.Android.keystoreName);
             UnityEngine.Debug.Log("Key alias: " + PlayerSettings.Android.keyaliasName);
 

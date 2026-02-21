@@ -174,7 +174,7 @@ PlayerSettings:
     iPhone: 4
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 61
+  AndroidBundleVersionCode: 66
   AndroidMinSdkVersion: 25
   AndroidTargetSdkVersion: 34
   AndroidPreferredInstallLocation: 1
@@ -949,6 +949,7 @@ PlayerSettings:
     Collab: 0
     ErrorHub: 0
     Hub: 0
+    Purchasing: 0
     UNet: 1
   luminIcon:
     m_Name: 

@@ -1,7 +1,9 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
+using Unity.Services.Core;
 
 public class IAPManager : MonoBehaviour, IDetailedStoreListener
 {
@@ -30,11 +32,27 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
         }
     }
 
-    void Start()
+    async void Start()
     {
+        await InitializeUnityServices();
+
         if (storeController == null)
         {
             InitializePurchasing();
+        }
+    }
+
+    async Task InitializeUnityServices()
+    {
+        try
+        {
+            Debug.Log("IAP: Initializing Unity Services...");
+            await UnityServices.InitializeAsync();
+            Debug.Log("IAP: Unity Services initialized successfully");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("IAP: Failed to initialize Unity Services: " + e.Message);
         }
     }
 
