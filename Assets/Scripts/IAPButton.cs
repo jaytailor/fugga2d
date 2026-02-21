@@ -31,16 +31,14 @@ public class IAPButton : MonoBehaviour
     {
         if (IAPManager.Instance == null)
         {
-            Debug.LogError("IAPManager not found in scene!");
+            Debug.LogError("IAPButton: IAPManager not found in scene!");
+            Debug.LogError("IAPButton: Make sure IAPManager GameObject exists in the scene.");
             return;
         }
 
-        if (!IAPManager.Instance.IsIAPReady())
-        {
-            Debug.LogWarning("IAP is not ready yet. Please wait...");
-            return;
-        }
+        Debug.Log("IAPButton: Purchase button clicked for " + package);
 
+        // Attempt purchase even if not ready - let IAPManager provide detailed error feedback
         switch (package)
         {
             case CoinPackage.Coins500:

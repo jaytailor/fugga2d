@@ -118,24 +118,35 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
 
     void BuyProductID(string productId)
     {
-        if (IsInitialized())
+        if (!IsInitialized())
         {
-            Product product = storeController.products.WithID(productId);
+            Debug.LogError("IAP: Store not initialized yet!");
+            Debug.LogError("IAP: This usually means:");
+            Debug.LogError("IAP: 1. App needs to be uploaded to Google Play Console (Internal testing)");
+            Debug.LogError("IAP: 2. Products need to be created and activated (takes 2-4 hours)");
+            Debug.LogError("IAP: 3. App must be installed from Play Store, not sideloaded");
+            return;
+        }
 
-            if (product != null && product.availableToPurchase)
-            {
-                Debug.Log("IAP: Purchasing product: " + product.definition.id);
-                storeController.InitiatePurchase(product);
-            }
-            else
-            {
-                Debug.LogError("IAP: Product not available for purchase: " + productId);
-            }
-        }
-        else
+        Product product = storeController.products.WithID(productId);
+
+        if (product == null)
         {
-            Debug.LogError("IAP: Not initialized. Cannot purchase.");
+            Debug.LogError("IAP: Product not found: " + productId);
+            Debug.LogError("IAP: Make sure product ID matches exactly in Google Play Console");
+            return;
         }
+
+        if (!product.availableToPurchase)
+        {
+            Debug.LogError("IAP: Product not available for purchase: " + productId);
+            Debug.LogError("IAP: Product definition: " + product.definition.id);
+            Debug.LogError("IAP: Product metadata: " + (product.metadata != null ? product.metadata.localizedTitle : "null"));
+            return;
+        }
+
+        Debug.Log("IAP: Initiating purchase for: " + product.definition.id);
+        storeController.InitiatePurchase(product);
     }
 
     // Called when a purchase completes
