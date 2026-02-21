@@ -14,9 +14,12 @@ public class MainMenu : MonoBehaviour {
     {
         Manager.Ads.Initialize();
         if (Manager.PremiumGranted == false) {
-            Manager.PremiumScore = 100; 
+            Manager.PremiumScore = 100; // Starting coins
             Manager.PremiumGranted = true;
         }
+
+        // Log current coin balance for debugging
+        Debug.Log("=== PLAYER COIN BALANCE: " + Manager.PremiumScore + " ===");
     }
 
     void Start(){
