@@ -15,12 +15,12 @@ public class UnityAds
     private string rewardedAdUnitId = "edzxurvkum1rmx3u";
 #elif UNITY_ANDROID
     private string appKey = "18d4c488d"; // Android App Key
-    private string interstitialAdUnitId = "qxh03014vynv6w2v";
-    private string rewardedAdUnitId = "edzxurvkum1rmx3u";
+    private string interstitialAdUnitId = "hlzj94menkwajsqb";
+    private string rewardedAdUnitId = "uf9mnjlqzp31m0r7";
 #else
     private string appKey = "18d4c488d"; // Editor fallback
-    private string interstitialAdUnitId = "qxh03014vynv6w2v";
-    private string rewardedAdUnitId = "edzxurvkum1rmx3u";
+    private string interstitialAdUnitId = "hlzj94menkwajsqb";
+    private string rewardedAdUnitId = "uf9mnjlqzp31m0r7";
 #endif
 
     public GameObject adBtn;
@@ -57,9 +57,6 @@ public class UnityAds
         Debug.Log("=== LEVELPLAY INITIALIZED SUCCESSFULLY ===");
         Debug.Log("LevelPlay Config: " + config);
 
-        // Validate integration (useful for debugging)
-        LevelPlay.ValidateIntegration();
-
         // Load ads after successful initialization
         LoadInterstitial();
         LoadRewarded();
@@ -70,6 +67,23 @@ public class UnityAds
         Debug.LogError("=== LEVELPLAY INITIALIZATION FAILED ===");
         Debug.LogError("Error Code: " + error.ErrorCode);
         Debug.LogError("Error Message: " + error.ErrorMessage);
+        Debug.LogError("App Key used: " + appKey);
+
+        if (error.ErrorCode == 2110)
+        {
+            Debug.LogError("===============================================");
+            Debug.LogError("ERROR CODE 2110 - BAD REQUEST (400)");
+            Debug.LogError("This means your app key is invalid or not configured.");
+            Debug.LogError("");
+            Debug.LogError("TO FIX THIS:");
+            Debug.LogError("1. Go to https://platform.ironsrc.com/");
+            Debug.LogError("2. Create a new app or select existing app");
+            Debug.LogError("3. Copy the Android App Key");
+            Debug.LogError("4. Update UnityAds.cs with the correct appKey");
+            Debug.LogError("5. Configure ad units (Interstitial & Rewarded)");
+            Debug.LogError("6. Add at least one ad network adapter");
+            Debug.LogError("===============================================");
+        }
     }
 
     #region Interstitial Ads
@@ -149,8 +163,8 @@ public class UnityAds
     void InterstitialOnAdDisplayFailed(LevelPlayAdDisplayInfoError error)
     {
         Debug.LogError("INTERSTITIAL AD DISPLAY FAILED");
-        Debug.LogError("Error Code: " + error.ErrorCode);
-        Debug.LogError("Error Message: " + error.ErrorMessage);
+        Debug.LogError("Error: " + error.LevelPlayError.ErrorCode + " - " + error.LevelPlayError.ErrorMessage);
+        Debug.LogError("Ad Info: " + error.DisplayLevelPlayAdInfo);
 
         // Try to reload
         LoadInterstitial();
@@ -250,8 +264,8 @@ public class UnityAds
     void RewardedOnAdDisplayFailed(LevelPlayAdDisplayInfoError error)
     {
         Debug.LogError("REWARDED AD DISPLAY FAILED");
-        Debug.LogError("Error Code: " + error.ErrorCode);
-        Debug.LogError("Error Message: " + error.ErrorMessage);
+        Debug.LogError("Error: " + error.LevelPlayError.ErrorCode + " - " + error.LevelPlayError.ErrorMessage);
+        Debug.LogError("Ad Info: " + error.DisplayLevelPlayAdInfo);
 
         // Try to reload
         LoadRewarded();
