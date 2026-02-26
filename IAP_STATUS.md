@@ -6,9 +6,9 @@
 - ✅ IAPManager.cs created with full IAP support
 - ✅ Unity Services initialization added (required for IAP)
 - ✅ Three coin packages configured:
-  - 500 coins: `com.jayt.fugga.coins500`
-  - 1500 coins: `com.jayt.fugga.coins1500`
-  - 3000 coins: `com.jayt.fugga.coins3000`
+  - 500 coins: `500_coins`
+  - 1500 coins: `1500_coins`
+  - 3000 coins: `3000_coins`
 - ✅ IAPButton.cs helper component created
 - ✅ Purchase processing and coin granting implemented
 - ✅ Error handling and logging added
@@ -58,19 +58,19 @@ You mentioned you created the products. Verify they're configured correctly:
 **Location**: Monetize → Products → In-app products
 
 **Product 1: 500 Coins**
-- Product ID: `com.jayt.fugga.coins500`
+- Product ID: `500_coins`
 - Name: 500 Premium Coins
 - Price: $0.99
 - Status: **Active** ✓
 
 **Product 2: 1500 Coins**
-- Product ID: `com.jayt.fugga.coins1500`
+- Product ID: `1500_coins`
 - Name: 1500 Premium Coins
 - Price: $1.99
 - Status: **Active** ✓
 
 **Product 3: 3000 Coins**
-- Product ID: `com.jayt.fugga.coins3000`
+- Product ID: `3000_coins`
 - Name: 3000 Premium Coins
 - Price: $2.99
 - Status: **Active** ✓
@@ -119,8 +119,8 @@ adb logcat -d | grep "IAP:"
 
 You should see:
 ```
-IAP: Purchasing product: com.jayt.fugga.coins500
-IAP: Purchase SUCCESS - com.jayt.fugga.coins500
+IAP: Purchasing product: 500_coins
+IAP: Purchase SUCCESS - 500_coins
 IAP: Granted 500 coins. New balance: XXX
 ```
 

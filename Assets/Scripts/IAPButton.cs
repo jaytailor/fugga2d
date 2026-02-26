@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +31,13 @@ public class IAPButton : MonoBehaviour
     // Call this method from your button's OnClick event
     public void OnPurchaseButtonClick()
     {
+        // #region agent log
+        try {
+            string path = Application.isEditor ? Path.GetFullPath(Path.Combine(Application.dataPath, "..", ".cursor", "debug-8642dd.log")) : Path.Combine(Application.persistentDataPath, "debug-8642dd.log");
+            string data = "{\"package\":\"" + package.ToString() + "\",\"instanceNull\":" + (IAPManager.Instance == null ? "true" : "false") + "}";
+            File.AppendAllText(path, "{\"sessionId\":\"8642dd\",\"location\":\"IAPButton.cs:OnPurchaseButtonClick\",\"message\":\"Purchase button clicked\",\"data\":" + data + ",\"timestamp\":" + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + ",\"hypothesisId\":\"H1\"}\n");
+        } catch { }
+        // #endregion
         if (IAPManager.Instance == null)
         {
             Debug.LogError("IAPButton: IAPManager not found in scene!");
