@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Purchasing;
@@ -8,23 +7,6 @@ using Unity.Services.Core;
 
 public class IAPManager : MonoBehaviour, IDetailedStoreListener
 {
-    // #region agent log
-    static void DebugLog(string location, string message, string dataJson, string hypothesisId)
-    {
-        try
-        {
-            string path = Application.isEditor
-                ? Path.GetFullPath(Path.Combine(Application.dataPath, "..", ".cursor", "debug-8642dd.log"))
-                : Path.Combine(Application.persistentDataPath, "debug-8642dd.log");
-            string dataStr = string.IsNullOrEmpty(dataJson) ? "{}" : dataJson;
-            string line = "{\"sessionId\":\"8642dd\",\"location\":\"" + EscapeJson(location) + "\",\"message\":\"" + EscapeJson(message) + "\",\"data\":" + dataStr + ",\"timestamp\":" + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + ",\"hypothesisId\":\"" + hypothesisId + "\"}\n";
-            File.AppendAllText(path, line);
-        }
-        catch { }
-    }
-    static string EscapeJson(string s) { return (s ?? "").Replace("\\", "\\\\").Replace("\"", "\\\"").Replace("\n", "\\n").Replace("\r", "\\r"); }
-    // #endregion
-
     public static IAPManager Instance { get; private set; }
 
     private static IStoreController storeController;
@@ -53,7 +35,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     async void Start()
     {
         // #region agent log
-        DebugLog("IAPManager.cs:Start", "IAP Start began", "{}", "H1");
         // #endregion
         await InitializeUnityServices();
 
@@ -71,14 +52,12 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
             await UnityServices.InitializeAsync();
             Debug.Log("IAP: Unity Services initialized successfully");
             // #region agent log
-            DebugLog("IAPManager.cs:InitializeUnityServices", "Unity Services init OK", "{}", "H1");
             // #endregion
         }
         catch (Exception e)
         {
             Debug.LogError("IAP: Failed to initialize Unity Services: " + e.Message);
             // #region agent log
-            DebugLog("IAPManager.cs:InitializeUnityServices", "Unity Services init FAILED", "{\"error\":\"" + EscapeJson(e.Message) + "\"}", "H1");
             // #endregion
         }
     }
@@ -86,7 +65,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     void InitializePurchasing()
     {
         // #region agent log
-        DebugLog("IAPManager.cs:InitializePurchasing", "InitializePurchasing called", "{\"alreadyInit\":" + (IsInitialized() ? "true" : "false") + "}", "H1");
         // #endregion
         if (IsInitialized())
         {
@@ -114,7 +92,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     {
         Debug.Log("IAP: Initialization SUCCESS");
         // #region agent log
-        DebugLog("IAPManager.cs:OnInitialized", "IAP store initialized successfully", "{}", "H1");
         // #endregion
         storeController = controller;
         storeExtensionProvider = extensions;
@@ -125,7 +102,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     {
         Debug.LogError("IAP: Initialization FAILED - " + error);
         // #region agent log
-        DebugLog("IAPManager.cs:OnInitializeFailed", "IAP init failed", "{\"error\":\"" + EscapeJson(error.ToString()) + "\"}", "H1");
         // #endregion
     }
 
@@ -133,7 +109,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     {
         Debug.LogError("IAP: Initialization FAILED - " + error + ": " + message);
         // #region agent log
-        DebugLog("IAPManager.cs:OnInitializeFailed", "IAP init failed (detailed)", "{\"error\":\"" + EscapeJson(error.ToString()) + "\",\"message\":\"" + EscapeJson(message) + "\"}", "H1");
         // #endregion
     }
 
@@ -158,7 +133,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     void BuyProductID(string productId)
     {
         // #region agent log
-        DebugLog("IAPManager.cs:BuyProductID", "BuyProductID called", "{\"productId\":\"" + EscapeJson(productId) + "\",\"isInitialized\":" + (IsInitialized() ? "true" : "false") + "}", "H1");
         // #endregion
         if (!IsInitialized())
         {
@@ -177,7 +151,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
             Debug.LogError("IAP: Product not found: " + productId);
             Debug.LogError("IAP: Make sure product ID matches exactly in Google Play Console");
             // #region agent log
-            DebugLog("IAPManager.cs:BuyProductID", "Product not found", "{\"productId\":\"" + EscapeJson(productId) + "\"}", "H2");
             // #endregion
             return;
         }
@@ -188,14 +161,12 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
             Debug.LogError("IAP: Product definition: " + product.definition.id);
             Debug.LogError("IAP: Product metadata: " + (product.metadata != null ? product.metadata.localizedTitle : "null"));
             // #region agent log
-            DebugLog("IAPManager.cs:BuyProductID", "Product not availableToPurchase", "{\"productId\":\"" + EscapeJson(productId) + "\"}", "H3");
             // #endregion
             return;
         }
 
         Debug.Log("IAP: Initiating purchase for: " + product.definition.id);
         // #region agent log
-        DebugLog("IAPManager.cs:BuyProductID", "Calling InitiatePurchase", "{\"productId\":\"" + EscapeJson(productId) + "\"}", "H4");
         // #endregion
         storeController.InitiatePurchase(product);
     }
@@ -205,7 +176,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     {
         Debug.Log("IAP: Purchase SUCCESS - " + args.purchasedProduct.definition.id);
         // #region agent log
-        DebugLog("IAPManager.cs:ProcessPurchase", "Purchase SUCCESS", "{\"productId\":\"" + EscapeJson(args.purchasedProduct.definition.id) + "\"}", "H5");
         // #endregion
 
         // Grant the purchased coins
@@ -244,7 +214,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     {
         Debug.LogError("IAP: Purchase FAILED - " + product.definition.storeSpecificId + " - " + failureReason);
         // #region agent log
-        DebugLog("IAPManager.cs:OnPurchaseFailed", "Purchase FAILED", "{\"productId\":\"" + EscapeJson(product != null ? product.definition.storeSpecificId : "null") + "\",\"reason\":\"" + EscapeJson(failureReason.ToString()) + "\"}", "H4");
         // #endregion
     }
 
@@ -253,7 +222,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
         Debug.LogError("IAP: Purchase FAILED - " + product.definition.storeSpecificId +
                       " - " + failureDescription.reason + ": " + failureDescription.message);
         // #region agent log
-        DebugLog("IAPManager.cs:OnPurchaseFailed", "Purchase FAILED (detailed)", "{\"productId\":\"" + EscapeJson(product != null ? product.definition.storeSpecificId : "null") + "\",\"reason\":\"" + EscapeJson(failureDescription.reason.ToString()) + "\",\"message\":\"" + EscapeJson(failureDescription.message) + "\"}", "H4");
         // #endregion
     }
 
