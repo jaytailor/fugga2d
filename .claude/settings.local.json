@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"/Applications/Unity/Hub/Editor/6000.2.2f1/Unity.app/Contents/MacOS/Unity\" -batchmode -quit -projectPath \"/Users/jayt/github/fugga2d\" -logFile -)",
+      "Bash(\"/Applications/Unity/Hub/Editor/6000.2.2f1/Unity.app/Contents/MacOS/Unity\" -batchmode -quit -projectPath \"/Users/jayt/github/fugga2d\" -executeMethod UnityEditor.Build.Reporting.BuildReport -logFile -)",
+      "Bash(ls:*)",
+      "Bash(open:*)",
+      "Bash(\"/Applications/Unity/Hub/Editor/6000.3.8f1/Unity.app/Contents/MacOS/Unity\" -quit -batchmode -projectPath \"/Users/jayt/github/fugga2d\" -buildTarget Android -executeMethod UnityEditor.BuildPlayer.BuildPlayer -logFile -)",
+      "Bash(tee:*)",
+      "Bash(pkill:*)",
+      "Bash(\"/Applications/Unity/Hub/Editor/6000.3.8f1/Unity.app/Contents/MacOS/Unity\" -quit -batchmode -projectPath \"/Users/jayt/github/fugga2d\" -buildTarget Android -executeMethod BuildScript.BuildAndroid -logFile -)",
+      "Bash(\"/Applications/Unity/Hub/Editor/6000.3.8f1/Unity.app/Contents/MacOS/Unity\" -quit -batchmode -projectPath \"/Users/jayt/github/fugga2d\" -buildTarget Android -executeMethod BuildScript.BuildAndroid -logFile /tmp/unity_android_build2.log)",
+      "Bash(git log:*)",
+      "Bash(git stash:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
