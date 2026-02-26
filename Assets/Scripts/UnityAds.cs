@@ -7,8 +7,9 @@ using com.adjust.sdk;
 using Unity.Advertisement.IosSupport;
 #endif
 
-public class UnityAds
+public class UnityAds : MonoBehaviour
 {
+    public static UnityAds Instance { get; private set; }
 #if UNITY_IOS
     private string appKey = "18d4c8215"; // iOS App Key
     private string interstitialAdUnitId = "qxh03014vynv6w2v";
@@ -27,6 +28,21 @@ public class UnityAds
 
     private LevelPlayInterstitialAd interstitialAd;
     private LevelPlayRewardedAd rewardedAd;
+
+    void Awake()
+    {
+        // Singleton pattern
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     public void Initialize()
     {

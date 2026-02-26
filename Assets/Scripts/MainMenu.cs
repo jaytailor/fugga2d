@@ -12,7 +12,23 @@ public class MainMenu : MonoBehaviour {
 
     void Awake()
     {
-        Manager.Ads.Initialize();
+        // Ensure UnityAds exists
+        if (Manager.Ads == null)
+        {
+            Debug.Log("UnityAds not found, creating it...");
+            GameObject adsObj = new GameObject("UnityAds");
+            adsObj.AddComponent<UnityAds>();
+        }
+
+        if (Manager.Ads != null)
+        {
+            Manager.Ads.Initialize();
+        }
+        else
+        {
+            Debug.LogError("Failed to create UnityAds instance!");
+        }
+
         if (Manager.PremiumGranted == false) {
             Manager.PremiumScore = 100; // Starting coins
             Manager.PremiumGranted = true;
