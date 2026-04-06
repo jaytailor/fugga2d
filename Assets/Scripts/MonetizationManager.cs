@@ -40,6 +40,11 @@ public class MonetizationManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Create IAP promo UI component
+            var iapPromoUI = new GameObject("IAPPromoUI");
+            iapPromoUI.AddComponent<IAPPromoUI>();
+            DontDestroyOnLoad(iapPromoUI);
         }
         else
         {
@@ -159,20 +164,6 @@ public class MonetizationManager : MonoBehaviour
     {
         Debug.Log($"[MonetizationManager] Content prepared for placement: {itemInfo.PlacementId}");
 
-        // Log content type for debugging
-        if (itemInfo is AdItemInfo)
-        {
-            Debug.Log($"[MonetizationManager] Content type: AD");
-        }
-        else if (itemInfo is IapItemInfo iapInfo)
-        {
-            Debug.Log($"[MonetizationManager] Content type: IAP (product: {iapInfo.ProductId})");
-        }
-        else
-        {
-            Debug.Log($"[MonetizationManager] Content type: UNKNOWN");
-        }
-
         // Double-check we're not showing content already
         if (!isShowingContent)
         {
@@ -180,10 +171,35 @@ public class MonetizationManager : MonoBehaviour
             isShowingContent = true;
         }
 
-        // SDK automatically handles presentation
-        // - If Ads: presents ad immediately
-        // - If IAP: shows built-in promo panel
-        MonetizationService.Present(itemInfo.PlacementId);
+        // Handle different content types
+        if (itemInfo is AdItemInfo)
+        {
+            Debug.Log($"[MonetizationManager] Content type: AD - presenting ad");
+            // For ads, SDK handles presentation automatically
+            MonetizationService.Present(itemInfo.PlacementId);
+        }
+        else if (itemInfo is IapItemInfo iapInfo)
+        {
+            Debug.Log($"[MonetizationManager] Content type: IAP (product: {iapInfo.ProductId})");
+
+            // For IAP, show our custom promo UI
+            if (IAPPromoUI.Instance != null)
+            {
+                IAPPromoUI.Instance.ShowPromo(itemInfo.PlacementId, iapInfo.ProductId);
+
+                // Tell SDK we're presenting (triggers OnContentPresented event)
+                MonetizationService.Present(itemInfo.PlacementId);
+            }
+            else
+            {
+                Debug.LogError("[MonetizationManager] IAPPromoUI.Instance is null!");
+            }
+        }
+        else
+        {
+            Debug.Log($"[MonetizationManager] Content type: UNKNOWN");
+            MonetizationService.Present(itemInfo.PlacementId);
+        }
     }
 
     private void OnContentCompleted(ItemInfo itemInfo, CompletionInfo completionInfo)
@@ -201,19 +217,9 @@ public class MonetizationManager : MonoBehaviour
             }
             else if (itemInfo is IapItemInfo iapInfo)
             {
-                // User completed IAP purchase - grant coins based on SKU
-                var skuId = iapInfo.ProductId;
-                int coinAmount = 100; // default
-
-                if (skuId.Contains("500"))
-                    coinAmount = 500;
-                else if (skuId.Contains("1500"))
-                    coinAmount = 1500;
-                else if (skuId.Contains("3000"))
-                    coinAmount = 3000;
-
-                Manager.PremiumScore += coinAmount;
-                Debug.Log($"[MonetizationManager] Granted {coinAmount} coins for IAP. Total: " + Manager.PremiumScore);
+                // IAP completion - coins already granted in IAPPromoUI when user clicked buy
+                Debug.Log($"[MonetizationManager] IAP purchase completed for SKU: {iapInfo.ProductId}");
+                Debug.Log("[MonetizationManager] Coins already granted by IAPPromoUI");
             }
         }
         else
