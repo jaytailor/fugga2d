@@ -136,7 +136,7 @@ public class IAPPromoUI : MonoBehaviour
         textRect.anchorMax = Vector2.one;
         textRect.sizeDelta = Vector2.zero;
         var text = textGo.AddComponent<Text>();
-        text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         text.fontSize = 28;
         text.alignment = TextAnchor.MiddleCenter;
         text.color = Color.white;
