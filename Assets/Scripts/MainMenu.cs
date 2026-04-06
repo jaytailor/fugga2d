@@ -29,6 +29,30 @@ public class MainMenu : MonoBehaviour {
             Debug.LogError("Failed to create UnityAds instance!");
         }
 
+        #if HAS_UNITY_PURCHASING
+        // Create IAPManager if not exists
+        if (IAPManager.Instance == null)
+        {
+            Debug.Log("IAPManager not found, creating it...");
+            GameObject iapObj = new GameObject("IAPManager");
+            iapObj.AddComponent<IAPManager>();
+        }
+        #endif
+
+        // Create MonetizationManager
+        if (Manager.Monetization == null)
+        {
+            Debug.Log("MonetizationManager not found, creating it...");
+            GameObject monetizationObj = new GameObject("MonetizationManager");
+            monetizationObj.AddComponent<MonetizationManager>();
+        }
+
+        // Initialize MonetizationManager
+        if (Manager.Monetization != null)
+        {
+            Manager.Monetization.Initialize();
+        }
+
         if (Manager.PremiumGranted == false) {
             Manager.PremiumScore = 100; // Starting coins
             Manager.PremiumGranted = true;
@@ -52,7 +76,17 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void ShowVideo(){
-        Manager.Ads.ShowVideo();
+        // Use MonetizationManager for 50/50 ads/IAP decision
+        if (Manager.Monetization != null)
+        {
+            Debug.Log("Using MonetizationManager for manual earn coins");
+            Manager.Monetization.ShowManualEarnCoins();
+        }
+        else
+        {
+            Debug.Log("MonetizationManager not available, using fallback ad system");
+            Manager.Ads.ShowVideo();
+        }
     }
 
 }

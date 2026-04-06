@@ -213,10 +213,18 @@ public class UnityAds : MonoBehaviour
         if (rewardedAd != null)
         {
             Debug.Log("Rewarded ad already exists, checking if loaded...");
-            if (rewardedAd.IsAdReady())
+            try
             {
-                Debug.Log("Rewarded ad already loaded and ready");
-                return;
+                if (rewardedAd.IsAdReady())
+                {
+                    Debug.Log("Rewarded ad already loaded and ready");
+                    return;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning("IsAdReady check failed (expected during editor initialization): " + e.Message);
+                // Continue to recreate the ad
             }
         }
 
@@ -316,5 +324,24 @@ public class UnityAds : MonoBehaviour
         Debug.Log("Rewarded Ad Info Changed: " + adInfo.AdUnitId);
     }
 
+    #endregion
+
+    #region MREC Ads
+    public void LoadMREC()
+    {
+        Debug.Log("LoadMREC - not implemented in LevelPlay integration");
+    }
+
+    public void RemoveMREC()
+    {
+        Debug.Log("RemoveMREC - not implemented in LevelPlay integration");
+    }
+    #endregion
+
+    #region Legacy Methods
+    public void ShowRewardedNew()
+    {
+        ShowRewarded(); // Delegate to existing method
+    }
     #endregion
 }
