@@ -61,13 +61,22 @@ public class MonetizationManager : MonoBehaviour
 
     private IEnumerator InitializeAsync()
     {
+        // Configure available IAP products for decision engine auction
+        var iapProducts = new System.Collections.Generic.List<Unity.Monetization.IAPProduct>
+        {
+            new Unity.Monetization.IAPProduct("com.unity.fugga2d.coins_500", 1.99f, "USD"),
+            new Unity.Monetization.IAPProduct("com.unity.fugga2d.coins_1500", 4.99f, "USD"),
+            new Unity.Monetization.IAPProduct("com.unity.fugga2d.coins_3000", 9.99f, "USD")
+        };
+
         // Use ServerDecisionEngine to connect to local decision engine
         Debug.Log("Setting ServerDecisionEngine pointing to local decision engine at http://127.0.0.1:8080");
         var serverEngine = new ServerDecisionEngine(
             serverUrl: "http://127.0.0.1:8080",
             gameId: "upid_fugga2d",
             apiKey: "game_api_key_secret_123",
-            timeoutSeconds: 10
+            timeoutSeconds: 10,
+            iapProducts: iapProducts
         );
         MonetizationService.SetDecisionEngine(serverEngine);
 
