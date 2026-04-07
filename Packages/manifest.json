@@ -1,15 +1,16 @@
 {
   "dependencies": {
+    "com.unity.2d.enhancers": "1.0.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.ads.ios-support": "1.0.1",
     "com.unity.ai.navigation": "2.0.10",
     "com.unity.analytics": "3.8.2",
     "com.unity.collab-proxy": "2.11.3",
-    "com.unity.purchasing": "4.12.2",
     "com.unity.ide.rider": "3.0.39",
     "com.unity.ide.visualstudio": "2.0.26",
     "com.unity.ide.vscode": "1.2.5",
+    "com.unity.monetization": "file:../../unity-monetization-sdk",
     "com.unity.multiplayer.center": "1.0.1",
     "com.unity.services.analytics": "6.2.0",
     "com.unity.services.levelplay": "8.10.1",
@@ -49,15 +50,5 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  },
-  "scopedRegistries": [
-    {
-      "name": "Devex Core",
-      "url": "https://artifactory.prd.it.unity3d.com/artifactory/api/npm/upm-candidates/",
-      "scopes": [
-        "com.unity.services.core"
-      ]
-    }
-  ],
-  "testables": []
+  }
 }
